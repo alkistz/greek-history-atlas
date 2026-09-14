@@ -1,0 +1,147 @@
+# Who held what, when.
+#
+# Periods are half-open [from, to): a transfer date belongs to the new holder, so no
+# atom is ever held twice on a boundary day. `to: null` means open-ended.
+#
+# `kind` is one of: sovereign, occupied, administered, autonomous, insurgent.
+# A sovereign row and an occupied row may coexist over the same atom. That is the
+# point of the model: in 1941-44 Greece remains sovereign while others occupy.
+#
+# Dates are proleptic Gregorian. Where a transfer was de facto before it was de jure,
+# v0 uses the treaty date and notes the gap.
+
+# ---------------------------------------------------------------- Ottoman baseline
+- {atom: peloponnese,       polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1832-07-21}
+- {atom: attica,            polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1832-07-21}
+- {atom: sterea,            polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1832-07-21}
+- {atom: evvoia,            polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1832-07-21}
+- {atom: aitoloakarnania,   polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1832-07-21}
+- {atom: cyclades,          polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1832-07-21}
+- {atom: thessaly,          polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1881-07-02}
+- {atom: arta-preveza,      polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1881-07-02}
+- {atom: epirus,            polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1913-08-10}
+- {atom: macedonia-west,    polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1913-08-10}
+- {atom: macedonia-central, polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1913-08-10}
+- {atom: macedonia-east,    polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1913-08-10}
+- {atom: thrace-west,       polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1913-08-10}
+- {atom: crete,             polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1898-12-09}
+- {atom: lesvos-limnos,     polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1913-05-30}
+- {atom: chios,             polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1913-05-30}
+- {atom: samos-ikaria,      polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1834-01-01}
+- {atom: dodecanese,        polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1912-05-20}
+
+# ------------------------------------------------- Revolution 1821-1832: insurgency
+# Rendered as insurgency, never as sovereignty. Ottoman sovereignty persists above.
+# v0 simplification: Ibrahim's reconquest of most of the Peloponnese in 1825-27 is
+# not modelled, so the insurgent extent is shown as static across the whole decade.
+- {atom: peloponnese,     polity: gr-provisional, kind: insurgent, from: 1821-03-25, to: 1832-07-21}
+- {atom: sterea,          polity: gr-provisional, kind: insurgent, from: 1821-03-25, to: 1832-07-21}
+- {atom: aitoloakarnania, polity: gr-provisional, kind: insurgent, from: 1821-05-01, to: 1832-07-21}
+- {atom: evvoia,          polity: gr-provisional, kind: insurgent, from: 1821-04-01, to: 1832-07-21}
+- {atom: cyclades,        polity: gr-provisional, kind: insurgent, from: 1821-04-01, to: 1832-07-21}
+
+# ------------------------------------------------------------ Ionian Islands to 1864
+# The United States of the Ionian Islands was nominally sovereign under a British
+# protectorate. Two layers again: sovereignty and the administering power.
+- {atom: ionian, polity: ionian-state, kind: sovereign,    from: 1821-01-01, to: 1864-06-02}
+- {atom: ionian, polity: britain,      kind: administered, from: 1821-01-01, to: 1864-06-02,
+   instrument: "Treaty of Paris, 1815"}
+
+# -------------------------------------------------------------- The Greek state grows
+- {atom: peloponnese,     polity: gr-kingdom, kind: sovereign, from: 1832-07-21, to: null,
+   instrument: "Treaty of Constantinople, 21 July 1832"}
+- {atom: attica,          polity: gr-kingdom, kind: sovereign, from: 1832-07-21, to: null,
+   instrument: "Treaty of Constantinople, 21 July 1832"}
+- {atom: sterea,          polity: gr-kingdom, kind: sovereign, from: 1832-07-21, to: null,
+   instrument: "Treaty of Constantinople, 21 July 1832"}
+- {atom: evvoia,          polity: gr-kingdom, kind: sovereign, from: 1832-07-21, to: null,
+   instrument: "Treaty of Constantinople, 21 July 1832"}
+- {atom: aitoloakarnania, polity: gr-kingdom, kind: sovereign, from: 1832-07-21, to: null,
+   instrument: "Treaty of Constantinople, 21 July 1832"}
+- {atom: cyclades,        polity: gr-kingdom, kind: sovereign, from: 1832-07-21, to: null,
+   instrument: "Treaty of Constantinople, 21 July 1832"}
+
+- {atom: ionian, polity: gr-kingdom, kind: sovereign, from: 1864-06-02, to: null,
+   instrument: "Treaty of London, 29 March 1864"}
+
+- {atom: thessaly, polity: gr-kingdom, kind: sovereign, from: 1881-07-02, to: null,
+   instrument: "Convention of Constantinople, 2 July 1881"}
+- {atom: arta-preveza, polity: gr-kingdom, kind: sovereign, from: 1881-07-02, to: null,
+   instrument: "Convention of Constantinople, 2 July 1881",
+   note: "v0 approximation: only Arta was ceded in 1881. Preveza followed in 1913."}
+
+# -------------------------------------------------------------------- Samos and Crete
+- {atom: samos-ikaria, polity: samos-principality, kind: sovereign, from: 1834-01-01, to: 1913-03-13,
+   note: "Autonomous principality under Ottoman suzerainty."}
+- {atom: samos-ikaria, polity: gr-kingdom, kind: sovereign, from: 1913-03-13, to: null}
+
+- {atom: crete, polity: crete-autonomous, kind: sovereign, from: 1898-12-09, to: 1913-12-01,
+   note: "Cretan State: autonomous under nominal Ottoman suzerainty, Great Power guarantee."}
+- {atom: crete, polity: gr-kingdom, kind: sovereign, from: 1913-12-01, to: null,
+   instrument: "Treaty of London 1913; formal union 1 December 1913"}
+
+# --------------------------------------------------------------------- Balkan Wars
+- {atom: lesvos-limnos, polity: gr-kingdom, kind: sovereign, from: 1913-05-30, to: null,
+   instrument: "Treaty of London, 30 May 1913",
+   note: "Taken by Greek forces in late 1912; sovereignty confirmed by the Powers in 1914."}
+- {atom: chios, polity: gr-kingdom, kind: sovereign, from: 1913-05-30, to: null,
+   instrument: "Treaty of London, 30 May 1913"}
+
+- {atom: epirus, polity: gr-kingdom, kind: sovereign, from: 1913-08-10, to: null,
+   instrument: "Treaty of Bucharest, 10 August 1913"}
+- {atom: macedonia-west, polity: gr-kingdom, kind: sovereign, from: 1913-08-10, to: null,
+   instrument: "Treaty of Bucharest, 10 August 1913"}
+- {atom: macedonia-central, polity: gr-kingdom, kind: sovereign, from: 1913-08-10, to: null,
+   instrument: "Treaty of Bucharest, 10 August 1913"}
+- {atom: macedonia-east, polity: gr-kingdom, kind: sovereign, from: 1913-08-10, to: null,
+   instrument: "Treaty of Bucharest, 10 August 1913"}
+
+# ------------------------------------------------------------------- Western Thrace
+- {atom: thrace-west, polity: bulgaria, kind: sovereign, from: 1913-08-10, to: 1920-05-27,
+   instrument: "Treaty of Bucharest, 10 August 1913"}
+- {atom: thrace-west, polity: gr-kingdom, kind: sovereign, from: 1920-05-27, to: null,
+   instrument: "Treaty of Neuilly, 27 November 1919"}
+
+# ----------------------------------------------------------------------- Dodecanese
+- {atom: dodecanese, polity: italy, kind: sovereign, from: 1912-05-20, to: 1947-02-10,
+   note: "Occupied by Italy in May 1912; sovereignty formalised at Lausanne in 1923."}
+- {atom: dodecanese, polity: gr-kingdom, kind: sovereign, from: 1947-02-10, to: null,
+   instrument: "Paris Peace Treaty, 10 February 1947"}
+- {atom: dodecanese, polity: germany, kind: occupied, from: 1943-09-11, to: 1945-05-08,
+   note: "German seizure after the Italian armistice."}
+
+# --------------------------------------------------- Axis occupation 1941-1944/45
+# Greece remains sovereign throughout. These rows sit on top.
+- {atom: attica,            polity: germany, kind: occupied, from: 1941-04-27, to: 1944-10-12}
+- {atom: macedonia-central, polity: germany, kind: occupied, from: 1941-04-09, to: 1944-10-30}
+- {atom: crete,             polity: germany, kind: occupied, from: 1941-06-01, to: 1945-05-08}
+- {atom: lesvos-limnos,     polity: germany, kind: occupied, from: 1941-05-04, to: 1944-09-16}
+- {atom: chios,             polity: germany, kind: occupied, from: 1941-05-04, to: 1944-09-16}
+
+- {atom: macedonia-east, polity: bulgaria, kind: occupied, from: 1941-04-20, to: 1944-09-09}
+- {atom: thrace-west,    polity: bulgaria, kind: occupied, from: 1941-04-20, to: 1944-09-09}
+
+- {atom: peloponnese,     polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
+- {atom: sterea,          polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
+- {atom: evvoia,          polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
+- {atom: aitoloakarnania, polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
+- {atom: cyclades,        polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
+- {atom: ionian,          polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
+- {atom: thessaly,        polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
+- {atom: arta-preveza,    polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
+- {atom: epirus,          polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
+- {atom: macedonia-west,  polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
+- {atom: samos-ikaria,    polity: italy, kind: occupied, from: 1941-05-04, to: 1943-09-08}
+
+# Germany takes over the Italian zone after the armistice of 8 September 1943.
+- {atom: peloponnese,     polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-12}
+- {atom: sterea,          polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-12}
+- {atom: evvoia,          polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-12}
+- {atom: aitoloakarnania, polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-12}
+- {atom: cyclades,        polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-12}
+- {atom: ionian,          polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-14}
+- {atom: thessaly,        polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-21}
+- {atom: arta-preveza,    polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-14}
+- {atom: epirus,          polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-14}
+- {atom: macedonia-west,  polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-30}
+- {atom: samos-ikaria,    polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-04}

@@ -1,0 +1,90 @@
+# Atoms: areas whose sovereignty history is identical throughout 1821 to the present.
+#
+# v0 dissolves whole NUTS3 units only. Where a historical frontier cut across a modern
+# NUTS3 unit, the atom is an approximation and the error is recorded in README.md.
+# Sub-NUTS3 cuts (Kythira, Sporades, Elassona, Arta/Preveza, Samos) come later.
+#
+# NUTS 2021 codes, Eurostat Nuts2json 03M.
+
+- id: peloponnese
+  name: {en: Peloponnese, el: Πελοπόννησος}
+  nuts3: [EL651, EL652, EL653, EL632, EL633]
+
+- id: attica
+  name: {en: Attica, el: Αττική}
+  nuts3: [EL301, EL302, EL303, EL304, EL305, EL306, EL307]
+  # Includes Kythira, which was Ionian (British) until 1864, not Greek in 1832.
+
+- id: sterea
+  name: {en: Eastern Central Greece, el: Ανατολική Στερεά Ελλάδα}
+  nuts3: [EL641, EL643, EL644, EL645]
+  # The 1832 Arta-Volos frontier cut across Fthiotida and Evrytania. Domokos and the
+  # northern Agrafa sit inside this atom but were Ottoman until 1881.
+
+- id: evvoia
+  name: {en: Euboea, el: Εύβοια}
+  nuts3: [EL642]
+
+- id: aitoloakarnania
+  name: {en: Aetolia-Acarnania, el: Αιτωλοακαρνανία}
+  nuts3: [EL631]
+
+- id: cyclades
+  name: {en: Cyclades, el: Κυκλάδες}
+  nuts3: [EL422]
+
+- id: ionian
+  name: {en: Ionian Islands, el: Ιόνια Νησιά}
+  nuts3: [EL621, EL622, EL623, EL624]
+
+- id: thessaly
+  name: {en: Thessaly, el: Θεσσαλία}
+  nuts3: [EL611, EL612, EL613]
+  # Includes Elassona, which remained Ottoman until 1912.
+
+- id: arta-preveza
+  name: {en: Arta and Preveza, el: Άρτα και Πρέβεζα}
+  nuts3: [EL541]
+  # Arta became Greek in 1881, Preveza in 1913. v0 treats both as 1881.
+
+- id: epirus
+  name: {en: Epirus, el: Ήπειρος}
+  nuts3: [EL542, EL543]
+
+- id: macedonia-west
+  name: {en: Western Macedonia, el: Δυτική Μακεδονία}
+  nuts3: [EL531, EL532, EL533]
+
+- id: macedonia-central
+  name: {en: Central Macedonia, el: Κεντρική Μακεδονία}
+  nuts3: [EL521, EL522, EL523, EL524, EL525, EL526, EL527]
+
+- id: macedonia-east
+  name: {en: Eastern Macedonia, el: Ανατολική Μακεδονία}
+  nuts3: [EL514, EL515]
+
+- id: thrace-west
+  name: {en: Western Thrace, el: Δυτική Θράκη}
+  nuts3: [EL511, EL512, EL513]
+
+- id: crete
+  name: {en: Crete, el: Κρήτη}
+  nuts3: [EL431, EL432, EL433, EL434]
+
+- id: lesvos-limnos
+  name: {en: Lesvos and Limnos, el: Λέσβος και Λήμνος}
+  nuts3: [EL411]
+
+- id: chios
+  name: {en: Chios, el: Χίος}
+  nuts3: [EL413]
+
+- id: samos-ikaria
+  name: {en: Samos and Ikaria, el: Σάμος και Ικαρία}
+  nuts3: [EL412]
+  # Samos was an autonomous principality 1834-1912. Ikaria declared itself a free
+  # state in July 1912. v0 treats both as one unit following Samos.
+
+- id: dodecanese
+  name: {en: Dodecanese, el: Δωδεκάνησα}
+  nuts3: [EL421]
