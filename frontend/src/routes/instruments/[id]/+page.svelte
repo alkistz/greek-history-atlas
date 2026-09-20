@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<title>{inst.name.en} — after1821</title>
+	<title>{inst.name.en} — Greek History Atlas</title>
 </svelte:head>
 
 <article class="instrument">

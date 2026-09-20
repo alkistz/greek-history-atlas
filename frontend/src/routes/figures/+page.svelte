@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>Figures — after1821</title>
+	<title>Figures — Greek History Atlas</title>
 </svelte:head>
 
 <h1>Figures</h1>

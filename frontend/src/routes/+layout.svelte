@@ -12,7 +12,7 @@
 </script>
 
 <svelte:head>
-	<title>after1821 — an atlas of Greek history</title>
+	<title>Greek History Atlas</title>
 	<meta
 		name="description"
 		content="An interactive atlas of Greek history from 1821, where the map redraws as territorial control changes."
@@ -21,7 +21,7 @@
 
 <div class="shell">
 	<header>
-		<a class="brand" href="/">after1821</a>
+		<a class="brand" href="/">Greek History Atlas</a>
 		<nav>
 			{#each nav as n (n.href)}
 				<a href={n.href} aria-current={current(n.href) ? 'page' : undefined}>{n.label}</a>

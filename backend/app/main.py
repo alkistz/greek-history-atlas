@@ -34,7 +34,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="after1821",
+    title="Greek History Atlas",
     description="An atlas of Greek history from 1821.",
     version="0.1.0",
     lifespan=lifespan,
@@ -65,4 +65,4 @@ for router in (
 
 @app.get("/")
 def read_root():
-    return {"message": "after1821 api"}
+    return {"message": "greek history atlas api"}

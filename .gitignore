@@ -27,7 +27,7 @@ Thumbs.db
 # Dependencies. Unanchored on purpose: unambiguous at any depth.
 node_modules/
 
-# ---- after1821 ----
+# ---- greek history atlas ----
 # Raw boundary downloads: regenerate with `make fetch`. The built geometry in
 # data/ is committed on purpose, as is the API export in frontend/static/api/.
 data/raw/

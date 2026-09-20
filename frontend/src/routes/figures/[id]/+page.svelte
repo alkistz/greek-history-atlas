@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-	<title>{figure.name.en} — after1821</title>
+	<title>{figure.name.en} — Greek History Atlas</title>
 </svelte:head>
 
 <article class="figure">

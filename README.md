@@ -1,4 +1,4 @@
-# after1821
+# Greek History Atlas
 
 An interactive atlas of Greek history from 1821 to the present. The map redraws as
 control of territory changes, and events are tied to the dates and places they happened.

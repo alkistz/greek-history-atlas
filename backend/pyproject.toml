@@ -1,7 +1,7 @@
 [project]
-name = "after1821-backend"
+name = "greek-history-atlas-backend"
 version = "0.1.0"
-description = "after1821 backend: content pipeline and read API for the Greek history atlas"
+description = "Greek History Atlas backend: content pipeline and read API"
 requires-python = ">=3.13"
 dependencies = [
     "fastapi>=0.115",

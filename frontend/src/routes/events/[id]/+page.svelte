@@ -23,7 +23,7 @@
 </script>
 
 <svelte:head>
-	<title>{event.title.en} — after1821</title>
+	<title>{event.title.en} — Greek History Atlas</title>
 </svelte:head>
 
 <article class="event">
