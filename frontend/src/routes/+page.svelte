@@ -8,6 +8,7 @@
 	import MapCaption from '$lib/MapCaption.svelte';
 	import RegionFilter from '$lib/RegionFilter.svelte';
 	import { visibleIn } from '$lib/projection';
+	import { regimeOn } from '$lib/regimes';
 	import type { TrendPoint } from '$lib/TerritoryTrend.svelte';
 	import Timeline, { type TimelineEvent } from '$lib/Timeline.svelte';
 	import { instrumentsOn, legendEntries, resolveOn } from '$lib/resolve';
@@ -46,6 +47,9 @@
 	const instruments = $derived(
 		instrumentsOn(data.control, date).map((id) => ({ id, name: instrumentName.get(id) ?? id }))
 	);
+	// Undefined only before the chain begins, in the weeks of 1821 before there was
+	// a Greek state to have a form.
+	const regime = $derived(regimeOn(data.meta.regimes, date) ?? null);
 
 	// A region is a set of atoms, so the filter is a set membership test and nothing
 	// is stored per event. Empty selection means the whole map.
@@ -145,7 +149,7 @@
 			/>
 		</div>
 
-		<MapCaption {date} areaKm2={greekArea} {instruments} {trend} {day} {maxDay} />
+		<MapCaption {date} areaKm2={greekArea} {instruments} {trend} {day} {maxDay} {regime} />
 
 		<div class="scrub">
 			<Timeline

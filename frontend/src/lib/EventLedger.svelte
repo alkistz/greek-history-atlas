@@ -1,4 +1,6 @@
 <script lang="ts">
+	import ReviewBadge from './ReviewBadge.svelte';
+	import Significance from './Significance.svelte';
 	import { within, year } from './time';
 	import type { AtlasEvent } from './types';
 
@@ -16,14 +18,19 @@
 	let query = $state('');
 	const uid = $props.id();
 
+	// The same fields the /events page searches, so the two boxes cannot disagree
+	// about what exists: a Greek title used to find an event there and not here.
 	const shown = $derived.by(() => {
 		const q = query.trim().toLowerCase();
 		if (!q) return events;
+		const hit = (s: string | null | undefined) => s != null && s.toLowerCase().includes(q);
 		return events.filter(
 			(e) =>
-				e.title.en.toLowerCase().includes(q) ||
-				e.summary.en.toLowerCase().includes(q) ||
-				e.period[0].startsWith(q)
+				hit(e.title.en) ||
+				hit(e.title.el) ||
+				hit(e.summary.en) ||
+				hit(e.summary.el) ||
+				e.period[0].includes(q)
 		);
 	});
 
@@ -109,6 +116,10 @@
 					</button>
 					{#if active || selectedId === e.id}
 						<p class="esummary">{e.summary.en}</p>
+						<p class="emarks">
+							<Significance significance={e.significance} compact />
+							<ReviewBadge review={e.review} compact />
+						</p>
 						<p class="emore">
 							{#if e.as_written}<span class="eold">Old Style: {e.as_written.date}</span>{/if}
 							<a href="/events/{e.id}">Read more</a>
@@ -234,6 +245,13 @@
 		padding-left: 52px;
 		font-size: 0.88rem;
 		color: var(--ink-soft);
+	}
+	.emarks {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin: 0 0 4px;
+		padding-left: 52px;
 	}
 	.emore {
 		margin: 0 0 10px;

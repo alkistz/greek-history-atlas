@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Citation from '$lib/Citation.svelte';
+	import ReviewNote from '$lib/ReviewNote.svelte';
 	import { prettyDate, year } from '$lib/time';
 	import { atlasHref } from '$lib/viewstate';
 
@@ -16,8 +18,19 @@
 	<p class="kicker">{inst.kind} · signed {prettyDate(inst.signed)}</p>
 	<h1>{inst.name.en}</h1>
 	<p class="parties">{inst.parties.map((p) => polityName.get(p) ?? p).join(', ')}</p>
-	<p class="open"><a href={atlasHref({ on: inst.signed })}>Open the atlas on this day →</a></p>
+	<p class="open">
+		<a href={atlasHref({ on: inst.signed })}>Open the atlas on this day →</a>
+		{#if inst.text_url}
+			<a class="text" href={inst.text_url} rel="noreferrer">Read the text of the {inst.kind} →</a>
+		{/if}
+	</p>
 	{#if inst.summary}<p class="summary">{inst.summary.en}</p>{/if}
+	{#if !inst.text_url}
+		<p class="notext">
+			This {inst.kind}'s own text is not linked yet. Nothing was linked that had not been
+			opened, so the gap is deliberate rather than an oversight.
+		</p>
+	{/if}
 
 	{#if inst.control.length}
 		<h2>What it moved</h2>
@@ -30,6 +43,7 @@
 					<span>
 						{atomName.get(r.atom) ?? r.atom}: {polityName.get(r.polity) ?? r.polity}
 						<span class="muted">{r.kind}</span>
+						{#if r.note}<span class="note">{r.note}</span>{/if}
 					</span>
 				</li>
 			{/each}
@@ -44,6 +58,17 @@
 			{/each}
 		</ul>
 	{/if}
+
+	{#if inst.sources.length}
+		<h2>Sources</h2>
+		<ul class="plain sources">
+			{#each inst.sources as s (s.id)}
+				<li><a href="/sources#{s.id}"><Citation source={s} /></a></li>
+			{/each}
+		</ul>
+	{/if}
+
+	<ReviewNote review={inst.review} />
 </article>
 
 <style>
@@ -66,6 +91,14 @@
 	.open {
 		margin: 0 0 14px;
 		font-size: 0.85rem;
+		display: flex;
+		gap: 16px;
+		flex-wrap: wrap;
+	}
+	.notext {
+		margin: 8px 0 0;
+		color: var(--ink-soft);
+		font-size: 0.85rem;
 	}
 	.summary {
 		font-size: 1.05rem;
@@ -85,6 +118,9 @@
 		gap: 10px;
 		align-items: baseline;
 	}
+	.sources li {
+		display: list-item;
+	}
 	.mono {
 		font-family: var(--mono);
 		font-variant-numeric: tabular-nums;
@@ -94,5 +130,22 @@
 	.muted {
 		color: var(--ink-soft);
 		font-size: 0.85rem;
+	}
+	/* Why a row is drawn the way it is: an atom-grained approximation, a partial
+	   occupation, a frontier this model cannot cut. Fourteen rows carry one. */
+	.note {
+		display: block;
+		color: var(--ink-soft);
+		font-size: 0.82rem;
+	}
+	.sources {
+		font-size: 0.88rem;
+		color: var(--ink-soft);
+	}
+	.sources a {
+		text-decoration: none;
+	}
+	.sources a:hover {
+		text-decoration: underline;
 	}
 </style>

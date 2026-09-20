@@ -11,4 +11,13 @@ router = APIRouter(prefix="/sources", tags=["Sources"])
 
 @router.get("")
 def sources(corpus: CorpusDep) -> list[dict[str, Any]]:
-    return [s.model_dump(mode="json") for s in crud.list_sources(corpus)]
+    """Every cited work, with what cites it.
+
+    The inverse is computed here rather than in the browser because citations are
+    authored on the entries and live only in their detail responses: a client
+    building this index itself would have to fetch all 237 of them.
+    """
+    return [
+        {**source.model_dump(mode="json"), "cited_by": crud.citing(corpus, source.id)}
+        for source in crud.list_sources(corpus)
+    ]

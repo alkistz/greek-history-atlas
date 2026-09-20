@@ -10,7 +10,7 @@ from . import crud
 
 router = APIRouter(prefix="/figures", tags=["Figures"])
 
-LIST_FIELDS = {"id", "name", "also_known_as", "born", "died", "roles", "summary"}
+LIST_FIELDS = {"id", "name", "also_known_as", "born", "died", "roles", "summary", "review"}
 
 
 @router.get("")

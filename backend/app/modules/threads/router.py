@@ -10,22 +10,31 @@ router = APIRouter(prefix="/threads", tags=["Threads"])
 
 
 def _ref(event) -> dict[str, Any]:
+    """An event as an arc sees it. `significance` rides along because an arc's
+    shape is mostly which of its steps were the large ones."""
     return {
         "id": event.id,
         "title": event.title.model_dump(mode="json"),
         "period": [d.isoformat() for d in event.period],
+        "significance": event.significance,
     }
 
 
 @router.get("")
 def threads(corpus: CorpusDep) -> list[dict[str, Any]]:
-    """Every arc with its length and span, but without the events themselves."""
+    """Every arc with its span and its membership, but without the events resolved.
+
+    The ids are the cheap half of the detail route and the half other pages need:
+    with them, one request is enough to filter the ledger by arc or to name the
+    arcs an event sits on, instead of nineteen.
+    """
     out = []
     for thread in crud.list_threads(corpus):
         events = crud.events_of(corpus, thread)
         out.append(
             {
                 **thread.model_dump(mode="json", exclude={"events"}),
+                "events": [e.id for e in events],
                 "count": len(events),
                 "span": [events[0].period[0].isoformat(), events[-1].period[0].isoformat()],
             }

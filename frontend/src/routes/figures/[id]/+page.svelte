@@ -1,15 +1,29 @@
 <script lang="ts">
 	import Citation from '$lib/Citation.svelte';
+	import ReviewNote from '$lib/ReviewNote.svelte';
 	import { prettyDate, year } from '$lib/time';
 	import type { FigureDetail } from '$lib/types';
 
 	let { data } = $props();
 	const figure = $derived(data.figure);
 
+	// `month` and `circa` are real precisions in this corpus -- two figures are
+	// dated to a month and three to a circa year -- so saying "day or year" would
+	// print a false precision for five people.
+	function when(ev: NonNullable<FigureDetail['born']>): string {
+		if (ev.precision === 'day') return prettyDate(ev.date);
+		if (ev.precision === 'month') {
+			return new Date(ev.date).toLocaleDateString('en-GB', {
+				month: 'long',
+				year: 'numeric',
+				timeZone: 'UTC'
+			});
+		}
+		return ev.precision === 'circa' ? `c. ${year(ev.date)}` : year(ev.date);
+	}
 	function life(ev: FigureDetail['born']): string {
 		if (!ev) return '';
-		const when = ev.precision === 'day' ? prettyDate(ev.date) : year(ev.date);
-		return ev.place ? `${when}, ${ev.place.name.en}` : when;
+		return ev.place ? `${when(ev)}, ${ev.place.name.en}` : when(ev);
 	}
 </script>
 
@@ -24,8 +38,24 @@
 		<p class="aka">{figure.also_known_as.map((n) => n.en).join('; ')}</p>
 	{/if}
 	<dl class="life">
-		{#if figure.born}<dt>Born</dt><dd>{life(figure.born)}</dd>{/if}
-		{#if figure.died}<dt>Died</dt><dd>{life(figure.died)}</dd>{/if}
+		{#if figure.born}
+			<dt>Born</dt>
+			<dd>
+				{life(figure.born)}
+				{#if figure.born.as_written}
+					<span class="old">Old Style {figure.born.as_written.date}</span>
+				{/if}
+			</dd>
+		{/if}
+		{#if figure.died}
+			<dt>Died</dt>
+			<dd>
+				{life(figure.died)}
+				{#if figure.died.as_written}
+					<span class="old">Old Style {figure.died.as_written.date}</span>
+				{/if}
+			</dd>
+		{/if}
 	</dl>
 
 	<p class="summary">{figure.summary.en}</p>
@@ -50,10 +80,12 @@
 		<h2>Sources</h2>
 		<ul class="plain sources">
 			{#each figure.sources as s (s.id)}
-				<li><Citation source={s} /></li>
+				<li><a href="/sources#{s.id}"><Citation source={s} /></a></li>
 			{/each}
 		</ul>
 	{/if}
+
+	<ReviewNote review={figure.review} />
 </article>
 
 <style>
@@ -78,7 +110,7 @@
 	}
 	.life {
 		display: grid;
-		grid-template-columns: 5ch 1fr;
+		grid-template-columns: 6ch 1fr;
 		gap: 2px 10px;
 		margin: 10px 0 16px;
 		font-size: 0.9rem;
@@ -88,6 +120,13 @@
 	}
 	.life dd {
 		margin: 0;
+	}
+	/* The Julian date the sources give, beside the Gregorian one stored. */
+	.old {
+		margin-left: 8px;
+		font-family: var(--mono);
+		font-size: 0.78rem;
+		color: var(--ink-soft);
 	}
 	.summary {
 		font-size: 1.05rem;
@@ -124,5 +163,11 @@
 	.sources {
 		font-size: 0.88rem;
 		color: var(--ink-soft);
+	}
+	.sources a {
+		text-decoration: none;
+	}
+	.sources a:hover {
+		text-decoration: underline;
 	}
 </style>

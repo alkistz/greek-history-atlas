@@ -176,7 +176,8 @@
 					kind: r.kind,
 					polity: nameOf.get(r.polity) ?? r.polity,
 					since: r.from,
-					instrument: r.instrument ? (instrumentName.get(r.instrument) ?? null) : null
+					instrument: r.instrument ? (instrumentName.get(r.instrument) ?? null) : null,
+					note: r.note
 				}))
 			: []
 	);

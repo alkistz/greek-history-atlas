@@ -11,7 +11,10 @@
 
 	const active = $derived(query.trim().length > 0);
 	const shown = $derived(
-		data.threads.filter((t) => matches(query, t.name.en, t.name.el, t.summary.en))
+		data.threads.filter((t) =>
+			// The span too, so "1922" finds the three arcs that run through it.
+			matches(query, t.name.en, t.name.el, t.summary.en, t.summary.el, t.span[0], t.span[1])
+		)
 	);
 
 	const years = (span: [string, string]) =>
@@ -32,7 +35,7 @@
 
 <FilterBar
 	bind:query
-	placeholder="Search threads…"
+	placeholder="Search threads and years…"
 	shown={shown.length}
 	total={data.threads.length}
 	noun="threads"
@@ -48,6 +51,9 @@
 				<a class="title" href="/threads/{t.id}">{t.name.en}</a>
 				<span class="count">{t.count} events</span>
 				<p>{t.summary.en}</p>
+				<p class="meta">
+					<a href="/events?threads={t.id}">Filter the ledger by this arc</a>
+				</p>
 			</div>
 		</li>
 	{:else}
@@ -98,6 +104,9 @@
 		color: var(--ink-soft);
 		font-size: 0.92rem;
 		max-width: 68ch;
+	}
+	.meta {
+		font-size: 0.82rem;
 	}
 	.empty {
 		color: var(--ink-soft);

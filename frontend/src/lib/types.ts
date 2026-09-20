@@ -70,6 +70,28 @@ export interface AsWritten {
 	calendar: string;
 }
 
+/** What an examination concluded. `unresolved` is the one a boolean would destroy. */
+export type ReviewResult = 'clean' | 'corrected' | 'unresolved';
+
+/** One examination of an entry, by a person or by a machine. */
+export interface Pass {
+	date: string;
+	result: ReviewResult;
+	/** which languages were read; `clean` is refused without all of them */
+	langs: Lang[];
+	by: string | null;
+	note: string | null;
+}
+
+/**
+ * Two tracks that never share a column: `auto` is a cheap machine pass, `manual`
+ * is a person who has read the sources. Null throughout means nobody has looked.
+ */
+export interface Review {
+	auto: Pass | null;
+	manual: Pass | null;
+}
+
 /** What `/api/events` returns: enough for the ledger, no prose. */
 export interface AtlasEvent {
 	id: string;
@@ -83,6 +105,7 @@ export interface AtlasEvent {
 	frame: FrameId;
 	significance: number;
 	as_written: AsWritten | null;
+	review: Review | null;
 }
 
 export interface Citation {
@@ -93,7 +116,37 @@ export interface Citation {
 	year: number | null;
 	publisher: string | null;
 	url: string | null;
+	/** a URL rots; these do not */
+	isbn: string | null;
+	doi: string | null;
+	accessed: string | null;
 	locator: string | null;
+}
+
+/** What `/api/sources` returns: the work, plus every entry that cites it. */
+export interface SourceEntry extends Omit<Citation, 'locator'> {
+	cited_by: {
+		events: { id: string; title: LangText }[];
+		figures: { id: string; title: LangText }[];
+		instruments: { id: string; title: LangText }[];
+	};
+}
+
+/** A name in force over a half-open period. Both ends optional. */
+export interface PlaceName {
+	name: LangText;
+	from: string | null;
+	to: string | null;
+}
+
+/** What `/api/places` returns. A point on the map; names change, the point does not. */
+export interface Place {
+	id: string;
+	kind: string;
+	lon: number;
+	lat: number;
+	atom: string | null;
+	names: PlaceName[];
 }
 
 export interface ResolvedPlace {
@@ -125,6 +178,8 @@ export interface ThreadSummary {
 	id: string;
 	name: LangText;
 	summary: LangText;
+	/** event ids in reading order; enough to filter a ledger by arc */
+	events: string[];
 	count: number;
 	span: [string, string];
 }
@@ -133,7 +188,7 @@ export interface ThreadDetail {
 	id: string;
 	name: LangText;
 	summary: LangText;
-	events: EventRef[];
+	events: (EventRef & { significance: number })[];
 	span: [string, string];
 }
 
@@ -151,6 +206,8 @@ export interface LifeEvent {
 	date: string;
 	precision: string;
 	place: string | null;
+	/** the date as a source gives it, when that is Old Style */
+	as_written: AsWritten | null;
 }
 
 export interface FigureSummary {
@@ -161,6 +218,7 @@ export interface FigureSummary {
 	died: LifeEvent | null;
 	roles: string[];
 	summary: LangText;
+	review: Review | null;
 }
 
 export interface FigureDetail extends Omit<FigureSummary, 'born' | 'died'> {
@@ -179,16 +237,13 @@ export interface InstrumentSummary {
 	signed: string;
 	parties: string[];
 	summary: LangText | null;
+	/** the instrument's own text. Not a citation: a treaty is not a work about itself. */
+	text_url: string | null;
+	review: Review | null;
 }
 
 /** What `/api/instruments/{id}` returns. */
-export interface InstrumentDetail {
-	id: string;
-	name: LangText;
-	kind: string;
-	signed: string;
-	parties: string[];
-	summary: LangText | null;
+export interface InstrumentDetail extends InstrumentSummary {
 	sources: Citation[];
 	control: ControlRow[];
 	events: EventRef[];

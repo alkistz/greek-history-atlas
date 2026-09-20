@@ -1,6 +1,7 @@
 <script lang="ts">
 	import TerritoryTrend, { type TrendPoint } from './TerritoryTrend.svelte';
 	import { prettyDate } from './time';
+	import type { Regime } from './types';
 
 	interface Props {
 		date: string;
@@ -10,8 +11,24 @@
 		trend?: TrendPoint[];
 		day?: number;
 		maxDay?: number;
+		/**
+		 * What the Greek state itself was on this date. Control says who held the
+		 * ground; after 1960 the ground stops moving and this does not, which is
+		 * the whole reason the axis exists.
+		 */
+		regime?: Regime | null;
 	}
-	let { date, areaKm2, instruments, trend = [], day = 0, maxDay = 1 }: Props = $props();
+	let {
+		date,
+		areaKm2,
+		instruments,
+		trend = [],
+		day = 0,
+		maxDay = 1,
+		regime = null
+	}: Props = $props();
+
+	const kindLabel = (kind: string) => kind.replaceAll('_', ' ');
 </script>
 
 <div class="caption">
@@ -26,6 +43,13 @@
 		{/if}
 	</div>
 </div>
+{#if regime}
+	<p class="regime">
+		<a href="/events?regimes={regime.id}">{regime.name.en}</a>
+		<span class="kind">{kindLabel(regime.kind)}</span>
+		{#if regime.summary}<span class="gloss">{regime.summary.en}</span>{/if}
+	</p>
+{/if}
 {#if instruments.length}
 	<p class="instrument">
 		In force from today:
@@ -65,6 +89,22 @@
 	.km2-label {
 		color: var(--ink-soft);
 		font-size: 0.85rem;
+	}
+	.regime {
+		margin: 8px 0 0;
+		font-size: 0.88rem;
+		color: var(--ink-soft);
+	}
+	.regime .kind {
+		margin-left: 8px;
+		font-size: 0.72rem;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		opacity: 0.8;
+	}
+	.regime .gloss {
+		display: block;
+		font-size: 0.84rem;
 	}
 	.instrument {
 		margin: 6px 0 0;

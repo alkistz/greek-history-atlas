@@ -10,8 +10,10 @@ import type {
 	InstrumentDetail,
 	InstrumentSummary,
 	Meta,
+	Place,
 	Regime,
 	Region,
+	SourceEntry,
 	ThreadDetail,
 	ThreadSummary
 } from './types';
@@ -49,5 +51,7 @@ export const api = {
 	thread: (f: Fetch, id: string) => get<ThreadDetail>(f, `/api/threads/${id}`),
 	figure: (f: Fetch, id: string) => get<FigureDetail>(f, `/api/figures/${id}`),
 	instruments: (f: Fetch) => get<InstrumentSummary[]>(f, '/api/instruments'),
-	instrument: (f: Fetch, id: string) => get<InstrumentDetail>(f, `/api/instruments/${id}`)
+	instrument: (f: Fetch, id: string) => get<InstrumentDetail>(f, `/api/instruments/${id}`),
+	places: (f: Fetch) => get<Place[]>(f, '/api/places'),
+	sources: (f: Fetch) => get<SourceEntry[]>(f, '/api/sources')
 };

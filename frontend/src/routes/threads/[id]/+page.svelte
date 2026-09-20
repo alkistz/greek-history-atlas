@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Significance from '$lib/Significance.svelte';
 	import { atlasHref } from '$lib/viewstate';
 
 	let { data } = $props();
@@ -17,6 +18,7 @@
 	<p class="crumb"><a href="/threads">Threads</a> <span class="muted">{years}</span></p>
 	<h1>{thread.name.en}</h1>
 	<p class="summary">{thread.summary.en}</p>
+	<p class="crumb"><a href="/events?threads={thread.id}">See these {thread.events.length} in the ledger →</a></p>
 
 	<ol class="arc">
 		{#each thread.events as e, i (e.id)}
@@ -26,6 +28,7 @@
 					<a class="title" href="/events/{e.id}">{e.title.en}</a>
 					<p class="meta">
 						<span class="muted">{i + 1} of {thread.events.length}</span>
+						<Significance significance={e.significance} compact />
 						<a href={atlasHref({ on: e.period[0], event: e.id })}>Open on the atlas</a>
 					</p>
 				</div>
@@ -76,7 +79,9 @@
 	}
 	.meta {
 		display: flex;
+		align-items: center;
 		gap: 14px;
+		flex-wrap: wrap;
 		margin: 3px 0 0;
 		font-size: 0.85rem;
 	}

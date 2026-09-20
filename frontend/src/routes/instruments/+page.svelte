@@ -3,6 +3,8 @@
 	import { page } from '$app/state';
 	import ChipGroup from '$lib/ChipGroup.svelte';
 	import FilterBar from '$lib/FilterBar.svelte';
+	import { REVIEW_FACETS, REVIEW_LABELS, reviewTags, tally } from '$lib/review';
+	import ReviewBadge from '$lib/ReviewBadge.svelte';
 	import { prettyDate, year } from '$lib/time';
 	import { list, matches, params, replaceParams } from '$lib/urlstate';
 	import { atlasHref } from '$lib/viewstate';
@@ -12,8 +14,10 @@
 	let query = $state(untrack(() => page.url.searchParams.get('q') ?? ''));
 	let kinds = $state<string[]>(untrack(() => list(page.url, 'kinds')));
 	let parties = $state<string[]>(untrack(() => list(page.url, 'parties')));
+	let review = $state<string[]>(untrack(() => list(page.url, 'review')));
+	let text = $state<string[]>(untrack(() => list(page.url, 'text')));
 
-	$effect(() => replaceParams(params({ q: query, kinds, parties })));
+	$effect(() => replaceParams(params({ q: query, kinds, parties, review, text })));
 
 	const polity = $derived(new Map(data.meta.polities.map((p) => [p.id, p])));
 	const polityName = $derived(
@@ -34,17 +38,38 @@
 			.sort((a, b) => a.label.localeCompare(b.label))
 	);
 
-	const active = $derived(query.trim().length > 0 || kinds.length > 0 || parties.length > 0);
+	const reviewCounts = $derived(tally(sorted, (i) => i.review));
+	const reviewItems = $derived(
+		REVIEW_FACETS.filter((f) => reviewCounts.has(f)).map((f) => ({
+			id: f,
+			label: `${REVIEW_LABELS[f]} (${reviewCounts.get(f)})`
+		}))
+	);
+	// A treaty's own text is the most authoritative thing the atlas can point at,
+	// and 23 of 32 have none yet, so which is which is worth filtering on.
+	const linked = $derived(sorted.filter((i) => i.text_url).length);
+	const textItems = $derived([
+		{ id: 'yes', label: `Text linked (${linked})` },
+		{ id: 'no', label: `No text yet (${sorted.length - linked})` }
+	]);
+
+	const facetCount = $derived(kinds.length + parties.length + review.length + text.length);
+	const active = $derived(query.trim().length > 0 || facetCount > 0);
 	const shown = $derived(
 		sorted.filter((i) => {
 			if (kinds.length && !kinds.includes(i.kind)) return false;
 			if (parties.length && !i.parties.some((p) => parties.includes(p))) return false;
+			if (review.length && !reviewTags(i.review).some((t) => review.includes(t))) return false;
+			if (text.length && !text.includes(i.text_url ? 'yes' : 'no')) return false;
 			return matches(
 				query,
 				i.name.en,
 				i.name.el,
 				i.summary?.en,
+				i.summary?.el,
 				i.kind,
+				// The signing date, so "1913" finds the five treaties of that year.
+				i.signed,
 				i.parties.map((p) => polityName.get(p) ?? p).join(' ')
 			);
 		})
@@ -57,6 +82,8 @@
 		query = '';
 		kinds = [];
 		parties = [];
+		review = [];
+		text = [];
 	}
 </script>
 
@@ -76,11 +103,13 @@
 
 <FilterBar
 	bind:query
-	placeholder="Search treaties and parties…"
+	placeholder="Search treaties, parties, years…"
 	shown={shown.length}
 	total={sorted.length}
 	noun="instruments"
 	{active}
+	{facetCount}
+	collapsible
 	onclear={clear}
 >
 	{#snippet facets()}
@@ -89,12 +118,28 @@
 			items={kindItems}
 			selected={kinds}
 			ontoggle={(id) => (kinds = toggle(kinds, id))}
+			onclear={() => (kinds = [])}
 		/>
 		<ChipGroup
 			label="Party"
 			items={partyItems}
 			selected={parties}
 			ontoggle={(id) => (parties = toggle(parties, id))}
+			onclear={() => (parties = [])}
+		/>
+		<ChipGroup
+			label="Own text"
+			items={textItems}
+			selected={text}
+			ontoggle={(id) => (text = toggle(text, id))}
+			onclear={() => (text = [])}
+		/>
+		<ChipGroup
+			label="Review"
+			items={reviewItems}
+			selected={review}
+			ontoggle={(id) => (review = toggle(review, id))}
+			onclear={() => (review = [])}
 		/>
 	{/snippet}
 </FilterBar>
@@ -106,11 +151,15 @@
 			<div>
 				<a class="title" href="/instruments/{i.id}">{i.name.en}</a>
 				<span class="kind">{i.kind}</span>
+				<ReviewBadge review={i.review} />
 				<p class="parties">{i.parties.map((p) => polityName.get(p) ?? p).join(' · ')}</p>
 				{#if i.summary}<p>{i.summary.en}</p>{/if}
 				<p class="meta">
 					<span>Signed {prettyDate(i.signed)}</span>
 					<a href={atlasHref({ on: i.signed })}>Open on the atlas</a>
+					{#if i.text_url}
+						<a href={i.text_url} rel="noreferrer">Read the text</a>
+					{/if}
 				</p>
 			</div>
 		</li>
@@ -162,6 +211,7 @@
 	}
 	.kind {
 		margin-left: 8px;
+		margin-right: 6px;
 		color: var(--ink-soft);
 		font-size: 0.82rem;
 	}

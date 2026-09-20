@@ -11,6 +11,32 @@ def get_source(corpus: Corpus, source_id: str) -> Source | None:
     return next((s for s in corpus.sources if s.id == source_id), None)
 
 
+def citing(corpus: Corpus, source_id: str) -> dict[str, list[dict]]:
+    """Which entries cite one work, as refs, grouped by what kind of entry they are.
+
+    Citations are authored on the entry, the way thread membership is authored on
+    the thread; this is the derived inverse, and the only place a bibliography can
+    get it without reading the whole corpus.
+    """
+    return {
+        "events": [
+            {"id": e.id, "title": e.title.model_dump(mode="json")}
+            for e in sorted(corpus.events, key=lambda e: e.period[0])
+            if any(c.id == source_id for c in e.sources)
+        ],
+        "figures": [
+            {"id": f.id, "title": f.name.model_dump(mode="json")}
+            for f in sorted(corpus.figures, key=lambda f: f.name.en)
+            if any(c.id == source_id for c in f.sources)
+        ],
+        "instruments": [
+            {"id": i.id, "title": i.name.model_dump(mode="json")}
+            for i in sorted(corpus.instruments, key=lambda i: i.signed)
+            if any(c.id == source_id for c in i.sources)
+        ],
+    }
+
+
 def resolve_citations(corpus: Corpus, citations: list[Citation]) -> list[dict]:
     """Citations with the source fields folded in, for detail responses."""
     out = []

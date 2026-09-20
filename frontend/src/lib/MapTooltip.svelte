@@ -6,6 +6,8 @@
 		polity: string;
 		since: string;
 		instrument: string | null;
+		/** why the row is drawn as it is, where the atom grain approximates something */
+		note: string | null;
 	}
 	interface Props {
 		x: number;
@@ -39,6 +41,7 @@
 			<span class="kind">{verb[r.kind] ?? r.kind}</span>
 			{r.polity} since {prettyDate(r.since)}
 			{#if r.instrument}<span class="inst">{r.instrument}</span>{/if}
+			{#if r.note}<span class="note">{r.note}</span>{/if}
 		</div>
 	{:else}
 		<div class="row muted">Not modelled on this date</div>
@@ -86,6 +89,12 @@
 	.inst {
 		display: block;
 		font-size: 0.74rem;
+	}
+	.note {
+		display: block;
+		font-size: 0.74rem;
+		font-style: italic;
+		margin-top: 2px;
 	}
 	.muted {
 		font-style: italic;

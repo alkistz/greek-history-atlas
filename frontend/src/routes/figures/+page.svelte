@@ -3,6 +3,8 @@
 	import { page } from '$app/state';
 	import ChipGroup from '$lib/ChipGroup.svelte';
 	import FilterBar from '$lib/FilterBar.svelte';
+	import { REVIEW_FACETS, REVIEW_LABELS, reviewTags, tally } from '$lib/review';
+	import ReviewBadge from '$lib/ReviewBadge.svelte';
 	import { year } from '$lib/time';
 	import { list, matches, params, replaceParams } from '$lib/urlstate';
 
@@ -10,8 +12,10 @@
 
 	let query = $state(untrack(() => page.url.searchParams.get('q') ?? ''));
 	let roles = $state<string[]>(untrack(() => list(page.url, 'roles')));
+	let review = $state<string[]>(untrack(() => list(page.url, 'review')));
+	let born = $state<string[]>(untrack(() => list(page.url, 'born')));
 
-	$effect(() => replaceParams(params({ q: query, roles })));
+	$effect(() => replaceParams(params({ q: query, roles, review, born })));
 
 	// Taken from the corpus rather than the Literal in the backend, so a role that
 	// nobody holds never appears as a chip that can only ever return nothing.
@@ -21,27 +25,54 @@
 			.map((r) => ({ id: r, label: r[0].toUpperCase() + r.slice(1) }))
 	);
 
-	const active = $derived(query.trim().length > 0 || roles.length > 0);
+	const reviewCounts = $derived(tally(data.figures, (f) => f.review));
+	const reviewItems = $derived(
+		REVIEW_FACETS.filter((f) => reviewCounts.has(f)).map((f) => ({
+			id: f,
+			label: `${REVIEW_LABELS[f]} (${reviewCounts.get(f)})`
+		}))
+	);
+
+	/** The century a life belongs to, by birth. The corpus spans three of them. */
+	const centuryOf = (f: (typeof data.figures)[number]) =>
+		f.born ? `${Math.floor(Number(year(f.born.date)) / 100) + 1}` : null;
+	const centuryItems = $derived(
+		[...new Set(data.figures.map(centuryOf).filter((c) => c !== null))]
+			.sort()
+			.map((c) => ({ id: c, label: `${c}th century` }))
+	);
+
+	const facetCount = $derived(roles.length + review.length + born.length);
+	const active = $derived(query.trim().length > 0 || facetCount > 0);
 	const shown = $derived(
 		data.figures.filter((f) => {
 			if (roles.length && !f.roles.some((r) => roles.includes(r))) return false;
+			if (review.length && !reviewTags(f.review).some((t) => review.includes(t))) return false;
+			const century = centuryOf(f);
+			if (born.length && (!century || !born.includes(century))) return false;
 			return matches(
 				query,
 				f.name.en,
 				f.name.el,
 				f.summary.en,
+				// Both languages, and the dates: "1864" should find Venizelos.
+				f.summary.el,
 				f.roles.join(' '),
+				f.born?.date,
+				f.died?.date,
 				...f.also_known_as.flatMap((n) => [n.en, n.el])
 			);
 		})
 	);
 
-	function toggleRole(id: string) {
-		roles = roles.includes(id) ? roles.filter((r) => r !== id) : [...roles, id];
-	}
+	const toggle = (current: string[], id: string) =>
+		current.includes(id) ? current.filter((x) => x !== id) : [...current, id];
+
 	function clear() {
 		query = '';
 		roles = [];
+		review = [];
+		born = [];
 	}
 </script>
 
@@ -51,15 +82,20 @@
 </svelte:head>
 
 <h1>Figures</h1>
-<p class="lead">The people behind the events, in order of birth.</p>
+<p class="lead">
+	The people behind the events, in order of birth. Search reaches both languages, other
+	spellings and the dates.
+</p>
 
 <FilterBar
 	bind:query
-	placeholder="Search names, roles, other spellings…"
+	placeholder="Search names, roles, other spellings, years…"
 	shown={shown.length}
 	total={data.figures.length}
 	noun="figures"
 	{active}
+	{facetCount}
+	collapsible
 	onclear={clear}
 >
 	{#snippet facets()}
@@ -67,7 +103,22 @@
 			label="Role"
 			items={roleItems}
 			selected={roles}
-			ontoggle={toggleRole}
+			ontoggle={(id) => (roles = toggle(roles, id))}
+			onclear={() => (roles = [])}
+		/>
+		<ChipGroup
+			label="Born"
+			items={centuryItems}
+			selected={born}
+			ontoggle={(id) => (born = toggle(born, id))}
+			onclear={() => (born = [])}
+		/>
+		<ChipGroup
+			label="Review"
+			items={reviewItems}
+			selected={review}
+			ontoggle={(id) => (review = toggle(review, id))}
+			onclear={() => (review = [])}
 		/>
 	{/snippet}
 </FilterBar>
@@ -81,6 +132,10 @@
 			<div>
 				<a href="/figures/{f.id}">{f.name.en}</a>
 				<span class="roles">{f.roles.join(', ')}</span>
+				<ReviewBadge review={f.review} />
+				{#if f.also_known_as.length}
+					<p class="aka">{f.also_known_as.map((n) => n.en).join('; ')}</p>
+				{/if}
 				<p>{f.summary.en}</p>
 			</div>
 		</li>
@@ -131,8 +186,12 @@
 	}
 	.roles {
 		margin-left: 8px;
+		margin-right: 6px;
 		color: var(--ink-soft);
 		font-size: 0.82rem;
+	}
+	.aka {
+		font-style: italic;
 	}
 	.figures p {
 		margin: 4px 0 0;

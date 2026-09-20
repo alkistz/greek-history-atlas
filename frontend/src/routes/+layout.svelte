@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import DraftNotice from '$lib/DraftNotice.svelte';
 	import ThemeToggle from '$lib/ThemeToggle.svelte';
 
 	let { children } = $props();
@@ -9,7 +10,9 @@
 		{ href: '/events', label: 'Events' },
 		{ href: '/threads', label: 'Threads' },
 		{ href: '/figures', label: 'Figures' },
-		{ href: '/instruments', label: 'Instruments' }
+		{ href: '/instruments', label: 'Instruments' },
+		{ href: '/places', label: 'Places' },
+		{ href: '/sources', label: 'Sources' }
 	];
 	const current = (href: string) =>
 		href === '/' ? page.url.pathname === '/' : page.url.pathname.startsWith(href);
@@ -43,6 +46,8 @@
 		<ThemeToggle />
 	</header>
 
+	<DraftNotice />
+
 	{@render children()}
 
 	<footer>
@@ -62,6 +67,10 @@
 		--ink-soft: #6b655c;
 		--rule: #ddd6c9;
 		--accent: #a8443a;
+		/* the draft notice; amber rather than the accent, which means "a link" here */
+		--warn-ink: #8a5a12;
+		--warn-bg: #faf2e0;
+		--warn-rule: #e3d0a4;
 		--radius: 4px;
 
 		/* the map */
@@ -101,6 +110,9 @@
 			--hairline: #00000088;
 			--label: #f0ebe0;
 			--label-halo: #2c2a26dd;
+			--warn-ink: #d9a441;
+			--warn-bg: #292317;
+			--warn-rule: #4c3f23;
 			color-scheme: dark;
 		}
 	}
@@ -118,6 +130,9 @@
 		--hairline: #00000088;
 		--label: #f0ebe0;
 		--label-halo: #2c2a26dd;
+		--warn-ink: #d9a441;
+		--warn-bg: #292317;
+		--warn-rule: #4c3f23;
 		color-scheme: dark;
 	}
 
