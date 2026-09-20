@@ -14,6 +14,10 @@ CONTENT = ROOT / "content"
 DATA = ROOT / "data"
 RAW = DATA / "raw"
 
+# Where `scripts/export_static.py` writes the API as files the frontend build serves.
+STATIC = ROOT / "frontend" / "static"
+API_EXPORT = STATIC / "api"
+
 # Reference tables: one file each.
 ATOMS_YAML = CONTENT / "atoms.yaml"
 POLITIES_YAML = CONTENT / "polities.yaml"

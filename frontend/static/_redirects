@@ -1,0 +1,4 @@
+# Cloudflare Pages. Client-side routing: any path that is not a real file is the
+# app shell, which reads the route from the URL itself. Rewrites apply only when
+# no asset matches, so /api/*.json and the built assets are still served direct.
+/*  /index.html  200

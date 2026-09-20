@@ -30,6 +30,9 @@ make web       # frontend on :5173
 
 Then open http://localhost:5173.
 
+`make export` writes the API to `frontend/static/api/` and `make build` produces the
+deployable site in `frontend/build/`. See **Deploying** below.
+
 ## Layout
 
 ```
@@ -38,11 +41,12 @@ content/     the source of truth. YAML in git: atoms, polities, control, instrum
 data/        raw boundary downloads (gitignored) and the built geometry (committed)
 backend/     content pipeline and a read-only API. No database. `app/core` is shared
              plumbing; `app/modules/<name>` owns one domain each (models, crud, validate, router).
-frontend/    SvelteKit, dev mode. d3-geo, plain SVG.
+frontend/    SvelteKit, client-rendered. d3-geo, plain SVG. `static/api/` is the
+             exported API (generated, committed); `build/` is the deployable site.
 ```
 
 `content/` sits at the root rather than inside `backend/` because it belongs to neither
-half. When a static export path arrives, content will feed the frontend build directly.
+half. It feeds the frontend build directly through the static export.
 
 There is no database. The corpus is a few hundred kilobytes, and the invariants a
 PostGIS `EXCLUDE` constraint would have enforced are enforced in `backend/app/core/content.py` and each module's `validate.py`
@@ -83,6 +87,42 @@ Evrytania problem described above, and it is the one worth fixing first.
 Sub-NUTS3 land cuts. A Cyprus split for 1974. Claims (numbers with citations) and
 interpretations. The Greek text. TopoJSON and merged borders. Server-side rendering and
 prerendering. CI.
+
+## Deploying
+
+The deployed site has no server. Every route is a pure read off a corpus that changes only
+when someone edits `content/`, so `make export` runs the real app through `TestClient` and
+writes each response body verbatim to `frontend/static/api/`: 49 files, about 290 KB. The
+whole build is 640 KB.
+
+This removes the hosted process, not the backend. The same models, the same `validate.py`
+invariants and the same serialiser still stand between the YAML and the browser; they run
+once per deploy instead of once per boot. Bad content now fails the build rather than a
+server nobody is watching.
+
+One set of URLs works in both places. The frontend asks for `/api/events.json`; in
+production that is a file, and in dev the Vite proxy strips the suffix and forwards to
+FastAPI on :8000. `make api` is unchanged.
+
+**Cloudflare Pages.** Connect the repo and set:
+
+| setting | value |
+|---|---|
+| root directory | `frontend` |
+| build command | `npm run build` |
+| build output directory | `build` |
+
+Both paths are relative to the root directory, so the build never leaves `frontend/`.
+
+No Python in the build image: the export is committed, like `data/*.geojson`, so Pages
+only installs npm dependencies. `frontend/static/_redirects` sends unmatched paths to the
+app shell, which is what makes `/events/<id>` work on a cold load.
+
+After editing `content/`, run `make export` and commit the result alongside it.
+`make check` fails if the two drift apart.
+
+Nothing here is a one-way door. If readers ever need to write to this thing, the FastAPI
+app deploys as it stands and the frontend points back at it.
 
 ## Data and licence
 

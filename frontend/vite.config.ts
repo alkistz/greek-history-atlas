@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
@@ -9,7 +9,9 @@ export default defineConfig({
 				runes: ({ filename }) =>
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
-			adapter: adapter()
+			// No server: every page is client-rendered (`ssr = false`) and every route
+			// is dynamic, so the whole site is one fallback shell plus the API export.
+			adapter: adapter({ fallback: 'index.html' })
 		})
 	],
 	server: {
@@ -18,7 +20,11 @@ export default defineConfig({
 		proxy: {
 			'/api': {
 				target: 'http://127.0.0.1:8000',
-				changeOrigin: true
+				changeOrigin: true,
+				// The deployed site fetches the files `make export` wrote
+				// (/api/events.json); FastAPI serves the same bytes at /api/events.
+				// Stripping the suffix here lets one set of URLs work in both places.
+				rewrite: (path) => path.replace(/\.json$/, '')
 			}
 		}
 	}
