@@ -61,3 +61,11 @@ body:
     ζει, εμφανίστηκε σε τοίχους σε όλη τη χώρα και έδωσε τον τίτλο στο μυθιστόρημα του Βασίλη
     Βασιλικού το 1966 και στην ταινία του Κώστα Γαβρά το 1969.
 sources: [{id: beaton-2019}, {id: kalyvas-2015}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, roles and event links checked, individual figures not independently sourced
+    note: >
+      Dates, roles and the events this figure is linked to are internally consistent, and the lifetime check raises nothing. Both texts read and in agreement.

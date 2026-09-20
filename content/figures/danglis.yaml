@@ -1,5 +1,10 @@
 id: danglis
 name: {en: Panagiotis Danglis, el: Παναγιώτης Δαγκλής}
+born:
+  date: 1853-11-29
+  precision: day
+  as_written: {date: 1853-11-17, calendar: julian}
+died: {date: 1924-03-09, precision: day}
 roles: [military, statesman]
 summary:
   en: >
@@ -16,3 +21,11 @@ summary:
     Εθνικό Διχασμό. Ο άτλαντας δεν καταγράφει ημερομηνίες ζωής, επειδή δεν στάθηκε δυνατόν
     να επαληθευτούν από τις πηγές του.
 sources: [{id: koliopoulos-veremis-2010}, {id: hall-2000}]
+review:
+  auto:
+    date: 2026-09-20
+    result: corrected
+    langs: [en, el]
+    by: assistant, verified against public sources
+    note: >
+      Had no birth or death recorded at all. Sources give 17 November 1853 Old Style against 29 November New, which is exactly the twelve-day gap the rule derived from Trikoupis predicts, so the Gregorian date is stored with the Julian in as_written. Died 9 March 1924, by which time Greece was on the Gregorian calendar.

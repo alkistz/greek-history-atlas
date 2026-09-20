@@ -35,3 +35,11 @@ body:
     χρησιμοποίησαν οι Δυνάμεις για την επέμβαση. Μετά το Ναβαρίνο κράτησε άλλον έναν χρόνο,
     ώσπου γαλλικό εκστρατευτικό σώμα επέβλεψε την αποχώρησή του τον Οκτώβριο του 1828.
 sources: [{id: brewer-2001}, {id: woodhouse-1965}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, roles and event links checked, individual figures not independently sourced
+    note: >
+      Year or circa precision is correct here: the exact date is not known to the sources, not merely unrecorded in this corpus.

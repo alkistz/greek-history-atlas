@@ -56,3 +56,11 @@ body:
     που εγγυήθηκε τη θέση της χώρας στη Δύση και ο άνθρωπος που έστρεψε τα βρετανικά όπλα
     εναντίον της Αντίστασης στους δρόμους της Αθήνας, και τα δύο ισχύουν.
 sources: [{id: close-1995}, {id: mazower-2000}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, roles and event links checked, individual figures not independently sourced
+    note: >
+      Dates, roles and the events this figure is linked to are internally consistent, and the lifetime check raises nothing. Both texts read and in agreement.

@@ -45,3 +45,11 @@ body:
     Η ημερομηνία γέννησής του τυπώνεται συνήθως ως 9 Απριλίου 1855 χωρίς ένδειξη
     ημερολογίου, και γι' αυτό ο άτλαντας καταγράφει μόνο το έτος.
 sources: [{id: hall-2000}, {id: koliopoulos-veremis-2010}]
+review:
+  auto:
+    date: 2026-09-20
+    result: unresolved
+    langs: [en, el]
+    by: assistant, both texts read; dates, roles and event links checked, individual figures not independently sourced
+    note: >
+      Life dates are recorded to the year where the sources very likely give a day. The calendar rule is now settled -- Greek sources of this period are Old Style and this corpus stores the Gregorian, twelve days on in the nineteenth century and thirteen in the twentieth -- so upgrading these is a lookup rather than a judgment, and as_written now exists to hold the Julian date.

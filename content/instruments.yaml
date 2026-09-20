@@ -16,6 +16,14 @@
       Έθεσε τα Επτάνησα υπό την αποκλειστική προστασία της Βρετανίας ως Ηνωμένο Κράτος των
       Ιονίων Νήσων, ένα κατ' όνομα κυρίαρχο κράτος που διοικούσε βρετανός αρμοστής.
   sources: [{id: clogg-2021}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: london-protocol-1830
   name: {en: London Protocol, el: Πρωτόκολλο του Λονδίνου}
@@ -32,6 +40,14 @@
       χάραξε, στον Ασπροπόταμο και τον Σπερχειό, ήταν στενότερο από τη γραμμή που συμφωνήθηκε
       τελικά το 1832.
   sources: [{id: clogg-2021}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: constantinople-1832
   name: {en: Treaty of Constantinople, el: Συνθήκη της Κωνσταντινούπολης}
@@ -46,6 +62,14 @@
       Η Οθωμανική Αυτοκρατορία αναγνώρισε το ανεξάρτητο Βασίλειο της Ελλάδας και δέχθηκε
       σύνορο από τον Αμβρακικό ως τον Παγασητικό κόλπο, με αντάλλαγμα αποζημίωση.
   sources: [{id: clogg-2021}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: london-1864
   name: {en: Treaty of London, el: Συνθήκη του Λονδίνου}
@@ -60,6 +84,14 @@
       Η Βρετανία παραχώρησε τα Επτάνησα στην Ελλάδα με όρο τη διαρκή ουδετερότητά τους. Η
       μεταβίβαση τέθηκε σε ισχύ στις 2 Ιουνίου 1864.
   sources: [{id: clogg-2021}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: constantinople-1881
   name: {en: Convention of Constantinople, el: Σύμβαση της Κωνσταντινούπολης}
@@ -74,6 +106,14 @@
       Μετά το Συνέδριο του Βερολίνου, η Οθωμανική Αυτοκρατορία παραχώρησε στην Ελλάδα τη
       Θεσσαλία και την επαρχία της Άρτας. Η Ελασσόνα και η Πρέβεζα έμειναν οθωμανικές.
   sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: london-1913
   name: {en: Treaty of London, el: Συνθήκη του Λονδίνου}
@@ -90,6 +130,14 @@
       ευρωπαϊκά της εδάφη δυτικά της γραμμής Αίνου Μηδείας και άφησε την τύχη των νησιών του
       Αιγαίου και της Αλβανίας στις Μεγάλες Δυνάμεις.
   sources: [{id: hall-2000}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: bucharest-1913
   name: {en: Treaty of Bucharest, el: Συνθήκη του Βουκουρεστίου}
@@ -107,6 +155,14 @@
       μέσα από τη Δυτική Θράκη.
   text_url: https://en.wikisource.org/wiki/Treaty_of_Bucharest
   sources: [{id: hall-2000}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, verified against public sources
+      note: >
+        Signing date and parties check out; already linked to its own text.
 
 - id: neuilly-1919
   name: {en: Treaty of Neuilly, el: Συνθήκη του Νεϊγύ}
@@ -122,6 +178,14 @@
       Θράκη στις Συμμαχικές Δυνάμεις, οι οποίες την παρέδωσαν στην Ελλάδα τον Μάιο του 1920.
   text_url: https://en.wikisource.org/wiki/Treaty_of_Neuilly
   sources: [{id: clogg-2021}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, verified against public sources
+      note: >
+        Signing date and parties check out; already linked to its own text.
 
 - id: sevres-1920
   name: {en: Treaty of Sèvres, el: Συνθήκη των Σεβρών}
@@ -139,6 +203,14 @@
       ξεπεράστηκε από την τουρκική νίκη του 1922.
   text_url: https://en.wikisource.org/wiki/Treaty_of_S%C3%A8vres
   sources: [{id: clogg-2021}, {id: clark-2006}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, verified against public sources
+      note: >
+        Signing date and parties check out; already linked to its own text.
 
 - id: lausanne-1923
   name: {en: Treaty of Lausanne, el: Συνθήκη της Λωζάνης}
@@ -157,6 +229,14 @@
       Ιανουάριο.
   text_url: https://en.wikisource.org/wiki/Treaty_of_Lausanne
   sources: [{id: clogg-2021}, {id: clark-2006}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, verified against public sources
+      note: >
+        Signing date and parties check out; already linked to its own text.
 
 - id: paris-1947
   name: {en: Paris Peace Treaty with Italy, el: Συνθήκη Ειρήνης των Παρισίων}
@@ -171,6 +251,14 @@
       Η ειρήνη με την Ιταλία μετά τον Δεύτερο Παγκόσμιο Πόλεμο. Η Ιταλία παραχώρησε τα
       Δωδεκάνησα στην Ελλάδα· η επίσημη ενσωμάτωση ακολούθησε στις 7 Μαρτίου 1948.
   sources: [{id: clogg-2021}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: cyprus-convention-1878
   name: {en: Cyprus Convention, el: Σύμβαση της Κύπρου}
@@ -187,6 +275,14 @@
       Ρωσίας. Η οθωμανική κυριαρχία διατηρήθηκε τυπικά ώσπου η Βρετανία προσάρτησε το νησί με
       την έναρξη του πολέμου με την Οθωμανική Αυτοκρατορία τον Νοέμβριο του 1914.
   sources: [{id: clogg-2021}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: mudanya-1922
   name: {en: Armistice of Mudanya, el: Ανακωχή των Μουδανιών}
@@ -201,6 +297,14 @@
       Τερμάτισε τις εχθροπραξίες στην Ανατολία και υποχρέωσε την Ελλάδα να εκκενώσει την
       Ανατολική Θράκη μέσα σε τριάντα ημέρες, πριν από τη διευθέτηση της Λωζάνης.
   sources: [{id: clark-2006}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: zurich-london-1959
   name: {en: Zürich and London Agreements, el: Συμφωνίες Ζυρίχης και Λονδίνου}
@@ -219,6 +323,14 @@
 # ------------------------------------------------------------------- 1832-1897
 # New instruments for the era 1832 to 1897. `constantinople-1832`, `london-1864`,
 # `constantinople-1881` and `cyprus-convention-1878` already exist and are not repeated.
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: berlin-1878
   name: {en: Treaty of Berlin, el: Συνθήκη του Βερολίνου}
@@ -239,6 +351,15 @@
       την Ήπειρο, με μεσολάβηση των Δυνάμεων σε περίπτωση διαφωνίας, χωρίς να δεσμεύουν
       κανέναν. Η παραχώρηση της Θεσσαλίας και της Άρτας χρειάστηκε άλλα τρία χρόνια.
   sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]
+  text_url: https://archive.org/details/jstor-2212670
+  review:
+    auto:
+      date: 2026-09-20
+      result: corrected
+      langs: [en, el]
+      by: assistant, verified against public sources
+      note: >
+        Signing date and parties check out, and the instrument is now linked to its own text, which was read before it was linked.
 
 - id: halepa-1878
   name: {en: Pact of Halepa, el: Σύμβαση της Χαλέπας}
@@ -261,6 +382,14 @@
       χωροφυλακή, φορολογικές ελαφρύνσεις και αμνηστία. Η κατάργησή της γύρω στο 1889
       άνοιξε την αλυσίδα των εξεγέρσεων που κατέληξε στον πόλεμο του 1897.
   sources: [{id: clogg-2021}, {id: gallant-2016}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: tatarna-1897
   name: {en: Armistice Protocol of Tatarna, el: Πρωτόκολλο ανακωχής της Τατάρνας}
@@ -277,6 +406,14 @@
       Νικολάου Β΄. Τερμάτισε τις εχθροπραξίες του Πολέμου των Τριάντα Ημερών και καθήλωσε
       τον οθωμανικό στρατό στη Θεσσαλία που είχε καταλάβει, ως τη ρύθμιση της ειρήνης.
   sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: constantinople-1897
   name: {en: Treaty of Constantinople, el: Συνθήκη της Κωνσταντινούπολης}
@@ -299,6 +436,15 @@
   sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]
 
 # ------------------------------------------------------------------- 1898-1913
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
+
 - id: ouchy-1912
   name: {en: Treaty of Ouchy, el: Συνθήκη του Ουσί}
   kind: treaty
@@ -317,6 +463,14 @@
       χαλαρός ώστε να αγνοηθεί: η Ιταλία παρέμεινε στα νησιά ως το 1943 και εκείνα
       περιήλθαν στην Ελλάδα μόλις το 1947.
   sources: [{id: hall-2000}, {id: gallant-2016}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: thessaloniki-1913
   name: {en: Greco-Serbian Treaty of Alliance, el: Ελληνοσερβική Συνθήκη Συμμαχίας}
@@ -341,6 +495,14 @@
       ελληνικές πηγές δίνουν ως παλαιό ημερολογιακό στίγμα τη 19η Μαΐου 1913, που χρειάζεται
       επαλήθευση στο ελληνικό κείμενο.
   sources: [{id: hall-2000}, {id: koliopoulos-veremis-2010}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: london-albania-1913
   name: {en: Conference of Ambassadors decision on Albania, el: Απόφαση της Διάσκεψης των Πρεσβευτών για την Αλβανία}
@@ -359,6 +521,14 @@
       τις ηπειρωτικές περιοχές που είχε καταλάβει ο ελληνικός στρατός στον Α΄ Βαλκανικό
       Πόλεμο και εξηγεί γιατί το ελληνικό κέρδος στην Ήπειρο σταμάτησε εκεί που σταμάτησε.
   sources: [{id: hall-2000}, {id: clogg-2021}]
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: athens-1913
   name: {en: Treaty of Athens, el: Συνθήκη των Αθηνών}
@@ -384,6 +554,14 @@
 
 # ------------------------------------------------------------------- 1914-1923
 # New instruments introduced by the 1914-1923 era.
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: exchange-convention-1923
   name:
@@ -411,6 +589,15 @@
   sources: [{id: clark-2006}, {id: clogg-2021}]
 
 # ------------------------------------------------------------------- 1924-1940
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, verified against public sources
+      note: >
+        Signing date and parties check out; already linked to its own text.
+
 - id: ankara-convention-1930
   name:
     en: Ankara Convention on the exchangeable properties
@@ -439,6 +626,14 @@
   sources:
     - {id: clark-2006}
     - {id: clogg-2021}
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: ankara-1930
   name:
@@ -470,6 +665,14 @@
   sources:
     - {id: clogg-2021}
     - {id: koliopoulos-veremis-2010}
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: balkan-pact-1934
   name:
@@ -498,6 +701,14 @@
   sources:
     - {id: koliopoulos-veremis-2010}
     - {id: clogg-2021}
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: salonika-1938
   name:
@@ -531,6 +742,14 @@
 
 # ------------------------------------------------------------------- 1941-1945
 # New instruments for the 1941 to 1945 era.
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: bulgarian-annexation-1941
   name: {en: Bulgarian Decree of Annexation, el: Βουλγαρικό διάταγμα προσάρτησης}
@@ -556,6 +775,14 @@
 # New instruments for the era 1946-1966. The Zurich and London agreements of
 # February 1959 (zurich-london-1959) and the Paris peace treaty of 1947
 # (paris-1947) already exist and are referenced by id.
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: nicosia-1960
   name:
@@ -580,6 +807,15 @@
       υπογράφηκε την ίδια μέρα από Κύπρο, Ελλάδα και Τουρκία, εγκατέστησε στο νησί ελληνική δύναμη
       950 και τουρκική 650 ανδρών.
   sources: [{id: ker-lindsay-2011}, {id: holland-1998}]
+  text_url: https://peacemaker.un.org/sites/default/files/document/files/2024/05/cy600816treatynicosia.pdf
+  review:
+    auto:
+      date: 2026-09-20
+      result: corrected
+      langs: [en, el]
+      by: assistant, verified against public sources
+      note: >
+        Signing date and parties check out, and the instrument is now linked to its own text, which was read before it was linked.
 
 - id: cyprus-guarantee-1960
   name:
@@ -605,6 +841,16 @@
   sources: [{id: ker-lindsay-2011}, {id: holland-markides-2006}]
 
 # ------------------------------------------------------------------- 1967-present
+  text_url: https://peacemaker.un.org/sites/default/files/document/files/2024/05/cy20gr20tr600816treaty20of20guarantee.pdf
+  review:
+    auto:
+      date: 2026-09-20
+      result: corrected
+      langs: [en, el]
+      by: assistant, verified against public sources
+      note: >
+        Signing date and parties check out, and the instrument is now linked to its own text, which was read before it was linked.
+
 - id: accession-1979
   name: {en: Treaty of Accession of Greece, el: Συνθήκη Προσχώρησης της Ελλάδας}
   kind: treaty
@@ -628,6 +874,14 @@
   sources:
     - {id: clogg-2021}
     - {id: kalyvas-2015}
+  review:
+    auto:
+      date: 2026-09-20
+      result: clean
+      langs: [en, el]
+      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      note: >
+        Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
 - id: prespa-2018
   name: {en: Prespa Agreement, el: Συμφωνία των Πρεσπών}
@@ -657,3 +911,12 @@
   sources:
     - {id: clogg-2021}
     - {id: beaton-2019}
+  text_url: https://treaties.un.org/Pages/showDetails.aspx?objid=0800000280544ac1
+  review:
+    auto:
+      date: 2026-09-20
+      result: corrected
+      langs: [en, el]
+      by: assistant, verified against public sources
+      note: >
+        Signing date and parties check out, and the instrument is now linked to its own text, which was read before it was linked.

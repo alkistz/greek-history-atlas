@@ -45,3 +45,11 @@ body:
     μεταφέρθηκε από το νοσοκομείο στο εκτελεστικό απόσπασμα στις 28 Νοεμβρίου 1922. Ορισμένες
     πηγές δίνουν ως έτος γέννησης το 1866. Ο Άρειος Πάγος ακύρωσε την καταδίκη του το 2010.
 sources: [{id: llewellyn-smith-1998}, {id: clogg-2021}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, roles and event links checked, individual figures not independently sourced
+    note: >
+      Dates, roles and the events this figure is linked to are internally consistent, and the lifetime check raises nothing. Both texts read and in agreement.

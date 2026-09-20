@@ -47,3 +47,11 @@ body:
     τον Εμφύλιο. Γεννήθηκε τον Νοέμβριο του 1883 με το παλαιό ημερολόγιο και η ημέρα μετατρέπεται
     διαφορετικά κατά πηγή, γι' αυτό δίνεται εδώ μόνο ο μήνας.
 sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, roles and event links checked, individual figures not independently sourced
+    note: >
+      Dates, roles and the events this figure is linked to are internally consistent, and the lifetime check raises nothing. Both texts read and in agreement.

@@ -48,3 +48,11 @@ sources:
   - {id: clogg-2021}
   - {id: brewer-2001}
   - {id: koliopoulos-veremis-2010}
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, roles and event links checked, individual figures not independently sourced
+    note: >
+      Year or circa precision is correct here: the exact date is not known to the sources, not merely unrecorded in this corpus.

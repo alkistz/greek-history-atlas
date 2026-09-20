@@ -58,3 +58,11 @@ body:
     Ένωση, όπου έμεινε επί δεκαετίες. Η διαμάχη των δύο έχει ξαναδοθεί από κάθε επόμενη γενιά της
     ελληνικής Αριστεράς.
 sources: [{id: gerolymatos-2016}, {id: close-1995}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, roles and event links checked, individual figures not independently sourced
+    note: >
+      Dates, roles and the events this figure is linked to are internally consistent, and the lifetime check raises nothing. Both texts read and in agreement.

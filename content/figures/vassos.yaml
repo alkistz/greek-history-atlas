@@ -1,5 +1,7 @@
 id: vassos
 name: {en: Timoleon Vassos, el: Τιμολέων Βάσσος}
+born: {date: 1836-01-01, precision: year, place: athens}
+died: {date: 1929-10-01, precision: month, place: athens}
 roles: [military]
 summary:
   en: >
@@ -46,3 +48,11 @@ body:
 sources:
   - {id: clogg-2021}
   - {id: koliopoulos-veremis-2010}
+review:
+  auto:
+    date: 2026-09-20
+    result: unresolved
+    langs: [en, el]
+    by: assistant, verified against public sources
+    note: >
+      Had no dates at all. Born 1836 in Athens and died there in October 1929 are all that is recoverable from here, so the precisions are year and month rather than a day invented to look tidy.

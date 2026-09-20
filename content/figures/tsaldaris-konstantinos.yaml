@@ -55,3 +55,11 @@ body:
     δεκαετίες. Μετά τον Ιανουάριο του 1947 οι κυβερνήσεις εναλλάσσονταν ταχύτατα και δεν ηγήθηκε
     ξανά κυβέρνησης, παρέμεινε όμως κορυφαία μορφή της ελληνικής Δεξιάς ως την άνοδο του Παπάγου.
 sources: [{id: close-1995}, {id: clogg-2021}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, roles and event links checked, individual figures not independently sourced
+    note: >
+      Dates, roles and the events this figure is linked to are internally consistent, and the lifetime check raises nothing. Both texts read and in agreement.

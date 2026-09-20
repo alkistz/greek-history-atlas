@@ -66,3 +66,11 @@ body:
     Επέστρεψε τον Ιούλιο του 1974, καθώς η χούντα κατέρρεε πάνω στην Κύπρο, για να προεδρεύσει
     στην αποκατάσταση της δημοκρατίας. Η ένταξη της Ελλάδας στην Ευρωπαϊκή Κοινότητα το 1981 ήταν η ολοκλήρωση της γραμμής που είχε ανοίξει το 1961.
 sources: [{id: clogg-2021}, {id: beaton-2019}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, roles and event links checked, individual figures not independently sourced
+    note: >
+      Dates, roles and the events this figure is linked to are internally consistent, and the lifetime check raises nothing. Both texts read and in agreement.

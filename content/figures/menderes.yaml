@@ -58,3 +58,11 @@ body:
     αμφισβητούμενα στην Τουρκία, όπου οι πολιτικοί κληρονόμοι του θυμούνται την εκτέλεσή του ως τη
     θεμελιώδη αδικία της στρατιωτικής παρέμβασης στην τουρκική πολιτική.
 sources: [{id: holland-markides-2006}, {id: clogg-2021}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, roles and event links checked, individual figures not independently sourced
+    note: >
+      Year or circa precision is correct here: the exact date is not known to the sources, not merely unrecorded in this corpus.
