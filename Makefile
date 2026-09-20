@@ -1,4 +1,4 @@
-.PHONY: setup fetch atoms export api web build test lint check
+.PHONY: setup fetch atoms export api web build deploy test lint check
 
 setup:
 	cd backend && uv sync
@@ -21,6 +21,9 @@ web:
 
 build: export
 	cd frontend && npm run build
+
+deploy: build
+	cd frontend && npx wrangler deploy
 
 test:
 	cd backend && uv run pytest -q

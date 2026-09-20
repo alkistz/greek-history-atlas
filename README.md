@@ -104,22 +104,32 @@ One set of URLs works in both places. The frontend asks for `/api/events.json`; 
 production that is a file, and in dev the Vite proxy strips the suffix and forwards to
 FastAPI on :8000. `make api` is unchanged.
 
-**Cloudflare Pages.** Connect the repo and set:
+**Cloudflare Workers.** Pages still runs, but Cloudflare now directs new projects to
+Workers with static assets, and a static site is the simplest case of it: no Worker script,
+just the built directory. [`frontend/wrangler.jsonc`](frontend/wrangler.jsonc) is the whole
+configuration.
+
+```sh
+npx wrangler login    # once
+make deploy           # export, build, upload
+```
+
+For deploys on push instead, connect the repo under the Worker's Settings -> Builds:
 
 | setting | value |
 |---|---|
 | root directory | `frontend` |
 | build command | `npm run build` |
-| build output directory | `build` |
+| deploy command | `npx wrangler deploy` |
 
-Both paths are relative to the root directory, so the build never leaves `frontend/`.
+The Worker's name in the dashboard must match `name` in `wrangler.jsonc`, or the build
+fails.
 
-No Python in the build image: the export is committed, like `data/*.geojson`, so Pages
-only installs npm dependencies. `frontend/static/_redirects` sends unmatched paths to the
-app shell, which is what makes `/events/<id>` work on a cold load.
-
-After editing `content/`, run `make export` and commit the result alongside it.
-`make check` fails if the two drift apart.
+`not_found_handling: "single-page-application"` serves the app shell for any path that is
+not a real file, which is what makes `/events/<id>` work on a cold load. It also means a
+missing id comes back as HTML with a 200 rather than a 404, so `src/lib/api.ts` checks the
+content type before parsing and raises a proper not-found page. That is a property of
+static hosting generally, not of Workers.
 
 Nothing here is a one-way door. If readers ever need to write to this thing, the FastAPI
 app deploys as it stands and the frontend points back at it.

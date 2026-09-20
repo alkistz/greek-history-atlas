@@ -21,6 +21,12 @@ type Fetch = typeof fetch;
 async function get<T>(fetch: Fetch, path: string): Promise<T> {
 	const r = await fetch(`${path}.json`);
 	if (!r.ok) error(r.status, `${path}: ${r.statusText}`);
+	// A static host answers an unknown path with the app shell rather than a 404,
+	// so an id that does not exist arrives here as HTML with a 200. Without this
+	// it would surface as a JSON parse error instead of a not-found page.
+	if (!r.headers.get('content-type')?.includes('application/json')) {
+		error(404, `${path}: not found`);
+	}
 	return r.json() as Promise<T>;
 }
 

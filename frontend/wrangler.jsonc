@@ -1,0 +1,17 @@
+{
+	// Cloudflare Workers with static assets. Pages still runs, but Cloudflare
+	// directs new projects here, and a static site is the simplest case of it:
+	// no Worker script at all, just the built directory.
+	//
+	// The name must match the Worker's name in the dashboard or a git-connected
+	// build fails.
+	"name": "after1821",
+	"compatibility_date": "2026-09-20",
+	"assets": {
+		"directory": "./build",
+		// Anything that is not a real file is the app shell, which reads the
+		// route from the URL. Requests for /api/*.json match real files and are
+		// served directly, so this only ever catches page routes.
+		"not_found_handling": "single-page-application"
+	}
+}
