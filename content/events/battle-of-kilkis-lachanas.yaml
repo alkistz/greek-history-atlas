@@ -88,3 +88,11 @@ figures:
   - {figure: constantine-i, role: commander}
   - {figure: venizelos, role: leader}
 sources: [{id: hall-2000}, {id: koliopoulos-veremis-2010}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      The 80-kilometre front and the casualty comparison consistent; the Greeks paying more than the defenders is correctly stated.

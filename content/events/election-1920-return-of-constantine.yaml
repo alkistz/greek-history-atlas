@@ -81,3 +81,11 @@ figures:
   - {figure: constantine-i, role: leader}
   - {figure: gounaris, role: leader}
 sources: [{id: llewellyn-smith-1998}, {id: clogg-2021}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Alexander's death, the defeat and the seat counts, already given as varying between sources, consistent.

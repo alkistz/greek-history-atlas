@@ -83,3 +83,11 @@ figures:
   - {figure: constantine-i, role: commander}
   - {figure: metaxas, role: participant}
 sources: [{id: hall-2000}, {id: ginio-2016}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Bizani, the failed December attack and Constantine's reinforcement consistent.

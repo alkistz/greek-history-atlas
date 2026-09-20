@@ -87,3 +87,11 @@ figures:
   - {figure: alexander-of-greece, role: leader}
   - {figure: venizelos, role: leader}
 sources: [{id: clogg-2021}, {id: beaton-2019}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Jonnart's demand in the name of the 1832 guarantors, and the departure without signing, consistent.

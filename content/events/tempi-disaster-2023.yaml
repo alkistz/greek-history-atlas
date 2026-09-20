@@ -87,3 +87,11 @@ figures:
   - {figure: mitsotakis-kyriakos, role: leader}
 sources:
   - {id: clogg-2021}
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, verified against public sources
+    note: >
+      Fifty-seven dead, the routing error, the unfinished signalling contract and the stationmaster's prosecution all confirmed. The text already carries both live disputes -- the clearing of the site and the cause of the fireball -- as open arguments rather than settled ones, which is the correct treatment of a case still before the courts.

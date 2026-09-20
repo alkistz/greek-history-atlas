@@ -76,3 +76,11 @@ figures:
   - {figure: george-i, role: victim}
   - {figure: constantine-i, role: participant}
 sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}, {id: beaton-2019}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      5/18 March dual dating, the walking habit and the assassin consistent; the political motive is correctly left out where sources do not support one.

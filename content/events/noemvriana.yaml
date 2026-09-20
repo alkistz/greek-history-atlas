@@ -81,3 +81,11 @@ figures:
   - {figure: metaxas, role: commander}
   - {figure: venizelos, role: victim}
 sources: [{id: koliopoulos-veremis-2010}, {id: gallant-2016}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      1 December landing and the casualty figures, already given as a range for the Allied side, consistent.

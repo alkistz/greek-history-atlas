@@ -68,3 +68,11 @@ place: rhodes
 instrument: ouchy-1912
 significance: 3
 sources: [{id: hall-2000}, {id: gallant-2016}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Three weeks, the Libyan war as motive and the disappointment that followed consistent; the Ouchy instrument is correctly later than the occupation.

@@ -103,3 +103,11 @@ sources:
   - {id: clark-2006}
   - {id: clogg-2021}
   - {id: koliopoulos-veremis-2010}
+review:
+  auto:
+    date: 2026-09-20
+    result: unresolved
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      The event spans both 1930 instruments -- the June convention on exchangeable property and the October treaty of friendship -- but Event.instrument holds only one and points at the October treaty while the event's own start date is the June convention. The prose is right about both; the link cannot express it. A modelling limit rather than a content error.

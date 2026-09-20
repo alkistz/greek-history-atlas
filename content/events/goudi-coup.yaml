@@ -79,3 +79,11 @@ figures:
   - {figure: venizelos, role: participant}
   - {figure: george-i, role: participant}
 sources: [{id: clogg-2021}, {id: gallant-2016}, {id: koliopoulos-veremis-2010}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      The bloodless character and the demands consistent; it leads correctly into the Venizelos entry.

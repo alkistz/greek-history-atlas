@@ -81,3 +81,11 @@ figures:
   - {figure: constantine-i, role: commander}
   - {figure: george-i, role: participant}
 sources: [{id: hall-2000}, {id: ginio-2016}, {id: koliopoulos-veremis-2010}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      The surrender to Greeks rather than Bulgarians, and the protocol at eleven at night on 26 October Old Style, consistent.

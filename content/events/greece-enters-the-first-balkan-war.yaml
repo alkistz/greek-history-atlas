@@ -89,3 +89,11 @@ figures:
   - {figure: constantine-i, role: commander}
   - {figure: metaxas, role: signatory}
 sources: [{id: hall-2000}, {id: ginio-2016}, {id: clogg-2021}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      5/18 October dual dating, the order of declarations and the 125,000 men consistent.

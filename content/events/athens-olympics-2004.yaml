@@ -81,3 +81,11 @@ significance: 2
 sources:
   - {id: kalyvas-2015}
   - {id: beaton-2019}
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Athlete, committee and event counts, the 1997 award and the cost range all internally consistent; the cost dispute is correctly presented as unsettled.

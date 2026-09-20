@@ -74,3 +74,11 @@ significance: 4
 figures:
   - {figure: venizelos, role: signatory}
 sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Award to the Allies rather than to Greece, the six-month condominium and San Remo consistent. This is the detail most often got wrong and the text has it right.

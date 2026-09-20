@@ -41,3 +41,11 @@ place: rhodes
 instrument: paris-1947
 significance: 4
 sources: [{id: clogg-2021}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Formal incorporation in 1948, correctly later than the Paris treaty that provided for it.
