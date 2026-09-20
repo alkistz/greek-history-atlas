@@ -1,0 +1,37 @@
+# Python. Scoped to backend/, so nothing here can reach frontend/.
+#
+# Directory names that are also ordinary English words are anchored with a
+# leading slash, so they match only at the root of backend/. The rest are
+# unanchored deliberately, because they mean the same thing at any depth.
+
+# Byte-code
+__pycache__/
+*.py[codz]
+*$py.class
+*.so
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.hypothesis/
+
+# Environments
+.venv/
+venv/
+
+# Packaging artifacts. Anchored: these are ordinary words.
+/build/
+/dist/
+/sdist/
+/wheels/
+/lib/
+/lib64/
+*.egg-info/
+*.egg
+
+# Coverage
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
