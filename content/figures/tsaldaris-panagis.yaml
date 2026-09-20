@@ -1,0 +1,51 @@
+id: tsaldaris-panagis
+name: {en: Panagis Tsaldaris, el: Παναγής Τσαλδάρης}
+born: {date: 1868-03-05, precision: day}
+died: {date: 1936-05-17, precision: day, place: athens}
+roles: [statesman]
+summary:
+  en: >
+    Leader of the People's Party from 1922 and prime minister in 1932 and from 1933 to 1935.
+    He accepted the Republic in order to make his party electable, put down the Venizelist
+    rising of March 1935, and was then pushed out by his own royalist officers in October for
+    moving too slowly on the restoration of the monarchy he had spent his career wanting.
+  el: >
+    Αρχηγός του Λαϊκού Κόμματος από το 1922 και πρωθυπουργός το 1932 και από το 1933 ως το
+    1935. Αποδέχθηκε τη Δημοκρατία για να κάνει εκλογίσιμο το κόμμα του, κατέστειλε το
+    βενιζελικό κίνημα του Μαρτίου 1935, και τον Οκτώβριο εκτοπίστηκε από τους ίδιους τους
+    βασιλόφρονες αξιωματικούς του επειδή αργούσε στην παλινόρθωση που επιδίωκε όλη του τη ζωή.
+body:
+  en: |
+    Tsaldaris took over the People's Party after the Asia Minor Catastrophe and led the
+    royalist half of Greek politics through the years when the monarchy did not exist. His
+    contribution was to make his party work inside the Republic: he took the oath to the
+    republican constitution, which cost him support on his own right, and won office in 1932
+    after the default destroyed Venizelos.
+
+    His second government faced two Venizelist coup attempts, in 1933 and in March 1935. The
+    second was crushed by Georgios Kondylis, and the purge of republican officers that
+    followed left the army in royalist hands. Tsaldaris wanted the restoration of the
+    monarchy settled by a proper plebiscite and would not be rushed. On 10 October 1935
+    Kondylis, Papagos and two other officers forced his resignation and did it their own way.
+
+    He died on 17 May 1936, two months after Venizelos and three and a half months after
+    Kondylis, and ten weeks before the dictatorship.
+  el: |
+    Ο Τσαλδάρης ανέλαβε το Λαϊκό Κόμμα μετά τη Μικρασιατική Καταστροφή και ηγήθηκε της
+    βασιλόφρονος παράταξης στα χρόνια που δεν υπήρχε βασιλιάς. Η συμβολή του ήταν ότι έκανε το
+    κόμμα του να λειτουργήσει μέσα στη Δημοκρατία: ορκίστηκε στο δημοκρατικό Σύνταγμα, πράγμα
+    που του στοίχισε στα δεξιά του, και κέρδισε την εξουσία το 1932, όταν η πτώχευση
+    κατέστρεψε τον Βενιζέλο.
+
+    Η δεύτερη κυβέρνησή του αντιμετώπισε δύο βενιζελικά κινήματα, το 1933 και τον Μάρτιο του
+    1935. Το δεύτερο το κατέστειλε ο Γεώργιος Κονδύλης, και η εκκαθάριση των δημοκρατικών
+    αξιωματικών που ακολούθησε άφησε τον στρατό στα χέρια των βασιλοφρόνων. Ο Τσαλδάρης ήθελε
+    το πολιτειακό να λυθεί με κανονικό δημοψήφισμα και δεν δεχόταν πιέσεις. Στις 10 Οκτωβρίου
+    1935 ο Κονδύλης, ο Παπάγος και δύο ακόμη αξιωματικοί τον εξανάγκασαν σε παραίτηση και το
+    έλυσαν με τον δικό τους τρόπο.
+
+    Πέθανε στις 17 Μαΐου 1936, δύο μήνες μετά τον Βενιζέλο και τρεισήμισι μήνες μετά τον
+    Κονδύλη, δέκα εβδομάδες πριν από τη δικτατορία.
+sources:
+  - {id: clogg-2021}
+  - {id: close-1995}

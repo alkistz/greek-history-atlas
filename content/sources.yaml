@@ -55,3 +55,105 @@
   title: The Battle of Navarino
   year: 1965
   publisher: Hodder and Stoughton
+
+# ---------------------------------------------------------- period and subject works
+# Added alongside the 1832-2023 expansion. The eight above cover the revolution and the
+# general arc; these cover the periods a survey cannot carry on its own.
+
+- id: beaton-2019
+  kind: book
+  author: Roderick Beaton
+  title: "Greece: Biography of a Modern Nation"
+  year: 2019
+  publisher: Allen Lane
+
+- id: kalyvas-2015
+  kind: book
+  author: Stathis N. Kalyvas
+  title: "Modern Greece: What Everyone Needs to Know"
+  year: 2015
+  publisher: Oxford University Press
+
+- id: llewellyn-smith-1998
+  kind: book
+  author: Michael Llewellyn Smith
+  title: "Ionian Vision: Greece in Asia Minor, 1919-1922"
+  year: 1998
+  publisher: C. Hurst and Co.
+
+- id: ginio-2016
+  kind: book
+  author: Eyal Ginio
+  title: "The Ottoman Culture of Defeat: The Balkan Wars and their Aftermath"
+  year: 2016
+  publisher: C. Hurst and Co.
+
+- id: mazower-1991
+  kind: book
+  author: Mark Mazower
+  title: Greece and the Inter-War Economic Crisis
+  year: 1991
+  publisher: Clarendon Press
+
+- id: close-1995
+  kind: book
+  author: David H. Close
+  title: The Origins of the Greek Civil War
+  year: 1995
+  publisher: Longman
+
+- id: gerolymatos-2016
+  kind: book
+  author: André Gerolymatos
+  title: "An International Civil War: Greece, 1943-1949"
+  year: 2016
+  publisher: Yale University Press
+
+- id: mazower-2000
+  kind: book
+  author: Mark Mazower (ed.)
+  title: "After the War Was Over: Reconstructing the Family, Nation, and State in Greece, 1943-1960"
+  year: 2000
+  publisher: Princeton University Press
+
+- id: holland-1998
+  kind: book
+  author: Robert Holland
+  title: "Britain and the Revolt in Cyprus, 1954-1959"
+  year: 1998
+  publisher: Clarendon Press
+
+- id: holland-markides-2006
+  kind: book
+  author: Robert Holland and Diana Markides
+  title: "The British and the Hellenes: Struggles for Mastery in the Eastern Mediterranean 1850-1960"
+  year: 2006
+  publisher: Oxford University Press
+
+- id: ker-lindsay-2011
+  kind: book
+  author: James Ker-Lindsay
+  title: "The Cyprus Problem: What Everyone Needs to Know"
+  year: 2011
+  publisher: Oxford University Press
+
+- id: woodhouse-1985
+  kind: book
+  author: C. M. Woodhouse
+  title: The Rise and Fall of the Greek Colonels
+  year: 1985
+  publisher: Granada
+
+- id: kornetis-2013
+  kind: book
+  author: Kostis Kornetis
+  title: "Children of the Dictatorship: Student Resistance, Cultural Politics and the Long 1960s in Greece"
+  year: 2013
+  publisher: Berghahn Books
+
+- id: siani-davies-2017
+  kind: book
+  author: Peter Siani-Davies
+  title: Crisis in Greece
+  year: 2017
+  publisher: C. Hurst and Co.

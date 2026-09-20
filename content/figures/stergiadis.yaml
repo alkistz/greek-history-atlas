@@ -1,0 +1,45 @@
+id: stergiadis
+name: {en: Aristeidis Stergiadis, el: Αριστείδης Στεργιάδης}
+born: {date: 1861-01-01, precision: year, place: heraklion}
+died: {date: 1949-06-22, precision: day}
+roles: [statesman]
+summary:
+  en: >
+    Venizelos's High Commissioner in Smyrna from May 1919 to September 1922. He built a
+    civil administration, restrained anti-Muslim reprisals so consistently that the Greek
+    population came to hate him, and left the city on a British warship in September 1922
+    without organising an evacuation. He never returned to Greece.
+  el: >
+    Ύπατος αρμοστής του Βενιζέλου στη Σμύρνη από τον Μάιο του 1919 ως τον Σεπτέμβριο του 1922.
+    Οργάνωσε πολιτική διοίκηση, περιόρισε τα αντίποινα σε βάρος των μουσουλμάνων με τέτοια
+    συνέπεια ώστε να τον μισήσει ο ελληνικός πληθυσμός, και έφυγε από την πόλη με βρετανικό
+    πολεμικό τον Σεπτέμβριο του 1922 χωρίς να έχει οργανώσει εκκένωση. Δεν ξαναγύρισε ποτέ στην
+    Ελλάδα.
+body:
+  en: |
+    Stergiadis was a Cretan lawyer and administrator, born in Heraklion in 1861; the exact
+    day is not established. Venizelos chose him for Smyrna because he was incorruptible,
+    unpopular and entirely loyal, and he governed the zone accordingly. He established
+    courts, a refugee resettlement service, public-health provision and the foundations of
+    an Ionian University, and he punished Greek violence against Muslims with a severity
+    that the local Greek press called treason.
+
+    His record ends badly and the ending is what he is remembered for. When the front
+    collapsed he made no arrangements for the civilian population, and left Smyrna on a
+    British warship in the days before the fire, in full view of the crowds on the quay.
+    He spent the rest of his life in exile at Nice, where he died on 22 June 1949, and
+    left no memoir and no explanation.
+  el: |
+    Ο Στεργιάδης ήταν Κρητικός νομικός και διοικητικός, γεννημένος στο Ηράκλειο το 1861· η
+    ακριβής ημέρα δεν έχει τεκμηριωθεί. Ο Βενιζέλος τον επέλεξε για τη Σμύρνη επειδή ήταν
+    αδιάφθορος, αντιδημοφιλής και απολύτως πιστός, και εκείνος διοίκησε τη ζώνη ανάλογα.
+    Οργάνωσε δικαστήρια, υπηρεσία αποκατάστασης προσφύγων, δημόσια υγεία και τα θεμέλια Ιωνικού
+    Πανεπιστημίου, και τιμώρησε την ελληνική βία κατά μουσουλμάνων με αυστηρότητα που ο ντόπιος
+    ελληνικός τύπος χαρακτήρισε προδοσία.
+
+    Ο απολογισμός του τελειώνει άσχημα και το τέλος είναι αυτό για το οποίο τον θυμούνται. Όταν
+    κατέρρευσε το μέτωπο δεν έκανε καμιά πρόβλεψη για τον άμαχο πληθυσμό και έφυγε από τη Σμύρνη
+    με βρετανικό πολεμικό τις ημέρες πριν από την πυρκαγιά, μπροστά στα μάτια του πλήθους της
+    προκυμαίας. Πέρασε την υπόλοιπη ζωή του εξόριστος στη Νίκαια, όπου πέθανε στις 22 Ιουνίου
+    1949, χωρίς να αφήσει απομνημονεύματα ούτε εξήγηση.
+sources: [{id: llewellyn-smith-1998}, {id: clogg-2021}]

@@ -1,6 +1,7 @@
 id: treaty-of-constantinople-1832
 title:
   en: The Treaty of Constantinople
+  el: Η Συνθήκη της Κωνσταντινούπολης
 summary:
   en: >
     The Ottoman Empire recognised an independent Greek kingdom and accepted a frontier
@@ -8,6 +9,12 @@ summary:
     than the London Protocol of 1830 had drawn. The new state held the Peloponnese,
     Attica, Central Greece, Euboea and the Cyclades, and roughly a third of the Greek
     speaking population of the region lived inside it.
+  el: >
+    Η Οθωμανική Αυτοκρατορία αναγνώρισε ανεξάρτητο ελληνικό βασίλειο και δέχθηκε σύνορο που
+    έτρεχε από τον Αμβρακικό ως τον Παγασητικό κόλπο. Η γραμμή αυτή ήταν ευνοϊκότερη από
+    εκείνη που είχε χαράξει το Πρωτόκολλο του Λονδίνου του 1830. Το νέο κράτος περιλάμβανε την
+    Πελοπόννησο, την Αττική, τη Στερεά Ελλάδα, την Εύβοια και τις Κυκλάδες, και μέσα στα όριά
+    του ζούσε περίπου το ένα τρίτο του ελληνόφωνου πληθυσμού της περιοχής.
 body:
   en: |
     The London Protocol of February 1830 had made Greece independent but drawn its
@@ -19,6 +26,16 @@ body:
     frontier in exchange for an indemnity of forty million piastres, paid from the
     loan the Powers had guaranteed to the new kingdom. The line stood, with only the
     Ionian addition, until 1881.
+  el: |
+    Το Πρωτόκολλο του Λονδίνου του Φεβρουαρίου 1830 είχε καταστήσει την Ελλάδα ανεξάρτητη,
+    αλλά είχε χαράξει τα σύνορά της στον Ασπροπόταμο και τον Σπερχειό, αφήνοντας έξω την
+    Ακαρνανία και μεγάλο μέρος της Στερεάς Ελλάδας. Η επιλογή του Όθωνα της Βαυαρίας ως
+    βασιλιά από τις Δυνάμεις τον Μάιο του 1832 συνοδεύτηκε από δέσμευση για καλύτερη γραμμή.
+
+    Στην Κωνσταντινούπολη, τον Ιούλιο, οι οθωμανοί πληρεξούσιοι δέχθηκαν τη μεθόριο από την
+    Άρτα ως τον Βόλο με αντάλλαγμα αποζημίωση σαράντα εκατομμυρίων γροσιών, που πληρώθηκε από
+    το δάνειο το οποίο είχαν εγγυηθεί οι Δυνάμεις στο νέο βασίλειο. Η γραμμή έμεινε
+    αμετάβλητη, με μόνη προσθήκη τα Επτάνησα, ως το 1881.
 period: [1832-07-21, 1832-07-22]
 precision: day
 atom: sterea

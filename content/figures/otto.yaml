@@ -1,6 +1,6 @@
 id: otto
 name: {en: Otto, el: Όθων}
-also_known_as: [{en: Otto of Wittelsbach}]
+also_known_as: [{en: Otto of Wittelsbach, el: Όθων των Βίτελσμπαχ}]
 born: {date: 1815-06-01, precision: day, place: salzburg}
 died: {date: 1867-07-26, precision: day, place: bamberg}
 roles: [monarch]
@@ -9,6 +9,10 @@ summary:
     Second son of King Ludwig of Bavaria, chosen by the Powers in 1832 as the first
     King of Greece. He landed at Nafplio in February 1833 aged seventeen and was
     deposed in 1862.
+  el: >
+    Δευτερότοκος γιος του βασιλιά Λουδοβίκου της Βαυαρίας, που οι Δυνάμεις επέλεξαν το 1832 ως
+    πρώτο βασιλιά της Ελλάδας. Αποβιβάστηκε στο Ναύπλιο τον Φεβρουάριο του 1833 σε ηλικία
+    δεκαεπτά ετών και εκθρονίστηκε το 1862.
 body:
   en: |
     The Convention of London of May 1832 gave the Greek throne to Otto and the
@@ -21,4 +25,15 @@ body:
     Orthodox kingdom, and unable to keep the confidence of the army. A rising in October
     1862 ended the reign; he left on a British warship and died in Bamberg five years
     later.
+  el: |
+    Η Σύμβαση του Λονδίνου του Μαΐου 1832 έδωσε τον ελληνικό θρόνο στον Όθωνα και τη
+    διακυβέρνηση, ως την ενηλικίωσή του, σε βαυαρική αντιβασιλεία. Η αντιβασιλεία και έπειτα ο
+    ίδιος ο βασιλιάς κυβέρνησαν χωρίς σύνταγμα, ώσπου το στρατιωτικό κίνημα του Σεπτεμβρίου
+    1843 του επέβαλε ένα.
+
+    Ο Όθων έμαθε ελληνικά, φόρεσε τη φουστανέλα και ασπάστηκε τη Μεγάλη Ιδέα με μεγαλύτερη
+    θέρμη από όση έκριναν συνετή οι υπουργοί του. Ήταν άτεκνος, καθολικός σε ορθόδοξο
+    βασίλειο, και ανίκανος να διατηρήσει την εμπιστοσύνη του στρατού. Η εξέγερση του Οκτωβρίου
+    1862 τερμάτισε τη βασιλεία του· έφυγε με βρετανικό πολεμικό και πέθανε στο Μπάμπεργκ πέντε
+    χρόνια αργότερα.
 sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]

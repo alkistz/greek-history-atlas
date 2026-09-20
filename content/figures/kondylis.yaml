@@ -1,0 +1,59 @@
+id: kondylis
+name: {en: Georgios Kondylis, el: Γεώργιος Κονδύλης}
+also_known_as:
+  - {en: Keravnos, el: Κεραυνός}
+born: {date: 1878-08-14, precision: day}
+died: {date: 1936-02-01, precision: day, place: athens}
+roles: [military, statesman]
+summary:
+  en: >
+    General known as the Thunderbolt, who overthrew the Pangalos dictatorship in 1926 and
+    restored parliamentary government, crushed the Venizelist rising of March 1935, and then
+    abolished the Republic himself in October of the same year. He quarrelled with the king
+    he had restored within weeks and died three months later.
+  el: >
+    Στρατηγός με το παρατσούκλι Κεραυνός, που ανέτρεψε τη δικτατορία Παγκάλου το 1926 και
+    αποκατέστησε το κοινοβουλευτικό πολίτευμα, κατέστειλε το βενιζελικό κίνημα του Μαρτίου
+    1935 και τον Οκτώβριο της ίδιας χρονιάς κατέλυσε ο ίδιος τη Δημοκρατία. Συγκρούστηκε μέσα
+    σε λίγες εβδομάδες με τον βασιλιά που είχε επαναφέρει και πέθανε τρεις μήνες αργότερα.
+body:
+  en: |
+    Kondylis rose from the ranks in the Macedonian Struggle and the Balkan Wars and made his
+    name in the National Defence army of Thessaloniki during the First World War. He was a Venizelist and a
+    republican for most of his career, and in August 1926 he used the Republican Guard to
+    remove Theodoros Pangalos without bloodshed, restore Pavlos Kountouriotis to the
+    presidency and hold the free elections of November 1926 that produced the ecumenical
+    government and the republican constitution.
+
+    His second intervention destroyed what the first had saved. As minister of war under
+    Panagis Tsaldaris he directed the counter-offensive that broke the Venizelist rising in
+    Macedonia in March 1935, and the purge that followed removed the republican officers from
+    the army. On 10 October 1935 he forced Tsaldaris out, made himself prime minister and
+    regent, and declared the Republic abolished. The plebiscite of 3 November and the return
+    of George II followed.
+
+    The king then asked for a general amnesty and an end to the purge. Kondylis refused and
+    resigned on 30 November 1935, out of office nine weeks after taking the country back to
+    monarchy. He died suddenly on 1 February 1936.
+  el: |
+    Ο Κονδύλης ανέβηκε από τις τάξεις των υπαξιωματικών στον Μακεδονικό Αγώνα και τους
+    Βαλκανικούς Πολέμους και διακρίθηκε στον στρατό της Εθνικής Αμύνης της Θεσσαλονίκης στον
+    Α΄ Παγκόσμιο Πόλεμο. Υπήρξε βενιζελικός και δημοκρατικός για το μεγαλύτερο μέρος της σταδιοδρομίας του,
+    και τον Αύγουστο του 1926 χρησιμοποίησε τη Δημοκρατική Φρουρά για να απομακρύνει αναίμακτα
+    τον Θεόδωρο Πάγκαλο, να επαναφέρει τον Παύλο Κουντουριώτη στην προεδρία και να διεξαγάγει
+    τις ελεύθερες εκλογές του Νοεμβρίου 1926, από τις οποίες προέκυψαν η οικουμενική κυβέρνηση
+    και το δημοκρατικό Σύνταγμα.
+
+    Η δεύτερη επέμβασή του κατέστρεψε ό,τι είχε σώσει η πρώτη. Ως υπουργός Στρατιωτικών του
+    Παναγή Τσαλδάρη διηύθυνε την αντεπίθεση που διέλυσε το βενιζελικό κίνημα στη Μακεδονία τον
+    Μάρτιο του 1935, και η εκκαθάριση που ακολούθησε απομάκρυνε τους δημοκρατικούς
+    αξιωματικούς από τον στρατό. Στις 10 Οκτωβρίου 1935 εξανάγκασε τον Τσαλδάρη σε παραίτηση,
+    ανέλαβε ο ίδιος την πρωθυπουργία και την αντιβασιλεία και κήρυξε καταλυμένη τη Δημοκρατία.
+    Ακολούθησαν το δημοψήφισμα της 3ης Νοεμβρίου και η επάνοδος του Γεωργίου Β΄.
+
+    Ο βασιλιάς ζήτησε τότε γενική αμνηστία και τερματισμό της εκκαθάρισης. Ο Κονδύλης
+    αρνήθηκε και παραιτήθηκε στις 30 Νοεμβρίου 1935, εκτός εξουσίας εννέα εβδομάδες αφότου
+    είχε επαναφέρει τη χώρα στη βασιλεία. Πέθανε αιφνιδίως την 1η Φεβρουαρίου 1936.
+sources:
+  - {id: clogg-2021}
+  - {id: close-1995}

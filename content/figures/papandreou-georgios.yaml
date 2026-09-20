@@ -1,0 +1,62 @@
+id: papandreou-georgios
+name: {en: Georgios Papandreou, el: Γεώργιος Παπανδρέου}
+born: {date: 1888-02-13, precision: day}
+died: {date: 1968-11-01, precision: day, place: athens}
+roles: [statesman]
+summary:
+  en: >
+    Prime minister of the government of national unity from April 1944 to January 1945.
+    He chaired the Lebanon conference that brought EAM into the state on terms it later
+    regretted, signed at Caserta, returned to Athens at liberation and raised the flag on
+    the Acropolis, and resigned three weeks into the Dekemvriana. He was prime minister
+    twice more in the 1960s and his dismissal by the king in 1965 opened the crisis that
+    ended in the dictatorship.
+  el: >
+    Πρωθυπουργός της κυβέρνησης εθνικής ενότητας από τον Απρίλιο του 1944 ως τον Ιανουάριο
+    του 1945. Προήδρευσε στη συνδιάσκεψη του Λιβάνου που έφερε το ΕΑΜ στο κράτος με όρους
+    που αργότερα μετάνιωσε, υπέγραψε στην Καζέρτα, γύρισε στην Αθήνα με την απελευθέρωση
+    και ύψωσε τη σημαία στην Ακρόπολη, και παραιτήθηκε τρεις εβδομάδες μετά την έναρξη των
+    Δεκεμβριανών. Υπήρξε πρωθυπουργός άλλες δύο φορές τη δεκαετία του 1960, και η παύση του
+    από τον βασιλιά το 1965 άνοιξε την κρίση που κατέληξε στη δικτατορία.
+body:
+  en: |
+    Papandreou came out of the Venizelist camp, had been a minister in the 1920s and
+    1930s and was imprisoned by Metaxas. He escaped from occupied Greece to Egypt in 1944
+    and was made prime minister on 26 April, immediately after the mutiny of the Greek
+    forces in Egypt, because the British wanted a republican who was not of the left.
+
+    His achievement was the Lebanon Charter of May 1944, which committed every Greek
+    political force including EAM to a single government and a single army, and the
+    Caserta Agreement of September, which put the guerrilla armies under British command.
+    He entered Athens on 18 October 1944 to a city that ELAS effectively held. Six weeks
+    later his government tried to demobilise ELAS and the capital went up. He resigned on
+    3 January 1945 and was replaced by Nikolaos Plastiras.
+
+    He returned to the front rank in the 1960s at the head of the Centre Union, won the
+    elections of 1963 and 1964, and was dismissed by King Constantine II in July 1965 in a
+    quarrel over control of the army. The two years of instability that followed ended
+    with the colonels' coup of April 1967. He died under house arrest in November 1968,
+    and his funeral became the largest public demonstration against the junta up to that
+    time.
+  el: |
+    Ο Παπανδρέου προερχόταν από τον βενιζελικό χώρο, είχε διατελέσει υπουργός τις
+    δεκαετίες του 1920 και του 1930 και είχε φυλακιστεί από τον Μεταξά. Διέφυγε από την
+    κατεχόμενη Ελλάδα στην Αίγυπτο το 1944 και ορίστηκε πρωθυπουργός στις 26 Απριλίου,
+    αμέσως μετά το κίνημα των ελληνικών δυνάμεων της Αιγύπτου, επειδή οι Βρετανοί ήθελαν
+    δημοκρατικό που να μην ανήκει στην Αριστερά.
+
+    Το επίτευγμά του ήταν το Εθνικό Συμβόλαιο του Λιβάνου τον Μάιο του 1944, που δέσμευσε
+    κάθε ελληνική πολιτική δύναμη, μαζί και το ΕΑΜ, σε μία κυβέρνηση και έναν στρατό, και η
+    Συμφωνία της Καζέρτας τον Σεπτέμβριο, που έθεσε τους αντάρτικους στρατούς υπό βρετανική
+    διοίκηση. Μπήκε στην Αθήνα στις 18 Οκτωβρίου 1944, σε μια πόλη που στην πράξη κρατούσε
+    ο ΕΛΑΣ. Έξι εβδομάδες αργότερα η κυβέρνησή του επιχείρησε να αποστρατεύσει τον ΕΛΑΣ και
+    η πρωτεύουσα πήρε φωτιά. Παραιτήθηκε στις 3 Ιανουαρίου 1945 και τον διαδέχθηκε ο
+    Νικόλαος Πλαστήρας.
+
+    Επανήλθε στην πρώτη γραμμή τη δεκαετία του 1960 επικεφαλής της Ένωσης Κέντρου, κέρδισε
+    τις εκλογές του 1963 και του 1964 και παύθηκε από τον Κωνσταντίνο Β΄ τον Ιούλιο του
+    1965 σε διένεξη για τον έλεγχο του στρατού. Η διετία αστάθειας που ακολούθησε έληξε με
+    το πραξικόπημα των συνταγματαρχών τον Απρίλιο του 1967. Πέθανε σε κατ' οίκον περιορισμό
+    τον Νοέμβριο του 1968, και η κηδεία του έγινε η μεγαλύτερη δημόσια διαδήλωση κατά της
+    χούντας ως τότε.
+sources: [{id: close-1995}, {id: clogg-2021}]

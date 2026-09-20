@@ -1,0 +1,57 @@
+id: papadopoulos-georgios
+name: {en: Georgios Papadopoulos, el: Γεώργιος Παπαδόπουλος}
+born: {date: 1919-05-05, precision: day}
+died: {date: 1999-06-27, precision: day, place: athens}
+roles: [military, statesman]
+summary:
+  en: >
+    Artillery colonel who led the coup of 21 April 1967 and ran the dictatorship for six
+    and a half years, as Prime Minister from December 1967, then Regent, then President
+    of a republic he proclaimed himself. He was deposed by his own hardliners in
+    November 1973, convicted of high treason in 1975 and sentenced to death. The
+    sentence was commuted and he died in prison.
+  el: >
+    Συνταγματάρχης του πυροβολικού που ηγήθηκε του πραξικοπήματος της 21ης Απριλίου 1967
+    και κυβέρνησε τη δικτατορία επί έξι και πλέον χρόνια, ως πρωθυπουργός από τον
+    Δεκέμβριο του 1967, έπειτα αντιβασιλέας και τέλος πρόεδρος μιας δημοκρατίας που
+    ανακήρυξε ο ίδιος. Ανατράπηκε από τους δικούς του σκληροπυρηνικούς τον Νοέμβριο του
+    1973, καταδικάστηκε για εσχάτη προδοσία το 1975 και του επιβλήθηκε η ποινή του
+    θανάτου. Η ποινή μετατράπηκε σε ισόβια και πέθανε στη φυλακή.
+body:
+  en: |
+    Papadopoulos came out of the officer networks that had run the army's politics since
+    the Civil War. What he organised in 1967 was a conspiracy of colonels rather than of
+    generals, which is why nobody above him saw it coming.
+
+    In power he held the substance of the state through a succession of titles. He
+    suspended the constitution, dissolved the parties, censored the press and deported
+    opponents to island camps. From 1972 he tried to build a
+    civilian facade: Regent, then President after abolishing the monarchy in 1973, then a
+    civilian prime minister appointed to prepare elections. The Polytechnic occupation in
+    November 1973 ended the experiment, and Dimitrios Ioannidis removed him eight days
+    after it was crushed.
+
+    At the trial of July and August 1975 he was convicted of high treason and mutiny
+    with Pattakos and Makarezos and was sentenced to death.
+    The Karamanlis government commuted the three sentences to life within hours. He never
+    asked for a pardon and was never offered one, and he died in custody in 1999.
+  el: |
+    Ο Παπαδόπουλος προερχόταν από τα δίκτυα αξιωματικών που έλεγχαν την πολιτική του
+    στρατού από τον Εμφύλιο. Αυτό που οργάνωσε το 1967 ήταν συνωμοσία συνταγματαρχών και
+    όχι στρατηγών, γι' αυτό και κανείς πάνω από αυτόν δεν την είδε να έρχεται.
+
+    Στην εξουσία κράτησε την ουσία του κράτους μέσα από διαδοχικούς τίτλους. Ανέστειλε το
+    Σύνταγμα, διέλυσε τα κόμματα, λογόκρινε τον Τύπο και εκτόπισε αντιπάλους στα
+    ξερονήσια. Από το 1972 προσπάθησε να στήσει πολιτική βιτρίνα:
+    αντιβασιλέας, ύστερα πρόεδρος μετά την κατάργηση της μοναρχίας το 1973, και τέλος
+    πολιτικός πρωθυπουργός διορισμένος να ετοιμάσει εκλογές. Η κατάληψη του Πολυτεχνείου
+    τον Νοέμβριο του 1973 τερμάτισε το πείραμα, και ο Δημήτριος Ιωαννίδης τον
+    απομάκρυνε οκτώ μέρες μετά την καταστολή της.
+
+    Στη δίκη του Ιουλίου και του Αυγούστου 1975 καταδικάστηκε για εσχάτη προδοσία και
+    στάση μαζί με τον Παττακό και τον Μακαρέζο και του επιβλήθηκε θάνατος. Η κυβέρνηση Καραμανλή μετέτρεψε τις τρεις ποινές σε ισόβια
+    μέσα σε λίγες ώρες. Δεν ζήτησε ποτέ χάρη ούτε του προσφέρθηκε, και πέθανε
+    κρατούμενος το 1999.
+sources:
+  - {id: woodhouse-1985}
+  - {id: clogg-2021}

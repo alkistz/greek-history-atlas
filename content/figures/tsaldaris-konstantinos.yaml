@@ -1,0 +1,57 @@
+id: tsaldaris-konstantinos
+name: {en: Konstantinos Tsaldaris, el: Κωνσταντίνος Τσαλδάρης}
+born: {date: 1884-04-14, precision: day}
+died: {date: 1970-11-15, precision: day, place: athens}
+roles: [statesman]
+summary:
+  en: >
+    Leader of the revived People's Party and prime minister from 18 April 1946 to January 1947,
+    the head of the royalist right that won the election the Left boycotted. His government brought
+    the plebiscite on the monarchy forward to September 1946, outlawed the KKE by Law 509/1947,
+    and, when Britain announced it could no longer pay for Greece, pressed Washington for the aid
+    that became the Truman Doctrine.
+  el: >
+    Αρχηγός του ανασυγκροτημένου Λαϊκού Κόμματος και πρωθυπουργός από τις 18 Απριλίου 1946 ως τον
+    Ιανουάριο του 1947, επικεφαλής της βασιλόφρονος δεξιάς που κέρδισε τις εκλογές τις οποίες
+    μποϊκοτάρισε η Αριστερά. Η κυβέρνησή του έφερε το δημοψήφισμα για το πολιτειακό στον Σεπτέμβριο
+    του 1946, έθεσε εκτός νόμου το ΚΚΕ με τον Νόμο 509/1947 και, όταν η Βρετανία ανακοίνωσε ότι δεν
+    μπορούσε πλέον να χρηματοδοτεί την Ελλάδα, πίεσε την Ουάσιγκτον για τη βοήθεια που έγινε το
+    Δόγμα Τρούμαν.
+body:
+  en: |
+    Tsaldaris was born in Alexandria into the family of Panagis Tsaldaris, the pre-war People's
+    Party leader, and took over the party after the war. It won the election of 31 March 1946 at
+    the head of the United Aligned Nationalists bloc, with about 55.1 per cent and 206 seats, in a
+    contest the KKE and EAM abstained from.
+
+    His two decisions of consequence both narrowed the ground. He brought the plebiscite on the
+    monarchy forward from the 1948 date promised at Varkiza to 1 September 1946, with British
+    backing, and restored George II; and after the proclamation of the Provisional Democratic
+    Government he put through Law 509 of 27 December 1947, which banned the KKE and EAM and made
+    membership a crime punishable by long imprisonment or death.
+
+    The third was forced on him. When Britain informed Washington in February 1947 that it would
+    end its Greek commitments, Tsaldaris, by then foreign minister, pressed the Americans to take
+    them over. The result was the Truman address of 12 March 1947, the aid act of 22 May and a
+    relationship with the United States that outlasted him by decades. Cabinets rotated rapidly
+    after January 1947 and he never again headed a government, though he remained a principal
+    figure of the Greek Right until the rise of Papagos.
+  el: |
+    Ο Τσαλδάρης γεννήθηκε στην Αλεξάνδρεια, στην οικογένεια του Παναγή Τσαλδάρη, προπολεμικού
+    αρχηγού του Λαϊκού Κόμματος, και ανέλαβε το κόμμα μετά τον πόλεμο. Κέρδισε τις εκλογές της 31ης
+    Μαρτίου 1946 επικεφαλής της Ηνωμένης Παρατάξεως Εθνικοφρόνων, με περίπου 55,1% και 206 έδρες,
+    σε μια αναμέτρηση από την οποία απείχαν το ΚΚΕ και το ΕΑΜ.
+
+    Οι δύο αποφάσεις του με βάρος στένεψαν και οι δύο το έδαφος. Έφερε το δημοψήφισμα για το
+    πολιτειακό από το 1948, που είχε υποσχεθεί η Βάρκιζα, στην 1η Σεπτεμβρίου 1946, με βρετανική
+    στήριξη, και αποκατέστησε τον Γεώργιο Β΄. Και, μετά την ανακήρυξη της Προσωρινής Δημοκρατικής
+    Κυβέρνησης, πέρασε τον Νόμο 509 της 27ης Δεκεμβρίου 1947, που απαγόρευσε το ΚΚΕ και το ΕΑΜ και
+    κατέστησε τη συμμετοχή σε αυτά έγκλημα με ποινή μακρόχρονης κάθειρξης ή θανάτου.
+
+    Η τρίτη του επιβλήθηκε. Όταν η Βρετανία ενημέρωσε την Ουάσιγκτον τον Φεβρουάριο του 1947 ότι θα
+    τερμάτιζε τις ελληνικές της δεσμεύσεις, ο Τσαλδάρης, υπουργός Εξωτερικών πλέον, πίεσε τους
+    Αμερικανούς να τις αναλάβουν. Το αποτέλεσμα ήταν ο λόγος του Τρούμαν στις 12 Μαρτίου 1947, ο
+    νόμος για τη βοήθεια στις 22 Μαΐου και μια σχέση με τις Ηνωμένες Πολιτείες που τον επέζησε κατά
+    δεκαετίες. Μετά τον Ιανουάριο του 1947 οι κυβερνήσεις εναλλάσσονταν ταχύτατα και δεν ηγήθηκε
+    ξανά κυβέρνησης, παρέμεινε όμως κορυφαία μορφή της ελληνικής Δεξιάς ως την άνοδο του Παπάγου.
+sources: [{id: close-1995}, {id: clogg-2021}]

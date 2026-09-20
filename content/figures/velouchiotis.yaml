@@ -1,0 +1,55 @@
+id: velouchiotis
+name: {en: Aris Velouchiotis, el: Άρης Βελουχιώτης}
+also_known_as:
+  - {en: Athanasios Klaras, el: Θανάσης Κλάρας}
+born: {date: 1905-08-27, precision: day}
+died: {date: 1945-06-16, precision: day}
+roles: [revolutionary, military]
+summary:
+  en: >
+    Communist guerrilla who raised the first band of ELAS in the mountains of Roumeli in
+    June 1942 and became the most famous kapetanios of the resistance. He fought the
+    Germans, the Security Battalions and EDES in turn, refused the Varkiza Agreement, was
+    expelled by his own party and was killed in Arta in June 1945.
+  el: >
+    Κομμουνιστής αντάρτης που συγκρότησε την πρώτη ομάδα του ΕΛΑΣ στα βουνά της Ρούμελης
+    τον Ιούνιο του 1942 και έγινε ο διασημότερος καπετάνιος της Αντίστασης. Πολέμησε
+    διαδοχικά τους Γερμανούς, τα Τάγματα Ασφαλείας και τον ΕΔΕΣ, απέρριψε τη Συμφωνία της
+    Βάρκιζας, διαγράφηκε από το ίδιο του το κόμμα και σκοτώθηκε στην Άρτα τον Ιούνιο του
+    1945.
+body:
+  en: |
+    Athanasios Klaras took the name Aris Velouchiotis from Mount Velouchi and went into
+    the mountains for the KKE in the spring of 1942. He built ELAS out of village
+    recruits and army stragglers by a mixture of personal authority, discipline and
+    exemplary punishment, and he was the Greek face of the resistance to the British
+    officers who supplied it: he commanded the ELAS contingent at Gorgopotamos in
+    November 1942 and led its forces against EDES in the first round a year later.
+
+    He opposed the Lebanon Charter and opposed Varkiza outright, arguing that ELAS should
+    never surrender its arms to a state it did not control. The KKE, which had signed,
+    disowned and expelled him. He kept a small band in the mountains through the spring of
+    1945 and was killed near Mesounta in Arta on 16 June 1945; some English-language
+    accounts give 15 June. His body was beheaded and the head displayed in Trikala. He has
+    been the resistance's most contested figure ever since, revered on the left as the
+    man who would not disarm and held by his critics responsible for the killings that
+    turned much of the country against EAM.
+  el: |
+    Ο Θανάσης Κλάρας πήρε το όνομα Άρης Βελουχιώτης από το Βελούχι και ανέβηκε στο βουνό
+    για λογαριασμό του ΚΚΕ την άνοιξη του 1942. Έχτισε τον ΕΛΑΣ από χωρικούς και
+    διαλυμένους στρατιώτες με συνδυασμό προσωπικού κύρους, πειθαρχίας και παραδειγματικών
+    τιμωριών, και υπήρξε το ελληνικό πρόσωπο της Αντίστασης για τους Βρετανούς
+    αξιωματικούς που την εφοδίαζαν: διοίκησε το τμήμα του ΕΛΑΣ στον Γοργοπόταμο τον
+    Νοέμβριο του 1942 και οδήγησε τις δυνάμεις του εναντίον του ΕΔΕΣ στον πρώτο γύρο έναν
+    χρόνο αργότερα.
+
+    Αντιτάχθηκε στο Εθνικό Συμβόλαιο του Λιβάνου και απέρριψε ευθέως τη Βάρκιζα, με το
+    επιχείρημα ότι ο ΕΛΑΣ δεν έπρεπε ποτέ να παραδώσει τα όπλα του σε κράτος που δεν
+    έλεγχε. Το ΚΚΕ, που είχε υπογράψει, τον αποκήρυξε και τον διέγραψε. Κράτησε μικρή ομάδα
+    στα βουνά όλη την άνοιξη του 1945 και σκοτώθηκε κοντά στη Μεσούντα Άρτας στις 16
+    Ιουνίου 1945, ενώ ορισμένες αγγλόφωνες πηγές δίνουν τις 15 Ιουνίου. Το σώμα του
+    αποκεφαλίστηκε και το κεφάλι εκτέθηκε στα Τρίκαλα. Παραμένει η πιο αμφιλεγόμενη μορφή
+    της Αντίστασης, τιμώμενος στην Αριστερά ως ο άνθρωπος που δεν αφοπλίστηκε και
+    καταλογισμένος από τους επικριτές του με τις εκτελέσεις που έστρεψαν μεγάλο μέρος της
+    χώρας εναντίον του ΕΑΜ.
+sources: [{id: mazower-1993}, {id: close-1995}]

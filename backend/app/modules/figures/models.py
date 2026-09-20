@@ -8,7 +8,15 @@ from app.core.markdown import render_lang_text
 from app.core.models import Citation, LangText, Precision, Strict
 
 FigureRole = Literal[
-    "monarch", "statesman", "military", "revolutionary", "diplomat", "writer", "cleric"
+    "monarch",
+    "statesman",
+    "military",
+    "revolutionary",
+    "diplomat",
+    "writer",
+    "cleric",
+    "athlete",
+    "benefactor",
 ]
 
 

@@ -1,0 +1,51 @@
+id: makriyannis
+name: {en: Ioannis Makriyannis, el: Ιωάννης Μακρυγιάννης}
+also_known_as: [{en: Ioannis Triantafyllou, el: Ιωάννης Τριανταφύλλου}]
+born: {date: 1797-01-01, precision: year}
+died: {date: 1864-04-27, precision: day, place: athens}
+roles: [military, revolutionary, writer]
+summary:
+  en: >
+    General of the War of Independence and the principal civilian organiser of the
+    rising that forced a constitution on Otto in September 1843. He is remembered as
+    much for the Memoirs, a book written by a man who taught himself to write in order
+    to produce it, as for anything he did with a gun.
+  el: >
+    Στρατηγός του Αγώνα και ο κύριος πολιτικός οργανωτής του κινήματος που επέβαλε
+    σύνταγμα στον Όθωνα τον Σεπτέμβριο του 1843. Τον θυμούνται εξίσου για τα
+    Απομνημονεύματα, βιβλίο γραμμένο από άνθρωπο που έμαθε γράμματα μόνος του για να το
+    γράψει, όσο και για όσα έκανε με το όπλο.
+body:
+  en: |
+    Born Ioannis Triantafyllou in the village of Avoriti in Doris in 1797, the exact day
+    unrecorded, he took the name Makriyannis from his years in Livadeia. He fought
+    through the revolution and came into the kingdom as one of the veterans the Bavarian
+    regency had least use for. His house on the slope of the Acropolis became the
+    meeting place of the conspiracy that surrounded the palace on 3 September 1843, and
+    the police knew it.
+
+    He sat in the assembly that wrote the Constitution of 1844 and spent the years after
+    it opposing what the constitution turned into in Otto's hands. He was tried for
+    conspiracy against the king in the 1850s, sentenced to death and then reprieved, and
+    came out of prison a broken man. He died in Athens in 1864. The Memoirs, written in
+    the demotic Greek of a man with no schooling, were published long after his death,
+    and Greek writers of the twentieth century treated the book as a founding text of
+    modern Greek prose.
+  el: |
+    Γεννήθηκε ως Ιωάννης Τριανταφύλλου στο Αβορίτι της Δωρίδας το 1797, χωρίς να έχει
+    καταγραφεί η ακριβής ημέρα, και πήρε το όνομα Μακρυγιάννης από τα χρόνια του στη
+    Λιβαδειά. Πολέμησε σε όλη την Επανάσταση και μπήκε στο βασίλειο ως ένας από τους
+    αγωνιστές που η βαβαρική Αντιβασιλεία χρειαζόταν λιγότερο από κάθε άλλον. Το σπίτι
+    του στην πλαγιά της Ακρόπολης έγινε τόπος συνάντησης της συνωμοσίας που περικύκλωσε
+    τα ανάκτορα στις 3 Σεπτεμβρίου 1843, και η αστυνομία το γνώριζε.
+
+    Μετείχε στην Εθνοσυνέλευση που συνέταξε το Σύνταγμα του 1844 και πέρασε τα χρόνια που
+    ακολούθησαν πολεμώντας αυτό που έγινε το σύνταγμα στα χέρια του Όθωνα. Δικάστηκε για
+    συνωμοσία κατά του βασιλιά μέσα στη δεκαετία του 1850, καταδικάστηκε σε θάνατο και
+    ύστερα του δόθηκε χάρη, και βγήκε από τη φυλακή τσακισμένος. Πέθανε στην Αθήνα το
+    1864. Τα Απομνημονεύματα, γραμμένα στη δημοτική ενός ανθρώπου χωρίς σχολείο,
+    εκδόθηκαν πολύ μετά τον θάνατό του, και οι Έλληνες λογοτέχνες του εικοστού αιώνα τα
+    αντιμετώπισαν ως θεμελιώδες κείμενο της νεοελληνικής πεζογραφίας.
+sources:
+  - {id: clogg-2021}
+  - {id: koliopoulos-veremis-2010}

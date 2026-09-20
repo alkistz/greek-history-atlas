@@ -1,0 +1,60 @@
+id: menderes
+name: {en: Adnan Menderes, el: Αντνάν Μεντερές}
+born: {date: 1899-01-01, precision: year}
+died: {date: 1961-09-17, precision: day}
+roles: [statesman]
+summary:
+  en: >
+    Prime minister of Turkey from 1950 to 1960, in office when the Cyprus dispute brought Greece
+    and Turkey into open conflict as NATO allies and when the Istanbul pogrom of September 1955
+    destroyed the Greek community of the city. Overthrown by the Turkish coup of 1960, he was tried
+    at Yassıada, found to have organised the September 1955 provocation, convicted and hanged in
+    1961. The Turkish parliament passed a law rehabilitating him in 1990.
+  el: >
+    Πρωθυπουργός της Τουρκίας από το 1950 ως το 1960, στην εξουσία όταν το Κυπριακό έφερε Ελλάδα
+    και Τουρκία σε ανοιχτή σύγκρουση ως συμμάχους του ΝΑΤΟ και όταν τα Σεπτεμβριανά του 1955
+    κατέστρεψαν την ελληνική κοινότητα της Κωνσταντινούπολης. Ανατράπηκε από το τουρκικό
+    πραξικόπημα του 1960, δικάστηκε στο Γιασίαντα, κρίθηκε υπεύθυνος για την οργάνωση της
+    πρόκλησης του Σεπτεμβρίου 1955, καταδικάστηκε και απαγχονίστηκε το 1961. Το τουρκικό
+    κοινοβούλιο ψήφισε νόμο αποκατάστασής του το 1990.
+body:
+  en: |
+    Menderes came to power in 1950 at the head of the Democrat Party, in the first Turkish election
+    to transfer power between parties. His decade in office is remembered in Turkey for rapid
+    growth, rural electrification and a widening quarrel with the republican establishment, and in
+    Greece for two things: the entry of Turkey into the Cyprus question as a party with a claim,
+    and the night of 6 September 1955.
+
+    The Istanbul pogrom followed a report that a bomb had damaged the Turkish consulate and
+    Atatürk's birthplace in Thessaloniki; the device had been planted by a Turkish usher at the
+    consulate. Crowds brought into Istanbul destroyed 5,317 properties, including 73 churches and
+    26 schools, and the Greek population of the city fell from about 65,000 in 1955 to 49,000 by
+    1960. The attacks came a week after the tripartite conference on Cyprus in London had broken
+    up without agreement.
+
+    The Turkish army removed him on 27 May 1960. He and his foreign minister Fatin Rüştü Zorlu
+    were tried on the island of Yassıada, found to have organised the September 1955 provocation
+    among other charges, and hanged in September 1961. Both the verdict and the rehabilitation law
+    of 1990 are politically contested in Turkey, where his execution is remembered by his political
+    heirs as the founding injustice of military intervention in Turkish politics.
+  el: |
+    Ο Μεντερές ήρθε στην εξουσία το 1950 επικεφαλής του Δημοκρατικού Κόμματος, στις πρώτες τουρκικές
+    εκλογές που μετέφεραν την εξουσία από κόμμα σε κόμμα. Η δεκαετία της διακυβέρνησής του
+    θυμάται στην Τουρκία για την ταχεία ανάπτυξη, τον εξηλεκτρισμό της υπαίθρου και τη διευρυνόμενη
+    σύγκρουση με το κεμαλικό κατεστημένο, και στην Ελλάδα για δύο πράγματα: την είσοδο της Τουρκίας
+    στο Κυπριακό ως μέρους με αξίωση, και τη νύχτα της 6ης Σεπτεμβρίου 1955.
+
+    Τα Σεπτεμβριανά ακολούθησαν την είδηση ότι βόμβα είχε προκαλέσει ζημιά στο τουρκικό προξενείο
+    και στο σπίτι όπου γεννήθηκε ο Κεμάλ Ατατούρκ στη Θεσσαλονίκη· τον μηχανισμό είχε τοποθετήσει
+    Τούρκος κλητήρας του προξενείου. Πλήθη που μεταφέρθηκαν στην Κωνσταντινούπολη κατέστρεψαν 5.317
+    περιουσίες, ανάμεσά τους 73 εκκλησίες και 26 σχολεία, και ο ελληνικός πληθυσμός της πόλης
+    έπεσε από περίπου 65.000 το 1955 σε 49.000 το 1960. Οι επιθέσεις ήρθαν μία εβδομάδα αφότου η
+    τριμερής διάσκεψη του Λονδίνου για την Κύπρο είχε διαλυθεί χωρίς συμφωνία.
+
+    Ο τουρκικός στρατός τον ανέτρεψε στις 27 Μαΐου 1960. Ο ίδιος και ο υπουργός Εξωτερικών του
+    Φατίν Ρουστού Ζορλού δικάστηκαν στο νησί Γιασίαντα, κρίθηκαν υπεύθυνοι για την οργάνωση της
+    πρόκλησης του Σεπτεμβρίου 1955 μεταξύ άλλων κατηγοριών, και απαγχονίστηκαν τον Σεπτέμβριο του
+    1961. Τόσο η ετυμηγορία όσο και ο νόμος αποκατάστασης του 1990 παραμένουν πολιτικά
+    αμφισβητούμενα στην Τουρκία, όπου οι πολιτικοί κληρονόμοι του θυμούνται την εκτέλεσή του ως τη
+    θεμελιώδη αδικία της στρατιωτικής παρέμβασης στην τουρκική πολιτική.
+sources: [{id: holland-markides-2006}, {id: clogg-2021}]

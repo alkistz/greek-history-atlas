@@ -1,0 +1,48 @@
+id: kallergis
+name: {en: Dimitrios Kallergis, el: Δημήτριος Καλλέργης}
+born: {date: 1803-01-01, precision: year}
+died: {date: 1867-04-08, precision: day, place: athens}
+roles: [military, statesman]
+summary:
+  en: >
+    Cretan-born cavalry colonel who executed the rising of 3 September 1843, bringing
+    the Athens garrison out in front of the palace and keeping it there until Otto
+    agreed to a constitution. Eleven years later the French installed him as minister of
+    war in the government they imposed during the occupation of Piraeus, which cost him
+    most of the credit he had earned.
+  el: >
+    Κρητικής καταγωγής συνταγματάρχης του ιππικού που εκτέλεσε το κίνημα της 3ης
+    Σεπτεμβρίου 1843, βγάζοντας τη φρουρά της Αθήνας μπροστά στα ανάκτορα και κρατώντας
+    την εκεί ώσπου ο Όθων να δεχθεί σύνταγμα. Έντεκα χρόνια αργότερα οι Γάλλοι τον
+    εγκατέστησαν υπουργό Στρατιωτικών στην κυβέρνηση που επέβαλαν κατά την κατοχή του
+    Πειραιά, πράγμα που του στοίχισε το μεγαλύτερο μέρος του κύρους του.
+body:
+  en: |
+    Kallergis was born in Crete in 1803, the day unrecorded. He came to Greece during
+    the revolution and rose under Otto to command the cavalry at Athens, one of the few
+    Greek officers left in a senior post as Bavarians took the others. On the night of 2
+    to 3 September 1843 he brought the garrison out and kept it in front of the palace
+    until the king gave way, without a shot being fired. It made him briefly the most
+    popular soldier in the country.
+
+    He held office under the constitution he had won and quarrelled with nearly everyone
+    who held it with him. When Anglo-French troops landed at Piraeus in 1854 he took the
+    War Ministry at French insistence, and until Mavrokordatos arrived to head the
+    government he answered to almost no one; Greeks called the whole administration the
+    Ministry of Occupation. He died in Athens in 1867.
+  el: |
+    Ο Καλλέργης γεννήθηκε στην Κρήτη το 1803, χωρίς καταγεγραμμένη ημέρα. Ήρθε στην
+    Ελλάδα στη διάρκεια της Επανάστασης και ανέβηκε επί Όθωνα ως διοικητής του ιππικού
+    της Αθήνας, ένας από τους λίγους Έλληνες αξιωματικούς που κρατήθηκαν σε ανώτερη θέση
+    καθώς οι Βαβαροί έπαιρναν τις υπόλοιπες. Τη νύχτα της 2ας προς 3η Σεπτεμβρίου 1843
+    έβγαλε τη φρουρά και την κράτησε μπροστά στα ανάκτορα ώσπου ο βασιλιάς υποχώρησε,
+    χωρίς να πέσει ντουφεκιά. Τον έκανε για λίγο τον δημοφιλέστερο στρατιωτικό της χώρας.
+
+    Ανέλαβε αξιώματα υπό το σύνταγμα που είχε κερδίσει και τα χάλασε σχεδόν με όλους όσοι
+    τα μοιράζονταν μαζί του. Όταν αγγλογαλλικά στρατεύματα αποβιβάστηκαν στον Πειραιά το
+    1854, πήρε το Υπουργείο Στρατιωτικών κατ' απαίτηση των Γάλλων και, ώσπου να φτάσει ο
+    Μαυροκορδάτος στην πρωθυπουργία, δεν λογοδοτούσε ουσιαστικά σε κανέναν. Οι Έλληνες
+    ονόμασαν ολόκληρη εκείνη τη διοίκηση Υπουργείο Κατοχής. Πέθανε στην Αθήνα το 1867.
+sources:
+  - {id: clogg-2021}
+  - {id: koliopoulos-veremis-2010}

@@ -1,0 +1,54 @@
+id: inonu
+name: {en: İsmet İnönü, el: Ισμέτ Ινονού}
+born: {date: 1884-09-24, precision: day, place: smyrna}
+died: {date: 1973-12-25, precision: day, place: ankara}
+roles: [statesman, military]
+summary:
+  en: >
+    Turkish prime minister from 1923 to 1937 and Atatürk's successor as President. Born in
+    Smyrna, he was Venizelos's counterpart in the settlement of 1930 that closed the property
+    question left open at Lausanne and turned Greece and Turkey from enemies into treaty
+    partners for the rest of the interwar period.
+  el: >
+    Τούρκος πρωθυπουργός από το 1923 ως το 1937 και διάδοχος του Ατατούρκ στην προεδρία.
+    Γεννημένος στη Σμύρνη, υπήρξε ο συνομιλητής του Βενιζέλου στη διευθέτηση του 1930 που
+    έκλεισε το ζήτημα των περιουσιών το οποίο είχε αφήσει ανοιχτό η Λωζάνη και μετέτρεψε
+    Ελλάδα και Τουρκία από εχθρούς σε συμβαλλόμενους για το υπόλοιπο του Μεσοπολέμου.
+body:
+  en: |
+    İnönü was a staff officer of the Ottoman army who became Mustafa Kemal's chief
+    lieutenant, commanded against the Greek advance in western Anatolia, and led the Turkish
+    delegation at Lausanne. He took his name from the battles he fought there. As prime
+    minister of the republic he ran its domestic transformation for most of its first
+    fourteen years.
+
+    With Venizelos he settled the one question Lausanne had failed to answer. The Ankara
+    Convention of 10 June 1930 wrote off the abandoned properties of the exchanged
+    populations against each other, and the treaty of friendship, neutrality, conciliation
+    and arbitration signed on 30 October bound each state to neutrality if the other were
+    attacked. İnönü returned Venizelos's visit in Athens in October 1931. The understanding
+    survived both men's governments and was extended by protocol in 1938.
+
+    He succeeded Atatürk as President in 1938 and kept Turkey out of the Second World War. He
+    later presided over the transition to multi-party politics, losing power at the ballot box
+    in 1950 and returning as prime minister in the 1960s.
+  el: |
+    Ο Ινονού ήταν επιτελικός αξιωματικός του οθωμανικού στρατού που έγινε ο πρώτος συνεργάτης
+    του Μουσταφά Κεμάλ, διοίκησε απέναντι στην ελληνική προέλαση στη δυτική Ανατολία και
+    ηγήθηκε της τουρκικής αντιπροσωπείας στη Λωζάνη. Το όνομά του το πήρε από τις μάχες που
+    έδωσε εκεί. Ως πρωθυπουργός της δημοκρατίας διηύθυνε τον εσωτερικό της μετασχηματισμό για
+    το μεγαλύτερο μέρος των πρώτων δεκατεσσάρων χρόνων της.
+
+    Με τον Βενιζέλο διευθέτησε το μοναδικό ζήτημα που δεν είχε λύσει η Λωζάνη. Η Σύμβαση της
+    Άγκυρας της 10ης Ιουνίου 1930 συμψήφισε τις εγκαταλελειμμένες περιουσίες των ανταλλαγέντων
+    πληθυσμών, και το σύμφωνο φιλίας, ουδετερότητας, συνδιαλλαγής και διαιτησίας της 30ής
+    Οκτωβρίου δέσμευε κάθε κράτος σε ουδετερότητα αν δεχόταν επίθεση το άλλο. Ο Ινονού
+    ανταπέδωσε την επίσκεψη του Βενιζέλου στην Αθήνα τον Οκτώβριο του 1931. Η συνεννόηση
+    επέζησε και των δύο κυβερνήσεων και επεκτάθηκε με πρωτόκολλο το 1938.
+
+    Διαδέχθηκε τον Ατατούρκ στην προεδρία το 1938 και κράτησε την Τουρκία έξω από τον Β΄
+    Παγκόσμιο Πόλεμο. Αργότερα προήδρευσε στη μετάβαση σε πολυκομματικό σύστημα, έχασε την
+    εξουσία στις κάλπες το 1950 και επέστρεψε στην πρωθυπουργία τη δεκαετία του 1960.
+sources:
+  - {id: clark-2006}
+  - {id: clogg-2021}

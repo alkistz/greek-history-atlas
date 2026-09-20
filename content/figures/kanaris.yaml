@@ -1,0 +1,50 @@
+id: kanaris
+name: {en: Konstantinos Kanaris, el: Κωνσταντίνος Κανάρης}
+born: {date: 1790-01-01, precision: circa}
+died: {date: 1877-09-02, precision: day, place: athens}
+roles: [military, statesman]
+summary:
+  en: >
+    Fireship captain from Psara whose attacks in 1822 destroyed Ottoman flagships and
+    made him the most celebrated sailor of the revolution. He lived long enough to
+    become the conscience of the kingdom: a member of the triumvirate that deposed Otto
+    in 1862, and prime minister during the constitutional crisis of 1864 and again at
+    his death in 1877.
+  el: >
+    Μπουρλοτιέρης από τα Ψαρά, του οποίου οι επιθέσεις του 1822 κατέστρεψαν οθωμανικές
+    ναυαρχίδες και τον έκαναν τον πιο ξακουστό ναυτικό της Επανάστασης. Έζησε αρκετά ώστε
+    να γίνει η συνείδηση του βασιλείου: μέλος της τριανδρίας που εξέθρονισε τον Όθωνα το
+    1862, πρωθυπουργός στη συνταγματική κρίση του 1864 και ξανά πρωθυπουργός όταν πέθανε,
+    το 1877.
+body:
+  en: |
+    Kanaris was born on Psara around 1790. The year is disputed and is given anywhere
+    between 1790 and 1795; no record settles it, and the atlas gives it as approximate.
+    He was a merchant seaman before the revolution and made his name in 1822 by taking a
+    fireship alongside the Ottoman flagship off Chios and blowing it up with the admiral
+    aboard, in reprisal for the massacre of the island.
+
+    Under the kingdom he took office repeatedly and never enriched himself, which in
+    nineteenth-century Athens was unusual enough to be remarked on. He joined Dimitrios
+    Voulgaris and Benizelos Rouphos in the provisional government of October 1862 that
+    declared Otto deposed, and led the ministry that broke the deadlock over the royal
+    prerogative in the assembly that produced the Constitution of 1864. He was prime
+    minister once more when he died in September 1877.
+  el: |
+    Ο Κανάρης γεννήθηκε στα Ψαρά γύρω στο 1790. Η χρονιά αμφισβητείται και δίνεται
+    οπουδήποτε ανάμεσα στο 1790 και το 1795. Κανένα τεκμήριο δεν την κλείνει, και ο
+    άτλαντας τη δίνει ως κατά προσέγγιση. Πριν την Επανάσταση ήταν εμποροπλοίαρχος και το
+    όνομά του το έκανε το 1822, όταν πλεύρισε με πυρπολικό την οθωμανική ναυαρχίδα έξω
+    από τη Χίο και την ανατίναξε με τον ναύαρχο πάνω της, σε αντίποινα για τη σφαγή του
+    νησιού.
+
+    Στο βασίλειο ανέλαβε αξιώματα επανειλημμένα και ποτέ δεν πλούτισε, πράγμα αρκετά
+    ασυνήθιστο στην Αθήνα του δέκατου ένατου αιώνα ώστε να σχολιάζεται. Μετείχε με τον
+    Δημήτριο Βούλγαρη και τον Μπενιζέλο Ρούφο στην προσωρινή κυβέρνηση του Οκτωβρίου 1862
+    που κήρυξε έκπτωτο τον Όθωνα, και ηγήθηκε της κυβέρνησης που έσπασε το αδιέξοδο για
+    τα βασιλικά προνόμια στην Εθνοσυνέλευση που παρήγαγε το Σύνταγμα του 1864. Ήταν ξανά
+    πρωθυπουργός όταν πέθανε, τον Σεπτέμβριο του 1877.
+sources:
+  - {id: clogg-2021}
+  - {id: brewer-2001}
+  - {id: koliopoulos-veremis-2010}

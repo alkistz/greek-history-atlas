@@ -1,12 +1,19 @@
 id: revolution-outbreak
 title:
   en: Outbreak of the Greek Revolution
+  el: Η έναρξη της Ελληνικής Επανάστασης
 summary:
   en: >
     Risings against Ottoman rule broke out across the Peloponnese and Central Greece
     in the spring of 1821. The 25th of March, Old Style, is the date the Greek state later
     chose to commemorate, though the first actions came earlier and in several places at
     once, including Alexandros Ypsilantis crossing the Pruth into Moldavia in February.
+  el: >
+    Την άνοιξη του 1821 ξέσπασαν εξεγέρσεις κατά της οθωμανικής κυριαρχίας σε ολόκληρη την
+    Πελοπόννησο και τη Στερεά Ελλάδα. Η 25η Μαρτίου με το παλαιό ημερολόγιο είναι η ημερομηνία
+    που το ελληνικό κράτος επέλεξε αργότερα να τιμά, αν και οι πρώτες κινήσεις έγιναν νωρίτερα
+    και σε πολλά σημεία ταυτόχρονα, ανάμεσά τους η διάβαση του Προύθου από τον Αλέξανδρο
+    Υψηλάντη προς τη Μολδαβία τον Φεβρουάριο.
 body:
   en: |
     The revolution had two openings. In the Danubian Principalities, Alexandros
@@ -19,6 +26,18 @@ body:
     and the countryside was in Greek hands. The 25th of March, the feast of the
     Annunciation, was fixed as the national day in 1838 and is 6 April in the Gregorian
     calendar used on this map.
+  el: |
+    Η επανάσταση είχε δύο αφετηρίες. Στις Παραδουνάβιες Ηγεμονίες ο Αλέξανδρος Υψηλάντης
+    πέρασε τον Προύθο από ρωσικό έδαφος στις 6 Μαρτίου 1821 επικεφαλής μικρής δύναμης,
+    περιμένοντας ρωσική υποστήριξη που δεν ήρθε ποτέ. Η εκστρατεία του είχε τελειώσει ως τον
+    Ιούνιο.
+
+    Στην Πελοπόννησο η εξέγερση απλώθηκε μέσα στο δεύτερο μισό του Μαρτίου, με το παλαιό
+    ημερολόγιο, από τα Καλάβρυτα και την Πάτρα ως τη Μάνη, όπου ο Πετρόμπεης Μαυρομιχάλης και
+    ο Κολοκοτρώνης ξεσήκωσαν τα γένη. Μέσα σε λίγες εβδομάδες οι οθωμανικές φρουρές είχαν
+    κλειστεί στα κάστρα και η ύπαιθρος βρισκόταν σε ελληνικά χέρια. Η 25η Μαρτίου, γιορτή του
+    Ευαγγελισμού, καθιερώθηκε ως εθνική επέτειος το 1838 και αντιστοιχεί στην 6η Απριλίου του
+    γρηγοριανού ημερολογίου που χρησιμοποιεί αυτός ο χάρτης.
 period: [1821-04-06, 1821-04-07]
 precision: day
 as_written: {date: 1821-03-25, calendar: julian}

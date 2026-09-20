@@ -1,0 +1,47 @@
+id: zaimis
+name: {en: Alexandros Zaimis, el: Αλέξανδρος Ζαΐμης}
+born: {date: 1855-10-28, precision: day, place: athens}
+died: {date: 1936-09-15, precision: day, place: vienna}
+roles: [statesman]
+summary:
+  en: >
+    Greek politician of the old school, six times prime minister, High Commissioner of
+    Crete from 1906 to 1908 and the last President of the Second Hellenic Republic. He was
+    sent to Crete to repair what Prince George's rule had broken and was absent on leave
+    when the Cretan Assembly proclaimed union without him. He spent his career being called
+    on as the man acceptable to everyone at moments when nobody else was.
+  el: >
+    Πολιτικός της παλαιάς σχολής, έξι φορές πρωθυπουργός, Ύπατος Αρμοστής της Κρήτης από το
+    1906 ως το 1908 και τελευταίος Πρόεδρος της Β΄ Ελληνικής Δημοκρατίας. Στάλθηκε στην
+    Κρήτη για να επιδιορθώσει ό,τι είχε χαλάσει η διακυβέρνηση του πρίγκιπα Γεωργίου και
+    έλειπε με άδεια όταν η Βουλή των Κρητών κήρυξε την Ένωση χωρίς αυτόν. Πέρασε τη
+    σταδιοδρομία του καλούμενος ως ο άνθρωπος που ήταν αποδεκτός από όλους, σε στιγμές που
+    κανείς άλλος δεν ήταν.
+body:
+  en: |
+    Zaimis took over in Crete on 18 September 1906, after the commission of inquiry that
+    followed the Therisos revolt had forced out Prince George. His brief was to
+    reorganise the Cretan State along lines the Powers could defend, and he did it well
+    enough that the Powers withdrew their troops in 1909. What he could not do was deliver
+    union, which was the only thing Cretans wanted.
+
+    On 24 September 1908, Old Style, while he was off the island on leave, the Assembly
+    resolved to govern in the name of the King of the Hellenes. The record dates the end of
+    his commission to that day. He returned to Greek politics, held the premiership
+    repeatedly in the 1915 to 1928 period, and was elected President of the Republic in
+    1929, serving until the restoration of the monarchy in 1935.
+  el: |
+    Ο Ζαΐμης ανέλαβε στην Κρήτη στις 18 Σεπτεμβρίου 1906, αφού η εξεταστική επιτροπή που
+    ακολούθησε την Επανάσταση του Θερίσου είχε απομακρύνει τον πρίγκιπα Γεώργιο. Η εντολή
+    του ήταν να αναδιοργανώσει την Κρητική Πολιτεία σε βάσεις που θα μπορούσαν να
+    υπερασπιστούν οι Δυνάμεις, και τα κατάφερε αρκετά ώστε εκείνες να αποσύρουν τα
+    στρατεύματά τους το 1909. Εκείνο που δεν μπορούσε να δώσει ήταν η Ένωση, το μόνο που
+    ζητούσαν οι Κρητικοί.
+
+    Στις 24 Σεπτεμβρίου 1908 με το παλαιό ημερολόγιο, ενώ έλειπε από το νησί με άδεια, η
+    Βουλή των Κρητών αποφάσισε να κυβερνά στο όνομα του βασιλιά των Ελλήνων. Οι πηγές
+    χρονολογούν τη λήξη της αρμοστείας του σε εκείνη την ημέρα. Επέστρεψε στην ελληνική
+    πολιτική, ανέλαβε επανειλημμένα την πρωθυπουργία μεταξύ 1915 και 1928 και εκλέχθηκε
+    Πρόεδρος της Δημοκρατίας το 1929, θητεία που κράτησε ως την παλινόρθωση της βασιλείας το
+    1935.
+sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]

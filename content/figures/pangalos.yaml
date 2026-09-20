@@ -1,0 +1,56 @@
+id: pangalos
+name: {en: Theodoros Pangalos, el: Θεόδωρος Πάγκαλος}
+born: {date: 1878-01-23, precision: day}
+died: {date: 1952-02-26, precision: day}
+roles: [military, statesman]
+summary:
+  en: >
+    Army general, one of the officers of the 1922 revolution, who seized power in June 1925
+    and ruled as dictator for fourteen months. He invaded Bulgaria, was condemned by the
+    League of Nations, had himself elected President in a rigged ballot and was removed
+    without a shot by his own Republican Guard.
+  el: >
+    Στρατηγός, ένας από τους αξιωματικούς της Επανάστασης του 1922, που κατέλαβε την εξουσία
+    τον Ιούνιο του 1925 και κυβέρνησε δικτατορικά επί δεκατέσσερις μήνες. Εισέβαλε στη
+    Βουλγαρία, καταδικάστηκε από την Κοινωνία των Εθνών, εκλέχθηκε Πρόεδρος με νοθευμένη
+    ψηφοφορία και ανατράπηκε αναίμακτα από τη Δημοκρατική Φρουρά που ο ίδιος είχε ιδρύσει.
+body:
+  en: |
+    Pangalos came out of the Military League and the Balkan Wars, served in Asia
+    Minor and joined the revolutionary committee that overthrew the government after the
+    Catastrophe. He prosecuted the Trial of the Six that followed, which left him hated by
+    the royalists and distrusted by much of his own side.
+
+    Told in June 1925 that the Michalakopoulos government intended to arrest him, he took
+    Athens instead. In power he dissolved the National Assembly, suspended the draft
+    constitution, deported opponents, set up extraordinary courts and issued the moralising
+    decrees for which he is still remembered, including the rule on the length of women's
+    skirts. His invasion of Bulgaria in October 1925 ended in withdrawal under League order
+    and an indemnity, and his currency measures, above all the halving of banknotes to force
+    a compulsory loan, wrecked confidence in the drachma.
+
+    Georgios Kondylis arrested him on 22 August 1926 using the Republican Guard that Pangalos
+    had raised for his own protection. He served about two years in prison, re-emerged
+    briefly during the Axis occupation, and died in 1952.
+  el: |
+    Ο Πάγκαλος προερχόταν από τον Στρατιωτικό Σύνδεσμο και τους Βαλκανικούς
+    Πολέμους, υπηρέτησε στη Μικρά Ασία και εντάχθηκε στην επαναστατική επιτροπή που ανέτρεψε
+    την κυβέρνηση μετά την Καταστροφή. Άσκησε τη δίωξη στη Δίκη των Έξι που ακολούθησε,
+    πράγμα που τον έκανε μισητό στους βασιλόφρονες και ύποπτο σε μεγάλο μέρος της ίδιας του
+    της παράταξης.
+
+    Όταν τον Ιούνιο του 1925 έμαθε ότι η κυβέρνηση Μιχαλακόπουλου σκόπευε να τον συλλάβει,
+    κατέλαβε αντ' αυτού την Αθήνα. Στην εξουσία διέλυσε την Εθνοσυνέλευση, ανέστειλε το σχέδιο
+    συντάγματος, εκτόπισε αντιπάλους, συνέστησε έκτακτα δικαστήρια και εξέδωσε τα ηθικολογικά
+    διατάγματα για τα οποία μνημονεύεται ακόμη, ανάμεσά τους ο κανόνας για το μήκος της
+    γυναικείας φούστας. Η εισβολή του στη Βουλγαρία τον Οκτώβριο του 1925 κατέληξε σε
+    αποχώρηση με εντολή της Κοινωνίας των Εθνών και σε αποζημίωση, ενώ τα νομισματικά του
+    μέτρα, προπάντων η διχοτόμηση των χαρτονομισμάτων για αναγκαστικό δάνειο, διέλυσαν την
+    εμπιστοσύνη στη δραχμή.
+
+    Ο Γεώργιος Κονδύλης τον συνέλαβε στις 22 Αυγούστου 1926 με τη Δημοκρατική Φρουρά που ο
+    ίδιος ο Πάγκαλος είχε συγκροτήσει για προστασία του. Έμεινε περίπου δύο χρόνια στη φυλακή,
+    εμφανίστηκε για λίγο ξανά στα χρόνια της Κατοχής και πέθανε το 1952.
+sources:
+  - {id: clogg-2021}
+  - {id: koliopoulos-veremis-2010}

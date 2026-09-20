@@ -8,6 +8,10 @@ summary:
     Corfiot diplomat, joint foreign minister of Russia, and from 1828 the first head of
     state of independent Greece. He built the institutions of the new state and was
     assassinated in Nafplio in 1831.
+  el: >
+    Κερκυραίος διπλωμάτης, συνυπουργός Εξωτερικών της Ρωσίας και από το 1828 πρώτος Κυβερνήτης
+    του ανεξάρτητου ελληνικού κράτους. Οργάνωσε τους θεσμούς του νέου κράτους και δολοφονήθηκε
+    στο Ναύπλιο το 1831.
 body:
   en: |
     Kapodistrias made his career in the Russian foreign service, where he represented
@@ -21,4 +25,16 @@ body:
     1831 he was shot on the steps of the church of Saint Spyridon in Nafplio by members
     of the Mavromichalis family. The anarchy that followed hastened the Powers'
     decision to impose a monarchy.
+  el: |
+    Ο Καποδίστριας σταδιοδρόμησε στη ρωσική διπλωματική υπηρεσία, εκπροσώπησε τον τσάρο στο
+    Συνέδριο της Βιέννης και συνέβαλε στη ρύθμιση του επτανησιακού ζητήματος το 1815. Αρνήθηκε
+    το 1820 την αρχηγία της Φιλικής Εταιρείας, κρίνοντας πρόωρη την εξέγερση, αλλά το 1827
+    εκλέχθηκε Κυβερνήτης της Ελλάδας από την Γ΄ Εθνοσυνέλευση.
+
+    Έφτασε τον Ιανουάριο του 1828 σε μια χώρα χωρίς διοίκηση, χωρίς νόμισμα και χωρίς
+    λειτουργικό στρατό, και καταπιάστηκε με τη δημιουργία και των τριών. Η συγκεντρωτική
+    διακυβέρνησή του του δημιούργησε εχθρούς ανάμεσα στους νησιώτες πλοιοκτήτες και στους
+    πελοποννήσιους προύχοντες. Στις 9 Οκτωβρίου 1831 δολοφονήθηκε στα σκαλιά του Αγίου
+    Σπυρίδωνα στο Ναύπλιο από μέλη της οικογένειας Μαυρομιχάλη. Η αναρχία που ακολούθησε
+    επιτάχυνε την απόφαση των Δυνάμεων να επιβάλουν μοναρχία.
 sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]

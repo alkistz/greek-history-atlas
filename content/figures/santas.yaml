@@ -1,0 +1,43 @@
+id: santas
+name: {en: Apostolos Santas, el: Απόστολος Σάντας}
+also_known_as:
+  - {en: Lakis Santas, el: Λάκης Σάντας}
+born: {date: 1922-02-22, precision: day}
+died: {date: 2011-04-30, precision: day, place: athens}
+roles: [revolutionary]
+summary:
+  en: >
+    Law student who climbed the north face of the Acropolis with Manolis Glezos on the
+    night of 30 May 1941 and took down the German flag. He was condemned to death in
+    absentia without being identified, joined ELAS and fought as an officer in the
+    mountains, and lived in exile in Italy and Canada after the civil war.
+  el: >
+    Φοιτητής της Νομικής που ανέβηκε τη βόρεια πλευρά του βράχου της Ακρόπολης με τον
+    Μανώλη Γλέζο τη νύχτα της 30ής Μαΐου 1941 και κατέβασε τη γερμανική σημαία.
+    Καταδικάστηκε ερήμην σε θάνατο χωρίς να ταυτοποιηθεί, εντάχθηκε στον ΕΛΑΣ και πολέμησε
+    ως αξιωματικός στα βουνά, και μετά τον Εμφύλιο έζησε εξόριστος στην Ιταλία και στον
+    Καναδά.
+body:
+  en: |
+    Santas was born in Patras and was studying law in Athens in 1941. He and Glezos went
+    up the rock in the dark, avoided the sentry, took the flag and carried it away; it was
+    never recovered. Neither of them was identified at the time, and the German military
+    court sentenced two unknown men to death.
+
+    He joined ELAS and served through the occupation as an officer. After Varkiza and the
+    beginning of the civil war he left the country, living in Italy and then in Canada,
+    and returned to Greece after the fall of the dictatorship. Unlike Glezos he kept out
+    of politics, and the act of 30 May 1941 remained the whole of his public life. He died
+    in Athens in 2011.
+  el: |
+    Ο Σάντας γεννήθηκε στην Πάτρα και σπούδαζε νομικά στην Αθήνα το 1941. Με τον Γλέζο
+    ανέβηκαν τον βράχο μέσα στο σκοτάδι, απέφυγαν τον σκοπό, πήραν τη σημαία και την
+    κράτησαν: δεν βρέθηκε ποτέ. Κανείς από τους δύο δεν ταυτοποιήθηκε τότε, και το
+    γερμανικό στρατοδικείο καταδίκασε σε θάνατο δύο αγνώστους.
+
+    Εντάχθηκε στον ΕΛΑΣ και υπηρέτησε σε όλη την Κατοχή ως αξιωματικός. Μετά τη Βάρκιζα και
+    την έναρξη του Εμφυλίου έφυγε από τη χώρα, έζησε στην Ιταλία και έπειτα στον Καναδά, και
+    επέστρεψε στην Ελλάδα μετά την πτώση της δικτατορίας. Σε αντίθεση με τον Γλέζο, έμεινε
+    μακριά από την πολιτική, και η πράξη της 30ής Μαΐου 1941 παρέμεινε ολόκληρη η δημόσια
+    ζωή του. Πέθανε στην Αθήνα το 2011.
+sources: [{id: mazower-1993}, {id: clogg-2021}]

@@ -1,11 +1,16 @@
 id: death-of-byron
 title:
   en: The Death of Byron at Messolonghi
+  el: Ο θάνατος του Βύρωνα στο Μεσολόγγι
 summary:
   en: >
     Lord Byron, the most famous foreign supporter of the Greek cause, died of fever at
     Messolonghi three months after arriving to take a command. His death made the war
     a cause across Europe.
+  el: >
+    Ο Λόρδος Βύρων, ο γνωστότερος ξένος υποστηρικτής του ελληνικού αγώνα, πέθανε από πυρετό
+    στο Μεσολόγγι τρεις μήνες αφότου έφτασε εκεί για να αναλάβει διοίκηση. Ο θάνατός του
+    μετέτρεψε τον πόλεμο σε υπόθεση ολόκληρης της Ευρώπης.
 body:
   en: |
     Byron reached Messolonghi in January 1824 as the representative of the London Greek
@@ -17,12 +22,22 @@ body:
     probably killed him. The news reached London in May, at the moment the first Greek
     loan was being raised, and did more for the loan and for the Greek cause in
     European opinion than anything he had managed while alive.
+  el: |
+    Ο Βύρων έφτασε στο Μεσολόγγι τον Ιανουάριο του 1824 ως εκπρόσωπος του Φιλελληνικού
+    Κομιτάτου του Λονδίνου, με χρήματα, δική του ακολουθία και σχέδιο επίθεσης στη Ναύπακτο.
+    Βρήκε μια πόλη με αλληλοσπαρασσόμενους οπλαρχηγούς και απλήρωτα στρατεύματα, και ξόδεψε τα
+    κεφάλαιά του για να κρατήσει τους Σουλιώτες στα όπλα.
+
+    Αρρώστησε στις αρχές Απριλίου και πέθανε στις 19 του μήνα, έπειτα από αφαιμάξεις που κατά
+    πάσα πιθανότητα τον σκότωσαν. Η είδηση έφτασε στο Λονδίνο τον Μάιο, τη στιγμή που
+    συγκεντρωνόταν το πρώτο ελληνικό δάνειο, και ωφέλησε το δάνειο και το ελληνικό ζήτημα στην
+    ευρωπαϊκή κοινή γνώμη περισσότερο από οτιδήποτε είχε καταφέρει όσο ζούσε.
 period: [1824-04-19, 1824-04-20]
 precision: day
 as_written: {date: 1824-04-07, calendar: julian}
 atom: aitoloakarnania
 place: messolonghi
-significance: 3
+significance: 2
 figures:
   - {figure: byron, role: victim}
 sources: [{id: brewer-2001}]

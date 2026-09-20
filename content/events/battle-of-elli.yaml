@@ -1,0 +1,71 @@
+id: battle-of-elli
+title:
+  en: The naval battle of Elli
+  el: Η ναυμαχία της Έλλης
+summary:
+  en: >
+    The Ottoman fleet came out of the Dardanelles to break the Greek blockade and was
+    driven back inside it in a morning. Rear-Admiral Pavlos Kountouriotis took the armoured
+    cruiser Georgios Averof out of the Greek line alone, crossed ahead of the Ottoman
+    column and raked it. Greek losses were two dead against 18 Ottoman dead and 41 wounded.
+    The result settled the strategic question of the war at sea: the Porte could not
+    reinforce its European armies by ship, and the north-eastern Aegean islands could be
+    taken one at a time.
+  el: >
+    Ο οθωμανικός στόλος βγήκε από τα Δαρδανέλλια για να σπάσει τον ελληνικό αποκλεισμό και
+    επέστρεψε μέσα σε ένα πρωινό. Ο υποναύαρχος Παύλος Κουντουριώτης έβγαλε το θωρηκτό
+    καταδρομικό Γεώργιος Αβέρωφ μόνο του από την ελληνική γραμμή, πέρασε κάθετα μπροστά από
+    την οθωμανική φάλαγγα και τη σάρωσε με τα πυρά του. Οι ελληνικές απώλειες ήταν δύο
+    νεκροί, οι οθωμανικές 18 νεκροί και 41 τραυματίες. Το αποτέλεσμα έκρινε το στρατηγικό
+    ερώτημα του πολέμου στη θάλασσα: η Πύλη δεν μπορούσε να ενισχύσει διά θαλάσσης τους
+    στρατούς της στην Ευρώπη και τα νησιά του βορειοανατολικού Αιγαίου μπορούσαν να
+    καταληφθούν ένα ένα.
+body:
+  en: |
+    The Averof had been bought in 1909 with a bequest from Georgios Averof, a Greek
+    benefactor in Alexandria, and commissioned in 1911. She could make up to 23 knots and
+    outgunned anything in the Ottoman navy, which meant the Greek fleet could fight as one
+    fast ship supported by three slow ironclads rather than as a squadron tied to its
+    slowest unit.
+
+    On the morning of 3/16 December 1912 the Ottoman squadron sortied under Captain Ramiz
+    Bey: the pre-dreadnought Barbaros Hayreddin as flagship with Turgut Reis and the
+    ironclad Mesudiye. Kountouriotis signalled that with the power of God and the wishes of
+    the King he was sailing at full speed against the enemy, left the Greek line, and took
+    the Averof across the head of the Ottoman column. The Ottomans turned back under the
+    protection of the shore batteries.
+
+    The battle is named after Elli, the old name of the Gallipoli shore. Its importance is
+    out of proportion to its casualty list. Greek command of the Aegean was never seriously
+    contested again, and the islands the fleet occupied that winter were the islands Greece
+    held when the Powers came to award them. The Georgios Averof survives as a museum ship
+    at Palaio Faliro.
+  el: |
+    Ο Αβέρωφ είχε αγοραστεί το 1909 με κληροδότημα του Γεωργίου Αβέρωφ, Έλληνα ευεργέτη της
+    Αλεξάνδρειας, και εντάχθηκε στον στόλο το 1911. Έπιανε ως 23 κόμβους και υπερτερούσε σε
+    πυροβολικό από καθετί που είχε το οθωμανικό ναυτικό, πράγμα που επέτρεπε στον ελληνικό
+    στόλο να πολεμά ως ένα γρήγορο πλοίο με τρία αργά θωρηκτά σε υποστήριξη, αντί ως μοίρα
+    δεμένη στην ταχύτητα του πιο αργού σκάφους της.
+
+    Το πρωί της 3/16 Δεκεμβρίου 1912 η οθωμανική μοίρα βγήκε υπό τον πλοίαρχο Ραμίζ μπέη: το
+    προ-δρεδνότ Μπαρμπαρός Χαϊρεντίν ως ναυαρχίδα, μαζί με το Τουργκούτ Ρέις και το θωρηκτό
+    Μεσουδιέ. Ο Κουντουριώτης σήμανε ότι με τη δύναμη του Θεού και τις ευχές του βασιλιά
+    πλέει ολοταχώς κατά του εχθρού, βγήκε από την ελληνική γραμμή και πέρασε τον Αβέρωφ
+    μπροστά από την κεφαλή της οθωμανικής φάλαγγας. Οι Οθωμανοί γύρισαν πίσω, υπό την
+    κάλυψη των πυροβολαρχιών της ακτής.
+
+    Η ναυμαχία πήρε το όνομά της από την Έλλη, την παλιά ονομασία της ακτής της Καλλίπολης.
+    Η σημασία της είναι δυσανάλογη προς τον κατάλογο των απωλειών της. Η ελληνική κυριαρχία
+    στο Αιγαίο δεν αμφισβητήθηκε ξανά σοβαρά, και τα νησιά που κατέλαβε ο στόλος εκείνον τον
+    χειμώνα ήταν τα νησιά που κρατούσε η Ελλάδα όταν οι Δυνάμεις ήρθαν να τα επιδικάσουν. Ο
+    Γεώργιος Αβέρωφ σώζεται ως πλωτό μουσείο στο Παλαιό Φάληρο.
+period: [1912-12-16, 1912-12-17]
+precision: day
+as_written: {date: 1912-12-03, calendar: julian}
+atom: thrace-east
+place: cape-helles
+frame: aegean-east
+significance: 2
+figures:
+  - {figure: kountouriotis, role: commander}
+sources: [{id: hall-2000}, {id: ginio-2016}]

@@ -1,0 +1,55 @@
+id: constantine-i
+name: {en: Constantine I, el: Κωνσταντίνος Α΄}
+born: {date: 1868-08-02, precision: day, place: athens}
+died: {date: 1923-01-11, precision: day}
+roles: [monarch, military]
+summary:
+  en: >
+    Commander-in-chief of the Greek field army in both Balkan Wars and King of the
+    Hellenes from 1913 to 1917 and again from 1920 to 1922. He took Thessaloniki and
+    Ioannina and broke the Bulgarian 2nd Army at Kilkis, and succeeded to the throne at the
+    height of his popularity when his father was shot. His refusal to follow Venizelos into
+    the Entente split the country in the National Schism, and the collapse in Asia Minor
+    ended his second reign and his life within months.
+  el: >
+    Αρχιστράτηγος του ελληνικού στρατού και στους δύο Βαλκανικούς Πολέμους και βασιλιάς των
+    Ελλήνων από το 1913 ως το 1917 και ξανά από το 1920 ως το 1922. Πήρε τη Θεσσαλονίκη και
+    τα Ιωάννινα και συνέτριψε τη βουλγαρική 2η Στρατιά στο Κιλκίς, και ανέβηκε στον θρόνο
+    στο απόγειο της δημοτικότητάς του, όταν δολοφονήθηκε ο πατέρας του. Η άρνησή του να
+    ακολουθήσει τον Βενιζέλο στην Αντάντ δίχασε τη χώρα στον Εθνικό Διχασμό, και η
+    κατάρρευση στη Μικρά Ασία τερμάτισε μέσα σε λίγους μήνες τη δεύτερη βασιλεία και τη ζωή
+    του.
+body:
+  en: |
+    As Crown Prince he had commanded in the defeat of 1897 and was blamed for it; the
+    Military League made his removal from command one of its demands in 1909, and Venizelos
+    restored him to the army as Inspector-General in 1911. The Balkan Wars vindicated the
+    restoration. He led the Army of Thessaly through Sarantaporo and Giannitsa into
+    Thessaloniki in October 1912, took over in Epirus and carried Bizani in February 1913,
+    and commanded at Kilkis and Lachanas that July.
+
+    He became king on 5/18 March 1913, choosing the regnal number I over the Byzantine
+    numbering urged on him by those who read his name as a programme. Two years later his
+    insistence on neutrality against a prime minister with a parliamentary majority
+    produced the National Schism, two governments and two armies, and his abdication under
+    Entente pressure in 1917. Recalled by plebiscite after Venizelos lost the election of
+    1920, he presided over the Asia Minor campaign to its collapse, abdicated again in
+    September 1922 and died in Palermo four months later.
+  el: |
+    Ως διάδοχος είχε διοικήσει στην ήττα του 1897 και κατηγορήθηκε γι' αυτήν. Ο Στρατιωτικός
+    Σύνδεσμος έθεσε το 1909 ως αίτημα την απομάκρυνσή του από τις διοικήσεις, και ο
+    Βενιζέλος τον επανέφερε στον στρατό ως γενικό επιθεωρητή το 1911. Οι Βαλκανικοί Πόλεμοι
+    δικαίωσαν την επαναφορά. Οδήγησε τη Στρατιά Θεσσαλίας μέσα από το Σαραντάπορο και τα
+    Γιαννιτσά στη Θεσσαλονίκη τον Οκτώβριο του 1912, ανέλαβε το μέτωπο της Ηπείρου και
+    κατέλαβε το Μπιζάνι τον Φεβρουάριο του 1913, και διοίκησε στο Κιλκίς και στον Λαχανά τον
+    Ιούλιο.
+
+    Έγινε βασιλιάς στις 5/18 Μαρτίου 1913 και επέλεξε τον αριθμό Α΄ αντί της βυζαντινής
+    αρίθμησης που του πρότειναν όσοι διάβαζαν το όνομά του ως πρόγραμμα. Δύο χρόνια αργότερα
+    η εμμονή του στην ουδετερότητα, απέναντι σε έναν πρωθυπουργό με κοινοβουλευτική
+    πλειοψηφία, γέννησε τον Εθνικό Διχασμό, δύο κυβερνήσεις και δύο στρατούς, και οδήγησε
+    στην αποχώρησή του υπό την πίεση της Αντάντ το 1917. Επανήλθε με δημοψήφισμα μετά την
+    ήττα του Βενιζέλου στις εκλογές του 1920, προήδρευσε της μικρασιατικής εκστρατείας ως
+    την κατάρρευσή της, παραιτήθηκε ξανά τον Σεπτέμβριο του 1922 και πέθανε στο Παλέρμο
+    τέσσερις μήνες αργότερα.
+sources: [{id: clogg-2021}, {id: hall-2000}, {id: koliopoulos-veremis-2010}]

@@ -1,0 +1,47 @@
+id: chrysostomos-smyrna
+name: {en: Chrysostomos of Smyrna, el: Χρυσόστομος Σμύρνης}
+also_known_as:
+  - {en: Chrysostomos Kalafatis, el: Χρυσόστομος Καλαφάτης}
+born: {date: 1867-01-08, precision: day}
+died: {date: 1922-09-09, precision: day, place: smyrna}
+roles: [cleric]
+summary:
+  en: >
+    Greek Orthodox Metropolitan of Smyrna and the leading churchman of the Greek
+    community of Asia Minor. He welcomed the Greek landing of 1919, refused to leave the
+    city in 1922, and was handed to a mob by the Turkish commander Nureddin Pasha and
+    killed. The Church of Greece canonised him in 1992.
+  el: >
+    Ορθόδοξος μητροπολίτης Σμύρνης και ο κορυφαίος εκκλησιαστικός ηγέτης του ελληνισμού της
+    Μικράς Ασίας. Υποδέχθηκε την ελληνική απόβαση του 1919, αρνήθηκε να εγκαταλείψει την πόλη
+    το 1922, και παραδόθηκε στον όχλο από τον Τούρκο διοικητή Νουρεντίν πασά και δολοφονήθηκε.
+    Η Εκκλησία της Ελλάδος τον ανακήρυξε άγιο το 1992.
+body:
+  en: |
+    Chrysostomos Kalafatis was born at Triglia on the Sea of Marmara and served as
+    metropolitan of Drama before coming to Smyrna in 1910. He was an organiser as much as
+    a churchman, building schools and charitable institutions and campaigning openly for
+    the Greek national cause, which twice had him removed from his see under Ottoman
+    pressure.
+
+    He blessed the Greek troops who landed on 15 May 1919 and was identified from that
+    day with the occupation. When the Turkish army entered Smyrna on 9 September 1922 he
+    refused offers to leave, was summoned by Nureddin Pasha, and was given to the crowd
+    outside the headquarters. He was killed in front of a French marine detachment whose
+    officer had orders not to intervene. Some accounts place the killing on 10 September.
+    His death is the single image through which the fall of Smyrna is remembered in
+    Greece, which has not made the circumstances any less well documented.
+  el: |
+    Ο Χρυσόστομος Καλαφάτης γεννήθηκε στην Τρίγλια της Προποντίδας και υπηρέτησε ως
+    μητροπολίτης Δράμας πριν έρθει στη Σμύρνη το 1910. Ήταν οργανωτής όσο και ιεράρχης: ίδρυσε
+    σχολεία και φιλανθρωπικά ιδρύματα και υποστήριξε ανοιχτά την ελληνική εθνική υπόθεση,
+    πράγμα που δύο φορές του κόστισε την απομάκρυνση από την έδρα του υπό οθωμανική πίεση.
+
+    Ευλόγησε τα ελληνικά στρατεύματα που αποβιβάστηκαν στις 15 Μαΐου 1919 και από εκείνη την
+    ημέρα ταυτίστηκε με την κατοχή. Όταν ο τουρκικός στρατός μπήκε στη Σμύρνη στις 9
+    Σεπτεμβρίου 1922 αρνήθηκε τις προτάσεις να φύγει, κλήθηκε από τον Νουρεντίν πασά και
+    παραδόθηκε στο πλήθος έξω από το στρατηγείο. Δολοφονήθηκε μπροστά σε γαλλικό άγημα του
+    οποίου ο αξιωματικός είχε διαταγή να μην επέμβει. Ορισμένες αφηγήσεις τοποθετούν τη
+    δολοφονία στις 10 Σεπτεμβρίου. Ο θάνατός του είναι η εικόνα μέσα από την οποία θυμάται η
+    Ελλάδα την πτώση της Σμύρνης, πράγμα που δεν έκανε τις συνθήκες του λιγότερο τεκμηριωμένες.
+sources: [{id: llewellyn-smith-1998}, {id: clark-2006}]

@@ -1,0 +1,57 @@
+id: maniadakis
+name: {en: Konstantinos Maniadakis, el: Κωνσταντίνος Μανιαδάκης}
+born: {date: 1893-07-25, precision: day}
+died: {date: 1972-02-28, precision: day, place: athens}
+roles: [military]
+summary:
+  en: >
+    Army officer and Under-Minister of Public Security from August 1936, who built the
+    political police of the Metaxas regime. His agents penetrated the Communist Party so
+    thoroughly that it ended up with two rival central committees, one of them run from his
+    office, and some 45,000 declarations of repentance were extracted under his system.
+  el: >
+    Αξιωματικός του στρατού και υφυπουργός Δημοσίας Ασφαλείας από τον Αύγουστο του 1936, που
+    έστησε την πολιτική αστυνομία του καθεστώτος Μεταξά. Οι πράκτορές του διείσδυσαν στο ΚΚΕ
+    τόσο βαθιά ώστε το κόμμα κατέληξε με δύο αντίπαλες κεντρικές επιτροπές, τη μία
+    κατευθυνόμενη από το γραφείο του, ενώ με το σύστημά του αποσπάστηκαν περίπου 45.000
+    δηλώσεις μετανοίας.
+body:
+  en: |
+    Maniadakis was appointed on 14 August 1936, ten days after the suspension of the
+    constitution, and held the security portfolio until 1941. He inherited a working apparatus:
+    the Idionymon law of 1929 had already made communist activity a distinct offence and had
+    built the files and the case law. What he added was scale and technique, a political police
+    modelled on the German example, mass exile to the islands, and the declaration of
+    repentance, a signed renunciation that bought back a job or a release and split families
+    and party branches against themselves.
+
+    The penetration of the Communist Party was his particular achievement. Nikos Zachariadis
+    was arrested in September 1936 and remained in custody until 1945; the party that survived
+    underground was for a time issuing instructions from two centres, one of which the security
+    service controlled. The organisation the occupation found in 1941 had to be rebuilt almost
+    from nothing, and the suspicion the exercise left inside the Greek left outlasted the
+    regime by decades.
+
+    He went into exile with the government in 1941 and later returned to Greek politics as a
+    deputy. He died in Athens in 1972.
+  el: |
+    Ο Μανιαδάκης διορίστηκε στις 14 Αυγούστου 1936, δέκα μέρες μετά την αναστολή του
+    Συντάγματος, και κράτησε το χαρτοφυλάκιο της ασφάλειας ως το 1941. Παρέλαβε μηχανισμό που
+    ήδη λειτουργούσε: ο νόμος περί Ιδιωνύμου του 1929 είχε καταστήσει την κομμουνιστική δράση
+    αυτοτελές αδίκημα και είχε δημιουργήσει τους φακέλους και τη νομολογία. Εκείνος πρόσθεσε
+    κλίμακα και τεχνική, μια πολιτική αστυνομία κατά το γερμανικό πρότυπο, μαζικές εκτοπίσεις
+    στα νησιά και τη δήλωση μετανοίας, μια υπογεγραμμένη αποκήρυξη που εξαγόραζε μια θέση
+    εργασίας ή μια αποφυλάκιση και δίχαζε οικογένειες και κομματικές οργανώσεις.
+
+    Η διείσδυση στο ΚΚΕ ήταν το ιδιαίτερο επίτευγμά του. Ο Νίκος Ζαχαριάδης συνελήφθη τον
+    Σεπτέμβριο του 1936 και παρέμεινε κρατούμενος ως το 1945· το κόμμα που επιβίωσε στην
+    παρανομία έδινε για ένα διάστημα οδηγίες από δύο κέντρα, το ένα από τα οποία έλεγχε η
+    Ασφάλεια. Η οργάνωση που βρήκε η Κατοχή το 1941 έπρεπε να ξαναχτιστεί σχεδόν από το μηδέν,
+    και η καχυποψία που άφησε το εγχείρημα μέσα στην ελληνική αριστερά έζησε δεκαετίες
+    περισσότερο από το καθεστώς.
+
+    Ακολούθησε την κυβέρνηση στην εξορία το 1941 και αργότερα επανήλθε στην πολιτική ως
+    βουλευτής. Πέθανε στην Αθήνα το 1972.
+sources:
+  - {id: close-1995}
+  - {id: mazower-1993}

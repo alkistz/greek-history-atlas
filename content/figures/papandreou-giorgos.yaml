@@ -1,0 +1,56 @@
+id: papandreou-giorgos
+name: {en: George A. Papandreou, el: Γιώργος Παπανδρέου}
+born: {date: 1952-06-16, precision: day}
+roles: [statesman]
+summary:
+  en: >
+    PASOK Prime Minister from October 2009 to 2011, whose government revised
+    the Greek deficit figures upwards, lost access to the bond markets and requested the
+    first bailout. He asked for the European Union and International Monetary Fund
+    mechanism to be activated on 23 April 2010 and the first programme was agreed nine
+    days later. He is the son of Andreas Papandreou and the grandson of Georgios
+    Papandreou.
+  el: >
+    Πρωθυπουργός του ΠΑΣΟΚ από τον Οκτώβριο του 2009 ως το 2011, του
+    οποίου η κυβέρνηση αναθεώρησε προς τα πάνω τα ελληνικά ελλείμματα, έχασε την
+    πρόσβαση στις αγορές ομολόγων και ζήτησε την πρώτη διάσωση. Ζήτησε την ενεργοποίηση
+    του μηχανισμού της Ευρωπαϊκής Ένωσης και του Διεθνούς Νομισματικού Ταμείου στις
+    23 Απριλίου 2010 και το πρώτο πρόγραμμα συμφωνήθηκε εννέα μέρες αργότερα. Είναι γιος
+    του Ανδρέα Παπανδρέου και εγγονός του Γεωργίου Παπανδρέου.
+body:
+  en: |
+    Papandreou took office in October 2009 on a platform of social spending. Within
+    weeks his finance ministry was revising the deficit estimate it had inherited, and by January
+    2010 the forecast stood at 12.7 per cent of GDP against the six to eight per cent
+    previously reported; it was revised again afterwards to above fifteen.
+
+    Downgrades through that winter closed the markets to Greece. On 23 April 2010,
+    speaking from Kastellorizo at the eastern edge of the country, he asked for the
+    support mechanism, and on 2 May the Eurogroup and the Fund agreed a package of about
+    110 billion euros against a memorandum of cuts, tax rises and privatisations. He
+    carried the first austerity laws through Parliament against strikes and riots, and
+    the firebombing of a bank on Stadiou Street on 5 May killed three of its employees.
+
+    He left office in 2011, before the second programme was signed. PASOK, which his
+    father had founded and which had governed for most of the previous thirty years,
+    fell to single figures in 2012.
+  el: |
+    Ο Παπανδρέου ανέλαβε τον Οκτώβριο του 2009 με πρόγραμμα κοινωνικών δαπανών. Μέσα σε
+    λίγες εβδομάδες το υπουργείο Οικονομικών του αναθεωρούσε την εκτίμηση του
+    ελλείμματος που είχε παραλάβει, και ως τον Ιανουάριο του 2010 η πρόβλεψη ήταν 12,7%
+    του ΑΕΠ έναντι του 6 με 8% που είχε δηλωθεί, για να αναθεωρηθεί αργότερα πάνω από 15%.
+
+    Οι υποβαθμίσεις εκείνου του χειμώνα έκλεισαν τις αγορές για την Ελλάδα. Στις
+    23 Απριλίου 2010, μιλώντας από το Καστελόριζο στο ανατολικό άκρο της χώρας, ζήτησε
+    τον μηχανισμό στήριξης, και στις 2 Μαΐου το Eurogroup και το Ταμείο συμφώνησαν πακέτο
+    περίπου 110 δισεκατομμυρίων ευρώ έναντι μνημονίου περικοπών, φόρων και
+    αποκρατικοποιήσεων. Πέρασε τους πρώτους μνημονιακούς νόμους από τη Βουλή μέσα σε
+    απεργίες και επεισόδια, και ο εμπρησμός τράπεζας στην οδό Σταδίου στις 5 Μαΐου
+    σκότωσε τρεις υπαλλήλους της.
+
+    Άφησε την πρωθυπουργία το 2011, πριν υπογραφεί το δεύτερο πρόγραμμα. Το ΠΑΣΟΚ, που
+    είχε ιδρύσει ο πατέρας του και που κυβερνούσε τα περισσότερα από τα προηγούμενα
+    τριάντα χρόνια, έπεσε σε μονοψήφιο ποσοστό το 2012.
+sources:
+  - {id: siani-davies-2017}
+  - {id: kalyvas-2015}

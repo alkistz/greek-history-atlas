@@ -1,0 +1,41 @@
+id: trikoupis-nikolaos
+name: {en: Nikolaos Trikoupis, el: Νικόλαος Τρικούπης}
+born: {date: 1868-01-01, precision: circa, place: messolonghi}
+died: {date: 1959-02-27, precision: day, place: athens}
+roles: [military]
+summary:
+  en: >
+    Greek general who commanded the southern group of divisions in the collapse of August
+    1922 and surrendered near Dumlupınar on 2 September with a little over 5,000 men. He
+    learned from Mustafa Kemal, after his capture, that he had been appointed
+    commander-in-chief two days earlier.
+  el: >
+    Έλληνας στρατηγός, διοικητής του νότιου συγκροτήματος μεραρχιών στην κατάρρευση του
+    Αυγούστου 1922, που παραδόθηκε κοντά στο Δουμλουπινάρ στις 2 Σεπτεμβρίου με λίγο πάνω από
+    5.000 άνδρες. Πληροφορήθηκε από τον Μουσταφά Κεμάλ, μετά την αιχμαλωσία του, ότι είχε
+    διοριστεί αρχιστράτηγος δύο ημέρες νωρίτερα.
+body:
+  en: |
+    Trikoupis commanded I Corps when the Turkish offensive opened at Afyonkarahisar on 26
+    August 1922. The southern group was cut off within days, broken up at Dumlupınar on
+    30 August and forced north with no communications to headquarters, which by then was
+    issuing orders to units that no longer existed. He surrendered on 2 September; some
+    sources give 29 August, but 2 September is better attested.
+
+    The appointment he was told about in captivity had been made on 31 August, and no
+    message announcing it ever reached him. He spent the rest of the war a prisoner,
+    returned to Greece in 1923, and lived until 1959. His exact year of birth is not
+    established; the sources give about 1868.
+  el: |
+    Ο Τρικούπης διοικούσε το Α΄ Σώμα Στρατού όταν άνοιξε η τουρκική επίθεση στο Αφιόν
+    Καραχισάρ στις 26 Αυγούστου 1922. Το νότιο συγκρότημα αποκόπηκε μέσα σε λίγες ημέρες,
+    διαλύθηκε στο Δουμλουπινάρ στις 30 Αυγούστου και ωθήθηκε βόρεια χωρίς επικοινωνία με το
+    στρατηγείο, το οποίο ως τότε έδινε διαταγές σε μονάδες που δεν υπήρχαν πια. Παραδόθηκε στις
+    2 Σεπτεμβρίου· ορισμένες πηγές δίνουν την 29η Αυγούστου, αλλά η 2α Σεπτεμβρίου
+    τεκμηριώνεται καλύτερα.
+
+    Ο διορισμός για τον οποίο πληροφορήθηκε αιχμάλωτος είχε γίνει στις 31 Αυγούστου, και κανένα
+    μήνυμα που να τον ανακοινώνει δεν έφτασε ποτέ σε αυτόν. Πέρασε τον υπόλοιπο πόλεμο
+    αιχμάλωτος, γύρισε στην Ελλάδα το 1923 και έζησε ως το 1959. Το ακριβές έτος γέννησής του
+    δεν έχει τεκμηριωθεί· οι πηγές δίνουν περίπου το 1868.
+sources: [{id: llewellyn-smith-1998}, {id: clogg-2021}]

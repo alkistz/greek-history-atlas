@@ -1,0 +1,70 @@
+id: simitis
+name: {en: Costas Simitis, el: Κώστας Σημίτης}
+also_known_as:
+  - {en: Konstantinos Simitis, el: Κωνσταντίνος Σημίτης}
+born: {date: 1936-06-23, precision: day}
+died: {date: 2025-01-05, precision: day}
+roles: [statesman]
+summary:
+  en: >
+    Jurist and economist who succeeded Andreas Papandreou as PASOK leader and Prime
+    Minister in January 1996 and governed until 2004. His premiership began with the
+    Imia crisis in his first fortnight and was organised around a single objective,
+    taking Greece into the euro, which it did on 1 January 2001. He also committed the
+    country to the Olympic Games of 2004 and to a foreign policy that answered the
+    quarrel with Turkey through European institutions.
+  el: >
+    Νομικός και οικονομολόγος που διαδέχθηκε τον Ανδρέα Παπανδρέου στην ηγεσία του ΠΑΣΟΚ
+    και στην πρωθυπουργία τον Ιανουάριο του 1996 και κυβέρνησε ως το 2004. Η πρωθυπουργία
+    του ξεκίνησε με την κρίση των Ιμίων μέσα στο πρώτο δεκαπενθήμερο και οργανώθηκε γύρω
+    από έναν στόχο, την ένταξη στο ευρώ, που έγινε την 1η Ιανουαρίου 2001. Δέσμευσε
+    επίσης τη χώρα στους Ολυμπιακούς Αγώνες του 2004 και σε μια εξωτερική πολιτική που
+    απαντούσε στη διαφορά με την Τουρκία μέσα από τους ευρωπαϊκούς θεσμούς.
+body:
+  en: |
+    Simitis was the least characteristic figure his party produced, technocratic where
+    PASOK was rhetorical, and he succeeded Andreas Papandreou as leader and prime
+    minister on 22 January 1996. Within days a mayor had raised a flag on an uninhabited
+    rock east of Kalymnos, and within a fortnight the Greek and Turkish navies were
+    facing each other around it.
+    Three Greek naval officers died in a helicopter crash and American mediation ended
+    the crisis with nothing agreed.
+
+    The lesson he drew shaped the rest of his time in office: a dispute conducted
+    bilaterally with Turkey favoured Turkey, while a dispute conducted inside European
+    institutions did not. That strategy produced the Helsinki European Council of
+    December 1999, which tied Turkish candidacy for membership to the settlement of
+    border disputes.
+
+    The domestic project was convergence. Inflation was brought down, the fiscal
+    criteria were met on the figures then reported, and Greece joined the euro area on
+    1 January 2001 at 340.750 drachmas to the euro. In 2004 Eurostat revised the deficit
+    figures for the qualifying years sharply upwards and the Commission found the
+    original data had been misreported, which has hung over the achievement ever since.
+    He left office in March 2004, five months before the Games his government had
+    committed to, and died in January 2025.
+  el: |
+    Ο Σημίτης ήταν η λιγότερο αντιπροσωπευτική μορφή που έβγαλε το κόμμα του,
+    τεχνοκράτης εκεί όπου το ΠΑΣΟΚ ήταν ρητορικό, και διαδέχθηκε τον Ανδρέα Παπανδρέου
+    στην ηγεσία και στην πρωθυπουργία στις 22 Ιανουαρίου 1996. Μέσα σε λίγες μέρες ένας
+    δήμαρχος είχε υψώσει σημαία σε μια ακατοίκητη βραχονησίδα ανατολικά της Καλύμνου και
+    μέσα σε ένα δεκαπενθήμερο ο ελληνικός και ο τουρκικός στόλος βρίσκονταν αντιμέτωποι
+    γύρω της. Τρεις Έλληνες αξιωματικοί σκοτώθηκαν σε πτώση
+    ελικοπτέρου και η αμερικανική μεσολάβηση έκλεισε την κρίση χωρίς καμία συμφωνία.
+
+    Το συμπέρασμα που έβγαλε καθόρισε την υπόλοιπη θητεία του: μια διαφορά που συζητείται
+    διμερώς με την Τουρκία ευνοεί την Τουρκία, μια διαφορά που συζητείται μέσα στους
+    ευρωπαϊκούς θεσμούς όχι. Αυτή η στρατηγική οδήγησε στο Ευρωπαϊκό Συμβούλιο του
+    Ελσίνκι τον Δεκέμβριο του 1999, που συνέδεσε την τουρκική υποψηφιότητα με τη
+    διευθέτηση των συνοριακών διαφορών.
+
+    Το εσωτερικό εγχείρημα ήταν η σύγκλιση. Ο πληθωρισμός υποχώρησε, τα δημοσιονομικά
+    κριτήρια καλύφθηκαν με τα στοιχεία που δηλώνονταν τότε, και η Ελλάδα μπήκε στη ζώνη
+    του ευρώ την 1η Ιανουαρίου 2001 με ισοτιμία 340,750 δραχμών. Το 2004 η Eurostat
+    αναθεώρησε απότομα προς τα πάνω τα ελλείμματα των κρίσιμων ετών και η Επιτροπή έκρινε
+    ότι τα αρχικά στοιχεία είχαν δηλωθεί εσφαλμένα, κάτι που βαραίνει έκτοτε το
+    επίτευγμα. Άφησε την πρωθυπουργία τον Μάρτιο του 2004, πέντε μήνες πριν από τους
+    Αγώνες στους οποίους είχε δεσμεύσει τη χώρα του, και πέθανε τον Ιανουάριο του 2025.
+sources:
+  - {id: kalyvas-2015}
+  - {id: siani-davies-2017}

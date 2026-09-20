@@ -1,0 +1,47 @@
+id: gizikis
+name: {en: Phaedon Gizikis, el: Φαίδων Γκιζίκης}
+born: {date: 1917-06-16, precision: day}
+died: {date: 1999-07-26, precision: day, place: athens}
+roles: [military]
+summary:
+  en: >
+    Lieutenant general installed as President of the Republic by Ioannidis in November
+    1973 and kept in the office as a figurehead. When the Cyprus crisis broke the
+    regime, it was Gizikis who called the senior politicians and the service chiefs to
+    the Presidential Mansion on 23 July 1974 and presided over the decision to hand
+    power to a civilian government. He stayed on as President until December 1974.
+  el: >
+    Αντιστράτηγος που εγκαταστάθηκε Πρόεδρος της Δημοκρατίας από τον Ιωαννίδη τον
+    Νοέμβριο του 1973 και κρατήθηκε στο αξίωμα ως διακοσμητική μορφή. Όταν η κρίση της
+    Κύπρου διέλυσε το καθεστώς, ο Γκιζίκης ήταν εκείνος που κάλεσε στις 23 Ιουλίου 1974
+    στο Προεδρικό Μέγαρο τους παλαιούς πολιτικούς και τους αρχηγούς των επιτελείων και
+    προήδρευσε στην απόφαση να παραδοθεί η εξουσία σε πολιτική κυβέρνηση. Παρέμεινε
+    Πρόεδρος ως τον Δεκέμβριο του 1974.
+body:
+  en: |
+    Ioannidis chose Gizikis for the presidency because he would not use it. For eight
+    months he signed what he was given to sign. The interest of his career lies entirely in the last week of it.
+
+    With the army unable to fight in Cyprus and the regime out of options, he convened
+    the meeting of 23 July 1974. The politicians in the room argued about whether to
+    recall Karamanlis from Paris or govern from among themselves, and Gizikis let the
+    meeting reach its conclusion rather than steering it. Karamanlis was sworn in before
+    dawn the next day, and Gizikis remained head of state through the election of
+    November and
+    the referendum of December 1974, leaving office when the republic had a president of
+    its own choosing.
+  el: |
+    Ο Ιωαννίδης τον επέλεξε για την προεδρία ακριβώς επειδή δεν επρόκειτο να τη
+    χρησιμοποιήσει. Επί οκτώ μήνες υπέγραφε ό,τι του έδιναν. Το ενδιαφέρον της σταδιοδρομίας του βρίσκεται ολόκληρο στην
+    τελευταία της εβδομάδα.
+
+    Με τον στρατό ανίκανο να πολεμήσει στην Κύπρο και το καθεστώς χωρίς επιλογές,
+    συγκάλεσε τη σύσκεψη της 23ης Ιουλίου 1974. Οι πολιτικοί διαφώνησαν για το αν θα
+    ανακαλούσαν τον Καραμανλή από το Παρίσι ή θα κυβερνούσαν από μόνοι τους, και ο
+    Γκιζίκης άφησε τη σύσκεψη να καταλήξει αντί να την κατευθύνει. Ο Καραμανλής ορκίστηκε
+    πριν ξημερώσει η επόμενη μέρα και ο Γκιζίκης παρέμεινε αρχηγός του κράτους ως τις εκλογές του
+    Νοεμβρίου και το δημοψήφισμα του Δεκεμβρίου 1974, αποχωρώντας όταν η δημοκρατία
+    απέκτησε πρόεδρο δικής της επιλογής.
+sources:
+  - {id: woodhouse-1985}
+  - {id: clogg-2021}

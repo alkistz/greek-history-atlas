@@ -1,0 +1,61 @@
+id: papagos
+name: {en: Alexandros Papagos, el: Αλέξανδρος Παπάγος}
+born: {date: 1883-12-09, precision: day, place: athens}
+died: {date: 1955-10-04, precision: day, place: athens}
+roles: [military, statesman]
+summary:
+  en: >
+    Commander-in-chief of the Greek army against the Italian invasion of 1940 and again from
+    January 1949, when he was given the authority to end the Civil War and did so in eight months.
+    He was made Field Marshal on 28 October 1949, left the army in 1951 to found the Greek Rally,
+    and won the election of November 1952 under a majoritarian law adopted for the purpose. He
+    governed until his death in October 1955 and took the decision to carry Cyprus to the United
+    Nations.
+  el: >
+    Αρχιστράτηγος του ελληνικού στρατού στον πόλεμο κατά της ιταλικής εισβολής του 1940 και ξανά
+    από τον Ιανουάριο του 1949, όταν του δόθηκαν οι εξουσίες να τελειώσει τον Εμφύλιο και τον
+    τελείωσε σε οκτώ μήνες. Ονομάστηκε στρατάρχης στις 28 Οκτωβρίου 1949, αποχώρησε από τον στρατό
+    το 1951 για να ιδρύσει τον Ελληνικό Συναγερμό και κέρδισε τις εκλογές του Νοεμβρίου 1952 με
+    πλειοψηφικό νόμο που υιοθετήθηκε γι' αυτόν τον σκοπό. Κυβέρνησε ως τον θάνατό του τον Οκτώβριο
+    του 1955 και πήρε την απόφαση να φέρει το Κυπριακό στον ΟΗΕ.
+body:
+  en: |
+    Papagos commanded the Greek forces that held and then drove back the Italian army in Albania
+    in the winter of 1940 and 1941, the only Allied land victory of that season, and was deported
+    to Germany after the German invasion. He came back to a divided army and, in January 1949, to
+    the command of a war the government had been losing for three years.
+
+    Operation Pyrsos, fought on Vitsi and Grammos in August 1949 with fifty thousand troops,
+    artillery, aircraft and napalm against a Democratic Army defending fixed lines, ended organised
+    resistance in a month. The Greek state made him Field Marshal on 28 October 1949.
+
+    He resigned his commission in May 1951 and founded the Greek Rally, a party built on the
+    authority he had accumulated in two wars rather than on the pre-war party machines. It took
+    36.5 per cent in September 1951, and after the electoral law was made majoritarian at American
+    urging it took 247 of 300 seats in November 1952. As prime minister he devalued the drachma by
+    half in 1953, presided over the reconstruction programme run by his public works minister
+    Konstantinos Karamanlis, and after Britain refused bilateral talks on Cyprus took the dispute
+    to the United Nations in August 1954. He died in office on 4 October 1955, and the King passed
+    over the Rally's senior men to hand the government to Karamanlis.
+  el: |
+    Ο Παπάγος διοίκησε τις ελληνικές δυνάμεις που ανέκοψαν και στη συνέχεια απώθησαν τον ιταλικό
+    στρατό στην Αλβανία τον χειμώνα του 1940 προς 1941, τη μοναδική συμμαχική χερσαία νίκη εκείνης
+    της περιόδου, και εκτοπίστηκε στη Γερμανία μετά τη γερμανική εισβολή. Επέστρεψε σε έναν
+    διχασμένο στρατό και, τον Ιανουάριο του 1949, στην αρχιστρατηγία ενός πολέμου που η κυβέρνηση
+    έχανε επί τρία χρόνια.
+
+    Η επιχείρηση Πυρσός, που δόθηκε στο Βίτσι και στον Γράμμο τον Αύγουστο του 1949 με πενήντα
+    χιλιάδες άνδρες, πυροβολικό, αεροπορία και ναπάλμ απέναντι σε έναν Δημοκρατικό Στρατό που
+    υπεράσπιζε σταθερές γραμμές, τερμάτισε την οργανωμένη αντίσταση μέσα σε έναν μήνα. Το ελληνικό
+    κράτος τον ονόμασε στρατάρχη στις 28 Οκτωβρίου 1949.
+
+    Παραιτήθηκε από τον στρατό τον Μάιο του 1951 και ίδρυσε τον Ελληνικό Συναγερμό, κόμμα χτισμένο
+    στο κύρος που είχε συσσωρεύσει σε δύο πολέμους και όχι στους προπολεμικούς κομματικούς
+    μηχανισμούς. Πήρε 36,5% τον Σεπτέμβριο του 1951 και, αφού ο εκλογικός νόμος έγινε πλειοψηφικός
+    με αμερικανική παρότρυνση, 247 από τις 300 έδρες τον Νοέμβριο του 1952. Ως πρωθυπουργός
+    υποτίμησε τη δραχμή κατά το ήμισυ το 1953, επέβλεψε το πρόγραμμα ανασυγκρότησης που έτρεχε ο
+    υπουργός Δημοσίων Έργων του Κωνσταντίνος Καραμανλής, και αφού η Βρετανία αρνήθηκε διμερείς
+    συνομιλίες για την Κύπρο μετέφερε τη διαφορά στον ΟΗΕ τον Αύγουστο του 1954. Πέθανε εν ενεργεία
+    στις 4 Οκτωβρίου 1955, και ο βασιλιάς προσπέρασε τα αρχαιότερα στελέχη του Συναγερμού για να
+    παραδώσει την κυβέρνηση στον Καραμανλή.
+sources: [{id: koliopoulos-veremis-2010}, {id: clogg-2021}]

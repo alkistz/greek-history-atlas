@@ -1,0 +1,56 @@
+id: truman
+name: {en: Harry S. Truman, el: Χάρι Τρούμαν}
+born: {date: 1884-05-08, precision: day}
+died: {date: 1972-12-26, precision: day}
+roles: [statesman]
+summary:
+  en: >
+    Thirty-third President of the United States, in office from 1945 to 1953. His address to
+    Congress on 12 March 1947, asking for aid to Greece and Turkey, made Greece the first declared
+    theatre of American containment and replaced Britain as the guarantor of the Greek state. The
+    money, the advisers and the alliance that followed shaped Greek politics for a generation.
+  el: >
+    Τριακοστός τρίτος πρόεδρος των Ηνωμένων Πολιτειών, στην εξουσία από το 1945 ως το 1953. Η
+    ομιλία του στο Κογκρέσο στις 12 Μαρτίου 1947, με την οποία ζήτησε βοήθεια για την Ελλάδα και
+    την Τουρκία, έκανε την Ελλάδα το πρώτο δηλωμένο πεδίο της αμερικανικής πολιτικής ανάσχεσης και
+    αντικατέστησε τη Βρετανία ως εγγυήτρια του ελληνικού κράτους. Τα χρήματα, οι σύμβουλοι και η
+    συμμαχία που ακολούθησαν διαμόρφωσαν την ελληνική πολιτική για μια γενιά.
+body:
+  en: |
+    Truman became president on the death of Franklin Roosevelt in April 1945 and inherited the end
+    of one war and the opening of a longer confrontation. Greece was where he chose to state the
+    terms of it. Britain told Washington in February 1947 that it could no longer carry the Greek
+    and Turkish commitments; within five weeks Truman had gone to Congress and asked for the money
+    and for a doctrine to justify it.
+
+    The eighteen-minute speech of 12 March 1947 asked for authority to aid Greece and Turkey and
+    declared that it must be the policy of the United States to support free peoples resisting
+    attempted subjugation. Congress voted 400 million dollars, 300 million of it for Greece, and
+    Truman signed the act on 22 May. The American aid mission, the military advisory group and
+    later a large share of Marshall Plan money followed.
+
+    For Greece the consequence was not only the Civil War's outcome but a permanent relationship.
+    Accession to NATO in 1952, the base agreement of 1953 and the American interest in Greek
+    electoral arrangements all descend from the commitment Truman made in 1947, and so does the
+    argument about American influence that has run through Greek politics ever since.
+  el: |
+    Ο Τρούμαν έγινε πρόεδρος με τον θάνατο του Φραγκλίνου Ρούσβελτ τον Απρίλιο του 1945 και
+    κληρονόμησε το τέλος ενός πολέμου και την αρχή μιας μακρύτερης αναμέτρησης. Η Ελλάδα ήταν ο
+    τόπος όπου επέλεξε να διατυπώσει τους όρους της. Η Βρετανία ενημέρωσε την Ουάσιγκτον τον
+    Φεβρουάριο του 1947 ότι δεν μπορούσε πλέον να σηκώνει τις ελληνικές και τουρκικές δεσμεύσεις·
+    μέσα σε πέντε εβδομάδες ο Τρούμαν είχε πάει στο Κογκρέσο και είχε ζητήσει τα χρήματα και ένα
+    δόγμα που να τα δικαιολογεί.
+
+    Η δεκαοκτάλεπτη ομιλία της 12ης Μαρτίου 1947 ζητούσε εξουσιοδότηση για βοήθεια προς την Ελλάδα
+    και την Τουρκία και διακήρυττε ότι πολιτική των Ηνωμένων Πολιτειών όφειλε να είναι η στήριξη
+    των ελεύθερων λαών που αντιστέκονται σε απόπειρα υποδούλωσης. Το Κογκρέσο ψήφισε 400
+    εκατομμύρια δολάρια, τα 300 για την Ελλάδα, και ο Τρούμαν υπέγραψε τον νόμο στις 22 Μαΐου.
+    Ακολούθησαν η αμερικανική αποστολή βοήθειας, η στρατιωτική συμβουλευτική ομάδα και αργότερα
+    μεγάλο μέρος των κεφαλαίων του Σχεδίου Μάρσαλ.
+
+    Για την Ελλάδα η συνέπεια δεν ήταν μόνο η έκβαση του Εμφυλίου αλλά μια μόνιμη σχέση. Η ένταξη
+    στο ΝΑΤΟ το 1952, η συμφωνία για τις βάσεις το 1953 και το αμερικανικό ενδιαφέρον για τις
+    ελληνικές εκλογικές ρυθμίσεις κατάγονται όλα από τη δέσμευση που ανέλαβε ο Τρούμαν το 1947, και
+    το ίδιο ισχύει για τη διαμάχη περί αμερικανικής επιρροής που διατρέχει έκτοτε την ελληνική
+    πολιτική.
+sources: [{id: gerolymatos-2016}, {id: clogg-2021}]

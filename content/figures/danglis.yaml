@@ -1,0 +1,18 @@
+id: danglis
+name: {en: Panagiotis Danglis, el: Παναγιώτης Δαγκλής}
+roles: [military, statesman]
+summary:
+  en: >
+    Greek artillery officer who designed the pack mountain gun the army carried through the
+    Balkan Wars, and served as chief of the general staff during them. Epirot by origin, he
+    was closely identified with the Epirus campaign and afterwards with Venizelos, alongside
+    whom he sat in the Thessaloniki provisional government of the National Schism. The atlas
+    records no life dates for him because none could be verified from its sources.
+  el: >
+    Έλληνας αξιωματικός του πυροβολικού, σχεδιαστής του ορειβατικού πυροβόλου που κουβάλησε
+    ο στρατός στους Βαλκανικούς Πολέμους και αρχηγός του επιτελείου κατά τη διάρκειά τους.
+    Ηπειρωτικής καταγωγής, ταυτίστηκε με την εκστρατεία της Ηπείρου και στη συνέχεια με τον
+    Βενιζέλο, δίπλα στον οποίο μετείχε στην προσωρινή κυβέρνηση της Θεσσαλονίκης κατά τον
+    Εθνικό Διχασμό. Ο άτλαντας δεν καταγράφει ημερομηνίες ζωής, επειδή δεν στάθηκε δυνατόν
+    να επαληθευτούν από τις πηγές του.
+sources: [{id: koliopoulos-veremis-2010}, {id: hall-2000}]

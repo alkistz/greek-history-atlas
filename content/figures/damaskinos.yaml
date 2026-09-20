@@ -1,0 +1,59 @@
+id: damaskinos
+name: {en: Archbishop Damaskinos, el: Αρχιεπίσκοπος Δαμασκηνός}
+also_known_as:
+  - {en: Dimitrios Papandreou, el: Δημήτριος Παπανδρέου}
+born: {date: 1891-03-03, precision: day}
+died: {date: 1949-05-20, precision: day, place: athens}
+roles: [cleric, statesman]
+summary:
+  en: >
+    Archbishop of Athens and All Greece from 1941 to 1949. He protested the deportation of
+    the Jews of Thessaloniki in writing in March 1943 and ordered his clergy to issue
+    baptismal certificates to Jews and to hide those who could not be concealed otherwise,
+    for which Yad Vashem named him Righteous Among the Nations. He was sworn in as Regent
+    of Greece on 31 December 1944 and held the state together through the year after the
+    Dekemvriana.
+  el: >
+    Αρχιεπίσκοπος Αθηνών και πάσης Ελλάδος από το 1941 ως το 1949. Διαμαρτυρήθηκε εγγράφως
+    τον Μάρτιο του 1943 για την εκτόπιση των Εβραίων της Θεσσαλονίκης και έδωσε εντολή στον
+    κλήρο του να εκδίδει πιστοποιητικά βαπτίσεως σε Εβραίους και να κρύβει όσους δεν
+    μπορούσαν να προστατευθούν αλλιώς, για το οποίο το Γιαντ Βασέμ τον ανακήρυξε Δίκαιο των
+    Εθνών. Ορκίστηκε αντιβασιλέας της Ελλάδας στις 31 Δεκεμβρίου 1944 και κράτησε το κράτος
+    όρθιο τον χρόνο που ακολούθησε τα Δεκεμβριανά.
+body:
+  en: |
+    Dimitrios Papandreou had been a soldier in the Asia Minor campaign before he was
+    Metropolitan of Corinth, and he was elected archbishop in 1941 with the occupation
+    already in place. He used the church against the occupiers where it could be used:
+    relief kitchens during the famine, protests over executions and deportations, and
+    protection for the hunted. His letter of March 1943 against the deportation of the
+    Jews of Thessaloniki, signed with twenty-seven public figures, was the only public
+    protest of its kind by a national church anywhere in occupied Europe. In Athens he and
+    the chief of police Angelos Evert issued false identity papers and baptismal
+    certificates to around 1,200 Jews.
+
+    In December 1944 he was the only Greek both sides would accept. Churchill, who had
+    opposed a regency for months, changed his mind in Athens at Christmas and pressed
+    George II to appoint him; he was sworn in on 31 December 1944, appointed Nikolaos
+    Plastiras prime minister three days later, and presided over the Varkiza Agreement,
+    the return of the king by plebiscite in 1946 and the first year of the civil war. He
+    was briefly prime minister himself in October 1945. He died in Athens in 1949.
+  el: |
+    Ο Δημήτριος Παπανδρέου είχε πολεμήσει στη Μικρασιατική εκστρατεία πριν γίνει
+    μητροπολίτης Κορινθίας, και εξελέγη αρχιεπίσκοπος το 1941 με την Κατοχή ήδη
+    εγκατεστημένη. Χρησιμοποίησε την Εκκλησία εναντίον των κατακτητών όπου μπορούσε:
+    συσσίτια στον λιμό, διαμαρτυρίες για εκτελέσεις και εκτοπίσεις, προστασία για τους
+    καταδιωκόμενους. Η επιστολή του του Μαρτίου 1943 κατά της εκτόπισης των Εβραίων της
+    Θεσσαλονίκης, υπογεγραμμένη και από είκοσι επτά δημόσια πρόσωπα, ήταν η μόνη δημόσια
+    διαμαρτυρία εθνικής Εκκλησίας αυτού του είδους σε ολόκληρη την κατεχόμενη Ευρώπη. Στην
+    Αθήνα, μαζί με τον αστυνομικό διευθυντή Άγγελο Έβερτ, εξέδωσε πλαστές ταυτότητες και
+    πιστοποιητικά βαπτίσεως σε περίπου 1.200 Εβραίους.
+
+    Τον Δεκέμβριο του 1944 ήταν ο μόνος Έλληνας που δέχονταν και οι δύο πλευρές. Ο
+    Τσόρτσιλ, που επί μήνες αντιστεκόταν στην ιδέα της αντιβασιλείας, άλλαξε γνώμη στην
+    Αθήνα τα Χριστούγεννα και πίεσε τον Γεώργιο Β΄ να τον διορίσει. Ορκίστηκε στις 31
+    Δεκεμβρίου 1944, διόρισε τρεις μέρες αργότερα πρωθυπουργό τον Νικόλαο Πλαστήρα και
+    προέδρευσε στη Συμφωνία της Βάρκιζας, στην επιστροφή του βασιλιά με δημοψήφισμα το 1946
+    και στον πρώτο χρόνο του Εμφυλίου. Διετέλεσε για λίγο και ο ίδιος πρωθυπουργός τον
+    Οκτώβριο του 1945. Πέθανε στην Αθήνα το 1949.
+sources: [{id: mazower-1993}, {id: close-1995}]

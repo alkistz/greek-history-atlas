@@ -1,0 +1,55 @@
+id: zervas
+name: {en: Napoleon Zervas, el: Ναπολέων Ζέρβας}
+born: {date: 1891-05-17, precision: day}
+died: {date: 1957-12-10, precision: day, place: athens}
+roles: [military]
+summary:
+  en: >
+    Republican army officer who founded EDES in September 1941 and led the second-largest
+    resistance army, based in Epirus. He fought at Gorgopotamos alongside ELAS, then
+    against it through the first round, surviving on British air supply and on a tacit
+    understanding with the German command that his opponents have held against him ever
+    since.
+  el: >
+    Δημοκρατικός αξιωματικός που ίδρυσε τον ΕΔΕΣ τον Σεπτέμβριο του 1941 και ηγήθηκε του
+    δεύτερου σε μέγεθος αντιστασιακού στρατού, με βάση την Ήπειρο. Πολέμησε στον
+    Γοργοπόταμο δίπλα στον ΕΛΑΣ και έπειτα εναντίον του στον πρώτο γύρο, επιζώντας χάρη
+    στον βρετανικό αεροπορικό ανεφοδιασμό και σε σιωπηρή συνεννόηση με τη γερμανική
+    διοίκηση που οι αντίπαλοί του δεν του τη συγχώρησαν ποτέ.
+body:
+  en: |
+    Zervas came out of the republican officer corps of the 1920s, a veteran of the
+    coups of the interwar years who had been cashiered and was living in Athens when the
+    Germans arrived. He founded the National Republican Greek League in September 1941
+    and went to the mountains of Epirus the following summer, initially on the republican
+    programme of Nikolaos Plastiras, later with the monarchy an open question he preferred
+    not to answer.
+
+    His forces made up a third of the Greek contingent at Gorgopotamos in November 1942,
+    the only joint operation ELAS and EDES ever mounted. A year later ELAS attacked him
+    and drove EDES back into a coastal enclave; British arms and an informal agreement
+    with General Hubert Lanz of XXII Mountain Corps kept it alive. He signed at Caserta in
+    September 1944 and accepted the government's authority, and in December 1944 EDES was
+    driven out of Epirus and evacuated to Corfu. He served as a minister in the late
+    1940s. To EAM he was a collaborator; to his own side he was the only commander who
+    kept a non-communist armed force in the field, and neither verdict has ever displaced
+    the other.
+  el: |
+    Ο Ζέρβας προερχόταν από το δημοκρατικό σώμα αξιωματικών της δεκαετίας του 1920,
+    βετεράνος των μεσοπολεμικών κινημάτων, αποτακτικός και εγκατεστημένος στην Αθήνα όταν
+    ήρθαν οι Γερμανοί. Ίδρυσε τον Εθνικό Δημοκρατικό Ελληνικό Σύνδεσμο τον Σεπτέμβριο του
+    1941 και ανέβηκε στα βουνά της Ηπείρου το επόμενο καλοκαίρι, αρχικά με το δημοκρατικό
+    πρόγραμμα του Νικολάου Πλαστήρα και αργότερα με το πολιτειακό ανοιχτό ερώτημα που
+    προτιμούσε να μην απαντά.
+
+    Οι δυνάμεις του αποτελούσαν το ένα τρίτο του ελληνικού τμήματος στον Γοργοπόταμο τον
+    Νοέμβριο του 1942, στη μοναδική κοινή επιχείρηση ΕΛΑΣ και ΕΔΕΣ. Έναν χρόνο αργότερα ο
+    ΕΛΑΣ του επιτέθηκε και έσπρωξε τον ΕΔΕΣ σε παραθαλάσσιο θύλακα: τον κράτησαν ζωντανό τα
+    βρετανικά όπλα και μια άτυπη συνεννόηση με τον στρατηγό Χούμπερτ Λαντς του XXII ορεινού
+    σώματος. Υπέγραψε στην Καζέρτα τον Σεπτέμβριο του 1944 και αποδέχθηκε την κυβερνητική
+    εξουσία, και τον Δεκέμβριο του 1944 ο ΕΔΕΣ εκδιώχθηκε από την Ήπειρο και μεταφέρθηκε
+    στην Κέρκυρα. Διετέλεσε υπουργός στα τέλη της δεκαετίας του 1940. Για το ΕΑΜ ήταν
+    συνεργάτης των κατακτητών, για τη δική του πλευρά ο μόνος διοικητής που κράτησε
+    μη κομμουνιστική ένοπλη δύναμη στο πεδίο, και καμία από τις δύο ετυμηγορίες δεν
+    εκτόπισε ποτέ την άλλη.
+sources: [{id: close-1995}, {id: gerolymatos-2016}]

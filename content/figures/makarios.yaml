@@ -1,0 +1,69 @@
+id: makarios
+name: {en: Makarios III, el: Μακάριος Γ΄}
+also_known_as: [{en: Michail Christodoulou Mouskos, el: Μιχαήλ Χριστοδούλου Μούσκος}]
+born: {date: 1913-08-13, precision: day}
+died: {date: 1977-08-03, precision: day, place: nicosia}
+roles: [cleric, statesman]
+summary:
+  en: >
+    Archbishop of Cyprus from September 1950 and first President of the Republic of Cyprus from
+    August 1960, the central political figure of the Greek Cypriot cause for a quarter of a
+    century. He organised the enosis referendum of 1950, backed the EOKA campaign, was deported by
+    the British to the Seychelles in 1956, and then accepted an independent Cyprus at London in
+    1959 instead of the union he had demanded. He was overthrown by a coup in July 1974 and
+    returned after the Turkish invasion to preside over a divided island.
+  el: >
+    Αρχιεπίσκοπος Κύπρου από τον Σεπτέμβριο του 1950 και πρώτος Πρόεδρος της Κυπριακής Δημοκρατίας
+    από τον Αύγουστο του 1960, η κεντρική πολιτική μορφή του ελληνοκυπριακού αγώνα επί ένα τέταρτο
+    του αιώνα. Οργάνωσε το ενωτικό δημοψήφισμα του 1950, στήριξε τον αγώνα της ΕΟΚΑ, εξορίστηκε από
+    τους Βρετανούς στις Σεϋχέλλες το 1956 και στη συνέχεια δέχθηκε στο Λονδίνο το 1959 ανεξάρτητη
+    Κύπρο αντί για την ένωση που είχε ζητήσει. Ανατράπηκε με πραξικόπημα τον Ιούλιο του 1974 και
+    επέστρεψε μετά την τουρκική εισβολή για να ηγηθεί ενός διαιρεμένου νησιού.
+body:
+  en: |
+    Mouskos was born at Pano Panagia in the Paphos district, entered the Church, studied theology
+    and was elected Archbishop of Cyprus on 18 September 1950, at thirty-seven. In a colony where
+    the Church was the only institution the Greek Cypriot majority controlled, the archbishopric
+    was a political office. His first act of consequence was the referendum of January 1950,
+    organised in the churches after the British refused an official vote, in which 215,108 signed
+    for union with Greece.
+
+    He supported the turn to arms after the failure of the appeal to the United Nations, and the
+    British treated him as the campaign's political head. They deported him on 9 March 1956 with a
+    bishop, a priest and an editor; he reached the Seychelles on 14 March and was held about a
+    year. Released in 1957 but barred from Cyprus, he directed the cause from Athens and did not
+    see the island again until 1 March 1959.
+
+    At London in February 1959 he signed for the Greek Cypriots an agreement that created an
+    independent republic and prohibited both union with Greece and partition. Grivas and much of
+    the Right never forgave him for it. Elected president on 13 December 1959, he took office on 16
+    August 1960 and proposed thirteen amendments to the communal constitution on 30 November 1963,
+    which the Turkish Cypriots read as the removal of their guarantees and which were followed by
+    intercommunal fighting and the collapse of the bicommunal state. He spent the next decade
+    moving away from enosis toward an independent non-aligned Cyprus, which set Athens and the
+    Greek Cypriot Right against him and led to the coup of July 1974 and the invasion that
+    followed.
+  el: |
+    Ο Μούσκος γεννήθηκε στην Πάνω Παναγιά της επαρχίας Πάφου, μπήκε στην Εκκλησία, σπούδασε
+    θεολογία και εξελέγη Αρχιεπίσκοπος Κύπρου στις 18 Σεπτεμβρίου 1950, σε ηλικία τριάντα επτά
+    ετών. Σε μια αποικία όπου η Εκκλησία ήταν ο μόνος θεσμός που έλεγχε η ελληνοκυπριακή
+    πλειοψηφία, η αρχιεπισκοπή ήταν πολιτικό αξίωμα. Η πρώτη του πράξη με βάρος ήταν το δημοψήφισμα
+    του Ιανουαρίου 1950, που οργανώθηκε στους ναούς αφού οι Βρετανοί αρνήθηκαν επίσημη ψηφοφορία
+    και στο οποίο 215.108 υπέγραψαν για την ένωση με την Ελλάδα.
+
+    Στήριξε τη στροφή στα όπλα μετά την αποτυχία της προσφυγής στον ΟΗΕ, και οι Βρετανοί τον
+    αντιμετώπισαν ως πολιτικό επικεφαλής του αγώνα. Τον εξόρισαν στις 9 Μαρτίου 1956 μαζί με έναν
+    μητροπολίτη, έναν ιερέα και έναν εκδότη· έφτασε στις Σεϋχέλλες στις 14 Μαρτίου και κρατήθηκε
+    περίπου έναν χρόνο. Αφέθηκε ελεύθερος το 1957 αλλά του απαγορεύτηκε η Κύπρος, καθοδήγησε τον
+    αγώνα από την Αθήνα και ξαναείδε το νησί μόλις την 1η Μαρτίου 1959.
+
+    Στο Λονδίνο τον Φεβρουάριο του 1959 υπέγραψε για τους Ελληνοκυπρίους συμφωνία που δημιουργούσε
+    ανεξάρτητη δημοκρατία και απαγόρευε τόσο την ένωση με την Ελλάδα όσο και τη διχοτόμηση. Ο
+    Γρίβας και μεγάλο μέρος της Δεξιάς δεν του το συγχώρησαν ποτέ. Εκλεγμένος πρόεδρος στις 13
+    Δεκεμβρίου 1959, ανέλαβε στις 16 Αυγούστου 1960 και πρότεινε δεκατρείς τροποποιήσεις του
+    κοινοτικού συντάγματος στις 30 Νοεμβρίου 1963, τις οποίες οι Τουρκοκύπριοι διάβασαν ως
+    κατάργηση των εγγυήσεών τους και τις οποίες ακολούθησαν διακοινοτικές συγκρούσεις και η
+    κατάρρευση του δικοινοτικού κράτους. Την επόμενη δεκαετία μετακινήθηκε από την ένωση προς μια
+    ανεξάρτητη και αδέσμευτη Κύπρο, κάτι που έστρεψε εναντίον του την Αθήνα και την ελληνοκυπριακή
+    Δεξιά και οδήγησε στο πραξικόπημα του Ιουλίου 1974 και στην εισβολή που ακολούθησε.
+sources: [{id: holland-1998}, {id: ker-lindsay-2011}]

@@ -7,6 +7,14 @@ This is **v0**: one working vertical slice, built to answer the only genuinely u
 question in the project, which is whether the atom model produces a map that looks right
 and redraws convincingly.
 
+## The corpus
+
+127 events from the outbreak of the revolution to the Tempi disaster, 78 figures, 76
+places, 32 instruments and 22 cited works. Every event and figure is written in both
+English and Greek. `significance` ranks events 2 to 5 on what they changed: fifteen events
+across two centuries are rated 5, meaning they changed the shape or the nature of the
+state, and the scale is meant to stay that steep.
+
 ## The two ideas the project rests on
 
 **Atoms.** An atom is an area whose sovereignty history is identical throughout the whole
@@ -85,15 +93,16 @@ Evrytania problem described above, and it is the one worth fixing first.
 ## Deliberately not here yet
 
 Sub-NUTS3 land cuts. A Cyprus split for 1974. Claims (numbers with citations) and
-interpretations. The Greek text. TopoJSON and merged borders. Server-side rendering and
-prerendering. CI.
+interpretations. TopoJSON and merged borders. Server-side rendering and prerendering. CI.
 
 ## Deploying
 
 The deployed site has no server. Every route is a pure read off a corpus that changes only
 when someone edits `content/`, so `make export` runs the real app through `TestClient` and
-writes each response body verbatim to `frontend/static/api/`: 49 files, about 290 KB. The
-whole build is 640 KB.
+writes each response body verbatim to `frontend/static/api/`: 246 files, about 2.2 MB. The
+whole build is 2.9 MB. `events.json` is 255 KB of that, because the ledger carries every
+event's summary in both languages; if it starts to hurt, splitting the ledger from the
+summaries is the first thing to try.
 
 This removes the hosted process, not the backend. The same models, the same `validate.py`
 invariants and the same serialiser still stand between the YAML and the browser; they run
@@ -138,5 +147,5 @@ app deploys as it stands and the frontend points back at it.
 
 Boundaries from [Eurostat Nuts2json](https://github.com/eurostat/Nuts2json) v2, 2021
 edition, EPSG:4326, 03M resolution (EUPL 1.2). Administrative boundaries
-(c) EuroGeographics. Historical content in `content/` is original prose; event summaries
-carry no citations yet, which is a gap to close rather than a position.
+(c) EuroGeographics. Historical content in `content/` is original prose in English and
+Greek, and every event and figure carries at least one citation into `sources.yaml`.

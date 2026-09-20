@@ -1,0 +1,52 @@
+id: papanastasiou
+name: {en: Alexandros Papanastasiou, el: Αλέξανδρος Παπαναστασίου}
+born: {date: 1876-07-08, precision: day}
+died: {date: 1936-11-17, precision: day}
+roles: [statesman]
+summary:
+  en: >
+    Sociologist and socialist republican who founded the Democratic Union and became prime
+    minister in March 1924 for the express purpose of proclaiming the Republic. He was the
+    most consistent democrat in Greek politics between the wars and never commanded a large
+    party.
+  el: >
+    Κοινωνιολόγος και σοσιαλιστής δημοκρατικός, ιδρυτής της Δημοκρατικής Ένωσης, που έγινε
+    πρωθυπουργός τον Μάρτιο του 1924 ακριβώς για να ανακηρύξει τη Δημοκρατία. Υπήρξε ο πιο
+    συνεπής δημοκράτης της ελληνικής πολιτικής του Μεσοπολέμου και ποτέ δεν διέθεσε μεγάλο
+    κόμμα.
+body:
+  en: |
+    Papanastasiou studied law and social science in Athens and then in Berlin, Heidelberg and
+    London, and came back to argue that Greece needed land reform, a republic and organised
+    labour, in that order. He was one of the founders of the Sociological Society before the
+    Balkan Wars and a signatory of the Democratic Manifesto issued after the Asia Minor
+    Catastrophe, for which he was imprisoned.
+
+    His government of 12 March to 24 July 1924 carried the proclamation of the Second
+    Hellenic Republic and the plebiscite that ratified it. He fell within four months and
+    never again held office for long, though he served briefly as prime minister in 1932 and
+    as a minister under Venizelos. He pressed throughout the 1920s and 1930s for cooperation
+    between Balkan states and was the moving spirit of the Balkan Conferences that led to the
+    Pact of 1934. He died of a heart attack at his home in Ekali in November 1936, three
+    months into the dictatorship he had spent his career arguing against. Sources disagree
+    about his birthplace, giving either Tripoli in Arcadia or the nearby village of Levidi.
+  el: |
+    Ο Παπαναστασίου σπούδασε νομικά και κοινωνικές επιστήμες στην Αθήνα και κατόπιν στο
+    Βερολίνο, τη Χαϊδελβέργη και το Λονδίνο, και επέστρεψε υποστηρίζοντας ότι η Ελλάδα
+    χρειαζόταν αγροτική μεταρρύθμιση, αβασίλευτη δημοκρατία και οργανωμένο εργατικό κίνημα, με
+    αυτή τη σειρά. Ήταν από τους ιδρυτές της Κοινωνιολογικής Εταιρείας πριν από τους
+    Βαλκανικούς Πολέμους και συνυπογράφων του Δημοκρατικού Μανιφέστου που εκδόθηκε μετά τη
+    Μικρασιατική Καταστροφή, για το οποίο φυλακίστηκε.
+
+    Η κυβέρνησή του, από τις 12 Μαρτίου ως τις 24 Ιουλίου 1924, προχώρησε στην ανακήρυξη της
+    Β΄ Ελληνικής Δημοκρατίας και στο δημοψήφισμα που την επικύρωσε. Έπεσε μέσα σε τέσσερις
+    μήνες και δεν κράτησε ποτέ ξανά την εξουσία για πολύ, αν και διετέλεσε για λίγο
+    πρωθυπουργός το 1932 και υπουργός υπό τον Βενιζέλο. Σε όλη τη δεκαετία του 1920 και του
+    1930 πίεζε για συνεργασία των βαλκανικών κρατών και υπήρξε η ψυχή των Βαλκανικών
+    Διασκέψεων από τις οποίες προέκυψε το Σύμφωνο του 1934. Πέθανε από καρδιακή προσβολή στο
+    σπίτι του στην Εκάλη τον Νοέμβριο του 1936, τρεις μήνες μετά την εγκαθίδρυση της
+    δικτατορίας που όλη του η σταδιοδρομία είχε πολεμήσει. Οι πηγές διαφωνούν για τον τόπο
+    γέννησής του, δίνοντας είτε την Τρίπολη της Αρκαδίας είτε το γειτονικό Λεβίδι.
+sources:
+  - {id: clogg-2021}
+  - {id: koliopoulos-veremis-2010}

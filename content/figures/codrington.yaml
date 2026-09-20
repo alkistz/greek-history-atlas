@@ -8,6 +8,10 @@ summary:
     British admiral commanding the allied fleet at Navarino in 1827. He had orders to
     enforce an armistice without fighting, and destroyed the Ottoman and Egyptian fleet
     in an afternoon.
+  el: >
+    Βρετανός ναύαρχος, διοικητής του συμμαχικού στόλου στο Ναβαρίνο το 1827. Είχε εντολή να
+    επιβάλει ανακωχή χωρίς να πολεμήσει, και κατέστρεψε τον οθωμανικό και αιγυπτιακό στόλο
+    μέσα σε ένα απόγευμα.
 body:
   en: |
     Codrington had commanded a ship of the line at Trafalgar. In 1827 he was senior
@@ -19,4 +23,14 @@ body:
     and by evening most of the Ottoman and Egyptian fleet had been sunk or burnt. London
     called it an "untoward event" and recalled him the following year. Greece gave him a
     street and a statue.
+  el: |
+    Ο Κόδριγκτον είχε διοικήσει πλοίο της γραμμής στο Τραφάλγκαρ. Το 1827 ήταν ο αρχαιότερος
+    αξιωματικός των βρετανικών, γαλλικών και ρωσικών μοιρών που στάλθηκαν να επιβάλουν στον
+    σουλτάνο και στον Ιμπραήμ πασά τη μεσολάβηση που είχε συμφωνηθεί στη Συνθήκη του Λονδίνου.
+
+    Οδήγησε τον συνδυασμένο στόλο στον όρμο του Ναβαρίνου στις 20 Οκτωβρίου για να δείξει ότι
+    ο αποκλεισμός ήταν υπαρκτός. Ένας πυροβολισμός εναντίον βρετανικής λέμβου έγινε γενική
+    σύγκρουση, και ως το βράδυ το μεγαλύτερο μέρος του οθωμανικού και αιγυπτιακού στόλου είχε
+    βυθιστεί ή καεί. Το Λονδίνο το χαρακτήρισε "ατυχές συμβάν" και τον ανακάλεσε την επόμενη
+    χρονιά. Η Ελλάδα του έδωσε έναν δρόμο και έναν ανδριάντα.
 sources: [{id: woodhouse-1965}]

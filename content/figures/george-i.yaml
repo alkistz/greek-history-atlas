@@ -8,6 +8,11 @@ summary:
     Danish prince elected King of the Hellenes in 1863. His reign of fifty years saw the
     kingdom gain the Ionian Islands, Thessaly, Epirus, Macedonia and Crete. He was
     assassinated in Thessaloniki five months after its capture.
+  el: >
+    Δανός πρίγκιπας που εκλέχθηκε βασιλιάς των Ελλήνων το 1863. Στη διάρκεια της πενηντάχρονης
+    βασιλείας του το βασίλειο απέκτησε τα Επτάνησα, τη Θεσσαλία, την Ήπειρο, τη Μακεδονία και
+    την Κρήτη. Δολοφονήθηκε στη Θεσσαλονίκη πέντε μήνες αφότου την κατέλαβε ο ελληνικός
+    στρατός.
 body:
   en: |
     The National Assembly chose Prince William of Denmark after the British candidate,
@@ -19,4 +24,14 @@ body:
     Balkan Wars double the size of his kingdom. On 18 March 1913, walking without a guard
     in newly captured Thessaloniki, he was shot dead by a man with no political motive
     anyone could establish.
+  el: |
+    Η Εθνοσυνέλευση επέλεξε τον πρίγκιπα Γουλιέλμο της Δανίας, αφού οι Δυνάμεις απέκλεισαν τον
+    βρετανό υποψήφιο, τον πρίγκιπα Αλφρέδο. Έφτασε τον Οκτώβριο του 1863· η παραχώρηση των
+    Επτανήσων από τη Βρετανία ήταν η προίκα της συμφωνίας.
+
+    Ο Γεώργιος κυβέρνησε μέσα από τη Βουλή και όχι παρακάμπτοντάς την, και μετά το 1875
+    δέχθηκε την αρχή της δεδηλωμένης. Πρόλαβε να δει τους Βαλκανικούς Πολέμους να διπλασιάζουν
+    το βασίλειό του. Στις 18 Μαρτίου 1913, καθώς περπατούσε χωρίς φρουρά στη μόλις κατακτημένη
+    Θεσσαλονίκη, τον πυροβόλησε θανάσιμα ένας άνδρας για τον οποίο κανείς δεν μπόρεσε να
+    τεκμηριώσει πολιτικό κίνητρο.
 sources: [{id: clogg-2021}]

@@ -1,11 +1,16 @@
 id: assassination-of-kapodistrias
 title:
   en: The Assassination of Kapodistrias
+  el: Η δολοφονία του Καποδίστρια
 summary:
   en: >
     The first head of state of independent Greece was shot outside a church in Nafplio
     by members of the Mavromichalis clan. The disorder that followed convinced the
     Powers to impose a monarchy.
+  el: >
+    Ο πρώτος Κυβερνήτης του ανεξάρτητου ελληνικού κράτους δολοφονήθηκε έξω από εκκλησία στο
+    Ναύπλιο από μέλη της οικογένειας Μαυρομιχάλη. Η αναταραχή που ακολούθησε έπεισε τις
+    Δυνάμεις να επιβάλουν μοναρχία.
 body:
   en: |
     Kapodistrias had governed since January 1828 with an authority that owed nothing
@@ -18,6 +23,17 @@ body:
     Spyridon and shot and stabbed him. Civil war between the Governor's party and its
     opponents followed within months, and the Convention of London of May 1832 gave the
     country a king.
+  el: |
+    Ο Καποδίστριας κυβερνούσε από τον Ιανουάριο του 1828 με μια εξουσία που δεν όφειλε τίποτε
+    στους προύχοντες, στους νησιώτες πλοιοκτήτες ή στους οπλαρχηγούς, και οι τρεις αυτές
+    ομάδες είχαν στραφεί εναντίον του. Ο μανιάτης ηγέτης Πετρόμπεης Μαυρομιχάλης βρισκόταν
+    φυλακισμένος στο Ναύπλιο με την κατηγορία της ανταρσίας.
+
+    Το πρωί της 9ης Οκτωβρίου 1831 (27 Σεπτεμβρίου με το παλαιό ημερολόγιο) ο αδελφός του
+    Κωνσταντίνος και ο γιος του Γεώργιος περίμεναν τον Κυβερνήτη στην πόρτα του Αγίου
+    Σπυρίδωνα και τον πυροβόλησαν και τον μαχαίρωσαν. Μέσα σε λίγους μήνες ξέσπασε εμφύλιος
+    πόλεμος ανάμεσα στους κυβερνητικούς και τους αντιπάλους τους, και η Σύμβαση του Λονδίνου
+    του Μαΐου 1832 έδωσε στη χώρα βασιλιά.
 period: [1831-10-09, 1831-10-10]
 precision: day
 as_written: {date: 1831-09-27, calendar: julian}
