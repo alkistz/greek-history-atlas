@@ -91,3 +91,11 @@ figures:
   - {figure: truman, role: author}
   - {figure: tsaldaris-konstantinos, role: participant}
 sources: [{id: gerolymatos-2016}, {id: clogg-2021}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      The 400 million split 300 to Greece and 100 to Turkey sums correctly; Public Law 80-75 and the 22 May signature consistent.

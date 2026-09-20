@@ -77,3 +77,11 @@ sources:
   - {id: clogg-2021}
   - {id: koliopoulos-veremis-2010}
   - {id: mazower-1991}
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      25 March proclamation and the 13 April plebiscite counts consistent.

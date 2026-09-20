@@ -88,3 +88,11 @@ sources:
   - {id: clogg-2021}
   - {id: koliopoulos-veremis-2010}
   - {id: close-1995}
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      10 October and the 97.87 per cent plebiscite consistent, with the conditions of the vote correctly described.

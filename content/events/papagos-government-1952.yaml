@@ -76,3 +76,11 @@ figures:
   - {figure: papagos, role: leader}
   - {figure: karamanlis-konstantinos, role: participant}
 sources: [{id: clogg-2021}, {id: gallant-2016}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      49.2 per cent and 247 of 300 seats under the majoritarian law consistent.

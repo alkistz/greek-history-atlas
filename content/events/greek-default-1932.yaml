@@ -105,3 +105,11 @@ sources:
   - {id: mazower-1991}
   - {id: clogg-2021}
   - {id: kalyvas-2015}
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Gold-exchange standard, the 1931 sterling loss and the 81 per cent debt service consistent.

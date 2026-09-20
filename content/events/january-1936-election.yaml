@@ -99,3 +99,11 @@ sources:
   - {id: close-1995}
   - {id: clogg-2021}
   - {id: mazower-1991}
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Seat counts and the KKE's balancing position consistent.

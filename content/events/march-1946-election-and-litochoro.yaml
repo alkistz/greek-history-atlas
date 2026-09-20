@@ -104,3 +104,11 @@ figures:
   - {figure: tsaldaris-konstantinos, role: leader}
   - {figure: zachariadis, role: leader}
 sources: [{id: close-1995}, {id: gerolymatos-2016}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Poll of 31 March and the Litochoro raid the night before are consistent with the event's own start date of 30 March.

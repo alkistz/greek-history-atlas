@@ -122,3 +122,11 @@ figures:
   - {figure: damaskinos, role: leader}
   - {figure: papandreou-georgios, role: leader}
 sources: [{id: close-1995}, {id: mazower-2000}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Scobie's order, the resignations and the Syntagma shooting are consistent; casualty figures already given as approximate.

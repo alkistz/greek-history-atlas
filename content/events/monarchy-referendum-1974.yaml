@@ -6,7 +6,7 @@ summary:
   en: >
     Six weeks after the first free election in a decade, Greek voters were asked to
     choose between a crowned democracy and a republic. The republic won with 3,245,111
-    votes, 68.8 per cent, against 1,445,875 for the monarchy, on a turnout of about
+    votes, 69.2 per cent, against 1,445,875 for the monarchy, on a turnout of about
     75.6 per cent. Constantine II was not allowed to campaign in Greece and made his
     case in a television address from London, while Karamanlis stayed publicly neutral,
     which most observers read as decisive. The vote ended 111 years of the Glücksburg
@@ -14,7 +14,7 @@ summary:
   el: >
     Έξι εβδομάδες μετά τις πρώτες ελεύθερες εκλογές της δεκαετίας, οι Έλληνες κλήθηκαν
     να επιλέξουν ανάμεσα σε βασιλευομένη και σε αβασίλευτη δημοκρατία. Η αβασίλευτη
-    επικράτησε με 3.245.111 ψήφους, 68,8%, έναντι 1.445.875 για τη μοναρχία, με
+    επικράτησε με 3.245.111 ψήφους, 69,2%, έναντι 1.445.875 για τη μοναρχία, με
     συμμετοχή περίπου 75,6%. Ο Κωνσταντίνος Β΄ δεν επιτράπηκε να κάνει προεκλογική
     εκστρατεία στην Ελλάδα και μίλησε με τηλεοπτικό διάγγελμα από το Λονδίνο, ενώ ο
     Καραμανλής τήρησε δημόσια ουδετερότητα, κάτι που οι περισσότεροι θεώρησαν
@@ -80,3 +80,11 @@ sources:
   - {id: clogg-2021}
   - {id: koliopoulos-veremis-2010}
   - {id: beaton-2019}
+review:
+  auto:
+    date: 2026-09-20
+    result: corrected
+    langs: [en, el]
+    by: assistant, verified against public sources
+    note: >
+      The vote counts were exact -- 3,245,111 against 1,445,875 -- but the percentage was given as 68.8 where the counts and the official result both make 69.2 of 4,690,986 valid votes. Turnout of about 75.6 per cent is right.

@@ -80,3 +80,11 @@ figures:
   - {figure: siantos, role: signatory}
   - {figure: plastiras, role: leader}
 sources: [{id: close-1995}, {id: mazower-2000}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Date and the surrendered-weapons counts consistent, with the caching correctly noted.

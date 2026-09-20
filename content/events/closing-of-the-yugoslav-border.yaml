@@ -84,3 +84,11 @@ significance: 3
 figures:
   - {figure: zachariadis, role: leader}
 sources: [{id: gerolymatos-2016}, {id: koliopoulos-veremis-2010}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Cominform expulsion of 28 June 1948 and the July 1949 closure consistent.

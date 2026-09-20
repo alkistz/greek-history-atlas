@@ -93,3 +93,11 @@ figures:
 sources:
   - {id: clogg-2021}
   - {id: beaton-2019}
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      17 June 2018 at Psarades and the erga omnes name change consistent; the ratification vote of 153 to 146 is correct.

@@ -85,3 +85,11 @@ figures:
   - {figure: lambrakis, role: victim}
   - {figure: karamanlis-konstantinos, role: leader}
 sources: [{id: beaton-2019}, {id: kalyvas-2015}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Date, method and the five days to death consistent.

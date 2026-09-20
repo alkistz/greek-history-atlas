@@ -99,3 +99,11 @@ figures:
   - {figure: karamanlis-konstantinos, role: leader}
   - {figure: papandreou-georgios, role: participant}
 sources: [{id: clogg-2021}, {id: beaton-2019}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Papagos's death on 4 October and the swearing-in two days later consistent.

@@ -78,3 +78,11 @@ sources:
   - {id: woodhouse-1985}
   - {id: kornetis-2013}
   - {id: koliopoulos-veremis-2010}
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Eight days after the Polytechnic and the arrangement of figurehead offices consistent.

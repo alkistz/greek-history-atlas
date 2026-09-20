@@ -78,3 +78,11 @@ figures:
   - {figure: george-ii, role: leader}
   - {figure: tsaldaris-konstantinos, role: leader}
 sources: [{id: close-1995}, {id: clogg-2021}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      68.4 against 31.6 per cent sums correctly; turnout and register size consistent.
