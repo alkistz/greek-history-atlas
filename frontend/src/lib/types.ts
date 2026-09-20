@@ -20,6 +20,16 @@ export interface Polity {
 	colour: string | null;
 }
 
+/** A named group of atoms: the grain a reader thinks in, above the grain the map is drawn at. */
+export interface Region {
+	id: string;
+	name: LangText;
+	atoms: string[];
+	/** a viewport hint only; `atoms` is what defines the region */
+	frame: FrameId | null;
+	summary: LangText | null;
+}
+
 export interface ControlRow {
 	atom: string;
 	polity: string;
@@ -137,6 +147,7 @@ export interface Meta {
 	polities: Polity[];
 	atoms: { id: string; name: LangText; external: boolean }[];
 	instruments: { id: string; name: LangText; signed: string }[];
+	regions: Region[];
 	epochs: string[];
 	range: { from: string; to: string };
 }

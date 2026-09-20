@@ -6,6 +6,7 @@
 	import FrameSwitch from '$lib/FrameSwitch.svelte';
 	import Legend from '$lib/Legend.svelte';
 	import MapCaption from '$lib/MapCaption.svelte';
+	import RegionFilter from '$lib/RegionFilter.svelte';
 	import { visibleIn } from '$lib/projection';
 	import type { TrendPoint } from '$lib/TerritoryTrend.svelte';
 	import Timeline, { type TimelineEvent } from '$lib/Timeline.svelte';
@@ -31,10 +32,11 @@
 	let showOccupation = $state(initial.occupation);
 	let selectedId = $state<string | null>(initial.event);
 	let frame = $state(initial.frame);
+	let regions = $state<string[]>(initial.regions);
 
 	const date = $derived(toISO(day, origin));
 	$effect(() => {
-		writeView({ on: date, frame, event: selectedId, occupation: showOccupation });
+		writeView({ on: date, frame, event: selectedId, occupation: showOccupation, regions });
 	});
 
 	const layered = $derived(resolveOn(data.control, date));
@@ -43,6 +45,29 @@
 	);
 	const instruments = $derived(
 		instrumentsOn(data.control, date).map((id) => ({ id, name: instrumentName.get(id) ?? id }))
+	);
+
+	// A region is a set of atoms, so the filter is a set membership test and nothing
+	// is stored per event. Empty selection means the whole map.
+	const regionOf = $derived(
+		new Map(data.meta.regions.flatMap((r) => r.atoms.map((a) => [a, r.id] as const)))
+	);
+	const scope = $derived.by(() => {
+		if (!regions.length) return null;
+		const byId = new Map(data.meta.regions.map((r) => [r.id, r]));
+		return new Set(regions.flatMap((id) => byId.get(id)?.atoms ?? []));
+	});
+	const inScope = (atom: string | null) => scope === null || (atom !== null && scope.has(atom));
+	const dimmed = $derived.by(() => {
+		const out = new Set<string>();
+		if (scope === null) return out;
+		for (const f of data.atoms.features) {
+			if (!scope.has(f.properties.id)) out.add(f.properties.id);
+		}
+		return out;
+	});
+	const shownEvents = $derived(
+		scope === null ? data.events : data.events.filter((e) => inScope(e.atom))
 	);
 
 	const selected = $derived(data.events.find((e) => e.id === selectedId) ?? null);
@@ -56,7 +81,8 @@
 			id: e.id,
 			day: toDay(e.period[0], origin),
 			title: `${year(e.period[0])} — ${e.title.en}`,
-			significance: e.significance
+			significance: e.significance,
+			muted: !inScope(e.atom)
 		}))
 	);
 
@@ -88,6 +114,16 @@
 		const e = data.events.find((x) => x.id === id);
 		if (e) select(e);
 	}
+
+	/** A click on the map filters by that territory's region. */
+	function pick(atom: string) {
+		const id = regionOf.get(atom);
+		if (!id) return;
+		toggleRegion(id);
+	}
+	function toggleRegion(id: string) {
+		regions = regions.includes(id) ? regions.filter((r) => r !== id) : [...regions, id];
+	}
 </script>
 
 <p class="tagline">An atlas of Greek history. The map redraws as control of territory changes.</p>
@@ -104,6 +140,8 @@
 				{frame}
 				{showOccupation}
 				{highlight}
+				{dimmed}
+				onpick={pick}
 			/>
 		</div>
 
@@ -146,7 +184,19 @@
 
 	<aside>
 		<h2>Events</h2>
-		<EventLedger events={data.events} {date} {selectedId} onselect={select} />
+		<RegionFilter
+			regions={data.meta.regions}
+			selected={regions}
+			ontoggle={toggleRegion}
+			onclear={() => (regions = [])}
+		/>
+		<EventLedger
+			events={shownEvents}
+			total={data.events.length}
+			{date}
+			{selectedId}
+			onselect={select}
+		/>
 	</aside>
 </main>
 

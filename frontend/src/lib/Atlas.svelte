@@ -15,6 +15,10 @@
 		frame?: FrameId;
 		/** atom id to brighten */
 		highlight?: string | null;
+		/** atoms outside the current region filter; veiled rather than recoloured */
+		dimmed?: Set<string>;
+		/** a click on a territory, for region filtering */
+		onpick?: (atom: string) => void;
 		pins?: Pin[];
 		showOccupation?: boolean;
 		showLabels?: boolean;
@@ -30,6 +34,8 @@
 		date,
 		frame = 'greece',
 		highlight = null,
+		dimmed,
+		onpick,
 		pins = [],
 		showOccupation = true,
 		showLabels = true,
@@ -43,6 +49,11 @@
 	const nameOf = $derived(new Map(meta.polities.map((p) => [p.id, p.name.en])));
 	const atomName = $derived(new Map(atoms.map((f) => [f.properties.id, f.properties.name.en])));
 	const instrumentName = $derived(new Map(meta.instruments.map((i) => [i.id, i.name.en])));
+	// Naming the region in the tooltip is how a reader learns the vocabulary — at
+	// the exact spot where clicking would filter by it.
+	const regionName = $derived(
+		new Map(meta.regions.flatMap((r) => r.atoms.map((a) => [a, r.name.en] as const)))
+	);
 
 	const shapes = $derived(buildShapes(atoms, frame));
 	const landPath = $derived(pathOf(land.geometry, frame));
@@ -116,6 +127,7 @@
 			role: 'button',
 			tabindex: focusOrder[cursor] === id ? 0 : -1,
 			'aria-label': labelFor(id),
+			onclick: () => onpick?.(id),
 			onkeydown: walk
 		};
 	}
@@ -135,11 +147,27 @@
 			tip = null;
 			return;
 		}
+		// role="button" promises Enter and Space work; browsers do not deliver that
+		// for anything but a real <button>, so honour it here.
+		if (e.key === 'Enter' || e.key === ' ') {
+			const id = (e.currentTarget as Element).getAttribute('data-atom');
+			if (id) {
+				e.preventDefault();
+				onpick?.(id);
+			}
+			return;
+		}
 		const dir = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
 		if (dir === undefined || !wrapper || !focusOrder.length) return;
 		e.preventDefault();
 		const i = Math.min(Math.max(cursor + dir, 0), focusOrder.length - 1);
 		wrapper.querySelector<SVGPathElement>(`[data-atom="${CSS.escape(focusOrder[i])}"]`)?.focus();
+	}
+
+	/** The region, unless it just repeats the territory's own name. */
+	function regionLabel(atom: string): string | null {
+		const region = regionName.get(atom);
+		return region && region !== atomName.get(atom) ? region : null;
 	}
 
 	const tipRows = $derived(
@@ -275,6 +303,20 @@
 			{/each}
 		</g>
 
+		<!-- 5b. region filter: veil what is out of scope rather than recolour it. The
+		     polity palette was chosen against these two land surfaces and must not
+		     be disturbed by a filter. -->
+		{#if dimmed?.size}
+			<g class="veil">
+				{#each atoms as f (f.properties.id)}
+					{@const id = f.properties.id}
+					{#if dimmed.has(id) && held.has(id) && shapes.has(id)}
+						<path d={shapes.get(id)!.d} />
+					{/if}
+				{/each}
+			</g>
+		{/if}
+
 		<!-- 6. names of the sovereign powers -->
 		<g class="labels" aria-hidden="true">
 			{#each labels as l (l.polity)}
@@ -297,6 +339,7 @@
 			y={tip.y}
 			flip={tip.x > width * 0.6}
 			title={atomName.get(tip.atom) ?? tip.atom}
+			region={regionLabel(tip.atom)}
 			rows={tipRows}
 		/>
 	{/if}
@@ -332,8 +375,13 @@
 	.sov.highlighted {
 		filter: brightness(1.18);
 	}
-	.sov:focus-visible {
+	/* An outline on an SVG path is drawn round its bounding box, so the UA ring
+	   reads as a black rectangle over the sea. Suppress it and mark focus on the
+	   shape itself. */
+	.sov:focus {
 		outline: none;
+	}
+	.sov:focus-visible {
 		stroke: var(--accent);
 		stroke-width: 2;
 	}
@@ -356,9 +404,16 @@
 	.occupation,
 	.administered,
 	.insurgency,
+	.veil,
 	.labels,
 	.pins {
 		pointer-events: none;
+	}
+	/* Ground colour, not opacity on the fill: opacity would let the sea read
+	   through an island and change its hue rather than recede it. */
+	.veil path {
+		fill: var(--ground);
+		opacity: 0.66;
 	}
 	.occ-edge {
 		fill: none;

@@ -12,9 +12,10 @@
 		y: number;
 		flip: boolean;
 		title: string;
+		region?: string | null;
 		rows: Row[];
 	}
-	let { x, y, flip, title, rows }: Props = $props();
+	let { x, y, flip, title, region = null, rows }: Props = $props();
 
 	const verb: Record<string, string> = {
 		sovereign: 'Sovereign',
@@ -32,6 +33,7 @@
 	style:top="{y}px"
 >
 	<div class="title">{title}</div>
+	{#if region}<div class="region">{region}</div>{/if}
 	{#each rows as r (r.kind + r.polity)}
 		<div class="row">
 			<span class="kind">{verb[r.kind] ?? r.kind}</span>
@@ -66,6 +68,13 @@
 		font-family: var(--serif);
 		font-size: 0.95rem;
 		margin-bottom: 2px;
+	}
+	.region {
+		color: var(--ink-soft);
+		font-size: 0.74rem;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		margin-bottom: 3px;
 	}
 	.row {
 		color: var(--ink-soft);

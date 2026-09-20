@@ -77,6 +77,12 @@
 		--sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'Noto Sans', sans-serif;
 		--mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
 		color-scheme: light;
+
+		/* Reserve the scrollbar's width whether or not one is showing. The page
+		   height moves with the legend's row count and whether the revolt note is
+		   present, so scrubbing across 1831 to 1832 flips the scrollbar on and off
+		   and slides the whole layout sideways under the reader. */
+		scrollbar-gutter: stable;
 	}
 
 	/* The polity palette was validated against both land surfaces, so only the

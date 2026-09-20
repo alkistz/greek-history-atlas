@@ -9,7 +9,8 @@ import type {
 	FigureSummary,
 	InstrumentDetail,
 	InstrumentSummary,
-	Meta
+	Meta,
+	Region
 } from './types';
 
 type Fetch = typeof fetch;
@@ -39,6 +40,7 @@ export const api = {
 	events: (f: Fetch) => get<AtlasEvent[]>(f, '/api/events'),
 	event: (f: Fetch, id: string) => get<EventDetail>(f, `/api/events/${id}`),
 	figures: (f: Fetch) => get<FigureSummary[]>(f, '/api/figures'),
+	regions: (f: Fetch) => get<Region[]>(f, '/api/regions'),
 	figure: (f: Fetch, id: string) => get<FigureDetail>(f, `/api/figures/${id}`),
 	instruments: (f: Fetch) => get<InstrumentSummary[]>(f, '/api/instruments'),
 	instrument: (f: Fetch, id: string) => get<InstrumentDetail>(f, `/api/instruments/${id}`)

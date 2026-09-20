@@ -24,6 +24,7 @@ POLITIES_YAML = CONTENT / "polities.yaml"
 CONTROL_YAML = CONTENT / "control.yaml"
 INSTRUMENTS_YAML = CONTENT / "instruments.yaml"
 PLACES_YAML = CONTENT / "places.yaml"
+REGIONS_YAML = CONTENT / "regions.yaml"
 SOURCES_YAML = CONTENT / "sources.yaml"
 
 # Prose-carrying entries: one file per entry.

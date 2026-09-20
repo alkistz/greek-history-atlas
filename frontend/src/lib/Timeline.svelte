@@ -4,6 +4,8 @@
 		day: number;
 		title: string;
 		significance: number;
+		/** outside the current filter: drawn faint, never removed */
+		muted?: boolean;
 	}
 </script>
 
@@ -231,6 +233,7 @@
 					{#each marks as e (e.id)}
 						<circle
 							class="event"
+							class:muted={e.muted}
 							class:selected={selectedId === e.id}
 							data-event={e.id}
 							cx={e.cx}
@@ -328,6 +331,15 @@
 		stroke-width: 1.2;
 		cursor: pointer;
 		transition: fill 120ms ease;
+	}
+	/* Pushed back, never removed: the reader should still see that something was
+	   happening then, only not there. */
+	.event.muted {
+		stroke: var(--rule);
+		opacity: 0.55;
+	}
+	.event.muted:hover {
+		opacity: 1;
 	}
 	.event:hover {
 		fill: var(--accent);

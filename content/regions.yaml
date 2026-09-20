@@ -1,0 +1,68 @@
+# Regions: named groups of atoms.
+#
+# An atom is the grain the map is DRAWN at — an area whose sovereignty history is
+# identical throughout. A region is the grain a reader THINKS in. Nothing is stored
+# per event: an event's region is a lookup from its atom, so this file can be
+# regrouped without touching a single event.
+#
+# Every atom belongs to exactly one region, external atoms included. The partition
+# is enforced in validate.py, so an atom added to atoms.yaml and forgotten here is
+# a boot failure rather than an event that quietly cannot be filtered.
+#
+# The grouping is editorial, not geographic. Two calls worth knowing about:
+#   - `sporades` sits under Thessaly, not the Aegean: it went Greek in 1832 with the
+#     Cyclades, half a century before the Thessalian mainland it is named after.
+#   - `dodecanese` sits under the Aegean islands, though its Italian half-century
+#     (1912-1947) is unlike any other island group's history. Splitting it into its
+#     own region is a one-line change here and nothing else.
+#
+# `frame` is optional and is only a viewport hint: the extent that shows the region
+# best, where one of the named frames does. It is not what defines the region.
+
+- id: peloponnese
+  name: {en: Peloponnese, el: Πελοπόννησος}
+  atoms: [peloponnese]
+
+- id: central-greece
+  name: {en: Central Greece, el: Στερεά Ελλάδα}
+  atoms: [sterea, aitoloakarnania, attica, evvoia]
+
+- id: thessaly
+  name: {en: Thessaly, el: Θεσσαλία}
+  atoms: [thessaly, sporades]
+
+- id: epirus
+  name: {en: Epirus, el: Ήπειρος}
+  atoms: [epirus, arta-preveza, epirus-north]
+  frame: epirus
+
+- id: macedonia
+  name: {en: Macedonia, el: Μακεδονία}
+  atoms: [macedonia-west, macedonia-central, macedonia-east]
+
+- id: thrace
+  name: {en: Thrace, el: Θράκη}
+  atoms: [thrace-west, thrace-east]
+
+- id: aegean-islands
+  name: {en: Aegean Islands, el: Νησιά του Αιγαίου}
+  atoms: [cyclades, lesvos-limnos, chios, samos-ikaria, dodecanese, imbros-tenedos]
+  frame: aegean-east
+
+- id: ionian-islands
+  name: {en: Ionian Islands, el: Ιόνια Νησιά}
+  atoms: [ionian]
+
+- id: crete
+  name: {en: Crete, el: Κρήτη}
+  atoms: [crete]
+
+- id: asia-minor
+  name: {en: Asia Minor, el: Μικρά Ασία}
+  atoms: [smyrna]
+  frame: aegean-east
+
+- id: cyprus
+  name: {en: Cyprus, el: Κύπρος}
+  atoms: [cyprus]
+  frame: cyprus

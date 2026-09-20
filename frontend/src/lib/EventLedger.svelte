@@ -4,11 +4,14 @@
 
 	interface Props {
 		events: AtlasEvent[];
+		/** the whole corpus, so the count can read "n of all" under a region filter */
+		total?: number;
 		date: string;
 		selectedId: string | null;
 		onselect: (e: AtlasEvent) => void;
 	}
-	let { events, date, selectedId, onselect }: Props = $props();
+	let { events, total, date, selectedId, onselect }: Props = $props();
+	const all = $derived(total ?? events.length);
 
 	let query = $state('');
 	const uid = $props.id();
@@ -82,7 +85,7 @@
 		/>
 	</label>
 	<p class="count" aria-live="polite">
-		{#if query.trim()}{shown.length} of {events.length}{:else}{events.length} events{/if}
+		{#if query.trim() || shown.length !== all}{shown.length} of {all}{:else}{all} events{/if}
 	</p>
 </div>
 

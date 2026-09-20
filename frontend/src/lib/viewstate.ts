@@ -13,9 +13,17 @@ export interface View {
 	/** the event open in the ledger */
 	event: string | null;
 	occupation: boolean;
+	/** region ids; empty means the whole map */
+	regions: string[];
 }
 
-export const DEFAULTS: View = { on: null, frame: 'greece', event: null, occupation: true };
+export const DEFAULTS: View = {
+	on: null,
+	frame: 'greece',
+	event: null,
+	occupation: true,
+	regions: []
+};
 
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
 const isFrame = (s: string | null): s is FrameId => s !== null && s in FRAMES;
@@ -28,7 +36,8 @@ export function parseView(url: URL, fallback: string): View {
 		on: on && ISO.test(on) ? on : fallback,
 		frame: isFrame(frame) ? frame : 'greece',
 		event: p.get('event'),
-		occupation: p.get('occupation') !== '0'
+		occupation: p.get('occupation') !== '0',
+		regions: (p.get('regions') ?? '').split(',').filter(Boolean)
 	};
 }
 
@@ -39,6 +48,7 @@ function toParams(v: View): string {
 	if (v.frame !== DEFAULTS.frame) p.set('frame', v.frame);
 	if (v.event) p.set('event', v.event);
 	if (v.occupation !== DEFAULTS.occupation) p.set('occupation', '0');
+	if (v.regions.length) p.set('regions', v.regions.join(','));
 	return p.toString();
 }
 
