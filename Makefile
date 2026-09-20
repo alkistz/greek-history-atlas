@@ -11,7 +11,7 @@ atoms:
 	cd backend && uv run python scripts/build_atoms.py
 
 api:
-	cd backend && uv run uvicorn atlas.main:app --reload --port 8000
+	cd backend && uv run uvicorn app.main:app --reload --port 8000
 
 web:
 	cd frontend && npm run dev

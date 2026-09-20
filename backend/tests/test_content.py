@@ -8,8 +8,10 @@ from datetime import date
 
 import pytest
 
-from atlas.content import ContentError, _validate, load
-from atlas.models import Control
+from app.core.content import Corpus, load, validate
+from app.core.exceptions import ContentError
+from app.modules.control import crud as control
+from app.modules.control.models import Control
 
 
 @pytest.fixture(scope="module")
@@ -33,7 +35,7 @@ def test_periods_are_half_open(corpus):
     handover = date(1864, 6, 2)
     holders = {
         c.polity
-        for c in corpus.control_on(handover)
+        for c in control.control_on(corpus, handover)
         if c.atom == "ionian" and c.kind == "sovereign"
     }
     assert holders == {"gr-kingdom"}
@@ -42,7 +44,7 @@ def test_periods_are_half_open(corpus):
 def test_occupation_layers_over_sovereignty(corpus):
     """The point of the model: in 1942 Greece is still sovereign everywhere."""
     on = date(1942, 6, 1)
-    rows = corpus.control_on(on)
+    rows = control.control_on(corpus, on)
     sovereign = {c.atom for c in rows if c.kind == "sovereign" and c.polity == "gr-kingdom"}
     occupied = {c.atom for c in rows if c.kind == "occupied"}
     assert len(sovereign) == 18
@@ -53,14 +55,14 @@ def test_occupation_layers_over_sovereignty(corpus):
 
 def test_dodecanese_is_not_greek_in_1914(corpus):
     """The detail naive maps get wrong."""
-    rows = corpus.control_on(date(1914, 1, 1))
+    rows = control.control_on(corpus, date(1914, 1, 1))
     holder = next(c.polity for c in rows if c.atom == "dodecanese" and c.kind == "sovereign")
     assert holder == "italy"
 
 
 def test_revolution_is_insurgency_not_sovereignty(corpus):
     """1821-32 must never assert Greek sovereignty."""
-    rows = corpus.control_on(date(1826, 4, 22))
+    rows = control.control_on(corpus, date(1826, 4, 22))
     kinds = {c.kind for c in rows if c.polity == "gr-provisional"}
     assert kinds == {"insurgent"}
     peloponnese = next(c.polity for c in rows if c.atom == "peloponnese" and c.kind == "sovereign")
@@ -78,14 +80,14 @@ def test_overlapping_sovereignty_is_rejected(corpus):
             "to": "1905-01-01",
         }
     )
-    broken = type(corpus)(
+    broken = Corpus(
         atoms=corpus.atoms,
         polities=corpus.polities,
         control=[*corpus.control, bad],
         events=corpus.events,
         geojson=corpus.geojson,
     )
-    problems = _validate(broken)
+    problems = validate(broken)
     assert any("overlapping 'sovereign'" in p for p in problems)
     assert any("crete" in p for p in problems)
 
@@ -101,14 +103,14 @@ def test_simultaneous_occupiers_are_also_rejected(corpus):
             "to": "1943-01-01",
         }
     )
-    broken = type(corpus)(
+    broken = Corpus(
         atoms=corpus.atoms,
         polities=corpus.polities,
         control=[*corpus.control, bad],
         events=corpus.events,
         geojson=corpus.geojson,
     )
-    assert any("overlapping 'occupied'" in p for p in _validate(broken))
+    assert any("overlapping 'occupied'" in p for p in validate(broken))
 
 
 def test_content_error_reports_every_problem(corpus):

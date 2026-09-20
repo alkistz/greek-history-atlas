@@ -16,7 +16,7 @@ from shapely.geometry import mapping, shape
 from shapely.geometry.polygon import orient
 from shapely.ops import unary_union
 
-from atlas.paths import ATOMS_GEOJSON, ATOMS_YAML, NUTS3_RAW
+from app.core.paths import ATOMS_GEOJSON, ATOMS_YAML, NUTS3_RAW
 
 GEOD = Geod(ellps="WGS84")
 PRECISION = 6

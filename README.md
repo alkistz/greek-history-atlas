@@ -35,7 +35,8 @@ Then open http://localhost:5173.
 ```
 content/     the source of truth: atoms, polities, control, events. YAML in git.
 data/        raw boundary downloads (gitignored) and the built atom geometry (committed)
-backend/     content pipeline and a read-only API. No database.
+backend/     content pipeline and a read-only API. No database. `app/core` is shared
+             plumbing; `app/modules/<name>` owns one domain each (models, crud, validate, router).
 frontend/    SvelteKit, dev mode. d3-geo, plain SVG.
 ```
 
@@ -43,7 +44,7 @@ frontend/    SvelteKit, dev mode. d3-geo, plain SVG.
 half. When a static export path arrives, content will feed the frontend build directly.
 
 There is no database. The corpus is a few hundred kilobytes, and the invariants a
-PostGIS `EXCLUDE` constraint would have enforced are enforced in `backend/atlas/content.py`
+PostGIS `EXCLUDE` constraint would have enforced are enforced in `backend/app/core/content.py` and each module's `validate.py`
 at load time instead. **The app refuses to start on bad content.** If a database is ever
 added it belongs downstream of the export, never between the content and the frontend.
 

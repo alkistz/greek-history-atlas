@@ -8,7 +8,7 @@ eleven-sided polygon.
 import sys
 import urllib.request
 
-from atlas.paths import NUTS3_RAW, RAW
+from app.core.paths import NUTS3_RAW, RAW
 
 URL = (
     "https://raw.githubusercontent.com/eurostat/Nuts2json/master/pub/v2/2021/4326/03M/nutsrg_3.json"
