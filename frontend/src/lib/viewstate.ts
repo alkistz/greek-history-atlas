@@ -1,5 +1,5 @@
-import { replaceState } from '$app/navigation';
 import { FRAMES, type FrameId } from './projection';
+import { replaceParams } from './urlstate';
 
 /**
  * Everything the atlas page shows is a function of these four values, so they
@@ -58,20 +58,7 @@ export function atlasHref(v: Partial<View>): string {
 	return q ? `/?${q}` : '/';
 }
 
-let pending: ReturnType<typeof setTimeout> | undefined;
-
-/**
- * Mirrors the view into the address bar. `replaceState`, not `pushState`:
- * dragging the timeline would otherwise bury the previous page under hundreds
- * of history entries. Debounced because a drag emits a value per frame.
- */
-export function writeView(v: View, wait = 150): void {
-	clearTimeout(pending);
-	pending = setTimeout(() => {
-		const url = new URL(location.href);
-		const next = toParams(v);
-		if (url.searchParams.toString() === next) return;
-		url.search = next;
-		replaceState(url, {});
-	}, wait);
+/** Mirrors the view into the address bar; see `replaceParams` for why it replaces. */
+export function writeView(v: View): void {
+	replaceParams(new URLSearchParams(toParams(v)));
 }
