@@ -46,3 +46,11 @@ body:
     που το 1927 μετονομάστηκε σε Μελάς. Η ημερομηνία γέννησής του δίνεται ως 29 Μαρτίου 1870
     χωρίς ένδειξη ημερολογίου, και γι' αυτό ο άτλαντας καταγράφει μόνο το έτος.
 sources: [{id: koliopoulos-veremis-2010}, {id: clogg-2021}]
+review:
+  auto:
+    date: 2026-09-20
+    result: unresolved
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      Sources give the birth as 29 March 1870 at Marseille. Same Old Style question as Trikoupis, and Marseille is not yet in places.yaml, so neither the date nor the place was tightened.

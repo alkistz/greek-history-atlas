@@ -34,6 +34,14 @@ NUMBER = re.compile(r"\d[\d.,]*\d|\d")
 
 
 def digits(text: str | None) -> set[str]:
+    """Every number in a text, as bare digit strings.
+
+    Digits only, deliberately. Reading English number words too was tried and
+    abandoned: English prose uses "one", "first" and "a second" as words rather
+    than as quantities, so it invented a mismatch on almost every entry. The
+    residue is that "on the twenty-third" against "στις 23" still reports, which
+    is a handful of known false positives rather than a flood of them.
+    """
     if not text:
         return set()
     return {
@@ -88,27 +96,40 @@ def main() -> int:
     for line in stale[:20]:
         print(line)
 
-    odd = []
-    for e in c.events:
-        for field in ("summary", "body"):
-            t = getattr(e, field)
-            if t is None or t.el is None:
-                continue
-            only_en, only_el = digits(t.en) - digits(t.el), digits(t.el) - digits(t.en)
-            if only_en or only_el:
-                odd.append(
-                    f"  event {e.id!r} {field}: en-only {sorted(only_en)} el-only {sorted(only_el)}"
+    # Two tiers, because the two kinds of difference are worth very different
+    # amounts. A number missing from BOTH sides is a substitution: each language
+    # carries a different figure for the same thing, which is how the two Old
+    # Style / New Style splits were found. A one-sided difference is nearly always
+    # English spelling a number that Greek writes in digits.
+    swapped, one_sided = [], []
+    kinds = (("event", c.events), ("figure", c.figures), ("instrument", c.instruments))
+    for label, items in kinds:
+        for x in items:
+            for field in ("summary", "body"):
+                t = getattr(x, field, None)
+                if t is None or t.el is None:
+                    continue
+                only_en, only_el = digits(t.en) - digits(t.el), digits(t.el) - digits(t.en)
+                if not (only_en or only_el):
+                    continue
+                line = (
+                    f"  {label} {x.id!r} {field}: "
+                    f"en-only {sorted(only_en)} el-only {sorted(only_el)}"
                 )
-        if e.body and e.body.el and paragraphs(e.body.en) != paragraphs(e.body.el):
-            odd.append(
-                f"  event {e.id!r} body: {paragraphs(e.body.en)} paragraphs in en, "
-                f"{paragraphs(e.body.el)} in el"
-            )
-    print(f"\nparity anomalies ({len(odd)}) -- advisory, expect false positives")
-    for line in odd[:25]:
+                (swapped if (only_en and only_el) else one_sided).append(line)
+            body = getattr(x, "body", None)
+            if body and body.el and paragraphs(body.en) != paragraphs(body.el):
+                swapped.append(
+                    f"  {label} {x.id!r} body: {paragraphs(body.en)} paragraphs in en, "
+                    f"{paragraphs(body.el)} in el"
+                )
+
+    print(f"\nmismatched ({len(swapped)}) -- each language carries a different figure")
+    for line in swapped:
         print(line)
-    if len(odd) > 25:
-        print(f"  ... and {len(odd) - 25} more")
+    print(f"\none-sided ({len(one_sided)}) -- usually English spelling what Greek digits")
+    for line in one_sided:
+        print(line)
     return 0
 
 

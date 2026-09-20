@@ -6,6 +6,7 @@ from pydantic import Field, computed_field
 
 from app.core.markdown import render_lang_text
 from app.core.models import Citation, LangText, Precision, Review, Strict
+from app.modules.events.models import AsWritten
 
 FigureRole = Literal[
     "monarch",
@@ -26,6 +27,11 @@ class LifeEvent(Strict):
     date: date
     precision: Precision = "day"
     place: str | None = None
+    # The same affordance events have. Most nineteenth-century Greek lives are
+    # dated Old Style in the sources, and without somewhere to put that date the
+    # only safe precision is `year` even where the day is documented -- which is
+    # why several figures here are less precise than their sources are.
+    as_written: AsWritten | None = None
 
 
 class Figure(Strict):

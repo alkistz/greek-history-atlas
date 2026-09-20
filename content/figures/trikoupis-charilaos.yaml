@@ -68,3 +68,11 @@ sources:
   - {id: clogg-2021}
   - {id: gallant-2016}
   - {id: koliopoulos-veremis-2010}
+review:
+  auto:
+    date: 2026-09-20
+    result: unresolved
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      Sources give the birth as 11 July 1832 at Nafplio, so `precision: year` understates what is known. Left as it is because they do not say whether that date is Old or New Style, and guessing would introduce the error this pass exists to remove. LifeEvent now has as_written to record it once the calendar is established.
