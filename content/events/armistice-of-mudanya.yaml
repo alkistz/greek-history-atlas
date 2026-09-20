@@ -78,3 +78,11 @@ figures:
   - {figure: inonu, role: signatory}
   - {figure: kemal, role: leader}
 sources: [{id: llewellyn-smith-1998}, {id: clogg-2021}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      The Chanak crisis, the fall of Lloyd George on 19 October, the fifteen-day withdrawal and the Greek accession on 14 October hold; the text already flags the 13 October variant.

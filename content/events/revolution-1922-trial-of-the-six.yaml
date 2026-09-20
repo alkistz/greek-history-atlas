@@ -98,3 +98,11 @@ figures:
   - {figure: gounaris, role: victim}
   - {figure: hatzianestis, role: victim}
 sources: [{id: llewellyn-smith-1998}, {id: clogg-2021}, {id: beaton-2019}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      The rising, Lavrio, the abdication of 27 September, the executions of 28 November and the 2010 annulment all hold.

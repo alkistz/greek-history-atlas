@@ -90,3 +90,11 @@ figures:
   - {figure: stergiadis, role: witness}
   - {figure: kemal, role: commander}
 sources: [{id: llewellyn-smith-1998}, {id: clark-2006}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      Dates, the sparing of the Turkish and Jewish quarters, and the deportations hold. Responsibility is already presented as disputed with both accounts named, which is the right treatment and not something to resolve here.

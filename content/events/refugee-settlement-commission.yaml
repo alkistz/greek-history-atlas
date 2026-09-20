@@ -10,7 +10,9 @@ summary:
     November 1923, borrowed abroad and was given the land the departing Muslims had left.
     By the time it closed at the end of 1930 it had settled 578,824 people in 2,085 rural
     settlements and built some 27,600 urban dwellings. The 1928 census counted 1,221,849
-    refugees, roughly one inhabitant in five.
+    refugees in all, of whom 1,164,267 had come from Asia Minor: roughly one inhabitant
+    in five, and the two figures are often quoted against each other as though one of
+    them were wrong.
   el: >
     Η υποχρεωτική ανταλλαγή πληθυσμών που συμφωνήθηκε στη Λωζάνη έφερε στην Ελλάδα, μια
     χώρα κάτω των έξι εκατομμυρίων, ανάμεσα σε 1,2 και 1,5 εκατομμύριο ορθόδοξους
@@ -19,7 +21,9 @@ summary:
     και πήρε ως περιουσία τη γη που άφησαν οι μουσουλμάνοι. Ως το κλείσιμό της, στα τέλη του
     1930, είχε εγκαταστήσει 578.824 ανθρώπους σε 2.085 αγροτικούς συνοικισμούς και είχε
     χτίσει περί τις 27.600 αστικές κατοικίες. Η απογραφή του 1928 μέτρησε 1.221.849
-    πρόσφυγες, περίπου έναν στους πέντε κατοίκους.
+    πρόσφυγες συνολικά, από τους οποίους 1.164.267 είχαν έρθει από τη Μικρά Ασία:
+    περίπου έναν στους πέντε κατοίκους, και οι δύο αριθμοί συχνά αντιπαρατίθενται σαν
+    να ήταν ο ένας από τους δύο λάθος.
 body:
   en: |
     The Convention on the Exchange of Greek and Turkish Populations, signed at Lausanne on
@@ -115,3 +119,11 @@ sources:
   - {id: clark-2006}
   - {id: mazower-1991}
   - {id: clogg-2021}
+review:
+  auto:
+    date: 2026-09-20
+    result: unresolved
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      The Commission's own totals, 578,824 settled in 2,085 rural settlements and some 27,600 urban dwellings, could not be confirmed from anything reachable; they appear to come from the RSC's final report, which is the right source and not one available here. Separately clarified: the 1928 census counted 1,221,849 refugees in all against 1,164,267 from Asia Minor, and the two are frequently quoted against each other as if one were an error.

@@ -76,3 +76,11 @@ significance: 3
 figures:
   - {figure: venizelos, role: signatory}
 sources: [{id: llewellyn-smith-1998}, {id: clogg-2021}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      Terms, the Chatalja line, the 17,000 square kilometre zone and the five-year plebiscite hold. The text already says no state ratified it, which is the point most often got wrong.

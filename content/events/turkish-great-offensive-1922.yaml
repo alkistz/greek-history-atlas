@@ -80,3 +80,11 @@ figures:
   - {figure: kemal, role: commander}
   - {figure: inonu, role: commander}
 sources: [{id: llewellyn-smith-1998}, {id: clogg-2021}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      Force ratios, Afyonkarahisar, Dumlupinar on 30 August and the surrender of Trikoupis on 2 September all hold.

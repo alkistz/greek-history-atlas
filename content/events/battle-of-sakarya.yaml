@@ -7,16 +7,23 @@ summary:
     The Greek army marched on Ankara in August 1921 and fought for twenty-two days along
     a hundred kilometres of the Sakarya bend, the longest continuous front either side
     had held. Its patrols came within about fifty kilometres of the city before ammunition
-    and exhaustion forced a withdrawal on 14 September. Each army lost roughly 4,000 dead
-    and 19,000 wounded. The Greek army never advanced again: it spent the next eleven
+    and exhaustion forced a withdrawal on 14 September. Both armies lost around 4,000 dead
+    and 19,000 wounded on the commonest figures, though other accounts put Turkish dead
+    at 5,713 against 3,958 Greek; the Greeks also left some 15,000 prisoners and
+    deserters behind, against about a thousand Turkish, and that asymmetry is what made
+    the battle decisive rather than merely costly. The Greek army never advanced again: it spent the next eleven
     months standing still in central Anatolia while Turkish strength grew.
   el: >
     Ο ελληνικός στρατός βάδισε προς την Άγκυρα τον Αύγουστο του 1921 και πολέμησε επί είκοσι
     δύο ημέρες σε εκατό χιλιόμετρα κατά μήκος της καμπής του Σαγγαρίου, το μακρύτερο συνεχές
     μέτωπο που κράτησε ποτέ κάποια από τις δύο πλευρές. Οι περίπολοί του έφτασαν περίπου
     πενήντα χιλιόμετρα από την πόλη, πριν η έλλειψη πυρομαχικών και η εξάντληση επιβάλουν
-    σύμπτυξη στις 14 Σεπτεμβρίου. Κάθε στρατός έχασε περίπου 4.000 νεκρούς και 19.000
-    τραυματίες. Ο ελληνικός στρατός δεν προχώρησε ποτέ ξανά: πέρασε τους επόμενους έντεκα
+    σύμπτυξη στις 14 Σεπτεμβρίου. Και οι δύο στρατοί έχασαν περίπου 4.000 νεκρούς και
+    19.000 τραυματίες κατά τους συνηθέστερους αριθμούς, αν και άλλες πηγές δίνουν 5.713
+    τούρκους νεκρούς έναντι 3.958 ελλήνων· οι Έλληνες άφησαν επιπλέον πίσω τους περίπου
+    15.000 αιχμαλώτους και λιποτάκτες, έναντι χιλίων περίπου τουρκικών, και αυτή η
+    ασυμμετρία είναι που έκανε τη μάχη κρίσιμη και όχι απλώς δαπανηρή. Ο ελληνικός
+    στρατός δεν προχώρησε ποτέ ξανά: πέρασε τους επόμενους έντεκα
     μήνες ακίνητος στην κεντρική Ανατολία, ενώ η τουρκική δύναμη μεγάλωνε.
 body:
   en: |
@@ -79,3 +86,11 @@ figures:
   - {figure: inonu, role: commander}
   - {figure: constantine-i, role: witness}
 sources: [{id: llewellyn-smith-1998}, {id: koliopoulos-veremis-2010}]
+review:
+  auto:
+    date: 2026-09-20
+    result: corrected
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      The order of battle is faithful to the standard figures, including the 2,768 machine guns, which looks implausible for 1921 but is what the sources print. Casualties were given as a clean symmetry of 4,000 dead and 19,000 wounded each; that is one estimate of two, the other putting Turkish dead at 5,713 against 3,958 Greek. Both are now given, along with the 15,000 Greek prisoners and deserters against about a thousand Turkish, which is the asymmetry that made the battle decisive.

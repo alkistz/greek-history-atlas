@@ -51,3 +51,11 @@ significance: 5
 figures:
   - {figure: venizelos, role: signatory}
 sources: [{id: clark-2006}, {id: clogg-2021}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      Date, terms and both population ranges hold. Now also linked to its own text on Wikisource.
