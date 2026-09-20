@@ -22,6 +22,8 @@ read. `result` is `clean`, `corrected` or `unresolved`; the third is the state a
 boolean would destroy, distinguishing "nobody looked" from "someone looked hard and
 the sources do not agree".
 
+Open items from the first sweep are in `FOLLOWUPS.md`.
+
 `make review` reports what has been reviewed, what has been edited since it was
 reviewed, and where the English and Greek do not carry the same numbers. Staleness
 comes from git rather than a digest stored in the file: a stored hash has to be
@@ -31,7 +33,7 @@ changed.
 ## The corpus
 
 127 events from the outbreak of the revolution to the Tempi disaster, 78 figures, 76
-places, 32 instruments, 19 narrative threads and 22 cited works. Every event and figure is written in both
+places, 32 instruments, 19 narrative threads and 23 cited works. Every event and figure is written in both
 English and Greek. `significance` ranks events 2 to 5 on what they changed: fifteen events
 across two centuries are rated 5, meaning they changed the shape or the nature of the
 state, and the scale is meant to stay that steep.
@@ -137,8 +139,8 @@ interpretations. TopoJSON and merged borders. Server-side rendering and prerende
 
 The deployed site has no server. Every route is a pure read off a corpus that changes only
 when someone edits `content/`, so `make export` runs the real app through `TestClient` and
-writes each response body verbatim to `frontend/static/api/`: 268 files, about 2.3 MB. The
-whole build is 2.9 MB. `events.json` is 255 KB of that, because the ledger carries every
+writes each response body verbatim to `frontend/static/api/`: 268 files, about 2.5 MB. The
+whole build is 3.3 MB. `events.json` is 255 KB of that, because the ledger carries every
 event's summary in both languages; if it starts to hurt, splitting the ledger from the
 summaries is the first thing to try.
 
