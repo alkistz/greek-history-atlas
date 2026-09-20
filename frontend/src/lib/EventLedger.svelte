@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { t } from './lang.svelte';
+	import { ui } from './ui';
 	import ReviewBadge from './ReviewBadge.svelte';
 	import Significance from './Significance.svelte';
 	import { within, year } from './time';
@@ -82,17 +84,20 @@
 
 <div class="head">
 	<label class="search">
-		<span class="sr">Filter events</span>
+		<span class="sr">{ui('ledger.filter')}</span>
 		<input
 			id="{uid}-q"
 			type="search"
 			bind:value={query}
-			placeholder="Filter events…"
+			placeholder={ui('ledger.placeholder')}
 			autocomplete="off"
 		/>
 	</label>
 	<p class="count" aria-live="polite">
-		{#if query.trim() || shown.length !== all}{shown.length} of {all}{:else}{all} events{/if}
+		{#if query.trim() || shown.length !== all}{ui('ledger.shown', {
+				shown: shown.length,
+				total: all
+			})}{:else}{ui('ledger.total', { total: all })}{/if}
 	</p>
 </div>
 
@@ -112,24 +117,26 @@
 				>
 					<button onclick={() => onselect(e)} aria-current={selectedId === e.id ? 'true' : undefined}>
 						<span class="etime">{year(e.period[0])}</span>
-						<span class="etitle">{e.title.en}</span>
+						<span class="etitle">{t(e.title)}</span>
 					</button>
 					{#if active || selectedId === e.id}
-						<p class="esummary">{e.summary.en}</p>
+						<p class="esummary">{t(e.summary)}</p>
 						<p class="emarks">
 							<Significance significance={e.significance} compact />
 							<ReviewBadge review={e.review} compact />
 						</p>
 						<p class="emore">
-							{#if e.as_written}<span class="eold">Old Style: {e.as_written.date}</span>{/if}
-							<a href="/events/{e.id}">Read more</a>
+							{#if e.as_written}<span class="eold"
+									>{ui('date.oldstyle.label', { date: e.as_written.date })}</span
+								>{/if}
+							<a href="/events/{e.id}">{ui('ledger.readmore')}</a>
 						</p>
 					{/if}
 				</li>
 			{/each}
 		</ol>
 	{:else}
-		<p class="empty">Nothing matches “{query}”.</p>
+		<p class="empty">{ui('ledger.empty', { query })}</p>
 	{/each}
 </div>
 

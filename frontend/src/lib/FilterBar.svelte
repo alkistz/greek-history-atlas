@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { untrack, type Snippet } from 'svelte';
+	import { term, ui } from './ui';
 
 	interface Props {
 		query: string;
-		placeholder?: string;
+		placeholder?: string | undefined;
 		/** how many rows survive the filter, and how many there are in all */
 		shown: number;
 		total: number;
+		/** which vocabulary the count is counting, as an id: see `noun.*` in `ui.ts` */
 		noun: string;
 		/** whether anything is narrowing the list, so a Clear is worth offering */
 		active: boolean;
@@ -23,7 +25,7 @@
 	}
 	let {
 		query = $bindable(),
-		placeholder = 'Search…',
+		placeholder = undefined,
 		shown,
 		total,
 		noun,
@@ -46,22 +48,25 @@
 		<input
 			id="{uid}-q"
 			type="search"
-			aria-label="Search {noun}"
+			aria-label={ui('filter.searchAria', { noun: term('noun', noun) })}
 			bind:value={query}
-			{placeholder}
+			placeholder={placeholder ?? ui('filter.placeholder')}
 			autocomplete="off"
 		/>
 		<p class="count" aria-live="polite">
-			{#if active}{shown} of {total} {noun}{:else}{total} {noun}{/if}
+			{#if active}{ui('filter.shown', { shown, total, noun: term('noun', noun) })}{:else}{ui(
+					'filter.total',
+					{ total, noun: term('noun', noun) }
+				)}{/if}
 		</p>
 		{#if active}
-			<button class="clear" onclick={onclear}>Clear</button>
+			<button class="clear" onclick={onclear}>{ui('filter.clear')}</button>
 		{/if}
 	</div>
 	{#if facets && collapsible}
 		<details class="fold" bind:open>
 			<summary>
-				Filters{#if facetCount}<span class="badge">{facetCount}</span>{/if}
+				{ui('filter.filters')}{#if facetCount}<span class="badge">{facetCount}</span>{/if}
 			</summary>
 			<div class="facets">{@render facets()}</div>
 		</details>

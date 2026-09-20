@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { t } from '$lib/lang.svelte';
+	import { ui } from '$lib/ui';
 	import Significance from '$lib/Significance.svelte';
 	import { atlasHref } from '$lib/viewstate';
 
@@ -10,26 +12,28 @@
 </script>
 
 <svelte:head>
-	<title>{thread.name.en} — Greek History Atlas</title>
-	<meta name="description" content={thread.summary.en} />
+	<title>{ui('page.title', { page: t(thread.name), site: ui('site.name') })}</title>
+	<meta name="description" content={t(thread.summary)} />
 </svelte:head>
 
 <article>
-	<p class="crumb"><a href="/threads">Threads</a> <span class="muted">{years}</span></p>
-	<h1>{thread.name.en}</h1>
-	<p class="summary">{thread.summary.en}</p>
-	<p class="crumb"><a href="/events?threads={thread.id}">See these {thread.events.length} in the ledger →</a></p>
+	<p class="crumb"><a href="/threads">{ui('page.threads')}</a> <span class="muted">{years}</span></p>
+	<h1>{t(thread.name)}</h1>
+	<p class="summary">{t(thread.summary)}</p>
+	<p class="crumb">
+		<a href="/events?threads={thread.id}">{ui('thread.see', { n: thread.events.length })}</a>
+	</p>
 
 	<ol class="arc">
 		{#each thread.events as e, i (e.id)}
 			<li>
 				<span class="when">{e.period[0].slice(0, 4)}</span>
 				<div>
-					<a class="title" href="/events/{e.id}">{e.title.en}</a>
+					<a class="title" href="/events/{e.id}">{t(e.title)}</a>
 					<p class="meta">
-						<span class="muted">{i + 1} of {thread.events.length}</span>
+						<span class="muted">{ui('thread.step', { i: i + 1, n: thread.events.length })}</span>
 						<Significance significance={e.significance} compact />
-						<a href={atlasHref({ on: e.period[0], event: e.id })}>Open on the atlas</a>
+						<a href={atlasHref({ on: e.period[0], event: e.id })}>{ui('events.openatlas')}</a>
 					</p>
 				</div>
 			</li>

@@ -7,6 +7,8 @@
 	import Legend from '$lib/Legend.svelte';
 	import MapCaption from '$lib/MapCaption.svelte';
 	import RegionFilter from '$lib/RegionFilter.svelte';
+	import { t } from '$lib/lang.svelte';
+	import { ui } from '$lib/ui';
 	import { visibleIn } from '$lib/projection';
 	import { regimeOn } from '$lib/regimes';
 	import type { TrendPoint } from '$lib/TerritoryTrend.svelte';
@@ -24,7 +26,7 @@
 	const maxDay = $derived(daysBetween(origin, data.meta.range.to));
 	const epochDays = $derived(data.meta.epochs.map((d) => toDay(d, origin)));
 	const areaOf = $derived(new Map(data.atoms.features.map((f) => [f.properties.id, f.properties])));
-	const instrumentName = $derived(new Map(data.meta.instruments.map((i) => [i.id, i.name.en])));
+	const instrumentName = $derived(new Map(data.meta.instruments.map((i) => [i.id, t(i.name)])));
 
 	// The query string is the entry point; from here the local state leads and is
 	// mirrored back, so dragging the timeline stays cheap.
@@ -84,7 +86,7 @@
 		data.events.map((e) => ({
 			id: e.id,
 			day: toDay(e.period[0], origin),
-			title: `${year(e.period[0])} — ${e.title.en}`,
+			title: `${year(e.period[0])} — ${t(e.title)}`,
 			significance: e.significance,
 			muted: !inScope(e.atom)
 		}))
@@ -142,7 +144,7 @@
 	}
 </script>
 
-<p class="tagline">An atlas of Greek history. The map redraws as control of territory changes.</p>
+<p class="tagline">{ui('atlas.tagline')}</p>
 
 <main>
 	<section class="mapcol">
@@ -179,7 +181,7 @@
 			<FrameSwitch bind:frame />
 			<label class="occ">
 				<input type="checkbox" bind:checked={showOccupation} />
-				Show occupation
+				{ui('atlas.occupation')}
 			</label>
 		</div>
 
@@ -188,18 +190,15 @@
 		</div>
 
 		{#if layered.insurgent.size}
-			<p class="note">Stippled areas are in armed revolt. There was no recognised frontier.</p>
+			<p class="note">{ui('atlas.note.insurgent')}</p>
 		{/if}
 		{#if layered.occupied.size}
-			<p class="note">
-				Hatching marks occupation layered over sovereignty, not replacing it. The Greek state
-				remained sovereign throughout.
-			</p>
+			<p class="note">{ui('atlas.note.occupied')}</p>
 		{/if}
 	</section>
 
 	<aside>
-		<h2>Events</h2>
+		<h2>{ui('page.events')}</h2>
 		<RegionFilter
 			regions={data.meta.regions}
 			selected={regions}

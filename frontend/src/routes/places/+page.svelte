@@ -3,6 +3,8 @@
 	import { page } from '$app/state';
 	import ChipGroup from '$lib/ChipGroup.svelte';
 	import FilterBar from '$lib/FilterBar.svelte';
+	import { alt, both, byText, num, t } from '$lib/lang.svelte';
+	import { term, Term, ui } from '$lib/ui';
 	import { year } from '$lib/time';
 	import { list, matches, params, replaceParams } from '$lib/urlstate';
 
@@ -14,9 +16,9 @@
 	$effect(() => replaceParams(params({ q: query, kinds })));
 
 	const regionOf = $derived(
-		new Map(data.meta.regions.flatMap((r) => r.atoms.map((a) => [a, r.name.en] as const)))
+		new Map(data.meta.regions.flatMap((r) => r.atoms.map((a) => [a, t(r.name)] as const)))
 	);
-	const atomName = $derived(new Map(data.meta.atoms.map((a) => [a.id, a.name.en])));
+	const atomName = $derived(new Map(data.meta.atoms.map((a) => [a.id, t(a.name)])));
 
 	// Links are authored on the event and on the figure; these are the inverses.
 	const eventsAt = $derived.by(() => {
@@ -24,7 +26,7 @@
 		for (const e of data.events) {
 			if (!e.place) continue;
 			const list = out.get(e.place) ?? [];
-			list.push({ id: e.id, title: e.title.en, when: year(e.period[0]) });
+			list.push({ id: e.id, title: t(e.title), when: year(e.period[0]) });
 			out.set(e.place, list);
 		}
 		return out;
@@ -39,10 +41,10 @@
 		};
 		for (const f of data.figures) {
 			if (f.born) {
-				add(f.born.place, { id: f.id, name: f.name.en, what: 'born', when: year(f.born.date) });
+				add(f.born.place, { id: f.id, name: t(f.name), what: 'born', when: year(f.born.date) });
 			}
 			if (f.died) {
-				add(f.died.place, { id: f.id, name: f.name.en, what: 'died', when: year(f.died.date) });
+				add(f.died.place, { id: f.id, name: t(f.name), what: 'died', when: year(f.died.date) });
 			}
 		}
 		return out;
@@ -55,13 +57,13 @@
 	const kindItems = $derived(
 		[...new Set(data.places.map((p) => p.kind))]
 			.sort()
-			.map((k) => ({ id: k, label: k[0].toUpperCase() + k.slice(1) }))
+			.map((k) => ({ id: k, label: Term('kind.place', k) }))
 	);
 
 	const active = $derived(query.trim().length > 0 || kinds.length > 0);
-	const sorted = $derived(
-		[...data.places].sort((a, b) => current(a).name.en.localeCompare(current(b).name.en))
-	);
+	// Alphabetical in the language being read: the English collator would leave
+	// every Greek name in whatever order the file happens to list it.
+	const sorted = $derived([...data.places].sort((a, b) => byText(current(a).name, current(b).name)));
 	const shown = $derived(
 		sorted.filter((p) => {
 			if (kinds.length && !kinds.includes(p.kind)) return false;
@@ -72,7 +74,7 @@
 				p.atom ? regionOf.get(p.atom) : null,
 				// Every name the place has ever carried, in both languages: Smyrna
 				// should find İzmir and Σμύρνη should find both.
-				...p.names.flatMap((n) => [n.name.en, n.name.el])
+				...p.names.flatMap((n) => both(n.name))
 			);
 		})
 	);
@@ -86,19 +88,16 @@
 </script>
 
 <svelte:head>
-	<title>Places — Greek History Atlas</title>
-	<meta name="description" content="Every place the atlas names, and what happened there." />
+	<title>{ui('page.title', { page: ui('page.places'), site: ui('site.name') })}</title>
+	<meta name="description" content={ui('places.description')} />
 </svelte:head>
 
-<h1>Places</h1>
-<p class="lead">
-	Every point the atlas names. Names change and the point does not, so a place carries all
-	the names it has held and the dates each was in force — searching any of them finds it.
-</p>
+<h1>{ui('page.places')}</h1>
+<p class="lead">{ui('places.lead')}</p>
 
 <FilterBar
 	bind:query
-	placeholder="Search places, old names, regions…"
+	placeholder={ui('places.placeholder')}
 	shown={shown.length}
 	total={data.places.length}
 	noun="places"
@@ -110,7 +109,7 @@
 >
 	{#snippet facets()}
 		<ChipGroup
-			label="Kind"
+			label={ui('facet.kind')}
 			items={kindItems}
 			selected={kinds}
 			ontoggle={(id) => (kinds = toggle(kinds, id))}
@@ -127,9 +126,9 @@
 		{@const lives = livesAt.get(p.id) ?? []}
 		<li id={p.id}>
 			<div class="head">
-				<span class="name">{now.name.en}</span>
-				{#if now.name.el}<span class="el">{now.name.el}</span>{/if}
-				<span class="kind">{p.kind}</span>
+				<span class="name">{t(now.name)}</span>
+				{#if alt(now.name)}<span class="alt">{alt(now.name)}</span>{/if}
+				<span class="kind">{term('kind.place', p.kind)}</span>
 			</div>
 			<p class="where">
 				{#if p.atom}
@@ -138,17 +137,18 @@
 						<span class="region">{regionOf.get(p.atom)}</span>
 					{/if}
 				{:else}
-					<span class="region">outside the mapped territory</span>
+					<span class="region">{ui('places.outside')}</span>
 				{/if}
-				<span class="coords">{p.lat.toFixed(2)}°N {p.lon.toFixed(2)}°E</span>
+				<span class="coords">{ui('places.coords', { lat: num(p.lat, 2), lon: num(p.lon, 2) })}</span
+				>
 			</p>
 
 			{#if past.length}
 				<p class="formerly">
-					Also known as
+					{ui('places.alsoknown')}
 					{#each past as n, i (n.name.en)}{i ? '; ' : ' '}<span class="oldname"
-							>{n.name.en}</span
-						>{#if n.name.el}<span class="el"> {n.name.el}</span>{/if}{#if n.from || n.to}<span
+							>{t(n.name)}</span
+						>{#if alt(n.name)}<span class="alt"> {alt(n.name)}</span>{/if}{#if n.from || n.to}<span
 							class="span"
 						>
 							{n.from ? year(n.from) : '…'}–{n.to ? year(n.to) : '…'}</span
@@ -158,7 +158,7 @@
 
 			{#if here.length > FOLD_AT}
 				<details class="fold">
-					<summary>{here.length} events here</summary>
+					<summary>{ui('places.eventshere', { n: here.length })}</summary>
 					<ul class="at">
 						{#each here as e (e.id)}
 							<li><span class="mono">{e.when}</span> <a href="/events/{e.id}">{e.title}</a></li>
@@ -178,17 +178,17 @@
 						<li>
 							<span class="mono">{l.when}</span>
 							<a href="/figures/{l.id}">{l.name}</a>
-							<span class="what">{l.what} here</span>
+							<span class="what">{term('what', l.what)}</span>
 						</li>
 					{/each}
 				</ul>
 			{/if}
 			{#if !here.length && !lives.length}
-				<p class="none">Named by the corpus, but nothing is anchored here yet.</p>
+				<p class="none">{ui('places.nothing')}</p>
 			{/if}
 		</li>
 	{:else}
-		<li class="empty">No place matches that.</li>
+		<li class="empty">{ui('places.empty')}</li>
 	{/each}
 </ol>
 
@@ -224,7 +224,7 @@
 		font-size: 1.1rem;
 		font-weight: 600;
 	}
-	.el {
+	.alt {
 		color: var(--ink-soft);
 		font-size: 0.9rem;
 	}

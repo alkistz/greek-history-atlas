@@ -47,6 +47,33 @@ English and Greek. `significance` ranks events 2 to 5 on what they changed: fift
 across two centuries are rated 5, meaning they changed the shape or the nature of the
 state, and the scale is meant to stay that steep.
 
+## Two languages
+
+The whole app reads in English or in Greek, switched from the header. The choice is
+one switch, not two: the corpus and the interface move together, because a Greek
+page with English chrome is neither.
+
+The corpus half is a lookup. Every entry carries both texts, so `t()` in
+`lib/lang.svelte.ts` picks a side of each `LangText` and falls back to the English
+where a translation is missing — a missing sentence costs the reader a sentence in
+the wrong language rather than the sentence. The interface half is a dictionary:
+`lib/ui.ts` holds every word of the chrome with both languages in one entry, so a
+gap is visible while the English is being written rather than discovered later.
+
+Three things follow the switch besides the words. Dates are formatted by `Intl` in
+the active locale, numbers take its grouping and decimal mark, and indexes that sort
+by name use its collator — the English collator would leave every Greek name in
+whatever order the file happens to list it.
+
+One thing deliberately does not: **search always reaches both languages**. A reader on
+the Greek should still find Venizelos by typing "Venizelos", and one on the English
+should find Σμύρνη. Display follows the switch; what can be found does not narrow.
+
+The choice is stored per browser, defaulting to the browser's own preference, and it
+is not in the URL — so a shared link arrives in the reader's language rather than the
+sender's. It also sets `<html lang>`, which is what makes a screen reader change voice
+and makes CSS uppercase Greek correctly, without the accents.
+
 ## The four ideas the project rests on
 
 **Atoms.** An atom is an area whose sovereignty history is identical throughout the whole

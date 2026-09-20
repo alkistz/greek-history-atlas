@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Citation } from './types';
+	import { term, ui } from './ui';
 
 	interface Props {
 		source: Citation;
@@ -29,7 +30,7 @@
 
 <span class="cite">
 	{lead}
-	<em>{source.title}</em>{tail}{#if full && source.kind !== 'book'}<span class="kind">{source.kind}</span>{/if}
+	<em>{source.title}</em>{tail}{#if full && source.kind !== 'book'}<span class="kind">{term('kind.source', source.kind)}</span>{/if}
 	{#if full}
 		{#each stable as s (s.label)}
 			{#if s.href}
@@ -40,7 +41,9 @@
 		{/each}
 		{#if source.url}
 			<a class="id" href={source.url} rel="noreferrer">
-				Online{#if source.accessed}<span class="acc"> · read {source.accessed}</span>{/if}
+				{ui('cite.online')}{#if source.accessed}<span class="acc"
+						>{ui('cite.read', { date: source.accessed })}</span
+					>{/if}
 			</a>
 		{/if}
 	{/if}

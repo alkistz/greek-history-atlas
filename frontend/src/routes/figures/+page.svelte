@@ -3,7 +3,9 @@
 	import { page } from '$app/state';
 	import ChipGroup from '$lib/ChipGroup.svelte';
 	import FilterBar from '$lib/FilterBar.svelte';
-	import { REVIEW_FACETS, REVIEW_LABELS, reviewTags, tally } from '$lib/review';
+	import { both, t } from '$lib/lang.svelte';
+	import { term, Term, ui } from '$lib/ui';
+	import { REVIEW_FACETS, reviewLabel, reviewTags, tally } from '$lib/review';
 	import ReviewBadge from '$lib/ReviewBadge.svelte';
 	import { year } from '$lib/time';
 	import { list, matches, params, replaceParams } from '$lib/urlstate';
@@ -22,14 +24,14 @@
 	const roleItems = $derived(
 		[...new Set(data.figures.flatMap((f) => f.roles))]
 			.sort()
-			.map((r) => ({ id: r, label: r[0].toUpperCase() + r.slice(1) }))
+			.map((r) => ({ id: r, label: Term('role.figure', r) }))
 	);
 
 	const reviewCounts = $derived(tally(data.figures, (f) => f.review));
 	const reviewItems = $derived(
 		REVIEW_FACETS.filter((f) => reviewCounts.has(f)).map((f) => ({
 			id: f,
-			label: `${REVIEW_LABELS[f]} (${reviewCounts.get(f)})`
+			label: ui('facet.count', { label: reviewLabel(f), n: reviewCounts.get(f) ?? 0 })
 		}))
 	);
 
@@ -39,7 +41,7 @@
 	const centuryItems = $derived(
 		[...new Set(data.figures.map(centuryOf).filter((c) => c !== null))]
 			.sort()
-			.map((c) => ({ id: c, label: `${c}th century` }))
+			.map((c) => ({ id: c, label: term('century', c) }))
 	);
 
 	const facetCount = $derived(roles.length + review.length + born.length);
@@ -47,20 +49,18 @@
 	const shown = $derived(
 		data.figures.filter((f) => {
 			if (roles.length && !f.roles.some((r) => roles.includes(r))) return false;
-			if (review.length && !reviewTags(f.review).some((t) => review.includes(t))) return false;
+			if (review.length && !reviewTags(f.review).some((tag) => review.includes(tag))) return false;
 			const century = centuryOf(f);
 			if (born.length && (!century || !born.includes(century))) return false;
 			return matches(
 				query,
-				f.name.en,
-				f.name.el,
-				f.summary.en,
 				// Both languages, and the dates: "1864" should find Venizelos.
-				f.summary.el,
+				...both(f.name),
+				...both(f.summary),
 				f.roles.join(' '),
 				f.born?.date,
 				f.died?.date,
-				...f.also_known_as.flatMap((n) => [n.en, n.el])
+				...f.also_known_as.flatMap(both)
 			);
 		})
 	);
@@ -77,19 +77,16 @@
 </script>
 
 <svelte:head>
-	<title>Figures — Greek History Atlas</title>
-	<meta name="description" content="The people behind the events." />
+	<title>{ui('page.title', { page: ui('page.figures'), site: ui('site.name') })}</title>
+	<meta name="description" content={ui('figures.description')} />
 </svelte:head>
 
-<h1>Figures</h1>
-<p class="lead">
-	The people behind the events, in order of birth. Search reaches both languages, other
-	spellings and the dates.
-</p>
+<h1>{ui('page.figures')}</h1>
+<p class="lead">{ui('figures.lead')}</p>
 
 <FilterBar
 	bind:query
-	placeholder="Search names, roles, other spellings, years…"
+	placeholder={ui('figures.placeholder')}
 	shown={shown.length}
 	total={data.figures.length}
 	noun="figures"
@@ -100,21 +97,21 @@
 >
 	{#snippet facets()}
 		<ChipGroup
-			label="Role"
+			label={ui('facet.role')}
 			items={roleItems}
 			selected={roles}
 			ontoggle={(id) => (roles = toggle(roles, id))}
 			onclear={() => (roles = [])}
 		/>
 		<ChipGroup
-			label="Born"
+			label={ui('facet.born')}
 			items={centuryItems}
 			selected={born}
 			ontoggle={(id) => (born = toggle(born, id))}
 			onclear={() => (born = [])}
 		/>
 		<ChipGroup
-			label="Review"
+			label={ui('facet.review')}
 			items={reviewItems}
 			selected={review}
 			ontoggle={(id) => (review = toggle(review, id))}
@@ -130,17 +127,17 @@
 				{f.born ? year(f.born.date) : '?'}–{f.died ? year(f.died.date) : ''}
 			</span>
 			<div>
-				<a href="/figures/{f.id}">{f.name.en}</a>
-				<span class="roles">{f.roles.join(', ')}</span>
+				<a href="/figures/{f.id}">{t(f.name)}</a>
+				<span class="roles">{f.roles.map((r) => term('role.figure', r)).join(', ')}</span>
 				<ReviewBadge review={f.review} />
 				{#if f.also_known_as.length}
-					<p class="aka">{f.also_known_as.map((n) => n.en).join('; ')}</p>
+					<p class="aka">{f.also_known_as.map(t).join('; ')}</p>
 				{/if}
-				<p>{f.summary.en}</p>
+				<p>{t(f.summary)}</p>
 			</div>
 		</li>
 	{:else}
-		<li class="empty">No figure matches that.</li>
+		<li class="empty">{ui('figures.empty')}</li>
 	{/each}
 </ol>
 

@@ -2,6 +2,8 @@
 	import Atlas from '$lib/Atlas.svelte';
 	import Citation from '$lib/Citation.svelte';
 	import Legend from '$lib/Legend.svelte';
+	import { t } from '$lib/lang.svelte';
+	import { term, ui } from '$lib/ui';
 	import { visibleIn } from '$lib/projection';
 	import { regimeOn } from '$lib/regimes';
 	import { legendEntries, resolveOn } from '$lib/resolve';
@@ -22,7 +24,7 @@
 		)
 	);
 	const pins = $derived.by((): Pin[] =>
-		event.place ? [{ id: event.place.id, lon: event.place.lon, lat: event.place.lat, label: event.place.name.en }] : []
+		event.place ? [{ id: event.place.id, lon: event.place.lon, lat: event.place.lat, label: t(event.place.name) }] : []
 	);
 
 	// Derived from the date, not stored on the event -- the same bargain regions
@@ -30,7 +32,7 @@
 	const regime = $derived(regimeOn(data.meta.regimes, date));
 	const atomName = $derived(
 		event.atom
-			? (data.meta.atoms.find((a) => a.id === event.atom)?.name.en ?? event.atom)
+			? (t(data.meta.atoms.find((a) => a.id === event.atom)?.name) || event.atom)
 			: null
 	);
 	// A one-atom region carries the atom's own name, and "Peloponnese in the
@@ -38,12 +40,12 @@
 	const region = $derived.by(() => {
 		if (!event.atom) return undefined;
 		const found = data.meta.regions.find((r) => r.atoms.includes(event.atom!));
-		return found && found.name.en !== atomName ? found : undefined;
+		return found && t(found.name) !== atomName ? found : undefined;
 	});
 </script>
 
 <svelte:head>
-	<title>{event.title.en} — Greek History Atlas</title>
+	<title>{ui('page.title', { page: t(event.title), site: ui('site.name') })}</title>
 </svelte:head>
 
 <article class="event">
@@ -64,7 +66,7 @@
 			<Legend entries={legend} />
 			<p class="open">
 				<a href={atlasHref({ on: date, frame: event.frame, event: event.id })}>
-					Open this day on the atlas →
+					{ui('event.openday')}
 				</a>
 			</p>
 		</figcaption>
@@ -74,69 +76,73 @@
 		<p class="kicker">
 			{prettyPeriod(event.period, event.precision)}
 			{#if event.as_written}
-				<span class="old">Old Style {event.as_written.date}</span>
+				<span class="old">{ui('date.oldstyle', { date: event.as_written.date })}</span>
 			{/if}
 			{#if event.place}
-				<span class="place">{event.place.name.en}<span class="pkind">{event.place.kind}</span></span>
+				<span class="place">{t(event.place.name)}<span class="pkind">{term('kind.place', event.place.kind)}</span></span>
 			{/if}
 		</p>
-		<h1>{event.title.en}</h1>
-		<p class="summary">{event.summary.en}</p>
+		<h1>{t(event.title)}</h1>
+		<p class="summary">{t(event.summary)}</p>
 
 		<dl class="facts">
-			<dt>Significance</dt>
+			<dt>{ui('facet.significance')}</dt>
 			<dd><Significance significance={event.significance} /></dd>
 			{#if regime}
-				<dt>Regime</dt>
+				<dt>{ui('facet.regime')}</dt>
 				<dd>
-					<a href="/events?regimes={regime.id}">{regime.name.en}</a>
-					{#if regime.summary}<span class="gloss">{regime.summary.en}</span>{/if}
+					<a href="/events?regimes={regime.id}">{t(regime.name)}</a>
+					{#if regime.summary}<span class="gloss">{t(regime.summary)}</span>{/if}
 				</dd>
 			{/if}
 			{#if atomName}
-				<dt>Territory</dt>
+				<dt>{ui('event.territory')}</dt>
 				<dd>
 					{atomName}{#if region}<span class="gloss">
-							in <a href="/events?regions={region.id}">{region.name.en}</a>
+							{ui('event.inregion')}
+							<a href="/events?regions={region.id}">{t(region.name)}</a>
 						</span>{/if}
 				</dd>
 			{/if}
 		</dl>
 
 		{#if event.body_html}
-			<div class="prose">{@html event.body_html.en}</div>
+			<div class="prose">{@html t(event.body_html)}</div>
 		{/if}
 
 		{#if event.figures.length}
-			<h2>People</h2>
+			<h2>{ui('event.people')}</h2>
 			<ul class="plain">
 				{#each event.figures as f (f.id)}
-					<li><a href="/figures/{f.id}">{f.name.en}</a> <span class="muted">{f.role}</span></li>
+					<li>
+						<a href="/figures/{f.id}">{t(f.name)}</a>
+						<span class="muted">{term('role.event', f.role)}</span>
+					</li>
 				{/each}
 			</ul>
 		{/if}
 
 		{#if event.instrument}
-			<h2>Instrument</h2>
-			<p><a href="/instruments/{event.instrument.id}">{event.instrument.name.en}</a></p>
+			<h2>{ui('event.instrument')}</h2>
+			<p><a href="/instruments/{event.instrument.id}">{t(event.instrument.name)}</a></p>
 		{/if}
 
 		{#if event.threads.length}
-			<h2>Threads</h2>
+			<h2>{ui('page.threads')}</h2>
 			<ul class="threads">
-				{#each event.threads as t (t.id)}
+				{#each event.threads as thread (thread.id)}
 					<li>
-						<a class="arc" href="/threads/{t.id}">{t.name.en}</a>
+						<a class="arc" href="/threads/{thread.id}">{t(thread.name)}</a>
 						<span class="step">
-							{#if t.previous}
-								<a href="/events/{t.previous.id}">← {t.previous.title.en}</a>
+							{#if thread.previous}
+								<a href="/events/{thread.previous.id}">← {t(thread.previous.title)}</a>
 							{:else}
-								<span class="muted">← starts here</span>
+								<span class="muted">{ui('event.starts')}</span>
 							{/if}
-							{#if t.next}
-								<a href="/events/{t.next.id}">{t.next.title.en} →</a>
+							{#if thread.next}
+								<a href="/events/{thread.next.id}">{t(thread.next.title)} →</a>
 							{:else}
-								<span class="muted">ends here →</span>
+								<span class="muted">{ui('event.ends')}</span>
 							{/if}
 						</span>
 					</li>
@@ -145,16 +151,16 @@
 		{/if}
 
 		{#if event.related.length}
-			<h2>Nearby</h2>
+			<h2>{ui('event.nearby')}</h2>
 			<ul class="plain">
 				{#each event.related as r (r.id)}
-					<li><span class="muted mono">{r.period[0].slice(0, 4)}</span> <a href="/events/{r.id}">{r.title.en}</a></li>
+					<li><span class="muted mono">{r.period[0].slice(0, 4)}</span> <a href="/events/{r.id}">{t(r.title)}</a></li>
 				{/each}
 			</ul>
 		{/if}
 
 		{#if event.sources.length}
-			<h2>Sources</h2>
+			<h2>{ui('page.sources')}</h2>
 			<ul class="plain sources">
 				{#each event.sources as s (s.id)}
 					<li><a href="/sources#{s.id}"><Citation source={s} /></a></li>

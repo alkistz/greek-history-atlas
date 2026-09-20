@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { polityLabels } from './labels';
+	import { t } from './lang.svelte';
+	import { ui } from './ui';
 	import MapTooltip from './MapTooltip.svelte';
 	import { angleFor, HATCH, STIPPLE } from './patterns';
 	import { buildShapes, pathOf, project, REF_H, REF_W, VIEWBOX, type FrameId } from './projection';
@@ -46,19 +48,19 @@
 	const uid = $props.id();
 
 	const colour = $derived(new Map(meta.polities.map((p) => [p.id, p.colour ?? 'transparent'])));
-	const nameOf = $derived(new Map(meta.polities.map((p) => [p.id, p.name.en])));
+	const nameOf = $derived(new Map(meta.polities.map((p) => [p.id, t(p.name)])));
 	// `state` is the unmarked case; naming it on every row would be noise. An empire,
 	// a protectorate or an autonomy is the thing a reader cannot infer from a colour.
 	const kindOf = $derived(
 		new Map(meta.polities.filter((p) => p.kind !== 'state').map((p) => [p.id, p.kind]))
 	);
 	const propsOf = $derived(new Map(atoms.map((f) => [f.properties.id, f.properties])));
-	const atomName = $derived(new Map(atoms.map((f) => [f.properties.id, f.properties.name.en])));
-	const instrumentName = $derived(new Map(meta.instruments.map((i) => [i.id, i.name.en])));
+	const atomName = $derived(new Map(atoms.map((f) => [f.properties.id, t(f.properties.name)])));
+	const instrumentName = $derived(new Map(meta.instruments.map((i) => [i.id, t(i.name)])));
 	// Naming the region in the tooltip is how a reader learns the vocabulary — at
 	// the exact spot where clicking would filter by it.
 	const regionName = $derived(
-		new Map(meta.regions.flatMap((r) => r.atoms.map((a) => [a, r.name.en] as const)))
+		new Map(meta.regions.flatMap((r) => r.atoms.map((a) => [a, t(r.name)] as const)))
 	);
 
 	const shapes = $derived(buildShapes(atoms, frame));
@@ -189,19 +191,24 @@
 			: []
 	);
 
+	// The map's spoken description, for a reader who cannot see it.
 	const summary = $derived.by(() => {
+		const named = (ids: Iterable<string>) =>
+			[...ids].map((p) => nameOf.get(p) ?? p).join(', ');
 		const sov = new Set(layered.sovereign.values());
-		const bits = [`Sovereignty held by ${[...sov].map((p) => nameOf.get(p) ?? p).join(', ')}`];
+		const bits = [ui('map.sovereignty', { polities: named(sov) })];
 		const occ = [...layered.occupied.keys()];
-		if (occ.length) bits.push(`Occupied by ${occ.map((p) => nameOf.get(p) ?? p).join(', ')}`);
-		for (const p of layered.insurgent.keys()) bits.push(`${nameOf.get(p) ?? p} in armed revolt`);
+		if (occ.length) bits.push(ui('map.occupied', { polities: named(occ) }));
+		for (const p of layered.insurgent.keys()) {
+			bits.push(ui('map.revolt', { polity: nameOf.get(p) ?? p }));
+		}
 		return bits.join('. ') + '.';
 	});
 </script>
 
 <div class="wrap" bind:this={wrapper} bind:clientWidth={width}>
 	<svg viewBox={VIEWBOX} class="atlas" role="img" aria-labelledby="{uid}-t" aria-describedby="{uid}-d">
-		<title id="{uid}-t">Map of territorial control on {date}</title>
+		<title id="{uid}-t">{ui('map.title', { date })}</title>
 		<desc id="{uid}-d">{summary}</desc>
 
 		<defs>
@@ -240,7 +247,7 @@
 		<g
 			class="sovereignty"
 			role="group"
-			aria-label="Territories"
+			aria-label={ui('map.territories')}
 			onpointermove={move}
 			onpointerdown={move}
 			onpointerleave={() => (tip = null)}

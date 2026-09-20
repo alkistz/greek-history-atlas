@@ -2,6 +2,8 @@
 	import { untrack } from 'svelte';
 	import { page } from '$app/state';
 	import FilterBar from '$lib/FilterBar.svelte';
+	import { both, t } from '$lib/lang.svelte';
+	import { ui } from '$lib/ui';
 	import { matches, params, replaceParams } from '$lib/urlstate';
 
 	let { data } = $props();
@@ -11,9 +13,9 @@
 
 	const active = $derived(query.trim().length > 0);
 	const shown = $derived(
-		data.threads.filter((t) =>
+		data.threads.filter((thread) =>
 			// The span too, so "1922" finds the three arcs that run through it.
-			matches(query, t.name.en, t.name.el, t.summary.en, t.summary.el, t.span[0], t.span[1])
+			matches(query, ...both(thread.name), ...both(thread.summary), thread.span[0], thread.span[1])
 		)
 	);
 
@@ -22,20 +24,16 @@
 </script>
 
 <svelte:head>
-	<title>Threads — Greek History Atlas</title>
-	<meta name="description" content="The narrative arcs the events belong to." />
+	<title>{ui('page.title', { page: ui('page.threads'), site: ui('site.name') })}</title>
+	<meta name="description" content={ui('threads.description')} />
 </svelte:head>
 
-<h1>Threads</h1>
-<p class="lead">
-	The orders in which the events are worth reading. An event can sit on several arcs at
-	once: 1922 belongs to the Great Idea, to the Asia Minor campaign and to the National
-	Schism, and each tells it differently.
-</p>
+<h1>{ui('page.threads')}</h1>
+<p class="lead">{ui('threads.lead')}</p>
 
 <FilterBar
 	bind:query
-	placeholder="Search threads and years…"
+	placeholder={ui('threads.placeholder')}
 	shown={shown.length}
 	total={data.threads.length}
 	noun="threads"
@@ -44,20 +42,20 @@
 />
 
 <ol class="threads">
-	{#each shown as t (t.id)}
+	{#each shown as thread (thread.id)}
 		<li>
-			<span class="when">{years(t.span)}</span>
+			<span class="when">{years(thread.span)}</span>
 			<div>
-				<a class="title" href="/threads/{t.id}">{t.name.en}</a>
-				<span class="count">{t.count} events</span>
-				<p>{t.summary.en}</p>
+				<a class="title" href="/threads/{thread.id}">{t(thread.name)}</a>
+				<span class="count">{ui('threads.count', { n: thread.count })}</span>
+				<p>{t(thread.summary)}</p>
 				<p class="meta">
-					<a href="/events?threads={t.id}">Filter the ledger by this arc</a>
+					<a href="/events?threads={thread.id}">{ui('threads.filter')}</a>
 				</p>
 			</div>
 		</li>
 	{:else}
-		<p class="empty">No thread matches that.</p>
+		<p class="empty">{ui('threads.empty')}</p>
 	{/each}
 </ol>
 

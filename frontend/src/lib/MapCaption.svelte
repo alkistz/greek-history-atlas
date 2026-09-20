@@ -1,6 +1,8 @@
 <script lang="ts">
 	import TerritoryTrend, { type TrendPoint } from './TerritoryTrend.svelte';
+	import { num, t } from './lang.svelte';
 	import { prettyDate } from './time';
+	import { term, ui } from './ui';
 	import type { Regime } from './types';
 
 	interface Props {
@@ -28,15 +30,15 @@
 		regime = null
 	}: Props = $props();
 
-	const kindLabel = (kind: string) => kind.replaceAll('_', ' ');
+	const kindLabel = (kind: string) => term('kind.regime', kind);
 </script>
 
 <div class="caption">
 	<div class="date">{prettyDate(date)}</div>
 	<div class="figures">
 		<div class="value">
-			<span class="km2">{areaKm2.toLocaleString('en-GB', { maximumFractionDigits: 0 })} km²</span>
-			<span class="km2-label">Greek sovereign territory</span>
+			<span class="km2">{num(areaKm2)} km²</span>
+			<span class="km2-label">{ui('caption.territory')}</span>
 		</div>
 		{#if trend.length}
 			<TerritoryTrend points={trend} {day} {maxDay} />
@@ -45,14 +47,14 @@
 </div>
 {#if regime}
 	<p class="regime">
-		<a href="/events?regimes={regime.id}">{regime.name.en}</a>
+		<a href="/events?regimes={regime.id}">{t(regime.name)}</a>
 		<span class="kind">{kindLabel(regime.kind)}</span>
-		{#if regime.summary}<span class="gloss">{regime.summary.en}</span>{/if}
+		{#if regime.summary}<span class="gloss">{t(regime.summary)}</span>{/if}
 	</p>
 {/if}
 {#if instruments.length}
 	<p class="instrument">
-		In force from today:
+		{ui('caption.inforce')}
 		{#each instruments as i, n (i.id)}{n ? '; ' : ''}<a href="/instruments/{i.id}">{i.name}</a>{/each}
 	</p>
 {/if}

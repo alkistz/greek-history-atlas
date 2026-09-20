@@ -1,4 +1,5 @@
 import { clampToFrame, inFrame, type Shape } from './projection';
+import { t } from './lang.svelte';
 import type { Layered } from './resolve';
 import type { AtomFeature, Polity } from './types';
 
@@ -53,7 +54,7 @@ export function polityLabels(
 		const [x, y] = clampToFrame(centroid, 48);
 		out.push({
 			polity: p.id,
-			text: p.short?.en ?? p.name.en,
+			text: t(p.short) || t(p.name),
 			x,
 			y,
 			tier: total >= LARGE_KM2 ? 'large' : 'small'

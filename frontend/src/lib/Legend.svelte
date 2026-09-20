@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { t } from './lang.svelte';
+	import { term } from './ui';
 	import type { LegendEntry } from './resolve';
 	import Swatch from './Swatch.svelte';
 
@@ -12,8 +14,8 @@
 	{#each entries as e (e.polity.id + e.role)}
 		<li>
 			<Swatch colour={e.polity.colour ?? 'transparent'} role={e.role} polityId={e.polity.id} />
-			<span class="pname">{e.polity.name.en}</span>
-			<span class="prole">{e.role}</span>
+			<span class="pname">{t(e.polity.name)}</span>
+			<span class="prole">{term('role.map', e.role)}</span>
 		</li>
 	{/each}
 </ul>

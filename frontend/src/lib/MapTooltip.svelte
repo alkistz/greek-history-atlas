@@ -1,5 +1,7 @@
 <script lang="ts">
+	import { num } from './lang.svelte';
 	import { prettyDate } from './time';
+	import { term, ui } from './ui';
 
 	interface Row {
 		kind: string;
@@ -34,14 +36,11 @@
 		external = false
 	}: Props = $props();
 
-	const km2 = (n: number) => `${n.toLocaleString('en-GB', { maximumFractionDigits: 0 })} km²`;
+	const km2 = (n: number) => `${num(n)} km²`;
 
-	const verb: Record<string, string> = {
-		sovereign: 'Sovereign',
-		administered: 'Administered by',
-		occupied: 'Occupied by',
-		insurgent: 'In revolt'
-	};
+	// The clause form of the control kinds: "Occupied by Bulgaria", where the
+	// index pages want the bare noun instead.
+	const verb = (kind: string) => term('verb', kind) || kind;
 </script>
 
 <div
@@ -55,18 +54,19 @@
 	{#if region}<div class="region">{region}</div>{/if}
 	{#if areaKm2 != null}
 		<div class="area">
-			{km2(areaKm2)}{#if external}<span class="ext"> · outside the modern state, not counted in the total</span>{/if}
+			{km2(areaKm2)}{#if external}<span class="ext">{ui('tip.external')}</span>{/if}
 		</div>
 	{/if}
 	{#each rows as r (r.kind + r.polity)}
 		<div class="row">
-			<span class="kind">{verb[r.kind] ?? r.kind}</span>
-			{r.polity}{#if r.polityKind}<span class="pk"> ({r.polityKind})</span>{/if} since {prettyDate(r.since)}
+			<span class="kind">{verb(r.kind)}</span>
+			{r.polity}{#if r.polityKind}<span class="pk"> ({term('kind.polity', r.polityKind)})</span>{/if}
+			{ui('tip.since', { date: prettyDate(r.since) })}
 			{#if r.instrument}<span class="inst">{r.instrument}</span>{/if}
 			{#if r.note}<span class="note">{r.note}</span>{/if}
 		</div>
 	{:else}
-		<div class="row muted">Not modelled on this date</div>
+		<div class="row muted">{ui('tip.notmodelled')}</div>
 	{/each}
 </div>
 

@@ -1,35 +1,31 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import DraftNotice from '$lib/DraftNotice.svelte';
+	import LangToggle from '$lib/LangToggle.svelte';
+	import { ui } from '$lib/ui';
 	import ThemeToggle from '$lib/ThemeToggle.svelte';
 
 	let { children } = $props();
 
-	const nav = [
-		{ href: '/', label: 'Atlas' },
-		{ href: '/events', label: 'Events' },
-		{ href: '/threads', label: 'Threads' },
-		{ href: '/figures', label: 'Figures' },
-		{ href: '/instruments', label: 'Instruments' },
-		{ href: '/places', label: 'Places' },
-		{ href: '/sources', label: 'Sources' }
-	];
+	const nav = $derived([
+		{ href: '/', label: ui('page.atlas') },
+		{ href: '/events', label: ui('page.events') },
+		{ href: '/threads', label: ui('page.threads') },
+		{ href: '/figures', label: ui('page.figures') },
+		{ href: '/instruments', label: ui('page.instruments') },
+		{ href: '/places', label: ui('page.places') },
+		{ href: '/sources', label: ui('page.sources') }
+	]);
 	const current = (href: string) =>
 		href === '/' ? page.url.pathname === '/' : page.url.pathname.startsWith(href);
 </script>
 
 <svelte:head>
-	<title>Greek History Atlas</title>
-	<meta
-		name="description"
-		content="An interactive atlas of Greek history from 1821, where the map redraws as territorial control changes."
-	/>
-	<meta property="og:site_name" content="Greek History Atlas" />
-	<meta property="og:title" content="Greek History Atlas" />
-	<meta
-		property="og:description"
-		content="An interactive atlas of Greek history from 1821, where the map redraws as territorial control changes."
-	/>
+	<title>{ui('site.name')}</title>
+	<meta name="description" content={ui('site.description')} />
+	<meta property="og:site_name" content={ui('site.name')} />
+	<meta property="og:title" content={ui('site.name')} />
+	<meta property="og:description" content={ui('site.description')} />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={page.url.href} />
 	<meta name="twitter:card" content="summary" />
@@ -37,13 +33,16 @@
 
 <div class="shell">
 	<header>
-		<a class="brand" href="/">Greek History Atlas</a>
+		<a class="brand" href="/">{ui('site.name')}</a>
 		<nav>
 			{#each nav as n (n.href)}
 				<a href={n.href} aria-current={current(n.href) ? 'page' : undefined}>{n.label}</a>
 			{/each}
 		</nav>
-		<ThemeToggle />
+		<div class="tools">
+			<LangToggle />
+			<ThemeToggle />
+		</div>
 	</header>
 
 	<DraftNotice />
@@ -51,11 +50,7 @@
 	{@render children()}
 
 	<footer>
-		<p>
-			Boundaries from Eurostat Nuts2json (2021, 03M), dissolved into atoms. Neighbouring land
-			is drawn at present-day extent and uncoloured. Several historical frontiers are
-			approximated; see the README for the list.
-		</p>
+		<p>{ui('site.footer')}</p>
 	</footer>
 </div>
 
@@ -167,7 +162,12 @@
 		margin-bottom: 20px;
 		flex-wrap: wrap;
 	}
-	header :global(button) {
+	/* The two toggles travel together, so the header's free space opens once,
+	   before them, rather than once before each. */
+	.tools {
+		display: flex;
+		align-items: baseline;
+		gap: 8px;
 		margin-left: auto;
 	}
 	.brand {

@@ -5,25 +5,17 @@
 	reader can turn off would be off exactly where it matters. It is compact instead:
 	one line always, the honest detail a click away.
 -->
+<script lang="ts">
+	import { ui } from './ui';
+</script>
+
 <aside class="notice">
-	<span class="badge">AI draft</span>
+	<span class="badge">{ui('draft.badge')}</span>
 	<details>
-		<summary>
-			The history in this atlas was researched and written by an AI model, not by a
-			historian. Dates, figures and attributions may be wrong.
-		</summary>
+		<summary>{ui('draft.summary')}</summary>
 		<div class="more">
-			<p>
-				Every entry has been read in both English and Greek and checked for internal
-				consistency — dates, arithmetic, and whether the instruments and people it names
-				are the right ones. That is not the same as being verified. Only a small number of
-				entries have been checked against published sources, and none has yet been reviewed
-				by a person.
-			</p>
-			<p>
-				Each event, figure and treaty cites its sources; follow them before relying on
-				anything here. This is a prototype, and the corpus is a first draft.
-			</p>
+			<p>{ui('draft.checked')}</p>
+			<p>{ui('draft.cite')}</p>
 		</div>
 	</details>
 </aside>

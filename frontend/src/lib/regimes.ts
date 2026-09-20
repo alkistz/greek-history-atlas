@@ -1,3 +1,4 @@
+import { t } from './lang.svelte';
 import type { Regime } from './types';
 
 /**
@@ -19,5 +20,5 @@ export function regimeOn(regimes: Regime[], iso: string): Regime | undefined {
  * 1944 -- so the start year is part of the label rather than decoration.
  */
 export function regimeLabel(r: Regime): string {
-	return `${r.name.en} ${r.from.slice(0, 4)}`;
+	return `${t(r.name)} ${r.from.slice(0, 4)}`;
 }

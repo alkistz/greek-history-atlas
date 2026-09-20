@@ -4,6 +4,8 @@
 	import ChipGroup from '$lib/ChipGroup.svelte';
 	import Citation from '$lib/Citation.svelte';
 	import FilterBar from '$lib/FilterBar.svelte';
+	import { both, t } from '$lib/lang.svelte';
+	import { Term, ui } from '$lib/ui';
 	import { list, matches, params, replaceParams } from '$lib/urlstate';
 
 	let { data } = $props();
@@ -21,7 +23,7 @@
 	const kindItems = $derived.by(() => {
 		const present = [...new Set(data.sources.map((s) => s.kind))].sort();
 		if (present.length < 2) return [];
-		return present.map((k) => ({ id: k, label: k[0].toUpperCase() + k.slice(1) }));
+		return present.map((k) => ({ id: k, label: Term('kind.source', k) }));
 	});
 
 	const active = $derived(query.trim().length > 0 || kinds.length > 0);
@@ -39,7 +41,7 @@
 				s.doi,
 				// The titles of what cites it, so a work can be found from its subject.
 				[...s.cited_by.events, ...s.cited_by.figures, ...s.cited_by.instruments]
-					.map((c) => c.title.en)
+					.flatMap((c) => both(c.title))
 					.join(' ')
 			);
 		})
@@ -49,22 +51,21 @@
 </script>
 
 <svelte:head>
-	<title>Sources — Greek History Atlas</title>
-	<meta name="description" content="Every work the atlas cites, and what cites it." />
+	<title>{ui('page.title', { page: ui('page.sources'), site: ui('site.name') })}</title>
+	<meta name="description" content={ui('sources.description')} />
 </svelte:head>
 
-<h1>Sources</h1>
+<h1>{ui('page.sources')}</h1>
 <p class="lead">
-	Every work the corpus cites, with the entries that cite it. Citations are authored on the
-	entry, so this list is the inverse: the way to ask what one book is carrying.
+	{ui('sources.lead')}
 	{#if uncited}
-		{uncited} of {data.sources.length} are listed but not yet cited anywhere.
+		{ui('sources.uncited', { n: uncited, total: data.sources.length })}
 	{/if}
 </p>
 
 <FilterBar
 	bind:query
-	placeholder="Search authors, titles, publishers, what they support…"
+	placeholder={ui('sources.placeholder')}
 	shown={shown.length}
 	total={data.sources.length}
 	noun="works"
@@ -77,7 +78,7 @@
 	{#snippet facets()}
 		{#if kindItems.length}
 			<ChipGroup
-				label="Kind"
+				label={ui('facet.kind')}
 				items={kindItems}
 				selected={kinds}
 				ontoggle={(id) => (kinds = kinds.includes(id) ? kinds.filter((k) => k !== id) : [...kinds, id])}
@@ -93,23 +94,23 @@
 			<p class="work"><Citation source={{ ...s, locator: null }} full /></p>
 			{#if countOf(s)}
 				<div class="cited">
-					{#each [{ label: 'Events', rows: s.cited_by.events, base: '/events' }, { label: 'Figures', rows: s.cited_by.figures, base: '/figures' }, { label: 'Instruments', rows: s.cited_by.instruments, base: '/instruments' }] as group (group.label)}
+					{#each [{ key: 'events', label: ui('page.events'), rows: s.cited_by.events, base: '/events' }, { key: 'figures', label: ui('page.figures'), rows: s.cited_by.figures, base: '/figures' }, { key: 'instruments', label: ui('page.instruments'), rows: s.cited_by.instruments, base: '/instruments' }] as group (group.key)}
 						{#if group.rows.length}
 							<p class="group">
 								<span class="glabel">{group.label}</span>
 								{#each group.rows as r, i (r.id)}{i ? ', ' : ''}<a href="{group.base}/{r.id}"
-										>{r.title.en}</a
+										>{t(r.title)}</a
 									>{/each}
 							</p>
 						{/if}
 					{/each}
 				</div>
 			{:else}
-				<p class="none">Listed, but nothing cites it yet.</p>
+				<p class="none">{ui('sources.none')}</p>
 			{/if}
 		</li>
 	{:else}
-		<li class="empty">No work matches that.</li>
+		<li class="empty">{ui('sources.empty')}</li>
 	{/each}
 </ol>
 

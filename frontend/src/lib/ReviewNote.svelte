@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { isSourced, langList } from './review';
+	import { term, ui } from './ui';
 	import { prettyDate } from './time';
 	import type { Pass, Review } from './types';
 
@@ -12,36 +13,25 @@
 		].filter((t): t is { track: 'manual' | 'auto'; pass: Pass } => t.pass !== null)
 	);
 
-	const heading: Record<string, string> = {
-		manual: 'Read by a person',
-		auto: 'Machine pass'
-	};
 	// Said in full rather than as a word, because "clean" on its own reads as a
 	// verdict about the history when it is a statement about the reading.
-	const said: Record<string, string> = {
-		clean: 'read in full, and the languages agree',
-		corrected: 'something was wrong and has been fixed',
-		unresolved: 'could not be settled from the sources reached'
-	};
+	const said = (result: string) => term('reviewnote.said', result);
 </script>
 
 <section class="review">
-	<h2>How this entry was checked</h2>
+	<h2>{ui('reviewnote.heading')}</h2>
 	{#if !tracks.length}
-		<p class="none">
-			Nobody has looked at this entry yet. It is machine-written and unverified; follow the
-			sources before relying on it.
-		</p>
+		<p class="none">{ui('reviewnote.none')}</p>
 	{:else}
 		{#each tracks as t (t.track)}
 			<div class="track">
 				<p class="line">
-					<span class="what">{heading[t.track]}</span>
+					<span class="what">{term('reviewnote.track', t.track)}</span>
 					<span class="when">{prettyDate(t.pass.date)}</span>
-					<span class="said">{said[t.pass.result] ?? t.pass.result}</span>
+					<span class="said">{said(t.pass.result)}</span>
 				</p>
 				<p class="detail">
-					Read in {langList(t.pass)}.
+					{ui('reviewnote.readin', { langs: langList(t.pass) })}
 					{#if t.pass.by}<span class="by">{t.pass.by}</span>{/if}
 				</p>
 				{#if t.pass.note}<p class="note">{t.pass.note}</p>{/if}
@@ -49,14 +39,7 @@
 		{/each}
 		{#if !review?.manual}
 			<p class="caveat">
-				{#if isSourced(review)}
-					Checked against published sources, but still by a machine: no person has reviewed
-					this entry.
-				{:else}
-					This pass read the text for internal consistency — dates, arithmetic and
-					cross-references. It did not check the claims against published sources, and no
-					person has reviewed it.
-				{/if}
+				{ui(isSourced(review) ? 'reviewnote.caveat.sourced' : 'reviewnote.caveat.unsourced')}
 			</p>
 		{/if}
 	{/if}

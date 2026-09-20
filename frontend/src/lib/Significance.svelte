@@ -1,16 +1,14 @@
 <script module lang="ts">
+	import { term, ui } from './ui';
+
 	/**
 	 * What an event changed, 2 to 5. Fifteen events across two centuries are 5s,
 	 * and the scale is meant to stay that steep, so the labels say what the number
 	 * claims rather than leaving a bare digit to be read as a score out of five.
 	 */
-	export const SIGNIFICANCE_LABELS: Record<number, string> = {
-		1: 'Minor',
-		2: 'Notable',
-		3: 'Consequential',
-		4: 'Major',
-		5: 'Changed the state'
-	};
+	export function sigLabel(n: number): string {
+		return term('sig', n);
+	}
 </script>
 
 <script lang="ts">
@@ -22,20 +20,20 @@
 	let { significance, compact = false }: Props = $props();
 
 	const n = $derived(Math.min(Math.max(significance, 1), 5));
-	const label = $derived(SIGNIFICANCE_LABELS[n] ?? String(n));
+	const label = $derived(sigLabel(n));
 </script>
 
 <!-- The visible parts are hidden from assistive tech and said once, in full, by
      the text below them: otherwise "Changed the state" is read twice, and once
      without the word that says what it is measuring. -->
-<span class="sig" title="Significance {n} of 5 — {label}">
+<span class="sig" title={ui('sig.title', { n, label })}>
 	<span class="dots" aria-hidden="true">
 		{#each [1, 2, 3, 4, 5] as i (i)}
 			<span class="dot" class:on={i <= n}></span>
 		{/each}
 	</span>
 	{#if !compact}<span class="label" aria-hidden="true">{label}</span>{/if}
-	<span class="sr">Significance {n} of 5, {label}</span>
+	<span class="sr">{ui('sig.sr', { n, label })}</span>
 </span>
 
 <style>

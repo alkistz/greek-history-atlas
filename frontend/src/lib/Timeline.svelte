@@ -11,6 +11,7 @@
 
 <script lang="ts">
 	import { prettyDate, toDay, toISO, year } from './time';
+	import { ui } from './ui';
 
 	interface Props {
 		/** days from the origin */
@@ -171,19 +172,19 @@
 
 <div class="timeline">
 	<div class="buttons">
-		<button onclick={() => step1(-1)} title="Previous change" aria-label="Previous change">
+		<button onclick={() => step1(-1)} title={ui('timeline.prev')} aria-label={ui('timeline.prev')}>
 			&#9664;&#9664;
 		</button>
 		<button
 			class="play"
 			onclick={play}
-			title={playing ? 'Pause' : 'Play through the changes'}
-			aria-label={playing ? 'Pause' : 'Play through the changes'}
+			title={ui(playing ? 'timeline.pause' : 'timeline.play')}
+			aria-label={ui(playing ? 'timeline.pause' : 'timeline.play')}
 			aria-pressed={playing}
 		>
 			{playing ? '❙❙' : '▶'}
 		</button>
-		<button onclick={() => step1(1)} title="Next change" aria-label="Next change">
+		<button onclick={() => step1(1)} title={ui('timeline.next')} aria-label={ui('timeline.next')}>
 			&#9654;&#9654;
 		</button>
 	</div>
@@ -193,7 +194,7 @@
 		bind:clientWidth={width}
 		role="slider"
 		tabindex="0"
-		aria-label="Date"
+		aria-label={ui('timeline.date')}
 		aria-valuemin={0}
 		aria-valuemax={maxDay}
 		aria-valuenow={day}

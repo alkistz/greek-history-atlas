@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { badgeLabel, strongest, toneOf } from './review';
+	import { term, ui } from './ui';
 	import type { Review } from './types';
 
 	interface Props {
@@ -11,13 +12,22 @@
 
 	const shown = $derived(strongest(review));
 	const tone = $derived(toneOf(review));
-	const label = $derived(compact ? (shown?.pass.result ?? 'unreviewed') : badgeLabel(review));
+	const label = $derived(
+		compact
+			? shown
+				? term('result', shown.pass.result)
+				: ui('review.compact.none')
+			: badgeLabel(review)
+	);
 	// The title carries what the badge has no room for: who, when, and in which
 	// languages. A badge that only says "corrected" invites the wrong inference.
 	const hint = $derived.by(() => {
-		if (!shown) return 'Nobody has looked at this entry yet.';
-		const who = shown.track === 'manual' ? 'Reviewed by a person' : 'Machine pass';
-		return `${who}, ${shown.pass.date}${shown.pass.by ? ` — ${shown.pass.by}` : ''}`;
+		if (!shown) return ui('review.hint.none');
+		const who = ui(shown.track === 'manual' ? 'review.manual' : 'review.by.auto');
+		const date = shown.pass.date;
+		return shown.pass.by
+			? ui('review.tip.by', { who, date, by: shown.pass.by })
+			: ui('review.tip', { who, date });
 	});
 </script>
 

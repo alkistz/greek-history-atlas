@@ -6,6 +6,9 @@
 </script>
 
 <script lang="ts">
+	import { num } from './lang.svelte';
+	import { ui } from './ui';
+
 	interface Props {
 		points: TrendPoint[];
 		/** the day the map is showing, marked on the trend */
@@ -53,10 +56,7 @@
 	width={W}
 	height={H}
 	role="img"
-	aria-label="Greek sovereign territory over the whole period, peaking at {peak.toLocaleString(
-		'en-GB',
-		{ maximumFractionDigits: 0 }
-	)} square kilometres"
+	aria-label={ui('trend.aria', { n: num(peak) })}
 >
 	<path class="area" d={steps.area} />
 	<path class="line" d={steps.line} />

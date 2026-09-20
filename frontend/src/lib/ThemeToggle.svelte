@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { term, ui } from './ui';
+
 	type Theme = 'light' | 'dark';
 
-	const LABEL: Record<Theme, string> = { light: 'Light', dark: 'Dark' };
 	const GLYPH: Record<Theme, string> = { light: '☀', dark: '☾' };
 
 	/** A stored choice wins; otherwise take the system preference once and keep it. */
@@ -29,11 +30,14 @@
 
 <button
 	onclick={() => (theme = theme === 'light' ? 'dark' : 'light')}
-	title="Theme: {LABEL[theme]}"
-	aria-label="Theme: {LABEL[theme]}. Switch to {LABEL[theme === 'light' ? 'dark' : 'light']}."
+	title={ui('theme.current', { name: term('theme', theme) })}
+	aria-label={ui('theme.switch', {
+		name: term('theme', theme),
+		other: term('theme', theme === 'light' ? 'dark' : 'light')
+	})}
 >
 	<span aria-hidden="true">{GLYPH[theme]}</span>
-	{LABEL[theme]}
+	{term('theme', theme)}
 </button>
 
 <style>

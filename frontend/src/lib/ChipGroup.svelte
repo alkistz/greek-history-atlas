@@ -6,6 +6,8 @@
 </script>
 
 <script lang="ts">
+	import { ui } from './ui';
+
 	interface Props {
 		/** shown before the chips, and used as the group's accessible name */
 		label: string;
@@ -27,7 +29,7 @@
 		<button class:on aria-pressed={on} onclick={() => ontoggle(item.id)}>{item.label}</button>
 	{/each}
 	{#if onclear && selected.length}
-		<button class="clear" onclick={onclear}>Clear</button>
+		<button class="clear" onclick={onclear}>{ui('filter.clear')}</button>
 	{/if}
 </div>
 

@@ -1,4 +1,5 @@
 import type { Pass, Review, ReviewResult } from './types';
+import { term, ui } from './ui';
 
 /**
  * Reading the two review tracks for display.
@@ -54,24 +55,13 @@ export function reviewTags(review: Review | null | undefined): string[] {
 /** In the order they should be offered, so the chip row reads from weakest claim to strongest. */
 export const REVIEW_FACETS = ['none', 'unresolved', 'corrected', 'clean', 'sourced', 'manual'];
 
-export const REVIEW_LABELS: Record<string, string> = {
-	none: 'Not reviewed',
-	unresolved: 'Unresolved',
-	corrected: 'Corrected',
-	clean: 'Read clean',
-	sourced: 'Checked against sources',
-	manual: 'Reviewed by a person'
-};
+export function reviewLabel(facet: string): string {
+	return term('review', facet);
+}
 
-export const REVIEW_HINTS: Record<string, string> = {
-	none: 'Nobody has looked at this entry yet.',
-	unresolved:
-		'Someone looked hard and the sources do not agree. The note says what could not be settled.',
-	corrected: 'A pass found something wrong and fixed it. The note says what.',
-	clean: 'Read in every language the entry has, and they agree.',
-	sourced: 'Checked against published sources, not only read for internal consistency.',
-	manual: 'A person who has read the sources, rather than a machine pass.'
-};
+export function reviewHint(facet: string): string {
+	return term('review.hint', facet);
+}
 
 /** Tone drives the badge colour. Nothing here is "good": an unreviewed entry is the default. */
 export type Tone = 'muted' | 'warn' | 'ok' | 'strong';
@@ -88,17 +78,15 @@ export function toneOf(review: Review | null | undefined): Tone {
 /** The short label for a badge: what was concluded, and by which kind of pass. */
 export function badgeLabel(review: Review | null | undefined): string {
 	const shown = strongest(review);
-	if (!shown) return 'Not reviewed';
-	const who = shown.track === 'manual' ? 'Reviewed' : 'Machine pass';
-	if (shown.pass.result === 'unresolved') return `${who} · unresolved`;
-	if (shown.pass.result === 'corrected') return `${who} · corrected`;
-	return isSourced(review) ? `${who} · sourced` : who;
+	if (!shown) return ui('review.none');
+	const who = ui(shown.track === 'manual' ? 'review.by.manual' : 'review.by.auto');
+	if (shown.pass.result === 'unresolved') return ui('review.suffix.unresolved', { who });
+	if (shown.pass.result === 'corrected') return ui('review.suffix.corrected', { who });
+	return isSourced(review) ? ui('review.suffix.sourced', { who }) : who;
 }
 
-export const LANG_NAMES: Record<string, string> = { en: 'English', el: 'Greek' };
-
 export function langList(pass: Pass): string {
-	return pass.langs.map((l) => LANG_NAMES[l] ?? l).join(' and ');
+	return pass.langs.map((l) => term('langname', l)).join(ui('langname.join'));
 }
 
 /** Counts per facet across a list, so a chip can show how many it would leave. */

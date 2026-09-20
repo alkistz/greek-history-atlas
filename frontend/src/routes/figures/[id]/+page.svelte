@@ -1,7 +1,9 @@
 <script lang="ts">
 	import Citation from '$lib/Citation.svelte';
+	import { t } from '$lib/lang.svelte';
+	import { term, ui } from '$lib/ui';
 	import ReviewNote from '$lib/ReviewNote.svelte';
-	import { prettyDate, year } from '$lib/time';
+	import { prettyDate, prettyMonth, year } from '$lib/time';
 	import type { FigureDetail } from '$lib/types';
 
 	let { data } = $props();
@@ -12,72 +14,66 @@
 	// print a false precision for five people.
 	function when(ev: NonNullable<FigureDetail['born']>): string {
 		if (ev.precision === 'day') return prettyDate(ev.date);
-		if (ev.precision === 'month') {
-			return new Date(ev.date).toLocaleDateString('en-GB', {
-				month: 'long',
-				year: 'numeric',
-				timeZone: 'UTC'
-			});
-		}
-		return ev.precision === 'circa' ? `c. ${year(ev.date)}` : year(ev.date);
+		if (ev.precision === 'month') return prettyMonth(ev.date);
+		return ev.precision === 'circa' ? ui('date.circa', { year: year(ev.date) }) : year(ev.date);
 	}
 	function life(ev: FigureDetail['born']): string {
 		if (!ev) return '';
-		return ev.place ? `${when(ev)}, ${ev.place.name.en}` : when(ev);
+		return ev.place ? `${when(ev)}, ${t(ev.place.name)}` : when(ev);
 	}
 </script>
 
 <svelte:head>
-	<title>{figure.name.en} — Greek History Atlas</title>
+	<title>{ui('page.title', { page: t(figure.name), site: ui('site.name') })}</title>
 </svelte:head>
 
 <article class="figure">
-	<p class="kicker">{figure.roles.join(' · ')}</p>
-	<h1>{figure.name.en}</h1>
+	<p class="kicker">{figure.roles.map((r) => term('role.figure', r)).join(' · ')}</p>
+	<h1>{t(figure.name)}</h1>
 	{#if figure.also_known_as.length}
-		<p class="aka">{figure.also_known_as.map((n) => n.en).join('; ')}</p>
+		<p class="aka">{figure.also_known_as.map(t).join('; ')}</p>
 	{/if}
 	<dl class="life">
 		{#if figure.born}
-			<dt>Born</dt>
+			<dt>{ui('figure.born')}</dt>
 			<dd>
 				{life(figure.born)}
 				{#if figure.born.as_written}
-					<span class="old">Old Style {figure.born.as_written.date}</span>
+					<span class="old">{ui('date.oldstyle', { date: figure.born.as_written.date })}</span>
 				{/if}
 			</dd>
 		{/if}
 		{#if figure.died}
-			<dt>Died</dt>
+			<dt>{ui('figure.died')}</dt>
 			<dd>
 				{life(figure.died)}
 				{#if figure.died.as_written}
-					<span class="old">Old Style {figure.died.as_written.date}</span>
+					<span class="old">{ui('date.oldstyle', { date: figure.died.as_written.date })}</span>
 				{/if}
 			</dd>
 		{/if}
 	</dl>
 
-	<p class="summary">{figure.summary.en}</p>
+	<p class="summary">{t(figure.summary)}</p>
 	{#if figure.body_html}
-		<div class="prose">{@html figure.body_html.en}</div>
+		<div class="prose">{@html t(figure.body_html)}</div>
 	{/if}
 
 	{#if figure.events.length}
-		<h2>Events</h2>
+		<h2>{ui('page.events')}</h2>
 		<ol class="plain">
 			{#each figure.events as e (e.id)}
 				<li>
 					<span class="mono">{year(e.period[0])}</span>
-					<a href="/events/{e.id}">{e.title.en}</a>
-					<span class="muted">{e.role}</span>
+					<a href="/events/{e.id}">{t(e.title)}</a>
+					<span class="muted">{term('role.event', e.role)}</span>
 				</li>
 			{/each}
 		</ol>
 	{/if}
 
 	{#if figure.sources.length}
-		<h2>Sources</h2>
+		<h2>{ui('page.sources')}</h2>
 		<ul class="plain sources">
 			{#each figure.sources as s (s.id)}
 				<li><a href="/sources#{s.id}"><Citation source={s} /></a></li>

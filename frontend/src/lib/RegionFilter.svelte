@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ChipGroup from './ChipGroup.svelte';
+	import { t } from './lang.svelte';
 	import type { Region } from './types';
 
 	interface Props {
@@ -11,7 +12,7 @@
 	}
 	let { regions, selected, ontoggle, onclear }: Props = $props();
 
-	const items = $derived(regions.map((r) => ({ id: r.id, label: r.name.en })));
+	const items = $derived(regions.map((r) => ({ id: r.id, label: t(r.name) })));
 </script>
 
 <!-- Every region is listed rather than hidden behind a menu: Cyprus and Asia Minor

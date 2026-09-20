@@ -3,7 +3,9 @@
 	import { page } from '$app/state';
 	import ChipGroup from '$lib/ChipGroup.svelte';
 	import FilterBar from '$lib/FilterBar.svelte';
-	import { REVIEW_FACETS, REVIEW_LABELS, reviewTags, tally } from '$lib/review';
+	import { both, collator, t } from '$lib/lang.svelte';
+	import { term, Term, ui } from '$lib/ui';
+	import { REVIEW_FACETS, reviewLabel, reviewTags, tally } from '$lib/review';
 	import ReviewBadge from '$lib/ReviewBadge.svelte';
 	import { prettyDate, year } from '$lib/time';
 	import { list, matches, params, replaceParams } from '$lib/urlstate';
@@ -20,9 +22,7 @@
 	$effect(() => replaceParams(params({ q: query, kinds, parties, review, text })));
 
 	const polity = $derived(new Map(data.meta.polities.map((p) => [p.id, p])));
-	const polityName = $derived(
-		new Map(data.meta.polities.map((p) => [p.id, p.name.en] as const))
-	);
+	const polityName = $derived(new Map(data.meta.polities.map((p) => [p.id, p.name] as const)));
 	const sorted = $derived([...data.instruments].sort((a, b) => a.signed.localeCompare(b.signed)));
 
 	// Both facet vocabularies come from the instruments themselves, so no chip can
@@ -30,27 +30,27 @@
 	const kindItems = $derived(
 		[...new Set(sorted.map((i) => i.kind))]
 			.sort()
-			.map((k) => ({ id: k, label: k[0].toUpperCase() + k.slice(1) }))
+			.map((k) => ({ id: k, label: Term('kind.instrument', k) }))
 	);
 	const partyItems = $derived(
 		[...new Set(sorted.flatMap((i) => i.parties))]
-			.map((id) => ({ id, label: polity.get(id)?.short?.en ?? polityName.get(id) ?? id }))
-			.sort((a, b) => a.label.localeCompare(b.label))
+			.map((id) => ({ id, label: t(polity.get(id)?.short) || t(polityName.get(id)) || id }))
+			.sort((a, b) => collator().compare(a.label, b.label))
 	);
 
 	const reviewCounts = $derived(tally(sorted, (i) => i.review));
 	const reviewItems = $derived(
 		REVIEW_FACETS.filter((f) => reviewCounts.has(f)).map((f) => ({
 			id: f,
-			label: `${REVIEW_LABELS[f]} (${reviewCounts.get(f)})`
+			label: ui('facet.count', { label: reviewLabel(f), n: reviewCounts.get(f) ?? 0 })
 		}))
 	);
 	// A treaty's own text is the most authoritative thing the atlas can point at,
 	// and 23 of 32 have none yet, so which is which is worth filtering on.
 	const linked = $derived(sorted.filter((i) => i.text_url).length);
 	const textItems = $derived([
-		{ id: 'yes', label: `Text linked (${linked})` },
-		{ id: 'no', label: `No text yet (${sorted.length - linked})` }
+		{ id: 'yes', label: ui('instruments.textyes', { n: linked }) },
+		{ id: 'no', label: ui('instruments.textno', { n: sorted.length - linked }) }
 	]);
 
 	const facetCount = $derived(kinds.length + parties.length + review.length + text.length);
@@ -59,18 +59,16 @@
 		sorted.filter((i) => {
 			if (kinds.length && !kinds.includes(i.kind)) return false;
 			if (parties.length && !i.parties.some((p) => parties.includes(p))) return false;
-			if (review.length && !reviewTags(i.review).some((t) => review.includes(t))) return false;
+			if (review.length && !reviewTags(i.review).some((tag) => review.includes(tag))) return false;
 			if (text.length && !text.includes(i.text_url ? 'yes' : 'no')) return false;
 			return matches(
 				query,
-				i.name.en,
-				i.name.el,
-				i.summary?.en,
-				i.summary?.el,
+				...both(i.name),
+				...both(i.summary),
 				i.kind,
 				// The signing date, so "1913" finds the five treaties of that year.
 				i.signed,
-				i.parties.map((p) => polityName.get(p) ?? p).join(' ')
+				i.parties.flatMap((p) => both(polityName.get(p))).join(' ')
 			);
 		})
 	);
@@ -88,22 +86,16 @@
 </script>
 
 <svelte:head>
-	<title>Instruments — Greek History Atlas</title>
-	<meta
-		name="description"
-		content="The treaties, protocols and conventions that moved the frontier."
-	/>
+	<title>{ui('page.title', { page: ui('page.instruments'), site: ui('site.name') })}</title>
+	<meta name="description" content={ui('instruments.description')} />
 </svelte:head>
 
-<h1>Instruments</h1>
-<p class="lead">
-	The treaties, protocols and conventions that moved the frontier. Each one links to the map on the
-	day it took effect.
-</p>
+<h1>{ui('page.instruments')}</h1>
+<p class="lead">{ui('instruments.lead')}</p>
 
 <FilterBar
 	bind:query
-	placeholder="Search treaties, parties, years…"
+	placeholder={ui('instruments.placeholder')}
 	shown={shown.length}
 	total={sorted.length}
 	noun="instruments"
@@ -114,28 +106,28 @@
 >
 	{#snippet facets()}
 		<ChipGroup
-			label="Kind"
+			label={ui('facet.kind')}
 			items={kindItems}
 			selected={kinds}
 			ontoggle={(id) => (kinds = toggle(kinds, id))}
 			onclear={() => (kinds = [])}
 		/>
 		<ChipGroup
-			label="Party"
+			label={ui('facet.party')}
 			items={partyItems}
 			selected={parties}
 			ontoggle={(id) => (parties = toggle(parties, id))}
 			onclear={() => (parties = [])}
 		/>
 		<ChipGroup
-			label="Own text"
+			label={ui('facet.text')}
 			items={textItems}
 			selected={text}
 			ontoggle={(id) => (text = toggle(text, id))}
 			onclear={() => (text = [])}
 		/>
 		<ChipGroup
-			label="Review"
+			label={ui('facet.review')}
 			items={reviewItems}
 			selected={review}
 			ontoggle={(id) => (review = toggle(review, id))}
@@ -149,22 +141,22 @@
 		<li>
 			<span class="when">{year(i.signed)}</span>
 			<div>
-				<a class="title" href="/instruments/{i.id}">{i.name.en}</a>
-				<span class="kind">{i.kind}</span>
+				<a class="title" href="/instruments/{i.id}">{t(i.name)}</a>
+				<span class="kind">{term('kind.instrument', i.kind)}</span>
 				<ReviewBadge review={i.review} />
-				<p class="parties">{i.parties.map((p) => polityName.get(p) ?? p).join(' · ')}</p>
-				{#if i.summary}<p>{i.summary.en}</p>{/if}
+				<p class="parties">{i.parties.map((p) => t(polityName.get(p)) || p).join(' · ')}</p>
+				{#if i.summary}<p>{t(i.summary)}</p>{/if}
 				<p class="meta">
-					<span>Signed {prettyDate(i.signed)}</span>
-					<a href={atlasHref({ on: i.signed })}>Open on the atlas</a>
+					<span>{ui('instruments.signed', { date: prettyDate(i.signed) })}</span>
+					<a href={atlasHref({ on: i.signed })}>{ui('events.openatlas')}</a>
 					{#if i.text_url}
-						<a href={i.text_url} rel="noreferrer">Read the text</a>
+						<a href={i.text_url} rel="noreferrer">{ui('instruments.readtext')}</a>
 					{/if}
 				</p>
 			</div>
 		</li>
 	{:else}
-		<li class="empty">No instrument matches that.</li>
+		<li class="empty">{ui('instruments.empty')}</li>
 	{/each}
 </ol>
 
