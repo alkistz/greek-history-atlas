@@ -87,3 +87,11 @@ figures:
   - {figure: papagos, role: leader}
   - {figure: makarios, role: leader}
 sources: [{id: holland-1998}, {id: ker-lindsay-2011}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      Plebiscite figures, the General Assembly decision of 17 December 1954 and the administrative chronology all hold. One variance not corrected: sources give 224,757 eligible where for-plus-against here sums to 224,747. The internal arithmetic is consistent at 95.71 per cent either way, and the ten-signature difference looks like transcription between sources rather than an error here.

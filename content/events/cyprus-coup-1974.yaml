@@ -90,3 +90,11 @@ sources:
   - {id: ker-lindsay-2011}
   - {id: holland-markides-2006}
   - {id: clogg-2021}
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      Chronology of 15 to 19 July, the escape to Paphos and Akrotiri, and the installation of Sampson all hold. Greek read alongside; faithful and idiomatic.

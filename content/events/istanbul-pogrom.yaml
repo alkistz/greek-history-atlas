@@ -7,7 +7,10 @@ summary:
     On the night of 6 September 1955 crowds attacked Greek homes, shops, churches and schools
     across Istanbul, with parallel attacks in Izmir. The trigger was a report that a bomb had
     damaged the Turkish consulate and Atatürk's birthplace in Thessaloniki; the device had in fact
-    been planted by a Turkish usher at the consulate, who was arrested and confessed. Recorded
+    been planted by a Turkish usher at the consulate, who was arrested and confessed. The
+    Yassiada trials of 1960 to 1961 established that it had been done on the Turkish
+    government's own orders, so the trigger was not merely faked but officially faked.
+    Recorded
     destruction covers 5,317 properties, among them 73 churches and 26 schools. Death figures are
     disputed, commonly given as 13 to 16 Greeks and one Armenian, with other estimates running to
     around thirty-seven. The pogrom ended in practice the Greek presence in the city, which fell
@@ -17,7 +20,10 @@ summary:
     και σχολεία σε όλη την Κωνσταντινούπολη, με παράλληλες επιθέσεις στη Σμύρνη. Αφορμή στάθηκε
     είδηση ότι βόμβα είχε προκαλέσει ζημιά στο τουρκικό προξενείο και στο σπίτι όπου γεννήθηκε ο
     Κεμάλ Ατατούρκ στη Θεσσαλονίκη· τον μηχανισμό είχε τοποθετήσει στην πραγματικότητα Τούρκος
-    κλητήρας του προξενείου, ο οποίος συνελήφθη και ομολόγησε. Οι καταγραφές δίνουν 5.317
+    κλητήρας του προξενείου, ο οποίος συνελήφθη και ομολόγησε. Οι δίκες της Γιασσιάδας
+    του 1960 με 1961 απέδειξαν ότι είχε γίνει με εντολή της ίδιας της τουρκικής
+    κυβέρνησης, οπότε η αφορμή δεν ήταν απλώς πλαστή αλλά επισήμως πλαστή. Οι
+    καταγραφές δίνουν 5.317
     κατεστραμμένες περιουσίες, ανάμεσά τους 73 εκκλησίες και 26 σχολεία. Οι αριθμοί των νεκρών
     αμφισβητούνται: συνήθως υπολογίζονται σε 13 έως 16 Έλληνες και ένας Αρμένιος, ενώ άλλες εκτιμήσεις
     φτάνουν τους τριάντα επτά. Τα Σεπτεμβριανά τερμάτισαν στην πράξη την ελληνική παρουσία στην
@@ -95,3 +101,11 @@ significance: 3
 figures:
   - {figure: menderes, role: leader}
 sources: [{id: holland-markides-2006}, {id: clogg-2021}]
+review:
+  auto:
+    date: 2026-09-20
+    result: corrected
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      All damage figures confirmed exactly: 4,214 homes, 1,004 businesses, 73 churches, 26 schools, 5,317 in total, with deaths given as a disputed range. Added what both texts omitted: the Yassiada trials established the Thessaloniki bomb was planted on the Turkish government's own orders, which is the difference between a provocation by one man and a state-organised one.

@@ -53,4 +53,9 @@ review:
     langs: [en, el]
     by: assistant, against public sources
     note: >
-      Sources give the birth as 29 March 1870 at Marseille. Same Old Style question as Trikoupis, and Marseille is not yet in places.yaml, so neither the date nor the place was tightened.
+      Sources give the birth as 29 March 1870 at Marseille. The Old Style rule
+      established from Trikoupis does not transfer: a birth registered in France
+      was recorded on the Gregorian calendar, whatever a Greek biography later
+      printed, so 29 March may already be the date this corpus wants or may be
+      twelve days short of it. His death is Old Style and already converted.
+      Marseille is also not yet in places.yaml. Left at year precision.

@@ -15,10 +15,23 @@ def reviewed(corpus, event_id, **kw):
     return e.model_copy(update={"review": Review(auto=Pass(**fields))})
 
 
-def test_the_pilot_is_recorded(corpus):
-    done = [e for e in corpus.events if e.review and e.review.auto]
-    assert len(done) == 8
-    assert {e.review.auto.result for e in done} == {"clean", "corrected", "unresolved"}
+def test_recorded_passes_are_well_formed(corpus):
+    """Deliberately not a count. The review set grows with every batch, and a test
+    that has to be edited each time is a test that will be edited without thought."""
+    done = [x for x in (*corpus.events, *corpus.figures) if x.review and x.review.auto]
+    assert done, "no pass has been recorded at all"
+    assert {x.review.auto.result for x in done} <= {"clean", "corrected", "unresolved"}
+    for x in done:
+        assert x.review.auto.langs, f"{x.id}: a pass must say what it read"
+        if x.review.auto.result != "clean":
+            assert x.review.auto.note, f"{x.id}: a non-clean pass should say why"
+
+
+def test_the_cyprus_thread_is_done(corpus):
+    """Batches run by thread, so a thread is the unit that is finished or not."""
+    thread = next(t for t in corpus.threads if t.id == "cyprus-question")
+    by_id = {e.id: e for e in corpus.events}
+    assert all(by_id[i].review and by_id[i].review.auto for i in thread.events)
 
 
 def test_absent_review_means_nobody_looked(corpus):

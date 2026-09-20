@@ -93,3 +93,11 @@ figures:
   - {figure: grivas, role: commander}
   - {figure: makarios, role: leader}
 sources: [{id: holland-1998}, {id: holland-markides-2006}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      Opening attacks, the Digenis leaflet, the Harding counter-insurgency, the deportation of Makarios and the executions all hold against public accounts. Greek read alongside; faithful.

@@ -1,6 +1,10 @@
 id: trikoupis-charilaos
 name: {en: Charilaos Trikoupis, el: Χαρίλαος Τρικούπης}
-born: {date: 1832-01-01, precision: year, place: nafplio}
+born:
+  date: 1832-07-23
+  precision: day
+  place: nafplio
+  as_written: {date: 1832-07-11, calendar: julian}
 died: {date: 1896-04-11, precision: day, place: cannes}
 roles: [statesman, diplomat]
 summary:
@@ -71,8 +75,14 @@ sources:
 review:
   auto:
     date: 2026-09-20
-    result: unresolved
+    result: corrected
     langs: [en, el]
     by: assistant, against public sources
     note: >
-      Sources give the birth as 11 July 1832 at Nafplio, so `precision: year` understates what is known. Left as it is because they do not say whether that date is Old or New Style, and guessing would introduce the error this pass exists to remove. LifeEvent now has as_written to record it once the calendar is established.
+      Birth was recorded only to the year although the sources give 11 July 1832 at
+      Nafplio. Settled from the corpus itself: it already stores his death as
+      1896-04-11 where Greek sources say 30 March 1896, which is the same date
+      twelve days on, so these sources are Old Style and the corpus holds the
+      Gregorian. Birth is therefore 23 July 1832, with the Julian date in
+      as_written. Melas's death, 13 October 1904 against 1904-10-26, confirms the
+      same convention thirteen days on for the next century.
