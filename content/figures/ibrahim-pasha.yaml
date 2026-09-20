@@ -8,6 +8,10 @@ summary:
     Eldest son of Muhammad Ali of Egypt. His disciplined Egyptian army landed in the
     Peloponnese in 1825 and had reconquered most of it, and taken Messolonghi, before
     the loss of the fleet at Navarino cut him off.
+  el: >
+    Πρωτότοκος γιος του Μεχμέτ Αλή της Αιγύπτου. Ο πειθαρχημένος αιγυπτιακός στρατός του
+    αποβιβάστηκε στην Πελοπόννησο το 1825 και είχε ανακαταλάβει το μεγαλύτερο μέρος της, καθώς
+    και το Μεσολόγγι, προτού η απώλεια του στόλου στο Ναβαρίνο τον αποκόψει.
 body:
   en: |
     Ibrahim commanded the Egyptian army the Sultan called in when his own forces failed
@@ -19,4 +23,15 @@ body:
     The threat that he would depopulate the Morea was one of the arguments the Powers
     used for intervention. After Navarino he held out for another year, until a French
     expeditionary force supervised his evacuation in October 1828.
+  el: |
+    Ο Ιμπραήμ διοικούσε τον αιγυπτιακό στρατό που κάλεσε ο σουλτάνος όταν οι δικές του
+    δυνάμεις απέτυχαν να καταστείλουν την επανάσταση. Αποβιβάστηκε στη Μεθώνη τον Φεβρουάριο
+    του 1825 και έφερε το πρώτο πεζικό ευρωπαϊκής εκπαίδευσης που αντιμετώπισαν οι Έλληνες,
+    κινούμενος μεθοδικά μέσα στην Πελοπόννησο και καίγοντας χωριά και περιβόλια στο πέρασμά
+    του.
+
+    Συμμετείχε στην πολιορκία του Μεσολογγίου από τον Δεκέμβριο του 1825 και κατέλαβε την πόλη
+    τον Απρίλιο του 1826. Η απειλή ότι θα ερήμωνε τον Μοριά ήταν ένα από τα επιχειρήματα που
+    χρησιμοποίησαν οι Δυνάμεις για την επέμβαση. Μετά το Ναβαρίνο κράτησε άλλον έναν χρόνο,
+    ώσπου γαλλικό εκστρατευτικό σώμα επέβλεψε την αποχώρησή του τον Οκτώβριο του 1828.
 sources: [{id: brewer-2001}, {id: woodhouse-1965}]

@@ -1,0 +1,49 @@
+id: plastiras
+name: {en: Nikolaos Plastiras, el: Νικόλαος Πλαστήρας}
+also_known_as:
+  - {en: The Black Rider, el: Ο Μαύρος Καβαλάρης}
+born: {date: 1883-11-01, precision: month}
+died: {date: 1953-07-26, precision: day, place: athens}
+roles: [military, statesman]
+summary:
+  en: >
+    Colonel of the 5/42 Evzone regiment, the last Greek unit to come out of Anatolia in
+    good order, and head of the Revolutionary Committee that overthrew the government
+    after the Catastrophe. He led the executions of 1922 and later three governments, and
+    kept a reputation for personal austerity that survived every side he was on.
+  el: >
+    Συνταγματάρχης του 5/42 Συντάγματος Ευζώνων, της τελευταίας ελληνικής μονάδας που βγήκε
+    συντεταγμένη από την Ανατολία, και επικεφαλής της Επαναστατικής Επιτροπής που ανέτρεψε την
+    κυβέρνηση μετά την Καταστροφή. Οδήγησε στις εκτελέσεις του 1922 και αργότερα σε τρεις
+    κυβερνήσεις, και κράτησε φήμη προσωπικής ολιγάρκειας που άντεξε σε όλες τις πλευρές στις
+    οποίες βρέθηκε.
+body:
+  en: |
+    Plastiras fought in the Balkan Wars, on the Macedonian Front and in Ukraine before
+    taking the 5/42 Evzones into Anatolia, where he became the best-known regimental
+    commander of the campaign. His regiment covered the retreat of 1922 and reached the
+    coast intact. Days later he was proclaiming the revolution from Chios with Stylianos
+    Gonatas.
+
+    The Revolutionary Committee forced Constantine's abdication, executed six of the
+    leaders of the 1920 to 1922 governments and held power until 1924, when Plastiras
+    handed the state back to elected politicians and left the country. He attempted a
+    coup in 1933, was condemned to death in absentia, returned from France in 1945 and
+    served as prime minister in 1945 and again in 1950 and 1951 to 1952, campaigning for
+    reconciliation after the Civil War. He was born in November 1883 by the old calendar
+    and the day converts differently in different sources, so only the month is given here.
+  el: |
+    Ο Πλαστήρας πολέμησε στους Βαλκανικούς Πολέμους, στο Μακεδονικό Μέτωπο και στην Ουκρανία
+    πριν οδηγήσει το 5/42 Σύνταγμα Ευζώνων στην Ανατολία, όπου έγινε ο γνωστότερος διοικητής
+    συντάγματος της εκστρατείας. Το σύνταγμά του κάλυψε την υποχώρηση του 1922 και έφτασε
+    ακέραιο στα παράλια. Λίγες ημέρες αργότερα κήρυσσε την επανάσταση από τη Χίο μαζί με τον
+    Στυλιανό Γονατά.
+
+    Η Επαναστατική Επιτροπή εξανάγκασε τον Κωνσταντίνο σε παραίτηση, εκτέλεσε έξι από τους
+    ηγέτες των κυβερνήσεων του 1920 ως 1922 και κράτησε την εξουσία ως το 1924, όταν ο
+    Πλαστήρας παρέδωσε το κράτος σε εκλεγμένους πολιτικούς και έφυγε από τη χώρα. Αποπειράθηκε
+    κίνημα το 1933, καταδικάστηκε ερήμην σε θάνατο, γύρισε από τη Γαλλία το 1945 και
+    πρωθυπούργησε το 1945 και ξανά το 1950 και το 1951 ως 1952, με σημαία τη συμφιλίωση μετά
+    τον Εμφύλιο. Γεννήθηκε τον Νοέμβριο του 1883 με το παλαιό ημερολόγιο και η ημέρα μετατρέπεται
+    διαφορετικά κατά πηγή, γι' αυτό δίνεται εδώ μόνο ο μήνας.
+sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]

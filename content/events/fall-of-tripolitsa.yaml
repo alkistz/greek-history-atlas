@@ -1,12 +1,18 @@
 id: fall-of-tripolitsa
 title:
   en: The Fall of Tripolitsa
+  el: Η άλωση της Τριπολιτσάς
 summary:
   en: >
     Greek forces took the Ottoman administrative capital of the Morea after a long
     siege. The capture was followed by the massacre of much of the Muslim and Jewish
     population of the town. It secured the Peloponnese for the revolution and set a
     pattern of reprisal that ran through the war on both sides.
+  el: >
+    Οι ελληνικές δυνάμεις κατέλαβαν τη διοικητική πρωτεύουσα του οθωμανικού Μοριά έπειτα από
+    μακρά πολιορκία. Την άλωση ακολούθησε η σφαγή μεγάλου μέρους του μουσουλμανικού και του
+    εβραϊκού πληθυσμού της πόλης. Η κατάληψη εξασφάλισε την Πελοπόννησο για την επανάσταση και
+    εγκαινίασε έναν κύκλο αντιποίνων που διέτρεξε τον πόλεμο και από τις δύο πλευρές.
 body:
   en: |
     Tripolitsa was the seat of the Ottoman governor of the Morea and the largest town
@@ -18,12 +24,23 @@ body:
     Jewish inhabitants were killed. The town's fall gave the revolution its first
     capital, a great quantity of arms, and a reputation in Europe that its supporters
     spent the next years trying to repair.
+  el: |
+    Η Τριπολιτσά ήταν η έδρα του οθωμανού διοικητή του Μοριά και η μεγαλύτερη πόλη της
+    χερσονήσου. Ο Κολοκοτρώνης την κράτησε πολιορκημένη όλο το καλοκαίρι του 1821, ενώ οι
+    υπόλοιποι οπλαρχηγοί μάλωναν για τα λάφυρα. Οι άτακτοι μπήκαν στην πόλη στις 5 Οκτωβρίου
+    (23 Σεπτεμβρίου με το παλαιό ημερολόγιο) από μια πύλη που είχε μείνει αφύλακτη στη
+    διάρκεια διαπραγματεύσεων.
+
+    Ακολούθησε σφαγή αρκετών ημερών, στην οποία σκοτώθηκαν οι περισσότεροι μουσουλμάνοι και
+    εβραίοι κάτοικοι. Η άλωση έδωσε στην επανάσταση την πρώτη της πρωτεύουσα, μεγάλες
+    ποσότητες όπλων και μια φήμη στην Ευρώπη που οι υποστηρικτές της πάσχιζαν να
+    αποκαταστήσουν τα επόμενα χρόνια.
 period: [1821-10-05, 1821-10-06]
 precision: day
 as_written: {date: 1821-09-23, calendar: julian}
 atom: peloponnese
 place: tripolitsa
-significance: 4
+significance: 3
 figures:
   - {figure: kolokotronis, role: commander}
 sources: [{id: brewer-2001}]

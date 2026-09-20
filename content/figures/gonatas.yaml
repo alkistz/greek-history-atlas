@@ -1,0 +1,41 @@
+id: gonatas
+name: {en: Stylianos Gonatas, el: Στυλιανός Γονατάς}
+born: {date: 1876-08-15, precision: day, place: patras}
+died: {date: 1966-03-29, precision: day, place: athens}
+roles: [military, statesman]
+summary:
+  en: >
+    Colonel and Venizelist politician, co-leader with Plastiras of the revolution of
+    September 1922 and prime minister from November 1922 to January 1924. His government
+    carried out the executions of the Six, signed the evacuation of Eastern Thrace and
+    began the settlement of the refugees.
+  el: >
+    Συνταγματάρχης και βενιζελικός πολιτικός, συναρχηγός με τον Πλαστήρα της επανάστασης του
+    Σεπτεμβρίου 1922 και πρωθυπουργός από τον Νοέμβριο του 1922 ως τον Ιανουάριο του 1924. Η
+    κυβέρνησή του πραγματοποίησε τις εκτελέσεις των Έξι, δέχθηκε την εκκένωση της Ανατολικής
+    Θράκης και ξεκίνησε την αποκατάσταση των προσφύγων.
+body:
+  en: |
+    Gonatas served in the Balkan Wars and in Asia Minor and joined Plastiras and
+    Commander Dimitrios Fokas in proclaiming the Revolutionary Committee on Chios in
+    September 1922. He took over the government on 27 November 1922, the day before the
+    Six were shot.
+
+    His fourteen months in office covered the worst of the crisis: the armistice terms
+    that surrendered Eastern Thrace, the arrival of over a million refugees, the failed
+    royalist counter-coup of October 1923 and the election that produced the republic. He
+    handed power to elected politicians in January 1924 and spent the rest of a long
+    political career in the liberal camp, serving as a minister under Venizelos and later
+    as governor-general of Macedonia.
+  el: |
+    Ο Γονατάς υπηρέτησε στους Βαλκανικούς Πολέμους και στη Μικρά Ασία και μαζί με τον Πλαστήρα
+    και τον πλωτάρχη Δημήτριο Φωκά κήρυξε την Επαναστατική Επιτροπή στη Χίο τον Σεπτέμβριο του
+    1922. Ανέλαβε την κυβέρνηση στις 27 Νοεμβρίου 1922, την παραμονή του τυφεκισμού των Έξι.
+
+    Οι δεκατέσσερις μήνες του στην εξουσία κάλυψαν τη χειρότερη φάση της κρίσης: τους όρους της
+    ανακωχής που παρέδωσαν την Ανατολική Θράκη, την άφιξη πάνω από ενός εκατομμυρίου προσφύγων,
+    το αποτυχημένο βασιλικό αντικίνημα του Οκτωβρίου 1923 και τις εκλογές που έφεραν τη
+    Δημοκρατία. Παρέδωσε την εξουσία σε εκλεγμένους πολιτικούς τον Ιανουάριο του 1924 και
+    πέρασε το υπόλοιπο μιας μακράς πολιτικής σταδιοδρομίας στον φιλελεύθερο χώρο, ως υπουργός
+    του Βενιζέλου και αργότερα ως γενικός διοικητής Μακεδονίας.
+sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]

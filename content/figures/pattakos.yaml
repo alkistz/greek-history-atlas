@@ -1,0 +1,43 @@
+id: pattakos
+name: {en: Stylianos Pattakos, el: Στυλιανός Παττακός}
+born: {date: 1912-11-08, precision: day}
+died: {date: 2016-10-08, precision: day, place: athens}
+roles: [military]
+summary:
+  en: >
+    Cretan brigadier commanding the Armour Training Centre, whose tanks took Athens on
+    the night of 20 and 21 April 1967. He was the junta's Interior Minister and later
+    Deputy Prime Minister, and the most publicly visible of the three colonels. He was
+    sentenced to death for high treason in 1975 and the sentence was commuted to life.
+  el: >
+    Κρητικός ταξίαρχος, διοικητής του Κέντρου Εκπαιδεύσεως Τεθωρακισμένων, του οποίου τα
+    άρματα κατέλαβαν την Αθήνα τη νύχτα της 20ής προς 21η Απριλίου 1967. Υπήρξε υπουργός
+    Εσωτερικών της χούντας και αργότερα αντιπρόεδρος της κυβέρνησης, και ο πιο ορατός
+    δημόσια από τους τρεις. Καταδικάστηκε σε θάνατο για εσχάτη προδοσία το 1975 και η
+    ποινή του μετατράπηκε σε ισόβια.
+body:
+  en: |
+    Pattakos supplied the coup with the thing it could not do without. Without the
+    armour of the training centre outside Athens there was no way to hold the capital
+    before dawn, and it was his tanks that closed the streets while the arrest lists
+    were worked through. He took the Interior Ministry, which put the prefects, the
+    police and local government in his hands, and he became the regime's public face,
+    talkative where Papadopoulos was formal.
+
+    He was tried with the other principals in 1975, sentenced to death and then to life.
+    He defended the dictatorship in public for the rest of a very long life and died in
+    2016, aged 103.
+  el: |
+    Ο Παττακός έδωσε στο πραξικόπημα αυτό που δεν μπορούσε να γίνει χωρίς αυτόν. Χωρίς τα
+    τεθωρακισμένα του κέντρου εκπαίδευσης έξω από την Αθήνα δεν υπήρχε τρόπος να κρατηθεί
+    η πρωτεύουσα πριν ξημερώσει, και τα δικά του άρματα έκλεισαν τους δρόμους όσο
+    εκτελούνταν οι κατάλογοι συλλήψεων. Ανέλαβε το υπουργείο Εσωτερικών, δηλαδή τους
+    νομάρχες, την αστυνομία και την τοπική αυτοδιοίκηση, και έγινε το δημόσιο πρόσωπο του
+    καθεστώτος, ομιλητικός εκεί όπου ο Παπαδόπουλος ήταν τυπικός.
+
+    Δικάστηκε με τους άλλους πρωταίτιους το 1975 και καταδικάστηκε σε θάνατο και έπειτα
+    σε ισόβια. Υπερασπιζόταν δημόσια τη δικτατορία ως το τέλος μιας πολύ μακριάς ζωής και
+    πέθανε το 2016 σε ηλικία 103 ετών.
+sources:
+  - {id: woodhouse-1985}
+  - {id: clogg-2021}

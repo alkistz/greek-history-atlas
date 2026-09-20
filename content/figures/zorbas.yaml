@@ -1,0 +1,41 @@
+id: zorbas
+name: {en: Nikolaos Zorbas, el: Νικόλαος Ζορμπάς}
+born: {date: 1844-09-27, precision: day, place: athens}
+died: {date: 1920-06-11, precision: day, place: athens}
+roles: [military, statesman]
+summary:
+  en: >
+    Artillery colonel, later major general, who led the Military League and fronted the
+    Goudi coup of August 1909. He was the senior name the conspiring junior officers needed
+    rather than their driving force, and he went on to serve as Minister for Military
+    Affairs under Stefanos Dragoumis. The movement he headed dissolved itself once
+    Venizelos arrived.
+  el: >
+    Συνταγματάρχης του πυροβολικού και αργότερα υποστράτηγος, επικεφαλής του Στρατιωτικού
+    Συνδέσμου και ονομαστικός αρχηγός του κινήματος στο Γουδί τον Αύγουστο του 1909. Ήταν το
+    ανώτερο όνομα που χρειάζονταν οι συνωμότες κατώτεροι αξιωματικοί παρά η κινητήρια
+    δύναμή τους, και στη συνέχεια διετέλεσε υπουργός Στρατιωτικών υπό τον Στέφανο Δραγούμη.
+    Το κίνημα που ηγήθηκε αυτοδιαλύθηκε μόλις έφτασε ο Βενιζέλος.
+body:
+  en: |
+    The Military League was formed in October 1908 by officers of middle and junior rank,
+    and it needed a colonel at its head to be taken seriously. Zorbas supplied the rank and
+    the signature. On the night of 14/15 August 1909 he led the conspirators out to the
+    Goudi barracks; the government fell without a shot.
+
+    As Minister for Military Affairs he pushed through the League's programme of
+    reorganisation, but the League could not govern and he could not make it into a party.
+    When Venizelos came to Athens the officers stood aside, and Zorbas's public career
+    effectively ended with them.
+  el: |
+    Ο Στρατιωτικός Σύνδεσμος συγκροτήθηκε τον Οκτώβριο του 1908 από μέσους και κατώτερους
+    αξιωματικούς και χρειαζόταν έναν συνταγματάρχη στην κορυφή του για να ληφθεί σοβαρά
+    υπόψη. Ο Ζορμπάς έδωσε τον βαθμό και την υπογραφή. Τη νύχτα της 14ης προς 15η Αυγούστου
+    1909 οδήγησε τους κινηματίες στους στρατώνες του Γουδιού και η κυβέρνηση έπεσε χωρίς
+    πυροβολισμό.
+
+    Ως υπουργός Στρατιωτικών προώθησε το πρόγραμμα αναδιοργάνωσης του Συνδέσμου, όμως ο
+    Σύνδεσμος δεν μπορούσε να κυβερνήσει και εκείνος δεν μπόρεσε να τον μετατρέψει σε κόμμα.
+    Όταν ο Βενιζέλος ήρθε στην Αθήνα, οι αξιωματικοί παραμέρισαν, και μαζί τους έκλεισε
+    ουσιαστικά και η δημόσια σταδιοδρομία του Ζορμπά.
+sources: [{id: clogg-2021}, {id: gallant-2016}]

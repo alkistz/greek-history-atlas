@@ -1,0 +1,57 @@
+id: sofoulis
+name: {en: Themistoklis Sofoulis, el: Θεμιστοκλής Σοφούλης}
+born: {date: 1860-11-24, precision: day}
+died: {date: 1949-06-24, precision: day, place: athens}
+roles: [statesman]
+summary:
+  en: >
+    Veteran Liberal from Samos who led the party after Venizelos went into exile. In February
+    1936 he made a secret pact with the communist parliamentary group to break the deadlock in
+    a hung parliament; the leak frightened the army and the palace and helped produce the
+    dictatorship instead. He was elected Speaker with communist votes the following month.
+  el: >
+    Παλαίμαχος φιλελεύθερος από τη Σάμο, που ηγήθηκε του κόμματος μετά την εξορία του
+    Βενιζέλου. Τον Φεβρουάριο του 1936 συμφώνησε μυστικά με την κοινοβουλευτική ομάδα του ΚΚΕ
+    για να σπάσει το αδιέξοδο μιας Βουλής χωρίς πλειοψηφία· η διαρροή τρόμαξε τον στρατό και
+    το παλάτι και βοήθησε να προκύψει η δικτατορία. Τον επόμενο μήνα εκλέχθηκε Πρόεδρος της
+    Βουλής με κομμουνιστικές ψήφους.
+body:
+  en: |
+    Sofoulis was an archaeologist by training and a revolutionary by record: he led the rising
+    that took Samos out of Ottoman suzerainty and into Greece, and he was president of the
+    island's provisional government. He then spent forty years in Liberal politics, as
+    minister, as Speaker and as the man Venizelos left in charge when he was abroad.
+
+    The election of 26 January 1936 gave the Liberals and their allies 126 seats out of 300
+    and the Communist Party 15, which meant the Communists chose the government. Sofoulis
+    negotiated with Stelios Sklavainas of the communist parliamentary group: their votes for
+    trade-union freedom, the release of political prisoners and the repeal of the Idionymon.
+    The agreement leaked before it produced anything. To the general staff and the palace it
+    looked like proof that the parliamentary parties would deal with anyone, and it is part of
+    the reason the army accepted what happened on 4 August.
+
+    Sofoulis was elected Speaker on 16 March 1936 with communist support and was out of public
+    life for the length of the dictatorship. He returned to lead the Liberals through the
+    occupation's aftermath and the civil war, and was prime minister when he died in office in
+    1949.
+  el: |
+    Ο Σοφούλης ήταν αρχαιολόγος στις σπουδές και επαναστάτης στην πράξη: ηγήθηκε του κινήματος
+    που έβγαλε τη Σάμο από την οθωμανική επικυριαρχία και την ένωσε με την Ελλάδα, και
+    διετέλεσε πρόεδρος της προσωρινής κυβέρνησης του νησιού. Πέρασε έπειτα σαράντα χρόνια στη
+    φιλελεύθερη παράταξη, ως υπουργός, ως Πρόεδρος της Βουλής και ως ο άνθρωπος στον οποίο ο
+    Βενιζέλος άφηνε το κόμμα όταν έλειπε.
+
+    Οι εκλογές της 26ης Ιανουαρίου 1936 έδωσαν στους Φιλελευθέρους και τους συμμάχους τους 126
+    έδρες στις 300 και στο ΚΚΕ 15, πράγμα που σήμαινε ότι οι κομμουνιστές επέλεγαν κυβέρνηση.
+    Ο Σοφούλης διαπραγματεύτηκε με τον Στέλιο Σκλάβαινα της κοινοβουλευτικής ομάδας του ΚΚΕ:
+    τις ψήφους τους έναντι συνδικαλιστικών ελευθεριών, αποφυλάκισης των πολιτικών κρατουμένων
+    και κατάργησης του Ιδιωνύμου. Η συμφωνία διέρρευσε πριν αποδώσει οτιδήποτε. Στο επιτελείο
+    και στο παλάτι φάνηκε ως απόδειξη ότι τα κοινοβουλευτικά κόμματα θα συνεννοούνταν με τον
+    καθένα, και είναι ένας από τους λόγους που ο στρατός δέχθηκε όσα έγιναν στις 4 Αυγούστου.
+
+    Ο Σοφούλης εκλέχθηκε Πρόεδρος της Βουλής στις 16 Μαρτίου 1936 και έμεινε εκτός δημόσιου
+    βίου όσο κράτησε η δικτατορία. Επέστρεψε για να ηγηθεί των Φιλελευθέρων μετά την Κατοχή
+    και στον Εμφύλιο, και ήταν πρωθυπουργός όταν πέθανε εν ενεργεία το 1949.
+sources:
+  - {id: close-1995}
+  - {id: clogg-2021}

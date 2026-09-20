@@ -1,0 +1,68 @@
+id: acropolis-flag-glezos-santas
+title:
+  en: The swastika taken down from the Acropolis
+  el: Η υποστολή της σβάστικας από την Ακρόπολη
+summary:
+  en: >
+    German troops had raised the swastika on the Acropolis on 27 April 1941, where it was
+    visible from most of Athens. On the night of 30 May two nineteen-year-old students,
+    Manolis Glezos and Apostolos Santas, climbed the north face of the rock, avoided the
+    guard and took the flag down. A German military court sentenced both to death in
+    absentia without ever identifying them. The act had no military weight and enormous
+    symbolic weight: it was reported abroad within days as the first public act of Greek
+    defiance, and it has stood for the beginning of the resistance ever since.
+  el: >
+    Οι Γερμανοί είχαν υψώσει τη σβάστικα στην Ακρόπολη στις 27 Απριλίου 1941, όπου
+    φαινόταν από το μεγαλύτερο μέρος της Αθήνας. Τη νύχτα της 30ής Μαΐου δύο δεκαεννιάχρονοι
+    φοιτητές, ο Μανώλης Γλέζος και ο Απόστολος Σάντας, ανέβηκαν από τη βόρεια πλευρά του
+    βράχου, απέφυγαν τον φρουρό και κατέβασαν τη σημαία. Γερμανικό στρατοδικείο τους
+    καταδίκασε ερήμην σε θάνατο χωρίς ποτέ να τους ταυτοποιήσει. Η πράξη δεν είχε
+    στρατιωτικό βάρος και είχε τεράστιο συμβολικό: μεταδόθηκε στο εξωτερικό μέσα σε λίγες
+    μέρες ως η πρώτη δημόσια ελληνική άρνηση και από τότε σημαίνει την αρχή της Αντίστασης.
+body:
+  en: |
+    The flagpole stood at the eastern end of the rock beside the Belvedere. Glezos and
+    Santas went up the north face in the dark on 30 May 1941, a month into the
+    occupation, took the flag and carried it away with them. It was never recovered. The
+    occupation authorities condemned the unknown culprits to death, and the story reached
+    the Allied press quickly, at a moment when there was very little else to report from
+    Greece.
+
+    Both men paid for the rest of the occupation. Glezos was arrested by the Germans in
+    1942, by the Italians in 1943 and again by the collaborationist authorities, and lost
+    two brothers to the occupation; Santas joined ELAS and fought in the mountains as an
+    officer. The Greek flag went back up on the same pole on 18 October 1944, raised by
+    Georgios Papandreou six days after the German withdrawal from Athens.
+
+    Glezos remained a public figure for seventy years. He was elected to the Greek
+    parliament and to the European Parliament, was praised by Charles de Gaulle, and
+    campaigned until his death in 2020 for German payment of occupation reparations and
+    of the forced loan. The flag on the Acropolis had by then become the image the
+    resistance used of itself.
+  el: |
+    Ο ιστός βρισκόταν στο ανατολικό άκρο του βράχου, δίπλα στο Μπελβεντέρε. Ο Γλέζος και ο
+    Σάντας ανέβηκαν από τη βόρεια πλευρά μέσα στο σκοτάδι της 30ής Μαΐου 1941, έναν μήνα
+    μετά την έναρξη της Κατοχής, πήραν τη σημαία και την κράτησαν. Δεν βρέθηκε ποτέ. Οι
+    αρχές κατοχής καταδίκασαν σε θάνατο τους άγνωστους δράστες, και η είδηση έφτασε γρήγορα
+    στον συμμαχικό τύπο, σε μια στιγμή που ελάχιστα άλλα υπήρχαν να γραφτούν για την
+    Ελλάδα.
+
+    Και οι δύο το πλήρωσαν σε όλη την Κατοχή. Ο Γλέζος συνελήφθη από τους Γερμανούς το
+    1942, από τους Ιταλούς το 1943 και ξανά από τις δωσιλογικές αρχές, και έχασε δύο
+    αδέλφια του στην Κατοχή. Ο Σάντας εντάχθηκε στον ΕΛΑΣ και πολέμησε ως αξιωματικός στα
+    βουνά. Η ελληνική σημαία υψώθηκε ξανά στον ίδιο ιστό στις 18 Οκτωβρίου 1944 από τον
+    Γεώργιο Παπανδρέου, έξι μέρες μετά την αποχώρηση των Γερμανών από την Αθήνα.
+
+    Ο Γλέζος παρέμεινε δημόσιο πρόσωπο για εβδομήντα χρόνια. Εξελέγη βουλευτής και
+    ευρωβουλευτής, εγκωμιάστηκε από τον Σαρλ ντε Γκωλ και αγωνίστηκε ως τον θάνατό του το
+    2020 για την καταβολή των γερμανικών επανορθώσεων και του κατοχικού δανείου. Η σημαία
+    της Ακρόπολης είχε γίνει ως τότε η εικόνα που η Αντίσταση κρατούσε για τον εαυτό της.
+period: [1941-05-30, 1941-05-31]
+precision: day
+atom: attica
+place: athens
+significance: 2
+figures:
+  - {figure: glezos, role: participant}
+  - {figure: santas, role: participant}
+sources: [{id: mazower-1993}, {id: clogg-2021}]

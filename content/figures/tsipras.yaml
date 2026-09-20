@@ -1,0 +1,62 @@
+id: tsipras
+name: {en: Alexis Tsipras, el: Αλέξης Τσίπρας}
+born: {date: 1974-07-28, precision: day, place: athens}
+roles: [statesman]
+summary:
+  en: >
+    Civil engineer and leader of SYRIZA, Prime Minister from January to August 2015 and
+    again from September 2015 to July 2019. He was elected on a promise to end austerity,
+    called the referendum of 5 July 2015 in which the creditors' terms were rejected by
+    61.31 per cent, and then signed a third programme on harder terms eight days later.
+    In 2018 he signed the Prespa Agreement, which settled the dispute with North
+    Macedonia and cost him much of his remaining support.
+  el: >
+    Πολιτικός μηχανικός και ηγέτης του ΣΥΡΙΖΑ, πρωθυπουργός από τον Ιανουάριο ως τον
+    Αύγουστο του 2015 και ξανά από τον Σεπτέμβριο του 2015 ως τον Ιούλιο του 2019.
+    Εκλέχθηκε με υπόσχεση να τερματίσει τη λιτότητα, προκήρυξε το δημοψήφισμα της 5ης
+    Ιουλίου 2015, στο οποίο οι όροι των δανειστών απορρίφθηκαν με 61,31%, και οκτώ μέρες
+    αργότερα υπέγραψε τρίτο πρόγραμμα με σκληρότερους όρους. Το 2018 υπέγραψε τη Συμφωνία
+    των Πρεσπών, που έλυσε τη διαφορά με τη Βόρεια Μακεδονία και του στοίχισε μεγάλο
+    μέρος της υπόλοιπης στήριξής του.
+body:
+  en: |
+    SYRIZA came out of the smaller parties of the Greek left and reached government in
+    the five years of the crisis, as PASOK collapsed. Tsipras won the
+    election of 25 January 2015 and formed a coalition with the right-wing Independent
+    Greeks on the single point they agreed about. Five months of negotiation with the
+    creditors deadlocked, the European Central Bank froze emergency liquidity, the banks
+    closed with a sixty-euro daily withdrawal limit, and Greece missed a payment to the
+    International Monetary Fund.
+
+    The referendum he called was won decisively and changed nothing he could use. At the
+    euro summit of 13 July he accepted a programme with conditions tighter than the
+    rejected ones, his finance minister had already resigned, and the Left Platform left
+    the party. He won a second election in September 2015 and governed to the end of the
+    third programme in August 2018.
+
+    The Prespa Agreement of June 2018 is what he is most likely to be remembered for. It
+    ended a quarrel that had run since 1991, it was ratified by 153 votes to 146 against
+    the opposition of New Democracy and the Communist Party, and it broke his coalition.
+    He lost the election of July 2019 to Kyriakos Mitsotakis.
+  el: |
+    Ο ΣΥΡΙΖΑ προήλθε από τα μικρότερα κόμματα της ελληνικής αριστεράς και έφτασε στην
+    κυβέρνηση μέσα στα πέντε χρόνια της κρίσης, καθώς το ΠΑΣΟΚ κατέρρεε. Ο Τσίπρας κέρδισε τις εκλογές της 25ης Ιανουαρίου 2015 και σχημάτισε
+    κυβέρνηση με τους δεξιούς Ανεξάρτητους Έλληνες πάνω στο μοναδικό σημείο που
+    συμφωνούσαν. Πέντε μήνες διαπραγμάτευσης με τους δανειστές κόλλησαν, η Ευρωπαϊκή
+    Κεντρική Τράπεζα πάγωσε τον έκτακτο μηχανισμό ρευστότητας, οι τράπεζες έκλεισαν με
+    όριο ανάληψης εξήντα ευρώ και η Ελλάδα δεν πλήρωσε δόση στο Διεθνές Νομισματικό
+    Ταμείο.
+
+    Το δημοψήφισμα που προκήρυξε κερδήθηκε καθαρά και δεν του έδωσε τίποτα αξιοποιήσιμο.
+    Στη σύνοδο κορυφής της 13ης Ιουλίου δέχτηκε πρόγραμμα με όρους αυστηρότερους από
+    εκείνους που είχαν απορριφθεί, ο υπουργός Οικονομικών του είχε ήδη παραιτηθεί και η
+    Αριστερή Πλατφόρμα αποχώρησε από το κόμμα. Κέρδισε δεύτερες εκλογές τον Σεπτέμβριο
+    του 2015 και κυβέρνησε ως το τέλος του τρίτου προγράμματος τον Αύγουστο του 2018.
+
+    Η Συμφωνία των Πρεσπών του Ιουνίου 2018 είναι αυτό για το οποίο πιθανότατα θα τον
+    θυμούνται. Έκλεισε μια διαφορά ανοιχτή από το 1991, κυρώθηκε με 153 ψήφους έναντι 146
+    παρά την αντίθεση της Νέας Δημοκρατίας και του ΚΚΕ, και διέλυσε τον κυβερνητικό του
+    συνασπισμό. Έχασε τις εκλογές του Ιουλίου 2019 από τον Κυριάκο Μητσοτάκη.
+sources:
+  - {id: siani-davies-2017}
+  - {id: clogg-2021}

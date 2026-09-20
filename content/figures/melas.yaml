@@ -1,0 +1,48 @@
+id: melas
+name: {en: Pavlos Melas, el: Παύλος Μελάς}
+also_known_as: [{en: Mikis Zezas, el: Μίκης Ζέζας}]
+born: {date: 1870-01-01, precision: year}
+died: {date: 1904-10-26, precision: day}
+roles: [military]
+summary:
+  en: >
+    Greek artillery officer who crossed into Ottoman Macedonia four times in 1904 under an
+    assumed name and was killed on his last mission. He commanded a band of about a dozen
+    men and changed no military situation. His death made him the emblem of the Macedonian
+    Struggle and the model of the deniable officer volunteer on which the whole Greek
+    effort in Macedonia depended.
+  el: >
+    Έλληνας αξιωματικός του πυροβολικού που πέρασε τέσσερις φορές στην οθωμανική Μακεδονία
+    μέσα στο 1904 με ψευδώνυμο και σκοτώθηκε στην τελευταία του αποστολή. Διοικούσε σώμα
+    περίπου δώδεκα ανδρών και δεν άλλαξε καμία στρατιωτική κατάσταση. Ο θάνατός του τον
+    έκανε το σύμβολο του Μακεδονικού Αγώνα και το πρότυπο του εθελοντή αξιωματικού που
+    δρούσε χωρίς επίσημη κάλυψη, πάνω στον οποίο στηρίχθηκε όλη η ελληνική προσπάθεια στη
+    Μακεδονία.
+body:
+  en: |
+    Melas was a second lieutenant of artillery, married into the Dragoumis family and
+    connected to the circle in Athens that funded the Macedonian bands. He entered
+    Macedonia as Mikis Zezas, one of a generation of officers who took extended leave,
+    dropped their names and went north with a dozen men and a mule train.
+
+    On his fourth mission his band, which included the chieftain Lakis Pyrzas and ten
+    Cretans, was surrounded by an Ottoman detachment at the village of Statista in the
+    Kastoria district on 13/26 October 1904. He was the only man of the band to die, and
+    accounts differ as to whether the shot came from the Ottomans, from an accident, or
+    from within his own party. His head was buried at Kastoria and his body at Statista,
+    renamed Melas in 1927. His birth date is given as 29 March 1870 without a calendar
+    note, so the atlas records only the year.
+  el: |
+    Ο Μελάς ήταν ανθυπολοχαγός του πυροβολικού, γαμπρός της οικογένειας Δραγούμη και
+    συνδεδεμένος με τον κύκλο της Αθήνας που χρηματοδοτούσε τα μακεδονικά σώματα. Μπήκε στη
+    Μακεδονία ως Μίκης Ζέζας, ένας από μια γενιά αξιωματικών που έπαιρναν μακρά άδεια,
+    άφηναν πίσω το όνομά τους και ανέβαιναν βόρεια με δώδεκα άνδρες και λίγα μουλάρια.
+
+    Στην τέταρτη αποστολή του το σώμα του, στο οποίο ανήκαν ο οπλαρχηγός Λάκης Πυρζάς και
+    δέκα Κρητικοί, περικυκλώθηκε από οθωμανικό απόσπασμα στο χωριό Στάτιστα της περιοχής
+    Καστοριάς, στις 13/26 Οκτωβρίου 1904. Ήταν ο μόνος του σώματος που σκοτώθηκε, και οι
+    μαρτυρίες διαφέρουν ως προς το αν η σφαίρα ήρθε από τους Οθωμανούς, από ατύχημα ή μέσα
+    από το ίδιο του το σώμα. Η κεφαλή του τάφηκε στην Καστοριά και το σώμα του στη Στάτιστα,
+    που το 1927 μετονομάστηκε σε Μελάς. Η ημερομηνία γέννησής του δίνεται ως 29 Μαρτίου 1870
+    χωρίς ένδειξη ημερολογίου, και γι' αυτό ο άτλαντας καταγράφει μόνο το έτος.
+sources: [{id: koliopoulos-veremis-2010}, {id: clogg-2021}]

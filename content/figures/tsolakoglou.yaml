@@ -1,0 +1,54 @@
+id: tsolakoglou
+name: {en: Georgios Tsolakoglou, el: Γεώργιος Τσολάκογλου}
+born: {date: 1886-04-01, precision: month}
+died: {date: 1948-05-22, precision: day, place: athens}
+roles: [military, statesman]
+summary:
+  en: >
+    Lieutenant general who surrendered the Greek army of Epirus and Western Macedonia to
+    the Germans on 20 April 1941 without authority from his government, and was rewarded
+    with the premiership of the collaborationist Hellenic State. He governed a country he
+    could not feed through the famine winter, was replaced in December 1942, and was
+    convicted of treason after the war and died in prison.
+  el: >
+    Αντιστράτηγος που παρέδωσε τον στρατό της Ηπείρου και της Δυτικής Μακεδονίας στους
+    Γερμανούς στις 20 Απριλίου 1941 χωρίς εξουσιοδότηση της κυβέρνησής του, και
+    ανταμείφθηκε με την πρωθυπουργία του δωσιλογικού Ελληνικού Κράτους. Κυβέρνησε μια χώρα
+    που δεν μπορούσε να θρέψει στον χειμώνα του λιμού, αντικαταστάθηκε τον Δεκέμβριο του
+    1942, καταδικάστηκε μεταπολεμικά για εσχάτη προδοσία και πέθανε στη φυλακή.
+body:
+  en: |
+    Tsolakoglou commanded III Army Corps in Albania and, with other senior officers,
+    concluded that the Greek position was hopeless once the Germans came through
+    Yugoslavia. He signed a capitulation to the Germans alone at Votonosi on 20 April
+    1941, which the Greek government repudiated; it was formalised at Larissa on 21 April
+    and repeated at Thessaloniki on 23 April to include Italy, which Greece had beaten and
+    which Mussolini insisted be a party to its defeat.
+
+    He was made prime minister of the Hellenic State on 30 April 1941. The office carried
+    no army, no foreign policy and almost no revenue, and its only real business was to
+    administer requisitioning and the occupation costs on the occupiers' behalf. The
+    famine of the winter of 1941 to 1942 destroyed what authority it had; the Germans
+    replaced him with Konstantinos Logothetopoulos on 1 December 1942 and Logothetopoulos
+    with Ioannis Rallis in April 1943. Tried for treason after liberation, Tsolakoglou was
+    sentenced to death, had the sentence commuted to life, and died of leukaemia in prison
+    in Athens in May 1948.
+  el: |
+    Ο Τσολάκογλου διοικούσε το Γ΄ Σώμα Στρατού στην Αλβανία και, μαζί με άλλους ανώτερους
+    αξιωματικούς, έκρινε ότι η ελληνική θέση ήταν χαμένη μόλις οι Γερμανοί πέρασαν μέσα από
+    τη Γιουγκοσλαβία. Υπέγραψε συνθηκολόγηση μόνο με τους Γερμανούς στο Βοτονόσι στις 20
+    Απριλίου 1941, την οποία η ελληνική κυβέρνηση αποκήρυξε. Επισημοποιήθηκε στη Λάρισα
+    στις 21 Απριλίου και επαναλήφθηκε στη Θεσσαλονίκη στις 23 Απριλίου ώστε να περιληφθεί
+    και η Ιταλία, που η Ελλάδα είχε νικήσει και που ο Μουσολίνι απαίτησε να συμμετάσχει
+    στην ήττα της.
+
+    Ορίστηκε πρωθυπουργός του Ελληνικού Κράτους στις 30 Απριλίου 1941. Το αξίωμα δεν είχε
+    στρατό, ούτε εξωτερική πολιτική, ούτε σχεδόν έσοδα, και η μόνη πραγματική του δουλειά
+    ήταν να διαχειρίζεται τις επιτάξεις και τα έξοδα κατοχής για λογαριασμό των κατακτητών.
+    Ο λιμός του χειμώνα 1941 προς 1942 κατέστρεψε ό,τι κύρος του είχε απομείνει. Οι
+    Γερμανοί τον αντικατέστησαν με τον Κωνσταντίνο Λογοθετόπουλο την 1η Δεκεμβρίου 1942 και
+    τον Λογοθετόπουλο με τον Ιωάννη Ράλλη τον Απρίλιο του 1943. Δικασμένος για εσχάτη
+    προδοσία μετά την απελευθέρωση, ο Τσολάκογλου καταδικάστηκε σε θάνατο, η ποινή
+    μετατράπηκε σε ισόβια και πέθανε από λευχαιμία στη φυλακή, στην Αθήνα, τον Μάιο του
+    1948.
+sources: [{id: mazower-1993}, {id: koliopoulos-veremis-2010}]

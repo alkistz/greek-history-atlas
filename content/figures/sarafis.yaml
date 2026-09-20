@@ -1,0 +1,50 @@
+id: sarafis
+name: {en: Stefanos Sarafis, el: Στέφανος Σαράφης}
+born: {date: 1890-10-23, precision: day}
+died: {date: 1957-05-31, precision: day, place: athens}
+roles: [military]
+summary:
+  en: >
+    Regular army colonel, later major-general, who was captured by ELAS in March 1943 and
+    two months later was appointed the head of its general staff. He turned a collection
+    of bands into an army with divisions and a staff, signed the Plaka Agreement and the
+    Caserta Agreement for ELAS, and after the war became a left-wing member of parliament.
+  el: >
+    Συνταγματάρχης του τακτικού στρατού και αργότερα υποστράτηγος, που αιχμαλωτίστηκε από
+    τον ΕΛΑΣ τον Μάρτιο του 1943 και δύο μήνες αργότερα ορίστηκε επικεφαλής του γενικού
+    του επιτελείου. Μετέτρεψε ένα σύνολο ανταρτικών ομάδων σε στρατό με μεραρχίες και
+    επιτελείο, υπέγραψε για τον ΕΛΑΣ τη Συμφωνία της Πλάκας και τη Συμφωνία της Καζέρτας,
+    και μετά τον πόλεμο εξελέγη βουλευτής της Αριστεράς.
+body:
+  en: |
+    Sarafis was a career officer of Venizelist sympathies, involved in the republican
+    movements of the interwar period and out of the army by 1941. He tried in early 1943
+    to raise a resistance force independent of both EAM and EDES; ELAS captured him in
+    March, and after some weeks he accepted its offer of the military command. The
+    appointment gave ELAS what it had lacked, a staff officer able to organise supply,
+    signals and formations, and gave EAM a respectable non-communist name at the head of
+    its army.
+
+    He signed the Plaka Agreement of February 1944 that ended the first round and the
+    Caserta Agreement of September 1944 that placed ELAS under the Greek government and
+    General Scobie. He was in the mountains rather than in Athens during the Dekemvriana.
+    After Varkiza he was arrested and exiled, and he later sat in parliament for the
+    united left. He was killed by a car in Athens in 1957. His memoir of ELAS remains one
+    of the principal sources for the resistance from inside it.
+  el: |
+    Ο Σαράφης ήταν αξιωματικός καριέρας με βενιζελικές συμπάθειες, αναμεμειγμένος στα
+    δημοκρατικά κινήματα του μεσοπολέμου και εκτός στρατεύματος ως το 1941. Προσπάθησε
+    στις αρχές του 1943 να συγκροτήσει αντιστασιακή δύναμη ανεξάρτητη και από το ΕΑΜ και
+    από τον ΕΔΕΣ. Ο ΕΛΑΣ τον αιχμαλώτισε τον Μάρτιο και, ύστερα από μερικές εβδομάδες,
+    δέχθηκε την πρόταση να αναλάβει τη στρατιωτική διοίκηση. Ο διορισμός έδωσε στον ΕΛΑΣ
+    αυτό που του έλειπε, επιτελικό αξιωματικό ικανό να οργανώσει τον ανεφοδιασμό, τις
+    διαβιβάσεις και τους σχηματισμούς, και έδωσε στο ΕΑΜ ένα υπολήψιμο μη κομμουνιστικό
+    όνομα στην κεφαλή του στρατού του.
+
+    Υπέγραψε τη Συμφωνία της Πλάκας του Φεβρουαρίου 1944, που τερμάτισε τον πρώτο γύρο,
+    και τη Συμφωνία της Καζέρτας του Σεπτεμβρίου 1944, που υπήγαγε τον ΕΛΑΣ στην ελληνική
+    κυβέρνηση και στον στρατηγό Σκόμπι. Στα Δεκεμβριανά βρισκόταν στο βουνό και όχι στην
+    Αθήνα. Μετά τη Βάρκιζα συνελήφθη και εξορίστηκε, και αργότερα εξελέγη βουλευτής της
+    ενιαίας Αριστεράς. Σκοτώθηκε από αυτοκίνητο στην Αθήνα το 1957. Τα απομνημονεύματά του
+    για τον ΕΛΑΣ παραμένουν μία από τις κύριες πηγές για την Αντίσταση από τα μέσα.
+sources: [{id: close-1995}, {id: mazower-1993}]

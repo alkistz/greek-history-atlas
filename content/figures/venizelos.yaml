@@ -8,6 +8,10 @@ summary:
     Cretan lawyer and revolutionary who became the dominant Greek statesman of the
     twentieth century. He led the country through the Balkan Wars and the First World
     War, and negotiated both Sèvres and Lausanne.
+  el: >
+    Κρητικός δικηγόρος και επαναστάτης που έγινε ο κυρίαρχος έλληνας πολιτικός του 20ού αιώνα.
+    Οδήγησε τη χώρα στους Βαλκανικούς Πολέμους και στον Α΄ Παγκόσμιο Πόλεμο και
+    διαπραγματεύτηκε τόσο τις Σέβρες όσο και τη Λωζάνη.
 body:
   en: |
     Venizelos made his name in the Cretan revolts of 1897 and 1905 and was called to
@@ -19,4 +23,14 @@ body:
     continents and five seas"; he then lost the election, and the Asia Minor campaign
     ended in catastrophe under his successors. He returned to negotiate Lausanne and
     served twice more as prime minister before dying in exile in Paris.
+  el: |
+    Ο Βενιζέλος αναδείχθηκε στις κρητικές εξεγέρσεις του 1897 και του 1905 και κλήθηκε στην
+    Αθήνα από τον Στρατιωτικό Σύνδεσμο το 1910. Ως πρωθυπουργός ανασυγκρότησε τον στρατό και
+    τον στόλο και έστησε τη βαλκανική συμμαχία που νίκησε την Οθωμανική Αυτοκρατορία το 1912.
+
+    Η επιμονή του να ταχθεί η χώρα με την Αντάντ τη δίχασε απέναντι στον βασιλιά, στον Εθνικό
+    Διχασμό του 1915 ως το 1917. Στις Σέβρες το 1920 κέρδισε μια Ελλάδα "των δύο ηπείρων και
+    των πέντε θαλασσών"· έπειτα έχασε τις εκλογές, και η μικρασιατική εκστρατεία κατέληξε σε
+    καταστροφή υπό τους διαδόχους του. Επέστρεψε για να διαπραγματευτεί τη Λωζάνη και
+    διετέλεσε άλλες δύο φορές πρωθυπουργός, πριν πεθάνει εξόριστος στο Παρίσι.
 sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]

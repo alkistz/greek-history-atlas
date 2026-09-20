@@ -1,10 +1,17 @@
+from datetime import date
+
 from app.core.content import Corpus
 from app.modules.events.models import Event
 from app.modules.figures.models import Figure
 
 
 def list_figures(corpus: Corpus) -> list[Figure]:
-    return sorted(corpus.figures, key=lambda f: f.born.date if f.born else f.name.en)
+    """By birth date. Figures whose birth is not recorded sort last, by name:
+    a date and a name are not comparable, so the key has to say which it is."""
+    return sorted(
+        corpus.figures,
+        key=lambda f: (f.born is None, f.born.date if f.born else date.max, f.name.en),
+    )
 
 
 def get_figure(corpus: Corpus, figure_id: str) -> Figure | None:

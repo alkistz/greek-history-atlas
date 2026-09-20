@@ -1,0 +1,47 @@
+id: kountouriotis
+name: {en: Pavlos Kountouriotis, el: Παύλος Κουντουριώτης}
+born: {date: 1855-01-01, precision: year}
+died: {date: 1935-08-22, precision: day}
+roles: [military, statesman]
+summary:
+  en: >
+    Admiral who commanded the Greek fleet in both Balkan Wars and shut the Ottoman navy
+    inside the Dardanelles at Elli and Lemnos. That blockade was Greece's specific
+    contribution to the Balkan League: it stopped the Porte moving troops from Asia to
+    Europe by sea and let the Aegean islands be taken one at a time. He later served as
+    regent and as the first President of the Second Hellenic Republic.
+  el: >
+    Ναύαρχος που διοίκησε τον ελληνικό στόλο και στους δύο Βαλκανικούς Πολέμους και έκλεισε
+    το οθωμανικό ναυτικό μέσα στα Δαρδανέλλια, στην Έλλη και στη Λήμνο. Ο αποκλεισμός αυτός
+    ήταν η ειδική συνεισφορά της Ελλάδας στον Βαλκανικό Συνασπισμό: εμπόδισε την Πύλη να
+    μεταφέρει στρατεύματα από την Ασία στην Ευρώπη διά θαλάσσης και επέτρεψε την κατάληψη
+    των νησιών του Αιγαίου ένα ένα. Αργότερα διετέλεσε αντιβασιλέας και πρώτος Πρόεδρος της
+    Β΄ Ελληνικής Δημοκρατίας.
+body:
+  en: |
+    Kountouriotis came from the Hydriot shipowning family that had fitted out squadrons in
+    1821. He flew his flag in the armoured cruiser Georgios Averof, bought in 1909 with an
+    Alexandrian benefactor's bequest and commissioned in 1911, and used her speed to fight
+    ahead of his own slower line rather than in it.
+
+    At Elli on 3/16 December 1912 he took the Averof out of the Greek line alone and drove
+    the Ottoman squadron back into the straits for the loss of two men. At Lemnos on 5/18
+    January 1913 he did it again, after which the Ottoman fleet did not come out for the
+    rest of the war. He refused to be drawn away by the raiding cruiser Hamidiye, which is
+    the decision the blockade actually turned on. His birth date is usually printed as 9
+    April 1855 without a calendar note, so the atlas records only the year.
+  el: |
+    Ο Κουντουριώτης καταγόταν από την υδραίικη οικογένεια πλοιοκτητών που είχε εξοπλίσει
+    μοίρες το 1821. Ύψωσε το σήμα του στο θωρηκτό καταδρομικό Γεώργιος Αβέρωφ, που
+    αγοράστηκε το 1909 με κληροδότημα ενός ευεργέτη της Αλεξάνδρειας και εντάχθηκε στον
+    στόλο το 1911, και αξιοποίησε την ταχύτητά του πολεμώντας μπροστά από τη δική του
+    βραδύτερη γραμμή αντί μέσα σε αυτήν.
+
+    Στην Έλλη, στις 3/16 Δεκεμβρίου 1912, έβγαλε τον Αβέρωφ μόνο του από την ελληνική γραμμή
+    και ανάγκασε την οθωμανική μοίρα να επιστρέψει στα στενά με κόστος δύο νεκρούς. Στη
+    Λήμνο, στις 5/18 Ιανουαρίου 1913, το επανέλαβε, και έκτοτε ο οθωμανικός στόλος δεν
+    ξαναβγήκε ως το τέλος του πολέμου. Αρνήθηκε να παρασυρθεί από το καταδρομικό Χαμηδιέ που
+    έπληττε την ελληνική ναυτιλία, και σε αυτή την απόφαση κρίθηκε στην πράξη ο αποκλεισμός.
+    Η ημερομηνία γέννησής του τυπώνεται συνήθως ως 9 Απριλίου 1855 χωρίς ένδειξη
+    ημερολογίου, και γι' αυτό ο άτλαντας καταγράφει μόνο το έτος.
+sources: [{id: hall-2000}, {id: koliopoulos-veremis-2010}]

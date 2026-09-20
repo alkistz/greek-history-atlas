@@ -1,0 +1,52 @@
+id: sampson
+name: {en: Nikos Sampson, el: Νίκος Σαμψών}
+born: {date: 1935-12-16, precision: day, place: famagusta}
+died: {date: 2001-05-09, precision: day, place: nicosia}
+roles: [revolutionary, statesman]
+summary:
+  en: >
+    EOKA fighter, newspaper publisher and member of the Cypriot House of
+    Representatives, installed by the National Guard as de facto President of Cyprus on
+    15 July 1974. He held the office for eight days. Turkish Cypriots regarded him as
+    responsible for killings in the intercommunal fighting of 1963 and 1964, and his
+    installation was the fact Turkey pointed to when it landed troops five days later.
+  el: >
+    Αγωνιστής της ΕΟΚΑ, εκδότης εφημερίδας και βουλευτής της κυπριακής Βουλής των
+    Αντιπροσώπων, που εγκαταστάθηκε από την Εθνική Φρουρά ως de facto πρόεδρος της
+    Κύπρου στις 15 Ιουλίου 1974. Κράτησε το αξίωμα οκτώ μέρες. Οι Τουρκοκύπριοι τον
+    θεωρούσαν υπεύθυνο για φόνους στις διακοινοτικές συγκρούσεις του 1963 και του 1964,
+    και η εγκατάστασή του ήταν το γεγονός στο οποίο παρέπεμψε η Τουρκία όταν αποβίβασε
+    στρατεύματα πέντε μέρες αργότερα.
+body:
+  en: |
+    Sampson belonged to the generation that fought the British in the 1950s for union
+    with Greece and never gave the aim up when the island became independent instead. He
+    published a newspaper in Nicosia and sat in parliament. When the junta's officers in the National Guard overthrew Makarios they
+    needed a president within hours, and he was the man available who would proclaim
+    what they wanted proclaimed.
+
+    His eight days in office are the hinge of the crisis. Of all the possible choices he
+    was the one whose name most readily supported the Turkish case for intervention, and
+    the Turkish government made that case immediately. He resigned on 23 July 1974, the
+    day after the first ceasefire and the day the Athens junta fell, and Glafcos
+    Clerides took over as acting president under the constitution.
+
+    He died in Nicosia in 2001.
+  el: |
+    Ο Σαμψών ανήκε στη γενιά που πολέμησε τους Βρετανούς τη δεκαετία του 1950 για την
+    ένωση με την Ελλάδα και δεν εγκατέλειψε τον στόχο όταν το νησί έγινε αντ' αυτού
+    ανεξάρτητο. Έβγαζε εφημερίδα στη Λευκωσία και ήταν βουλευτής. Όταν οι αξιωματικοί της χούντας μέσα στην Εθνική
+    Φρουρά ανέτρεψαν τον Μακάριο χρειάζονταν πρόεδρο μέσα σε λίγες ώρες, και εκείνος ήταν
+    ο διαθέσιμος άνθρωπος που θα ανακήρυσσε ό,τι ήθελαν να ανακηρυχθεί.
+
+    Οι οκτώ μέρες του στο αξίωμα είναι ο άξονας της κρίσης. Από όλες τις πιθανές
+    επιλογές, ήταν εκείνη που στήριζε ευκολότερα το τουρκικό επιχείρημα υπέρ της
+    επέμβασης, και η τουρκική κυβέρνηση το διατύπωσε αμέσως. Παραιτήθηκε στις
+    23 Ιουλίου 1974, μία μέρα μετά την πρώτη εκεχειρία και την ίδια μέρα που έπεσε η
+    χούντα των Αθηνών, και χρέη προέδρου ανέλαβε βάσει του συντάγματος ο Γλαύκος
+    Κληρίδης.
+
+    Πέθανε στη Λευκωσία το 2001.
+sources:
+  - {id: ker-lindsay-2011}
+  - {id: holland-markides-2006}

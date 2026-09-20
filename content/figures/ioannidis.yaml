@@ -1,0 +1,58 @@
+id: ioannidis
+name: {en: Dimitrios Ioannidis, el: Δημήτριος Ιωαννίδης}
+also_known_as:
+  - {en: The invisible dictator, el: Ο αόρατος δικτάτορας}
+born: {date: 1923-03-13, precision: day}
+died: {date: 2010-08-16, precision: day, place: athens}
+roles: [military]
+summary:
+  en: >
+    Brigadier and head of the Military Police, who deposed Papadopoulos in November 1973
+    and ruled for eight months without holding any office of state. He drove the policy
+    that produced the coup against Makarios in Cyprus on 15 July 1974 and, five days
+    later, the Turkish landing that destroyed the regime. He received a life sentence
+    for the coup of 1967 and seven more for the Polytechnic, and died in prison.
+  el: >
+    Ταξίαρχος και επικεφαλής της Στρατιωτικής Αστυνομίας, που καθαίρεσε τον Παπαδόπουλο
+    τον Νοέμβριο του 1973 και κυβέρνησε οκτώ μήνες χωρίς να κατέχει κανένα κρατικό
+    αξίωμα. Αυτός καθοδήγησε την πολιτική που οδήγησε στο πραξικόπημα κατά του Μακαρίου
+    στις 15 Ιουλίου 1974 και, πέντε μέρες αργότερα, στην τουρκική απόβαση που διέλυσε το
+    καθεστώς. Καταδικάστηκε σε ισόβια για το πραξικόπημα του 1967 και σε επτά ακόμη για
+    το Πολυτεχνείο, και πέθανε στη φυλακή.
+body:
+  en: |
+    Ioannidis took part in the coup of 1967 and then built his power inside the
+    Military Police, ESA, which ran the regime's interrogation centre at EAT-ESA in
+    Athens. He regarded Papadopoulos's attempt at a controlled opening in 1973 as a
+    betrayal, and the Polytechnic occupation proved his case for him. On 25 November
+    1973 he deposed him, installed General Phaedon Gizikis as President and a civilian
+    as Prime Minister, and governed through them from ESA headquarters.
+
+    His one project abroad was union with Cyprus. He ordered the National Guard's coup
+    against Makarios in July 1974 with no plan for what Turkey would do next, and when
+    Turkey landed he ordered a general mobilisation that the army could not carry out.
+    The regime handed power back to the politicians two days after the first ceasefire.
+
+    He was tried twice in 1975, for the coup of 1967 and for the Polytechnic, and
+    received life and then seven further life sentences. He was never released and died
+    in custody in 2010.
+  el: |
+    Ο Ιωαννίδης συμμετείχε στο πραξικόπημα του 1967 και έχτισε στη συνέχεια τη δύναμή
+    του μέσα στη Στρατιωτική Αστυνομία, την ΕΣΑ, που διατηρούσε το ανακριτικό κέντρο του
+    ΕΑΤ-ΕΣΑ στην Αθήνα. Θεωρούσε προδοσία την απόπειρα ελεγχόμενου ανοίγματος του
+    Παπαδόπουλου το 1973, και η κατάληψη του Πολυτεχνείου του έδωσε το επιχείρημα. Στις
+    25 Νοεμβρίου 1973 τον καθαίρεσε, εγκατέστησε πρόεδρο τον στρατηγό Φαίδωνα Γκιζίκη και
+    πρωθυπουργό έναν πολιτικό, και κυβερνούσε μέσα από αυτούς από το αρχηγείο της ΕΣΑ.
+
+    Το μόνο του εγχείρημα στο εξωτερικό ήταν η ένωση της Κύπρου με την Ελλάδα. Διέταξε
+    το πραξικόπημα της Εθνικής Φρουράς κατά του Μακαρίου τον Ιούλιο του 1974 χωρίς καμία
+    πρόβλεψη για την τουρκική αντίδραση, και όταν η Τουρκία αποβιβάστηκε διέταξε γενική
+    επιστράτευση που ο στρατός δεν μπορούσε να εκτελέσει. Το καθεστώς παρέδωσε την
+    εξουσία στους πολιτικούς δύο μέρες μετά την πρώτη εκεχειρία.
+
+    Δικάστηκε δύο φορές το 1975, για το πραξικόπημα του 1967 και για το Πολυτεχνείο, και
+    του επιβλήθηκαν ισόβια και έπειτα επτά ακόμη ισόβια. Δεν αποφυλακίστηκε ποτέ και
+    πέθανε κρατούμενος το 2010.
+sources:
+  - {id: woodhouse-1985}
+  - {id: ker-lindsay-2011}

@@ -1,11 +1,16 @@
 id: italian-invasion-1940
 title:
   en: The Italian Invasion and the Albanian Front
+  el: Η ιταλική εισβολή και το αλβανικό μέτωπο
 summary:
   en: >
     Italy delivered an ultimatum in the small hours of 28 October 1940 and invaded from
     Albania three hours later. Metaxas rejected it. Within six weeks the Greek army had
     thrown the Italians back and was fighting inside Albania.
+  el: >
+    Η Ιταλία επέδωσε τελεσίγραφο τις πρώτες ώρες της 28ης Οκτωβρίου 1940 και εισέβαλε από την
+    Αλβανία τρεις ώρες αργότερα. Ο Μεταξάς το απέρριψε. Μέσα σε έξι εβδομάδες ο ελληνικός
+    στρατός είχε απωθήσει τους Ιταλούς και πολεμούσε μέσα σε αλβανικό έδαφος.
 body:
   en: |
     Mussolini wanted a victory of his own to match Germany's, and Greece, with a
@@ -16,13 +21,29 @@ body:
     The Italian divisions crossed the Epirus frontier in rain and mud and were held
     within days at Elaia and Kalamas. The Greek counter-offensive of November took
     Korçë, Gjirokastër and Sarandë and held a line in southern Albania through the
-    winter. The first Allied land victory of the war forced Germany to intervene in
-    April to rescue its partner.
-period: [1940-10-28, 1940-12-31]
+    winter. Mussolini's spring offensive of March 1941 broke on the same line, and the
+    Greek army was still holding it when the Germans crossed the northern frontier on 6
+    April. The first Allied land victory of the war had forced Germany to intervene to
+    rescue its partner.
+  el: |
+    Ο Μουσολίνι ήθελε μια δική του νίκη αντάξια των γερμανικών, και η Ελλάδα, με έναν
+    δικτάτορα που κοίταζε με σεβασμό προς το Βερολίνο και έναν βασιλιά που κοίταζε προς το
+    Λονδίνο, του φάνηκε η εύκολη επιλογή. Το τελεσίγραφο ζητούσε ελεύθερη διέλευση ιταλικών
+    στρατευμάτων και επιδόθηκε στον Μεταξά στο σπίτι του στην Κηφισιά στις τρεις τα
+    ξημερώματα.
+
+    Οι ιταλικές μεραρχίες πέρασαν τα σύνορα της Ηπείρου μέσα στη βροχή και τη λάσπη και
+    ανακόπηκαν μέσα σε λίγες ημέρες στην Ελαία και τον Καλαμά. Η ελληνική αντεπίθεση του
+    Νοεμβρίου κατέλαβε την Κορυτσά, το Αργυρόκαστρο και τους Αγίους Σαράντα και κράτησε γραμμή
+    στη νότια Αλβανία όλο τον χειμώνα. Η εαρινή επίθεση του Μουσολίνι τον Μάρτιο του 1941
+    έσπασε πάνω στην ίδια γραμμή, και ο ελληνικός στρατός την κρατούσε ακόμη όταν οι Γερμανοί
+    πέρασαν τα βόρεια σύνορα στις 6 Απριλίου. Η πρώτη χερσαία νίκη των Συμμάχων στον πόλεμο
+    είχε αναγκάσει τη Γερμανία να επέμβει για να σώσει τον εταίρο της.
+period: [1940-10-28, 1941-04-06]
 precision: span
 atom: epirus-north
 frame: epirus
-significance: 5
+significance: 4
 figures:
   - {figure: metaxas, role: leader}
 sources: [{id: mazower-1993}, {id: clogg-2021}]

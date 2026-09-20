@@ -1,0 +1,54 @@
+id: glezos
+name: {en: Manolis Glezos, el: Μανώλης Γλέζος}
+also_known_as:
+  - {en: Emmanouil Glezos, el: Εμμανουήλ Γλέζος}
+born: {date: 1922-09-09, precision: day}
+died: {date: 2020-03-30, precision: day, place: athens}
+roles: [revolutionary, statesman]
+summary:
+  en: >
+    Nineteen-year-old student who climbed the Acropolis with Apostolos Santas on the night
+    of 30 May 1941 and took down the swastika, an act condemned to death in absentia and
+    reported abroad as the first public defiance of the occupation. He was arrested by the
+    Germans, the Italians and the collaborationist authorities in turn, sat in the Greek
+    and European parliaments, and campaigned for seventy years for German payment of
+    occupation reparations.
+  el: >
+    Δεκαεννιάχρονος φοιτητής που ανέβηκε στην Ακρόπολη με τον Απόστολο Σάντα τη νύχτα της
+    30ής Μαΐου 1941 και κατέβασε τη σβάστικα, πράξη για την οποία καταδικάστηκε ερήμην σε
+    θάνατο και που μεταδόθηκε στο εξωτερικό ως η πρώτη δημόσια άρνηση της Κατοχής.
+    Συνελήφθη διαδοχικά από τους Γερμανούς, τους Ιταλούς και τις δωσιλογικές αρχές,
+    διετέλεσε βουλευτής και ευρωβουλευτής και αγωνίστηκε εβδομήντα χρόνια για την καταβολή
+    των γερμανικών κατοχικών επανορθώσεων.
+body:
+  en: |
+    Glezos came from Apeiranthos on Naxos and was a law student in Athens when the
+    Germans arrived. After the flag he joined EAM, was arrested by the Germans in 1942, by
+    the Italians in 1943 and again by the collaborationist authorities, and lost two
+    brothers to the occupation. Charles de Gaulle praised him by name, which did him no
+    harm at all in postwar France and considerable harm in postwar Greece.
+
+    He was condemned to death twice more after the war, in 1948 and 1959, and served
+    around eleven years in prison and exile between 1945 and 1971 under successive
+    anti-communist governments and the colonels. He was elected repeatedly to the Greek
+    parliament, sat in the European Parliament, and was still at the front of
+    demonstrations in his nineties. What he returned to publicly for seven decades was
+    the German debt: the occupation reparations and the forced loan extracted from the
+    Bank of Greece, which he argued had never been settled and which Greek governments
+    raised again during the debt crisis. He died in Athens in March 2020.
+  el: |
+    Ο Γλέζος καταγόταν από την Απείρανθο της Νάξου και ήταν φοιτητής στην Αθήνα όταν
+    έφτασαν οι Γερμανοί. Μετά τη σημαία εντάχθηκε στο ΕΑΜ, συνελήφθη από τους Γερμανούς το
+    1942, από τους Ιταλούς το 1943 και ξανά από τις δωσιλογικές αρχές, και έχασε δύο
+    αδέλφια του στην Κατοχή. Ο Σαρλ ντε Γκωλ τον εγκωμίασε ονομαστικά, κάτι που δεν τον
+    έβλαψε καθόλου στη μεταπολεμική Γαλλία και τον έβλαψε αρκετά στη μεταπολεμική Ελλάδα.
+
+    Καταδικάστηκε σε θάνατο άλλες δύο φορές μετά τον πόλεμο, το 1948 και το 1959, και
+    πέρασε περίπου έντεκα χρόνια σε φυλακές και εξορίες μεταξύ 1945 και 1971 επί
+    διαδοχικών αντικομμουνιστικών κυβερνήσεων και επί χούντας. Εξελέγη επανειλημμένα
+    βουλευτής, διετέλεσε ευρωβουλευτής και βρισκόταν ακόμη μπροστά σε διαδηλώσεις στα
+    ενενήντα του. Το θέμα στο οποίο επέστρεφε δημόσια επί επτά δεκαετίες ήταν το γερμανικό
+    χρέος: οι κατοχικές επανορθώσεις και το αναγκαστικό δάνειο από την Τράπεζα της Ελλάδος,
+    που υποστήριζε ότι δεν είχαν ποτέ διευθετηθεί και που ελληνικές κυβερνήσεις έθεσαν
+    ξανά στη διάρκεια της κρίσης χρέους. Πέθανε στην Αθήνα τον Μάρτιο του 2020.
+sources: [{id: mazower-1993}, {id: clogg-2021}]

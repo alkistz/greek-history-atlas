@@ -1,12 +1,18 @@
 id: chios-massacre
 title:
   en: The Massacre of Chios
+  el: Η σφαγή της Χίου
 summary:
   en: >
     Ottoman forces landed on Chios in response to a rising encouraged from Samos, and
     destroyed the island's population by killing, enslavement and flight. The scale of
     it turned European opinion toward the Greek cause, most visibly through Delacroix's
     painting of 1824.
+  el: >
+    Οθωμανικές δυνάμεις αποβιβάστηκαν στη Χίο ως απάντηση σε εξέγερση που είχε υποκινηθεί από
+    τη Σάμο και αφάνισαν τον πληθυσμό του νησιού με σφαγές, εξανδραποδισμό και φυγή. Το
+    μέγεθος της καταστροφής έστρεψε την ευρωπαϊκή κοινή γνώμη προς το ελληνικό ζήτημα, κυρίως
+    μέσα από τον πίνακα του Ντελακρουά το 1824.
 body:
   en: |
     Chios was a wealthy island whose notables had wanted no part in the revolution.
@@ -18,9 +24,19 @@ body:
     the massacre did more than any Greek victory to make the war a popular cause, and
     Delacroix's *Scenes from the Massacres of Chios*, shown at the Paris Salon of
     1824, fixed the image.
+  el: |
+    Η Χίος ήταν ένα εύπορο νησί, του οποίου οι προύχοντες δεν ήθελαν καμία ανάμειξη στην
+    επανάσταση. Μικρή δύναμη από τη Σάμο αποβιβάστηκε τον Μάρτιο του 1822 και προδίκασε την
+    εξέλιξη· ο οθωμανικός στόλος έφτασε τον Απρίλιο με εντολή να παραδειγματίσει το νησί.
+
+    Τις επόμενες εβδομάδες δεκάδες χιλιάδες άνθρωποι σκοτώθηκαν ή πουλήθηκαν ως δούλοι και οι
+    περισσότεροι από όσους γλίτωσαν έφυγαν. Το νησί δεν συνήλθε για έναν αιώνα. Στην Ευρώπη η
+    σφαγή έκανε για τη λαϊκή απήχηση του αγώνα περισσότερα από κάθε ελληνική νίκη, και οι
+    *Σκηνές από τις σφαγές της Χίου* του Ντελακρουά, που παρουσιάστηκαν στο Σαλόνι του
+    Παρισιού το 1824, πάγιωσαν την εικόνα.
 period: [1822-04-11, 1822-05-01]
 precision: span
 atom: chios
 place: chios-town
-significance: 4
+significance: 3
 sources: [{id: brewer-2001}, {id: clogg-2021}]

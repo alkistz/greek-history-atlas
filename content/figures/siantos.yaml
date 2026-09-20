@@ -1,0 +1,49 @@
+id: siantos
+name: {en: Georgios Siantos, el: Γεώργιος Σιάντος}
+born: {date: 1890-01-01, precision: year}
+died: {date: 1947-05-20, precision: day, place: athens}
+roles: [revolutionary]
+summary:
+  en: >
+    Acting general secretary of the Communist Party of Greece throughout the occupation,
+    while Nikos Zachariadis was held at Dachau, and therefore the decisive political
+    figure in EAM. He signed the Varkiza Agreement for EAM and ELAS in February 1945 and
+    was blamed within his own party for both the Dekemvriana and the surrender that ended
+    them.
+  el: >
+    Προσωρινός γραμματέας του ΚΚΕ σε όλη την Κατοχή, όσο ο Νίκος Ζαχαριάδης κρατούνταν στο
+    Νταχάου, και συνεπώς η καθοριστική πολιτική μορφή του ΕΑΜ. Υπέγραψε τη Συμφωνία της
+    Βάρκιζας για το ΕΑΜ και τον ΕΛΑΣ τον Φεβρουάριο του 1945 και κατηγορήθηκε μέσα στο ίδιο
+    του το κόμμα τόσο για τα Δεκεμβριανά όσο και για τη συνθηκολόγηση που τα έκλεισε.
+body:
+  en: |
+    Siantos was a tobacco worker from Karditsa and a party organiser of the interwar
+    years, imprisoned under Metaxas and released after the collapse of 1941. He took over
+    a party whose leadership had been broken by the dictatorship and ran it through the
+    four years in which it became a mass movement. The strategy was his: a broad front
+    rather than a party rising, an army in the mountains, and participation in the
+    national government on terms EAM would later regret.
+
+    His decisions in the winter of 1944 have been argued over ever since. He directed KKE
+    and EAM policy through the Dekemvriana without committing the whole of ELAS to the
+    battle of Athens, which his critics on the left have called the error that lost the
+    war and his defenders a refusal to fight a war he had not chosen. He signed at Varkiza
+    in February 1945. When Zachariadis returned from Dachau the party leadership turned
+    against him, and he died in Athens in May 1947 as the civil war he had tried to avoid
+    was beginning in earnest.
+  el: |
+    Ο Σιάντος ήταν καπνεργάτης από την Καρδίτσα και κομματικό στέλεχος του μεσοπολέμου,
+    φυλακισμένος επί Μεταξά και ελεύθερος μετά την κατάρρευση του 1941. Παρέλαβε ένα κόμμα
+    με τσακισμένη από τη δικτατορία ηγεσία και το οδήγησε στα τέσσερα χρόνια κατά τα οποία
+    έγινε μαζικό κίνημα. Η στρατηγική ήταν δική του: πλατύ μέτωπο αντί για κομματική
+    εξέγερση, στρατός στο βουνό και συμμετοχή στην κυβέρνηση εθνικής ενότητας με όρους που
+    το ΕΑΜ θα μετάνιωνε αργότερα.
+
+    Οι αποφάσεις του τον χειμώνα του 1944 συζητούνται έκτοτε. Καθοδήγησε την πολιτική του
+    ΚΚΕ και του ΕΑΜ στα Δεκεμβριανά χωρίς να ρίξει ολόκληρο τον ΕΛΑΣ στη μάχη της Αθήνας:
+    οι επικριτές του στην Αριστερά το ονόμασαν το λάθος που έχασε τον πόλεμο, οι
+    υπερασπιστές του άρνηση να δώσει μια μάχη που δεν είχε επιλέξει. Υπέγραψε στη Βάρκιζα
+    τον Φεβρουάριο του 1945. Με την επιστροφή του Ζαχαριάδη από το Νταχάου η ηγεσία
+    στράφηκε εναντίον του, και πέθανε στην Αθήνα τον Μάιο του 1947, ενώ ο εμφύλιος που είχε
+    προσπαθήσει να αποφύγει άρχιζε στα σοβαρά.
+sources: [{id: close-1995}, {id: mazower-1993}]

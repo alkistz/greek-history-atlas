@@ -8,6 +8,10 @@ summary:
     Staff officer, royalist, and from 1936 dictator of Greece under the Fourth of
     August regime. His refusal of the Italian ultimatum on 28 October 1940 took Greece
     into the Second World War. He died three months before the German invasion.
+  el: >
+    Επιτελικός αξιωματικός, βασιλόφρων και από το 1936 δικτάτορας της Ελλάδας με το καθεστώς
+    της 4ης Αυγούστου. Η απόρριψη του ιταλικού τελεσιγράφου στις 28 Οκτωβρίου 1940 έβαλε την
+    Ελλάδα στον Δεύτερο Παγκόσμιο Πόλεμο. Πέθανε τρεις μήνες πριν από τη γερμανική εισβολή.
 body:
   en: |
     Metaxas trained at the Prussian war academy and was the ablest planner of the
@@ -19,4 +23,15 @@ body:
     rejected it, and the Greek army drove the invaders back into Albania over the
     following weeks. He died of illness in January 1941, leaving no one able to hold
     the state together when the Germans came in April.
+  el: |
+    Ο Μεταξάς είχε εκπαιδευτεί στην πρωσική στρατιωτική ακαδημία και υπήρξε ο ικανότερος
+    σχεδιαστής των επιχειρήσεων των Βαλκανικών Πολέμων. Αντιτάχθηκε στη μικρασιατική
+    εκστρατεία για στρατιωτικούς λόγους και δικαιώθηκε. Με τη συγκατάθεση του βασιλιά
+    ανέστειλε τη λειτουργία της Βουλής τον Αύγουστο του 1936 και κυβέρνησε με διατάγματα,
+    δανειζόμενος τα εξωτερικά σχήματα του φασισμού χωρίς τον επεκτατισμό του.
+
+    Όταν η Ιταλία επέδωσε το τελεσίγραφό της τα ξημερώματα της 28ης Οκτωβρίου 1940, το
+    απέρριψε, και τις εβδομάδες που ακολούθησαν ο ελληνικός στρατός απώθησε τους εισβολείς
+    πίσω στην Αλβανία. Πέθανε από ασθένεια τον Ιανουάριο του 1941, χωρίς να αφήσει κανέναν
+    ικανό να κρατήσει το κράτος ενωμένο όταν ήρθαν οι Γερμανοί τον Απρίλιο.
 sources: [{id: clogg-2021}, {id: mazower-1993}]

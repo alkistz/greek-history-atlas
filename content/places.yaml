@@ -164,3 +164,370 @@
   lon: 31.24
   lat: 30.04
   names: [{name: {en: Cairo, el: Κάιρο}}]
+
+# ------------------------------------------------------------------- 1832-1897
+# New places for the era 1832 to 1897. Places already in content/places.yaml
+# (athens, nafplio, corfu, constantinople, bamberg, copenhagen and the rest) are
+# referenced by id and are not repeated here.
+
+- id: piraeus
+  kind: city
+  lon: 23.64
+  lat: 37.94
+  atom: attica
+  names: [{name: {en: Piraeus, el: Πειραιάς}}]
+
+- id: larissa
+  kind: city
+  lon: 22.42
+  lat: 39.64
+  atom: thessaly
+  names: [{name: {en: Larissa, el: Λάρισα}}]
+
+- id: arkadi-monastery
+  kind: building
+  lon: 24.63
+  lat: 35.31
+  atom: crete
+  names: [{name: {en: Arkadi Monastery, el: Μονή Αρκαδίου}}]
+
+- id: isthmia
+  kind: village
+  lon: 22.99
+  lat: 37.93
+  atom: peloponnese
+  names: [{name: {en: Isthmia, el: Ίσθμια}}]
+
+- id: marousi
+  kind: town
+  lon: 23.81
+  lat: 38.05
+  atom: attica
+  names: [{name: {en: Marousi, el: Μαρούσι}}]
+
+- id: metsovo
+  kind: town
+  lon: 21.18
+  lat: 39.77
+  atom: epirus
+  names: [{name: {en: Metsovo, el: Μέτσοβο}}]
+
+- id: alexandria
+  kind: city
+  lon: 29.92
+  lat: 31.20
+  names: [{name: {en: Alexandria, el: Αλεξάνδρεια}}]
+
+- id: cannes
+  kind: city
+  lon: 7.02
+  lat: 43.55
+  names: [{name: {en: Cannes, el: Κάννες}}]
+
+# ------------------------------------------------------------------- 1898-1913
+- id: chania
+  kind: city
+  lon: 24.02
+  lat: 35.52
+  atom: crete
+  names: [{name: {en: Chania, el: Χανιά}}]
+
+- id: therisos
+  kind: village
+  lon: 23.98
+  lat: 35.40
+  atom: crete
+  names: [{name: {en: Therisos, el: Θέρισο}}]
+
+- id: kastoria
+  kind: city
+  lon: 21.27
+  lat: 40.52
+  atom: macedonia-west
+  names: [{name: {en: Kastoria, el: Καστοριά}}]
+
+- id: goudi
+  kind: building
+  lon: 23.77
+  lat: 37.99
+  atom: attica
+  names: [{name: {en: Goudi, el: Γουδί}}]
+
+- id: ioannina
+  kind: city
+  lon: 20.85
+  lat: 39.67
+  atom: epirus
+  names: [{name: {en: Ioannina, el: Ιωάννινα}}]
+
+- id: kilkis
+  kind: town
+  lon: 22.88
+  lat: 40.99
+  atom: macedonia-central
+  names: [{name: {en: Kilkis, el: Κιλκίς}}]
+
+- id: cape-helles
+  kind: sea
+  lon: 26.18
+  lat: 40.04
+  names: [{name: {en: Cape Helles, el: Ακρωτήριο Έλλης}}]
+
+- id: lemnos-sea
+  kind: sea
+  lon: 25.40
+  lat: 39.80
+  names: [{name: {en: Lemnos, el: Λήμνος}}]
+
+# ------------------------------------------------------------------- 1914-1923
+# New places introduced by the 1914-1923 era.
+
+- id: argyrokastro
+  kind: town
+  lon: 20.14
+  lat: 40.08
+  atom: epirus-north
+  names: [{name: {en: Argyrokastro, el: Αργυρόκαστρο}}]
+
+- id: komotini
+  kind: town
+  lon: 25.40
+  lat: 41.12
+  atom: thrace-west
+  names: [{name: {en: Komotini, el: Κομοτηνή}}]
+
+- id: patras
+  kind: city
+  lon: 21.73
+  lat: 38.25
+  atom: peloponnese
+  names: [{name: {en: Patras, el: Πάτρα}}]
+
+- id: heraklion
+  kind: city
+  lon: 25.13
+  lat: 35.34
+  atom: crete
+  names:
+    - {name: {en: Candia, el: Ηράκλειο}, to: 1913-12-13}
+    - {name: {en: Heraklion, el: Ηράκλειο}, from: 1913-12-13}
+
+- id: sevres
+  kind: town
+  lon: 2.21
+  lat: 48.82
+  names: [{name: {en: Sèvres, el: Σέβρες}}]
+
+- id: sakarya
+  kind: battlefield
+  lon: 32.15
+  lat: 39.58
+  names: [{name: {en: The Sakarya, el: Σαγγάριος}}]
+
+- id: dumlupinar
+  kind: battlefield
+  lon: 29.93
+  lat: 38.96
+  names: [{name: {en: Dumlupınar, el: Δουμλουπινάρ}}]
+
+- id: mudanya
+  kind: town
+  lon: 28.88
+  lat: 40.38
+  names: [{name: {en: Mudanya, el: Μουδανιά}}]
+
+# ------------------------------------------------------------------- 1924-1940
+- id: ankara
+  kind: city
+  lon: 32.85
+  lat: 39.93
+  names: [{name: {en: Ankara, el: Άγκυρα}}]
+
+- id: petrich
+  kind: town
+  lon: 23.21
+  lat: 41.40
+  names: [{name: {en: Petrich, el: Πετρίτσι}}]
+
+- id: roupel
+  kind: building
+  lon: 23.37
+  lat: 41.39
+  names: [{name: {en: Fort Roupel, el: Οχυρό Ρούπελ}}]
+
+- id: tinos
+  kind: town
+  lon: 25.16
+  lat: 37.54
+  atom: cyclades
+  names: [{name: {en: Tinos, el: Τήνος}}]
+
+# ------------------------------------------------------------------- 1941-1945
+# New places for the 1941 to 1945 era. Coordinates as given in the era fact sheet.
+
+- id: maleme
+  kind: battlefield
+  lon: 23.92
+  lat: 35.53
+  atom: crete
+  names: [{name: {en: Maleme, el: Μάλεμε}}]
+
+- id: drama
+  kind: town
+  lon: 24.15
+  lat: 41.15
+  atom: macedonia-east
+  names: [{name: {en: Drama, el: Δράμα}}]
+
+- id: gorgopotamos
+  kind: building
+  lon: 22.42
+  lat: 38.84
+  atom: sterea
+  names: [{name: {en: Gorgopotamos Viaduct, el: Γέφυρα του Γοργοποτάμου}}]
+
+- id: argostoli
+  kind: town
+  lon: 20.49
+  lat: 38.18
+  atom: ionian
+  names: [{name: {en: Argostoli, el: Αργοστόλι}}]
+
+- id: kalavryta
+  kind: town
+  lon: 22.11
+  lat: 38.03
+  atom: peloponnese
+  names: [{name: {en: Kalavryta, el: Καλάβρυτα}}]
+
+# The Plaka bridge sits on the Arachthos at the boundary between the Arta and Ioannina
+# districts, so `atom` is omitted rather than guessed.
+- id: plaka-bridge
+  kind: building
+  lon: 21.02
+  lat: 39.49
+  names: [{name: {en: Plaka Bridge, el: Γεφύρι της Πλάκας}}]
+
+- id: distomo
+  kind: village
+  lon: 22.67
+  lat: 38.43
+  atom: sterea
+  names: [{name: {en: Distomo, el: Δίστομο}}]
+
+- id: varkiza
+  kind: village
+  lon: 23.80
+  lat: 37.82
+  atom: attica
+  names: [{name: {en: Varkiza, el: Βάρκιζα}}]
+
+- id: caserta
+  kind: town
+  lon: 14.33
+  lat: 41.07
+  names: [{name: {en: Caserta, el: Καζέρτα}}]
+
+# ------------------------------------------------------------------- 1946-1966
+# New places for the era 1946-1966.
+
+- id: litochoro
+  kind: town
+  lon: 22.50
+  lat: 40.10
+  atom: macedonia-central
+  names: [{name: {en: Litochoro, el: Λιτόχωρο}}]
+
+- id: grammos
+  kind: battlefield
+  lon: 20.80
+  lat: 40.33
+  names: [{name: {en: Mount Grammos, el: Γράμμος}}]
+
+- id: vitsi
+  kind: battlefield
+  lon: 21.33
+  lat: 40.63
+  atom: macedonia-west
+  names: [{name: {en: Mount Vitsi, el: Βίτσι}}]
+
+- id: konitsa
+  kind: town
+  lon: 20.75
+  lat: 40.05
+  atom: epirus
+  names: [{name: {en: Konitsa, el: Κόνιτσα}}]
+
+- id: florina
+  kind: town
+  lon: 21.41
+  lat: 40.78
+  atom: macedonia-west
+  names: [{name: {en: Florina, el: Φλώρινα}}]
+
+- id: nicosia
+  kind: city
+  lon: 33.36
+  lat: 35.17
+  atom: cyprus
+  names: [{name: {en: Nicosia, el: Λευκωσία}}]
+
+- id: limassol
+  kind: city
+  lon: 33.04
+  lat: 34.68
+  atom: cyprus
+  names: [{name: {en: Limassol, el: Λεμεσός}}]
+
+- id: washington
+  kind: city
+  lon: -77.04
+  lat: 38.90
+  names: [{name: {en: "Washington, D.C.", el: Ουάσιγκτον}}]
+
+- id: new-york
+  kind: city
+  lon: -73.97
+  lat: 40.75
+  names: [{name: {en: New York, el: Νέα Υόρκη}}]
+
+# ------------------------------------------------------------------- 1967-present
+- id: kyrenia
+  kind: city
+  lon: 33.32
+  lat: 35.34
+  atom: cyprus
+  names: [{name: {en: Kyrenia, el: Κερύνεια}}]
+
+- id: famagusta
+  kind: city
+  lon: 33.94
+  lat: 35.12
+  atom: cyprus
+  names: [{name: {en: Famagusta, el: Αμμόχωστος}}]
+
+- id: brussels
+  kind: city
+  lon: 4.35
+  lat: 50.85
+  names: [{name: {en: Brussels, el: Βρυξέλλες}}]
+
+- id: psarades
+  kind: village
+  lon: 21.09
+  lat: 40.79
+  atom: macedonia-west
+  names: [{name: {en: Psarades, el: Ψαράδες}}]
+
+- id: imia
+  kind: island
+  lon: 27.15
+  lat: 37.05
+  names: [{name: {en: Imia, el: Ίμια}}]
+
+- id: tempi
+  kind: region
+  lon: 22.52
+  lat: 39.80
+  atom: thessaly
+  names: [{name: {en: Tempi, el: Τέμπη}}]

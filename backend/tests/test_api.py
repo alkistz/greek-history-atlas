@@ -53,10 +53,11 @@ def test_figures_list_and_detail(client):
     listed = client.get("/api/figures").json()
     assert "body_html" not in listed[0]
     detail = client.get("/api/figures/venizelos").json()
-    assert [e["id"] for e in detail["events"]] == [
-        "treaty-of-bucharest-1913",
-        "treaty-of-lausanne-1923",
-    ]
+    ids = [e["id"] for e in detail["events"]]
+    assert {"treaty-of-bucharest-1913", "treaty-of-lausanne-1923"} <= set(ids)
+    assert [e["period"][0] for e in detail["events"]] == sorted(
+        e["period"][0] for e in detail["events"]
+    )
     assert detail["born"]["place"]["name"]["en"] == "Mournies"
     assert client.get("/api/figures/nope").status_code == 404
 

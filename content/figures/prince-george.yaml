@@ -1,0 +1,41 @@
+id: prince-george
+name: {en: Prince George of Greece and Denmark, el: Πρίγκιπας Γεώργιος της Ελλάδας και της Δανίας}
+born: {date: 1869-06-24, precision: day, place: corfu}
+died: {date: 1957-11-25, precision: day}
+roles: [monarch, statesman]
+summary:
+  en: >
+    Second son of King George I and High Commissioner of the autonomous Cretan State from
+    1898 to 1906. He arrived as the Powers' compromise between Ottoman sovereignty and
+    Greek union, and left because his personal style of rule turned the Cretan political
+    class against him, Venizelos first among them.
+  el: >
+    Δευτερότοκος γιος του Γεωργίου Α΄ και Ύπατος Αρμοστής της αυτόνομης Κρητικής Πολιτείας
+    από το 1898 ως το 1906. Έφτασε ως ο συμβιβασμός των Δυνάμεων ανάμεσα στην οθωμανική
+    κυριαρχία και την ελληνική Ένωση, και έφυγε επειδή ο προσωπικός τρόπος διακυβέρνησής
+    του στράφηκε εναντίον του όλη την κρητική πολιτική τάξη, με πρώτο τον Βενιζέλο.
+body:
+  en: |
+    He landed at Souda Bay on 9/21 December 1898 and governed Crete for eight years with
+    real popularity and little patience for opposition. He controlled the Assembly, relied
+    on a personal entourage, dismissed Venizelos from his cabinet in 1901, and pressed the
+    Powers for union in his own name rather than through Cretan institutions.
+
+    The Therisos revolt of 1905 was directed at him more than at the Sultan. The Great
+    Power commission of inquiry that ended it reported against his administration; the King
+    announced his resignation in September 1906 and he left the island that month. He spent
+    the rest of a long life abroad, mostly in France, and had no further part in Greek
+    politics.
+  el: |
+    Αποβιβάστηκε στον όρμο της Σούδας στις 9/21 Δεκεμβρίου 1898 και κυβέρνησε την Κρήτη οκτώ
+    χρόνια με πραγματική λαϊκή αποδοχή και ελάχιστη ανοχή στην αντιπολίτευση. Έλεγχε τη
+    Βουλή των Κρητών, στηριζόταν σε στενό προσωπικό περιβάλλον, απέπεμψε τον Βενιζέλο από το
+    υπουργείο του το 1901 και πίεζε τις Δυνάμεις για την Ένωση στο δικό του όνομα και όχι
+    μέσω των κρητικών θεσμών.
+
+    Η Επανάσταση του Θερίσου το 1905 στρεφόταν περισσότερο εναντίον του παρά εναντίον του
+    σουλτάνου. Η διεθνής εξεταστική επιτροπή που την έκλεισε ήταν καταδικαστική για τη
+    διοίκησή του. Ο βασιλιάς ανακοίνωσε την παραίτησή του τον Σεπτέμβριο του 1906 και εκείνος
+    έφυγε από το νησί μέσα στον ίδιο μήνα. Πέρασε το υπόλοιπο μιας μακράς ζωής στο
+    εξωτερικό, κυρίως στη Γαλλία, χωρίς άλλη ανάμειξη στην ελληνική πολιτική.
+sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]

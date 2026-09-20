@@ -1,0 +1,49 @@
+id: averoff-georgios
+name: {en: Georgios Averoff, el: Γεώργιος Αβέρωφ}
+born: {date: 1815-08-15, precision: day, place: metsovo}
+died: {date: 1899-07-15, precision: day, place: alexandria}
+roles: [benefactor]
+summary:
+  en: >
+    Merchant from Metsovo in Ottoman Epirus who made a fortune in Alexandria and spent
+    it on Greece. He paid for the reconstruction of the Panathenaic Stadium in Pentelic
+    marble for the Games of 1896, at a cost that reached 920,000 drachmas, and for the
+    military academy, a girls' school and the armoured cruiser that still bears his
+    name.
+  el: >
+    Έμπορος από το Μέτσοβο της οθωμανικής Ηπείρου, που έκανε περιουσία στην Αλεξάνδρεια
+    και την ξόδεψε στην Ελλάδα. Πλήρωσε την ανακατασκευή του Παναθηναϊκού Σταδίου με
+    πεντελικό μάρμαρο για τους Αγώνες του 1896, κόστος που έφτασε τις 920.000 δραχμές,
+    καθώς και τη Σχολή Ευελπίδων, ένα παρθεναγωγείο και το θωρηκτό που φέρει ακόμη το
+    όνομά του.
+body:
+  en: |
+    Averoff belonged to the class of Greeks who prospered outside the kingdom and
+    financed it from a distance. Born at Metsovo in 1815, in a town the Berlin
+    settlement would fail to bring into Greece, he built a cotton and grain business in
+    Egypt and became one of the richest men in Alexandria.
+
+    When the organising committee of the first modern Olympic Games found that Trikoupis
+    would not fund them, the money came from public subscription, a stamp issue and
+    Averoff, who paid for the ancient Panathenaic Stadium to be rebuilt in marble. His
+    statue was unveiled at the entrance on the eve of the Games and is still there. He
+    died at Alexandria in 1899. A bequest in his will paid for the cruiser Georgios
+    Averof, which was the flagship of the Greek navy in the Balkan Wars and is preserved
+    at Faliro.
+  el: |
+    Ο Αβέρωφ ανήκε στην τάξη των Ελλήνων που ευημέρησαν έξω από το βασίλειο και το
+    χρηματοδότησαν από απόσταση. Γεννημένος στο Μέτσοβο το 1815, σε πόλη που η ρύθμιση
+    του Βερολίνου δεν κατάφερε να φέρει στην Ελλάδα, έχτισε επιχείρηση βάμβακος και
+    σιτηρών στην Αίγυπτο και έγινε ένας από τους πλουσιότερους ανθρώπους της
+    Αλεξάνδρειας.
+
+    Όταν η οργανωτική επιτροπή των πρώτων σύγχρονων Ολυμπιακών Αγώνων διαπίστωσε ότι ο
+    Τρικούπης δεν επρόκειτο να τους χρηματοδοτήσει, τα χρήματα ήρθαν από έρανο, από
+    έκδοση γραμματοσήμων και από τον Αβέρωφ, που πλήρωσε την ανοικοδόμηση του αρχαίου
+    Παναθηναϊκού Σταδίου σε μάρμαρο. Ο ανδριάντας του αποκαλύφθηκε στην είσοδο την
+    παραμονή των Αγώνων και βρίσκεται ακόμη εκεί. Πέθανε στην Αλεξάνδρεια το 1899.
+    Κληροδότημα της διαθήκης του πλήρωσε το θωρηκτό Γεώργιος Αβέρωφ, ναυαρχίδα του
+    ελληνικού στόλου στους Βαλκανικούς Πολέμους, που διατηρείται στο Παλαιό Φάληρο.
+sources:
+  - {id: gallant-2016}
+  - {id: clogg-2021}

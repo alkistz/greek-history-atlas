@@ -1,26 +1,59 @@
 id: axis-invasion-1941
 title:
-  en: The Axis Invasion and the Triple Occupation
+  en: The Axis Invasion of Greece
+  el: Η εισβολή του Άξονα στην Ελλάδα
 summary:
   en: >
-    German forces invaded on 6 April 1941 after the Italian attack from Albania had
-    failed. Athens fell on 27 April and Crete followed in May. The country was then
-    divided into German, Italian and Bulgarian zones of occupation while the Greek state
-    continued to exist in exile, which is why the map shows occupation as a layer over
-    sovereignty rather than in place of it.
+    German forces invaded on 6 April 1941, through Bulgaria against the Metaxas Line and
+    through Yugoslavia behind it, after the Italian attack from Albania had failed.
+    Thessaloniki fell on 9 April, the army holding the Albanian front capitulated on 20
+    April, and German troops entered Athens on 27 April. The mainland campaign was over
+    before the end of the month. Crete held out until the airborne assault of May, and
+    the country was then divided among three occupying powers while the Greek state went
+    on in exile, which is why the map shows occupation as a layer over sovereignty rather
+    than in place of it.
+  el: >
+    Οι γερμανικές δυνάμεις εισέβαλαν στις 6 Απριλίου 1941, μέσα από τη Βουλγαρία εναντίον της
+    Γραμμής Μεταξά και μέσα από τη Γιουγκοσλαβία στα νώτα της, αφού η ιταλική επίθεση από την
+    Αλβανία είχε αποτύχει. Η Θεσσαλονίκη έπεσε στις 9 Απριλίου, ο στρατός του αλβανικού
+    μετώπου συνθηκολόγησε στις 20 Απριλίου και στις 27 Απριλίου οι Γερμανοί μπήκαν στην Αθήνα.
+    Η εκστρατεία στην ηπειρωτική Ελλάδα είχε τελειώσει πριν από το τέλος του μήνα. Η Κρήτη
+    κράτησε ως την αερομεταφερόμενη επίθεση του Μαΐου, και στη συνέχεια η χώρα μοιράστηκε σε
+    τρεις δυνάμεις κατοχής, ενώ το ελληνικό κράτος συνέχισε να υπάρχει στην εξορία· γι' αυτό ο
+    χάρτης δείχνει την Κατοχή ως στρώμα πάνω από την κυριαρχία και όχι στη θέση της.
 body:
   en: |
     The German attack came through Bulgaria against the Metaxas Line and through
-    Yugoslavia behind it. Thessaloniki fell on 9 April, the army in Albania was cut off
-    and surrendered on 20 April, and the swastika flew on the Acropolis on 27 April.
-    The king and government withdrew to Crete and then, after the airborne invasion of
-    May, to Cairo.
+    Yugoslavia behind it, which turned the line within three days. Thessaloniki fell on
+    9 April. The Greek army of Epirus, still facing the Italians in Albania, was cut off,
+    and its commanders capitulated to the Germans on 20 April against the orders of their
+    own government. The British and Commonwealth force sent from Egypt in March fought a
+    retreat through Thermopylae and was evacuated from the beaches of Attica and the
+    Peloponnese at the end of the month; the swastika flew on the Acropolis on 27 April.
 
-    The occupiers divided the country. Germany kept Athens, central Macedonia, the
-    strategic islands and most of Crete; Bulgaria annexed in all but name eastern
-    Macedonia and western Thrace; Italy took the rest. The famine of the winter of
-    1941 to 1942 killed tens of thousands in Athens alone.
-period: [1941-04-06, 1941-06-01]
+    The campaign on the mainland had taken under four weeks. The king and the government
+    withdrew to Crete, which was the last Greek ground still free and was taken by
+    airborne assault from 20 May, and from there to Cairo, where the Greek state
+    continued to exist. What followed on the mainland was occupation rather than
+    annexation, divided between Germany, Italy and Bulgaria, and the famine of the
+    winter of 1941 to 1942 came out of that division.
+  el: |
+    Η γερμανική επίθεση ήρθε μέσα από τη Βουλγαρία εναντίον της Γραμμής Μεταξά και μέσα από τη
+    Γιουγκοσλαβία, στα νώτα της, πράγμα που υπερκέρασε τη γραμμή μέσα σε τρεις ημέρες. Η
+    Θεσσαλονίκη έπεσε στις 9 Απριλίου. Ο ελληνικός στρατός της Ηπείρου, που εξακολουθούσε να
+    αντιμετωπίζει τους Ιταλούς στην Αλβανία, αποκόπηκε, και οι διοικητές του συνθηκολόγησαν με
+    τους Γερμανούς στις 20 Απριλίου παρά τις εντολές της ίδιας τους της κυβέρνησης. Το
+    βρετανικό και κοινοπολιτειακό σώμα που είχε σταλεί από την Αίγυπτο τον Μάρτιο έδωσε
+    μάχες οπισθοφυλακής στις Θερμοπύλες και αποσύρθηκε από τις ακτές της Αττικής και της
+    Πελοποννήσου στο τέλος του μήνα· στις 27 Απριλίου υψώθηκε στην Ακρόπολη η σβάστικα.
+
+    Η εκστρατεία στην ηπειρωτική χώρα είχε κρατήσει λιγότερο από τέσσερις εβδομάδες. Ο
+    βασιλιάς και η κυβέρνηση αποσύρθηκαν στην Κρήτη, το τελευταίο ελεύθερο ελληνικό έδαφος,
+    που καταλήφθηκε με αερομεταφερόμενη επίθεση από τις 20 Μαΐου, και από εκεί στο Κάιρο, όπου
+    το ελληνικό κράτος συνέχισε να υφίσταται. Στην ηπειρωτική Ελλάδα ακολούθησε κατοχή και όχι
+    προσάρτηση, μοιρασμένη ανάμεσα στη Γερμανία, την Ιταλία και τη Βουλγαρία, και από αυτόν
+    τον διαμελισμό προέκυψε ο λιμός του χειμώνα του 1941 προς 1942.
+period: [1941-04-06, 1941-05-01]
 precision: span
 atom: attica
 place: athens

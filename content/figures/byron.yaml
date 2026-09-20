@@ -1,6 +1,6 @@
 id: byron
 name: {en: Lord Byron, el: Λόρδος Βύρων}
-also_known_as: [{en: George Gordon Byron}]
+also_known_as: [{en: George Gordon Byron, el: Τζορτζ Γκόρντον Βύρων}]
 born: {date: 1788-01-22, precision: day, place: london}
 died: {date: 1824-04-19, precision: day, place: messolonghi}
 roles: [writer]
@@ -9,6 +9,10 @@ summary:
     The most famous of the philhellenes. He came to Messolonghi in January 1824 with
     money and a plan to take Lepanto, and died of fever there in April. His death
     turned European opinion decisively toward the Greek cause.
+  el: >
+    Ο γνωστότερος από τους φιλέλληνες. Ήρθε στο Μεσολόγγι τον Ιανουάριο του 1824 με χρήματα
+    και σχέδιο για την κατάληψη της Ναυπάκτου, και πέθανε εκεί από πυρετό τον Απρίλιο. Ο
+    θάνατός του έστρεψε αποφασιστικά την ευρωπαϊκή κοινή γνώμη υπέρ του ελληνικού αγώνα.
 body:
   en: |
     Byron had travelled in Greece in 1809 and 1810 and made it, through *Childe Harold*,
@@ -20,4 +24,15 @@ body:
     and tried to hold together a faction-ridden command. He fell ill in April and died on
     the 19th, before the loan money arrived. The effect on Greek fund-raising and on the
     diplomacy of the Powers was greater than anything he could have achieved alive.
+  el: |
+    Ο Βύρων είχε ταξιδέψει στην Ελλάδα το 1809 και το 1810 και την είχε κάνει, μέσα από το
+    *Τσάιλντ Χάρολντ*, το σκηνικό του ρομαντικού πόθου για μια ολόκληρη γενιά αναγνωστών. Όταν
+    το Φιλελληνικό Κομιτάτο του Λονδίνου αναζήτησε το 1823 δημόσιο πρόσωπο για το δάνειό του,
+    η επιλογή ήταν αυτονόητη.
+
+    Έφτασε στο Μεσολόγγι τον Ιανουάριο του 1824, πλήρωσε από την τσέπη του τα σουλιώτικα
+    σώματα και προσπάθησε να συγκρατήσει μια διοίκηση διαλυμένη από τις φατρίες. Αρρώστησε τον
+    Απρίλιο και πέθανε στις 19 του μήνα, πριν φτάσουν τα χρήματα του δανείου. Η επίδραση στον
+    ελληνικό έρανο και στη διπλωματία των Δυνάμεων ήταν μεγαλύτερη από οτιδήποτε θα μπορούσε
+    να πετύχει ζωντανός.
 sources: [{id: brewer-2001}]

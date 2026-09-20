@@ -8,6 +8,10 @@ summary:
     Phanariot officer in the Russian army and leader of the Filiki Eteria from 1820.
     He opened the revolution by crossing into Moldavia in February 1821, in an
     expedition that collapsed within four months.
+  el: >
+    Φαναριώτης αξιωματικός του ρωσικού στρατού και αρχηγός της Φιλικής Εταιρείας από το 1820.
+    Άνοιξε την Επανάσταση περνώντας στη Μολδαβία τον Φεβρουάριο του 1821, με μια εκστρατεία
+    που κατέρρευσε μέσα σε τέσσερις μήνες.
 body:
   en: |
     Ypsilantis was born into one of the great Phanariot families of Constantinople and
@@ -20,4 +24,15 @@ body:
     he fled into Austrian territory and was imprisoned for six years. He died in Vienna
     a few weeks after his release, as the Greek state he had helped to start was
     taking shape without him.
+  el: |
+    Ο Υψηλάντης γεννήθηκε σε μία από τις μεγάλες φαναριώτικες οικογένειες της
+    Κωνσταντινούπολης και έχασε το ένα του χέρι πολεμώντας για τη Ρωσία στη Δρέσδη το 1813. Το
+    1820 δέχθηκε την αρχηγία της Φιλικής Εταιρείας, της μυστικής οργάνωσης που προετοίμαζε την
+    ελληνική εξέγερση, αφού την είχε αρνηθεί ο Καποδίστριας.
+
+    Η διάβαση του Προύθου προς τη Μολδαβία στις 6 Μαρτίου 1821 είχε σκοπό να σύρει τη Ρωσία
+    στον πόλεμο. Δεν το πέτυχε. Αποκηρυγμένος από τον τσάρο και ηττημένος στο Δραγατσάνι τον
+    Ιούνιο, κατέφυγε σε αυστριακό έδαφος και φυλακίστηκε για έξι χρόνια. Πέθανε στη Βιέννη
+    λίγες εβδομάδες μετά την αποφυλάκισή του, ενώ το ελληνικό κράτος που είχε βοηθήσει να
+    ξεκινήσει έπαιρνε μορφή χωρίς αυτόν.
 sources: [{id: brewer-2001}, {id: clogg-2021}]

@@ -1,12 +1,18 @@
 id: union-of-the-dodecanese
 title:
   en: The Union of the Dodecanese
+  el: Η ενσωμάτωση της Δωδεκανήσου
 summary:
   en: >
-    The Paris Peace Treaty transferred the Dodecanese from Italy, which had held the
-    islands since 1912, to Greece. Greek administration began in March 1947 and the
-    formal union followed on 7 March 1948. It was the last enlargement of the Greek
-    state.
+    The Paris Peace Treaty of 10 February 1947 transferred the Dodecanese from Italy, which
+    had held the islands since 1912, to Greece. A Greek administration took over from the
+    British military authorities in March 1947, and the islands were formally incorporated
+    into the Greek state on 7 March 1948. It was the last enlargement of the Greek state.
+  el: >
+    Η Συνθήκη Ειρήνης των Παρισίων της 10ης Φεβρουαρίου 1947 μετέφερε τα Δωδεκάνησα από την
+    Ιταλία, που τα κατείχε από το 1912, στην Ελλάδα. Ελληνική διοίκηση διαδέχθηκε τις βρετανικές
+    στρατιωτικές αρχές τον Μάρτιο του 1947, και τα νησιά ενσωματώθηκαν επίσημα στο ελληνικό
+    κράτος στις 7 Μαρτίου 1948. Ήταν η τελευταία εδαφική επέκταση του ελληνικού κράτους.
 body:
   en: |
     Italy had taken the Dodecanese from the Ottoman Empire in 1912 as a pledge during
@@ -18,7 +24,17 @@ body:
     May 1945. The British military administration that followed handed over to Greece
     in March 1947, three weeks after the peace treaty had been signed. The union was
     proclaimed at Rhodes a year later.
-period: [1947-02-10, 1947-02-11]
+  el: |
+    Η Ιταλία είχε πάρει τα Δωδεκάνησα από την Οθωμανική Αυτοκρατορία το 1912 ως ενέχυρο στη
+    διάρκεια του λιβυκού πολέμου και δεν τα επέστρεψε ποτέ. Η Λωζάνη επικύρωσε την ιταλική
+    κυριαρχία το 1923, και οι φασίστες διοικητές της δεκαετίας του 1930 εφάρμοσαν πολιτική
+    εξιταλισμού στην οποία η ελληνική πλειονότητα των νησιών αντιστάθηκε.
+
+    Η Γερμανία κατέλαβε τα νησιά μετά την ιταλική συνθηκολόγηση του 1943 και τα κράτησε ως τον
+    Μάιο του 1945. Η βρετανική στρατιωτική διοίκηση που ακολούθησε τα παρέδωσε στην Ελλάδα τον
+    Μάρτιο του 1947, τρεις εβδομάδες μετά την υπογραφή της συνθήκης ειρήνης. Η ενσωμάτωση
+    ανακηρύχθηκε στη Ρόδο έναν χρόνο αργότερα.
+period: [1948-03-07, 1948-03-08]
 precision: day
 atom: dodecanese
 place: rhodes

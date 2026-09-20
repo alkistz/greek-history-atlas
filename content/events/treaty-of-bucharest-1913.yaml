@@ -1,6 +1,7 @@
 id: treaty-of-bucharest-1913
 title:
   en: The Treaty of Bucharest
+  el: Η Συνθήκη του Βουκουρεστίου
 summary:
   en: >
     The settlement of the Second Balkan War divided Ottoman Macedonia between Greece,
@@ -8,6 +9,12 @@ summary:
     and the northern Aegean islands. In two campaigns the kingdom had roughly doubled in
     both territory and population, and had absorbed a population that was not
     predominantly Greek speaking.
+  el: >
+    Η διευθέτηση του Β΄ Βαλκανικού Πολέμου μοίρασε την οθωμανική Μακεδονία ανάμεσα στην
+    Ελλάδα, τη Σερβία και τη Βουλγαρία. Η Ελλάδα πήρε την Ήπειρο, το μεγαλύτερο μέρος της
+    Μακεδονίας μαζί με τη Θεσσαλονίκη, και τα νησιά του βόρειου Αιγαίου. Σε δύο εκστρατείες το
+    βασίλειο είχε περίπου διπλασιαστεί σε έκταση και σε πληθυσμό, και είχε ενσωματώσει
+    πληθυσμό που δεν ήταν στην πλειονότητά του ελληνόφωνος.
 body:
   en: |
     The First Balkan War had driven the Ottoman Empire out of almost all of Europe by
@@ -20,6 +27,18 @@ body:
     the whole of southern Macedonia. Crete's union was confirmed and the eastern Aegean
     islands followed in 1914. The population of the state rose from about 2.7 to 4.8
     million.
+  el: |
+    Ο Α΄ Βαλκανικός Πόλεμος είχε διώξει την Οθωμανική Αυτοκρατορία από σχεδόν ολόκληρη την
+    Ευρώπη ως την άνοιξη του 1913, και η Συνθήκη του Λονδίνου άφησε στους συμμάχους τη διανομή
+    των εδαφών. Η Βουλγαρία, που είχε σηκώσει το μεγαλύτερο βάρος των μαχών στη Θράκη,
+    επιτέθηκε τον Ιούνιο στους πρώην συμμάχους της για να πάρει τη Μακεδονία και ηττήθηκε μέσα
+    σε έναν μήνα.
+
+    Στο Βουκουρέστι, τον Αύγουστο, η Ελλάδα κράτησε ό,τι είχε φτάσει ο στρατός της: τη
+    Θεσσαλονίκη, στην οποία είχε μπει λίγες ώρες πριν από τους Βουλγάρους τον Νοέμβριο του
+    1912, την Καβάλα και ολόκληρη τη νότια Μακεδονία. Η ένωση της Κρήτης επικυρώθηκε και τα
+    νησιά του ανατολικού Αιγαίου ακολούθησαν το 1914. Ο πληθυσμός του κράτους ανέβηκε από
+    περίπου 2,7 σε 4,8 εκατομμύρια.
 period: [1913-08-10, 1913-08-11]
 precision: day
 as_written: {date: 1913-07-28, calendar: julian}

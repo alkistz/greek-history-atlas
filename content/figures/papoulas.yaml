@@ -1,0 +1,44 @@
+id: papoulas
+name: {en: Anastasios Papoulas, el: Αναστάσιος Παπούλας}
+born: {date: 1857-01-01, precision: year, place: messolonghi}
+died: {date: 1935-04-24, precision: day, place: athens}
+roles: [military]
+summary:
+  en: >
+    Royalist general, commander-in-chief of the Army of Asia Minor from November 1920 to
+    May 1922. He won at Kütahya and Eskişehir, carried out the march on Ankara he had
+    doubts about, and fought the Sakarya to a standstill. He was executed in 1935 for his
+    part in a Venizelist coup.
+  el: >
+    Βασιλικός στρατηγός, αρχιστράτηγος της Στρατιάς Μικράς Ασίας από τον Νοέμβριο του 1920 ως
+    τον Μάιο του 1922. Νίκησε στο Κιουτάχεια και το Εσκί Σεχίρ, εκτέλεσε την πορεία προς την
+    Άγκυρα για την οποία είχε επιφυλάξεις, και έδωσε τη μάχη του Σαγγαρίου χωρίς να μπορέσει να
+    την κρίνει. Εκτελέστηκε το 1935 για τη συμμετοχή του σε βενιζελικό κίνημα.
+body:
+  en: |
+    Papoulas was appointed to the Anatolian command on 12 November 1920, one of the
+    royalist officers brought back after the election that replaced the Venizelist high
+    command. He inherited an army in an offensive it had not been designed for and a
+    government that would not define what winning meant.
+
+    His summer offensive of 1921 took Kütahya and Eskişehir and drove the Turkish army
+    east of the Sakarya. The decision to follow it to Ankara was taken over the objections
+    of staff officers and, by his own account afterwards, against his own judgement. The
+    twenty-two days on the Sakarya bend ended his campaign; he was relieved on 19 May 1922
+    and replaced by Hatzianestis. Thirteen years later, having joined the Venizelist
+    movement, he took part in the failed coup of March 1935 and was shot at Goudi on 24
+    April, in the same place as the Six he had outlived.
+  el: |
+    Ο Παπούλας διορίστηκε στη διοίκηση της Ανατολίας στις 12 Νοεμβρίου 1920, ένας από τους
+    βασιλικούς αξιωματικούς που επανήλθαν μετά τις εκλογές οι οποίες αντικατέστησαν τη
+    βενιζελική ηγεσία. Κληρονόμησε στρατό μέσα σε επίθεση για την οποία δεν είχε σχεδιαστεί και
+    κυβέρνηση που δεν όριζε τι σήμαινε νίκη.
+
+    Η θερινή επίθεσή του το 1921 πήρε το Κιουτάχεια και το Εσκί Σεχίρ και έσπρωξε τον τουρκικό
+    στρατό ανατολικά του Σαγγαρίου. Η απόφαση να τον ακολουθήσουν ως την Άγκυρα πάρθηκε παρά τις
+    αντιρρήσεις επιτελών και, κατά τη δική του μεταγενέστερη κατάθεση, παρά τη δική του κρίση.
+    Οι είκοσι δύο ημέρες στην καμπή του Σαγγαρίου τερμάτισαν την εκστρατεία του· αντικαταστάθηκε
+    στις 19 Μαΐου 1922 από τον Χατζηανέστη. Δεκατρία χρόνια αργότερα, έχοντας προσχωρήσει στο
+    βενιζελικό στρατόπεδο, συμμετείχε στο αποτυχημένο κίνημα του Μαρτίου 1935 και τυφεκίστηκε
+    στο Γουδί στις 24 Απριλίου, στον ίδιο τόπο με τους Έξι που είχε επιζήσει.
+sources: [{id: llewellyn-smith-1998}, {id: koliopoulos-veremis-2010}]

@@ -1,0 +1,71 @@
+id: constantine-ii
+name: {en: Constantine II, el: Κωνσταντίνος Β΄}
+also_known_as:
+  - {en: Constantine II of the Hellenes, el: Κωνσταντίνος Β΄ της Ελλάδας}
+born: {date: 1940-06-02, precision: day, place: athens}
+died: {date: 2023-01-10, precision: day, place: athens}
+roles: [monarch]
+summary:
+  en: >
+    Last King of the Hellenes, who came to the throne in 1964 at twenty-three and lost
+    it within a decade. He declined to order the army against the colonels on 21 April
+    1967 and swore in their government; his counter-coup in December failed within
+    hours and he left the country. The junta abolished the monarchy in 1973, and the
+    referendum of December 1974 confirmed the abolition by 68.8 per cent in a free vote.
+    He returned to live in Greece in 2013.
+  el: >
+    Τελευταίος βασιλιάς των Ελλήνων, που ανέβηκε στον θρόνο το 1964 σε ηλικία είκοσι
+    τριών ετών και τον έχασε μέσα σε μια δεκαετία. Αρνήθηκε να διατάξει τον στρατό
+    εναντίον των συνταγματαρχών στις 21 Απριλίου 1967 και όρκισε την κυβέρνησή τους. Το
+    αντιπραξικόπημά του τον Δεκέμβριο κατέρρευσε μέσα σε λίγες ώρες και έφυγε από τη
+    χώρα. Η χούντα κατάργησε τη μοναρχία το 1973 και το δημοψήφισμα του Δεκεμβρίου 1974
+    επικύρωσε την κατάργηση με 68,8% σε ελεύθερη ψηφοφορία. Επέστρεψε να ζήσει στην
+    Ελλάδα το 2013.
+body:
+  en: |
+    Constantine came to the throne in 1964 at the age of twenty-three. The years that
+    followed were years of open conflict between the palace and the elected government
+    of the Centre Union, and they left a parliament that could not produce a working
+    majority and an electorate waiting for the poll set for May 1967. That is the
+    background to April, and it is why the colonels found the political system
+    undefended.
+
+    He did not resist the coup. Loyal units existed, the constitution gave him the
+    command, and he chose instead to swear in the government the colonels presented and
+    to wait. In December 1967 he flew to Kavala with his family and the figurehead
+    prime minister to raise the northern army; the attempt collapsed by midday and he
+    left for Rome the next morning. He was abroad for forty-six years, apart from six
+    hours in 1981 for his mother's funeral.
+
+    The monarchy was abolished by the junta in 1973 and abolished again, properly, by
+    the voters in December 1974, when he was not allowed to campaign in Greece and made
+    his case from London. He lost his Greek citizenship and pursued his property claims
+    at the European Court of Human Rights, which ruled in November 2000 and settled
+    compensation in 2002. He came back to Greece in 2013 and died in Athens in 2023, a
+    private citizen of the republic that had replaced him.
+  el: |
+    Ο Κωνσταντίνος ανέβηκε στον θρόνο το 1964, σε ηλικία είκοσι τριών ετών. Τα χρόνια
+    που ακολούθησαν ήταν χρόνια ανοιχτής σύγκρουσης ανάμεσα στα ανάκτορα και στην
+    εκλεγμένη κυβέρνηση της Ένωσης Κέντρου, και άφησαν πίσω τους μια Βουλή που δεν
+    έβγαζε λειτουργική πλειοψηφία και ένα εκλογικό σώμα που περίμενε την κάλπη του Μαΐου
+    του 1967. Αυτό είναι το υπόβαθρο του Απριλίου και ο λόγος που οι συνταγματάρχες
+    βρήκαν το πολιτικό σύστημα αφύλακτο.
+
+    Δεν αντιστάθηκε στο πραξικόπημα. Πιστές μονάδες υπήρχαν, το Σύνταγμα του έδινε την
+    αρχηγία, και εκείνος προτίμησε να ορκίσει την κυβέρνηση που του παρουσίασαν οι
+    συνταγματάρχες και να περιμένει. Τον Δεκέμβριο του 1967 πέταξε στην Καβάλα με την
+    οικογένειά του και τον διορισμένο πρωθυπουργό για να ξεσηκώσει τον στρατό του Βορρά.
+    Το εγχείρημα κατέρρευσε ως το μεσημέρι και το επόμενο πρωί έφυγε για τη Ρώμη. Έμεινε
+    στο εξωτερικό σαράντα έξι χρόνια, με εξαίρεση ένα εξάωρο το 1981 για την κηδεία της
+    μητέρας του.
+
+    Τη μοναρχία την κατάργησε η χούντα το 1973 και την κατάργησαν ξανά, με κανονικό
+    τρόπο, οι ψηφοφόροι τον Δεκέμβριο του 1974, όταν δεν του επιτράπηκε να κάνει
+    εκστρατεία στην Ελλάδα και μίλησε από το Λονδίνο. Έχασε την ελληνική ιθαγένεια και
+    διεκδίκησε την περιουσία του στο Ευρωπαϊκό Δικαστήριο Δικαιωμάτων του Ανθρώπου, που
+    αποφάνθηκε τον Νοέμβριο του 2000 και καθόρισε την αποζημίωση το 2002. Επέστρεψε στην
+    Ελλάδα το 2013 και πέθανε στην Αθήνα το 2023, ιδιώτης της δημοκρατίας που τον
+    αντικατέστησε.
+sources:
+  - {id: clogg-2021}
+  - {id: woodhouse-1985}

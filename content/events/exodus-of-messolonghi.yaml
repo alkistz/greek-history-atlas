@@ -1,6 +1,7 @@
 id: exodus-of-messolonghi
 title:
   en: The Exodus of Messolonghi
+  el: Η Έξοδος του Μεσολογγίου
 summary:
   en: >
     After a year under siege by Ottoman and Egyptian forces, the garrison and civilian
@@ -8,6 +9,12 @@ summary:
     taken. The town had already become the symbol of the revolution abroad, where Byron
     had died two years earlier, and its fall did more for Greek diplomacy than its
     defence had done for Greek arms.
+  el: >
+    Έπειτα από έναν χρόνο πολιορκίας από οθωμανικές και αιγυπτιακές δυνάμεις, η φρουρά και ο
+    άμαχος πληθυσμός του Μεσολογγίου επιχείρησαν μαζική έξοδο μέσα στη νύχτα. Οι περισσότεροι
+    σκοτώθηκαν ή αιχμαλωτίστηκαν. Η πόλη είχε ήδη γίνει το σύμβολο της επανάστασης στο
+    εξωτερικό, εκεί όπου είχε πεθάνει ο Βύρων δύο χρόνια νωρίτερα, και η πτώση της ωφέλησε την
+    ελληνική διπλωματία περισσότερο από όσο είχε ωφελήσει τα ελληνικά όπλα η άμυνά της.
 body:
   en: |
     Messolonghi had beaten off one siege in 1822 and 1823. The second began in April
@@ -20,12 +27,23 @@ body:
     and the rest were killed or enslaved. The Powers took note. The Protocol of St
     Petersburg, agreed by Britain and Russia while the siege was ending, was the first
     step toward the intervention of 1827.
+  el: |
+    Το Μεσολόγγι είχε αποκρούσει μια πρώτη πολιορκία το 1822 και το 1823. Η δεύτερη άρχισε τον
+    Απρίλιο του 1825 υπό τον Κιουταχή και ενισχύθηκε τον Δεκέμβριο από τους Αιγυπτίους του
+    Ιμπραήμ πασά, που έφεραν το πυροβολικό και τους μηχανικούς για να κάμψουν τις οχυρώσεις
+    της λιμνοθάλασσας. Ως την άνοιξη η πόλη λιμοκτονούσε.
+
+    Τη νύχτα της 22ας Απριλίου 1826 οι υπερασπιστές και οι περισσότεροι άμαχοι επιχείρησαν να
+    σπάσουν τον κλοιό. Το σχέδιο προδόθηκε· λίγες εκατοντάδες έφτασαν στα βουνά, οι υπόλοιποι
+    σκοτώθηκαν ή εξανδραποδίστηκαν. Οι Δυνάμεις το κατέγραψαν. Το Πρωτόκολλο της Πετρούπολης,
+    που συμφωνήθηκε από τη Βρετανία και τη Ρωσία καθώς τελείωνε η πολιορκία, ήταν το πρώτο
+    βήμα προς την επέμβαση του 1827.
 period: [1826-04-22, 1826-04-24]
-precision: day
+precision: span
 as_written: {date: 1826-04-10, calendar: julian}
 atom: aitoloakarnania
 place: messolonghi
-significance: 5
+significance: 3
 figures:
   - {figure: ibrahim-pasha, role: commander}
 sources: [{id: brewer-2001}, {id: clogg-2021}]

@@ -1,0 +1,50 @@
+id: kemal
+name: {en: Mustafa Kemal Atatürk, el: Μουσταφά Κεμάλ Ατατούρκ}
+born: {date: 1881-01-01, precision: circa, place: thessaloniki}
+died: {date: 1938-11-10, precision: day, place: constantinople}
+roles: [military, statesman]
+summary:
+  en: >
+    Ottoman staff officer who organised the Turkish national resistance to the partition
+    of Anatolia, destroyed the Greek army in August 1922 and founded the Republic of
+    Turkey, of which he was the first president. He was born in Salonica, the city Greece
+    took in 1912, and no exact day of his birth is recorded.
+  el: >
+    Οθωμανός επιτελικός αξιωματικός που οργάνωσε την τουρκική εθνική αντίσταση στον διαμελισμό
+    της Ανατολίας, κατέστρεψε τον ελληνικό στρατό τον Αύγουστο του 1922 και ίδρυσε τη
+    Δημοκρατία της Τουρκίας, της οποίας υπήρξε πρώτος πρόεδρος. Γεννήθηκε στη Θεσσαλονίκη, την
+    πόλη που πήρε η Ελλάδα το 1912, και ακριβής ημέρα γέννησης δεν είναι καταγεγραμμένη.
+body:
+  en: |
+    Kemal made his reputation at Gallipoli in 1915 and ended the war a divisional and
+    corps commander with no faith left in the Sultan's government. He landed at Samsun on
+    19 May 1919, four days after the Greek landing at Smyrna, and within months had
+    turned scattered local resistance committees into a movement with a congress, a
+    programme and, from April 1920, a Grand National Assembly at Ankara that recognised
+    none of the Allied settlement.
+
+    He took personal command at the Sakarya in August 1921 with plenary powers and held
+    the line a hundred kilometres long that stopped the Greek advance on Ankara. A year
+    later he concentrated against a single sector at Afyonkarahisar and broke the Greek
+    front in a day. Mudanya gave him Eastern Thrace without a battle and Lausanne gave
+    him a recognised state. He abolished the sultanate in 1922 and the caliphate in 1924,
+    and rebuilt Turkey as a secular republic on the alphabet, the law codes and the dress
+    of western Europe. Turkey conventionally observes 19 May as his birthday because no
+    record of the true date exists.
+  el: |
+    Ο Κεμάλ έχτισε τη φήμη του στην Καλλίπολη το 1915 και βγήκε από τον πόλεμο διοικητής
+    μεραρχίας και σώματος στρατού, χωρίς καμιά πίστη στην κυβέρνηση του σουλτάνου. Αποβιβάστηκε
+    στη Σαμψούντα στις 19 Μαΐου 1919, τέσσερις ημέρες μετά την ελληνική απόβαση στη Σμύρνη, και
+    μέσα σε λίγους μήνες μετέτρεψε διάσπαρτες τοπικές επιτροπές αντίστασης σε κίνημα με
+    συνέδριο, πρόγραμμα και, από τον Απρίλιο του 1920, Μεγάλη Εθνοσυνέλευση στην Άγκυρα που δεν
+    αναγνώριζε τίποτε από τη συμμαχική ρύθμιση.
+
+    Ανέλαβε προσωπικά τη διοίκηση στον Σαγγάριο τον Αύγουστο του 1921 με πλήρεις εξουσίες και
+    κράτησε τη γραμμή των εκατό χιλιομέτρων που σταμάτησε την ελληνική προέλαση προς την Άγκυρα.
+    Έναν χρόνο αργότερα συγκέντρωσε τις δυνάμεις του σε έναν μόνο τομέα στο Αφιόν Καραχισάρ και
+    έσπασε το ελληνικό μέτωπο μέσα σε μία ημέρα. Τα Μουδανιά του έδωσαν την Ανατολική Θράκη
+    χωρίς μάχη και η Λωζάνη ένα αναγνωρισμένο κράτος. Κατάργησε το σουλτανάτο το 1922 και το
+    χαλιφάτο το 1924 και ανοικοδόμησε την Τουρκία ως κοσμική δημοκρατία με το αλφάβητο, τους
+    κώδικες και την ενδυμασία της δυτικής Ευρώπης. Η Τουρκία γιορτάζει κατά σύμβαση τα γενέθλιά
+    του στις 19 Μαΐου, επειδή δεν σώζεται καταγραφή της πραγματικής ημερομηνίας.
+sources: [{id: llewellyn-smith-1998}, {id: ginio-2016}]

@@ -1,0 +1,45 @@
+id: alexander-of-greece
+name: {en: Alexander, el: Αλέξανδρος}
+also_known_as: [{en: Alexander of Greece, el: Αλέξανδρος της Ελλάδας}]
+born: {date: 1893-08-01, precision: day, place: athens}
+died: {date: 1920-10-25, precision: day, place: athens}
+roles: [monarch]
+summary:
+  en: >
+    Constantine's second son, put on the throne by the Allies in June 1917 as a figurehead
+    under Venizelos after his father was forced out. He reigned for three years with no
+    authority of his own, and died at twenty-seven of sepsis from a monkey bite, which
+    reopened the succession and brought his father back.
+  el: >
+    Δευτερότοκος γιος του Κωνσταντίνου, τοποθετήθηκε στον θρόνο από τους Συμμάχους τον Ιούνιο
+    του 1917 ως ανδρείκελο υπό τον Βενιζέλο, μετά την απομάκρυνση του πατέρα του. Βασίλεψε
+    τρία χρόνια χωρίς δική του εξουσία και πέθανε στα είκοσι επτά από σηψαιμία έπειτα από
+    δάγκωμα πιθήκου, πράγμα που άνοιξε ξανά το ζήτημα της διαδοχής και έφερε πίσω τον πατέρα
+    του.
+body:
+  en: |
+    The Allies who removed Constantine in June 1917 vetoed the Crown Prince George as too
+    close to his father and took the second son instead. Alexander swore the
+    constitutional oath on 11 or 12 June and reigned for the duration of the Venizelist
+    government. He was not allowed to see his family, had no political role and was
+    treated by both camps as a placeholder.
+
+    He was bitten by a pet Barbary macaque in the gardens at Tatoi on 2 October 1920 and
+    died of sepsis on 25 October. The death came three weeks before an election and left
+    no clear successor in the country, which turned the campaign into a referendum on the
+    dynasty and ended with Constantine's restoration in December. A reign of no
+    consequence was followed by a death that decided the politics of the era.
+  el: |
+    Οι Σύμμαχοι που απομάκρυναν τον Κωνσταντίνο τον Ιούνιο του 1917 απέρριψαν τον διάδοχο
+    Γεώργιο ως υπερβολικά κοντά στον πατέρα του και πήραν στη θέση του τον δευτερότοκο. Ο
+    Αλέξανδρος ορκίστηκε στις 11 ή στις 12 Ιουνίου και βασίλεψε όσο διήρκεσε η βενιζελική
+    κυβέρνηση. Δεν του επιτρεπόταν να βλέπει την οικογένειά του, δεν είχε πολιτικό ρόλο και
+    αντιμετωπιζόταν από τα δύο στρατόπεδα ως προσωρινή λύση.
+
+    Δαγκώθηκε από οικόσιτο πίθηκο στους κήπους του Τατοΐου στις 2 Οκτωβρίου 1920 και πέθανε από
+    σηψαιμία στις 25 Οκτωβρίου. Ο θάνατος ήρθε τρεις εβδομάδες πριν από τις εκλογές και δεν
+    άφησε σαφή διάδοχο μέσα στη χώρα, με αποτέλεσμα η προεκλογική περίοδος να μετατραπεί σε
+    δημοψήφισμα για τη δυναστεία και να καταλήξει στην επάνοδο του Κωνσταντίνου τον Δεκέμβριο.
+    Μια βασιλεία χωρίς συνέπειες ακολουθήθηκε από έναν θάνατο που έκρινε την πολιτική της
+    εποχής.
+sources: [{id: clogg-2021}, {id: llewellyn-smith-1998}]

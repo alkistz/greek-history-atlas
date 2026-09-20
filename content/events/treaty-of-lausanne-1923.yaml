@@ -1,13 +1,21 @@
 id: treaty-of-lausanne-1923
 title:
   en: The Treaty of Lausanne and the Exchange of Populations
+  el: Η Συνθήκη της Λωζάνης και η ανταλλαγή των πληθυσμών
 summary:
   en: >
     After the collapse of the Greek campaign in Asia Minor, Lausanne fixed the frontier
     with the new Turkish republic and provided for a compulsory exchange of populations
-    on religious criteria. Roughly 1.2 million Orthodox Christians moved to Greece and
-    around 400,000 Muslims moved the other way. It ended the Greek presence in Anatolia
+    on religious criteria. Roughly 1.2 to 1.5 million Orthodox Christians moved to Greece and
+    some 355,000 to 500,000 Muslims moved the other way. It ended the Greek presence in Anatolia
     and reshaped the demography of Macedonia and Thrace within a few years.
+  el: >
+    Μετά την κατάρρευση της ελληνικής εκστρατείας στη Μικρά Ασία, η Λωζάνη καθόρισε το σύνορο
+    με τη νέα τουρκική δημοκρατία και προέβλεψε υποχρεωτική ανταλλαγή πληθυσμών με θρησκευτικό
+    κριτήριο. Περίπου 1,2 έως 1,5 εκατομμύριο ορθόδοξοι χριστιανοί ήρθαν στην Ελλάδα και περίπου
+    355.000 έως 500.000 μουσουλμάνοι πήγαν προς την αντίθετη κατεύθυνση. Η συνθήκη τερμάτισε την ελληνική
+    παρουσία στην Ανατολία και μέσα σε λίγα χρόνια άλλαξε τη δημογραφία της Μακεδονίας και της
+    Θράκης.
 body:
   en: |
     The Treaty of Sèvres of 1920 had given Greece Eastern Thrace and the administration
@@ -20,6 +28,19 @@ body:
     given. The convention on the exchange of populations, signed in January 1923, made
     compulsory a movement most of whose Christians had already fled. The refugees
     made up a fifth of the population of the state that received them.
+  el: |
+    Η Συνθήκη των Σεβρών του 1920 είχε δώσει στην Ελλάδα την Ανατολική Θράκη και τη διοίκηση
+    της Σμύρνης. Το τουρκικό εθνικό κίνημα υπό τον Μουσταφά Κεμάλ δεν την αποδέχθηκε ποτέ, και
+    η προέλαση του ελληνικού στρατού προς την Άγκυρα το 1921 κατέληξε σε κατάρρευση τον
+    Αύγουστο του 1922. Η Σμύρνη κάηκε τον Σεπτέμβριο· η ελληνική κυβέρνηση έπεσε από
+    στρατιωτικό κίνημα.
+
+    Στη Λωζάνη ο Βενιζέλος, που επέστρεψε από την απόσυρσή του για να ηγηθεί της
+    αντιπροσωπείας, πέτυχε τους καλύτερους όρους που ήταν εφικτοί. Η Ελλάδα κράτησε τη Δυτική
+    Θράκη και έχασε όλα τα υπόλοιπα που της είχαν δώσει οι Σέβρες. Η σύμβαση για την ανταλλαγή
+    των πληθυσμών, που υπογράφηκε τον Ιανουάριο του 1923, έδωσε υποχρεωτικό χαρακτήρα σε μια έξοδο
+    που για τους περισσότερους χριστιανούς είχε ήδη συντελεστεί. Οι πρόσφυγες αποτέλεσαν το ένα
+    πέμπτο του πληθυσμού του κράτους που τους δέχθηκε.
 period: [1923-07-24, 1923-07-25]
 precision: day
 atom: thrace-east

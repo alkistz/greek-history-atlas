@@ -1,0 +1,58 @@
+id: churchill
+name: {en: Winston Churchill, el: Ουίνστων Τσόρτσιλ}
+born: {date: 1874-11-30, precision: day}
+died: {date: 1965-01-24, precision: day, place: london}
+roles: [statesman]
+summary:
+  en: >
+    British prime minister during the Second World War and the decisive foreign actor in
+    Greek politics at liberation. He agreed with Stalin in October 1944 the percentages
+    that left Greece in the British sphere, ordered General Scobie to hold Athens by force
+    when the Dekemvriana broke out, and flew to the city at Christmas 1944 to impose the
+    regency that ended the fighting.
+  el: >
+    Βρετανός πρωθυπουργός στον Δεύτερο Παγκόσμιο Πόλεμο και ο καθοριστικός ξένος παράγοντας
+    στην ελληνική πολιτική την ώρα της απελευθέρωσης. Συμφώνησε με τον Στάλιν τον Οκτώβριο
+    του 1944 τα ποσοστά που άφησαν την Ελλάδα στη βρετανική σφαίρα, διέταξε τον στρατηγό
+    Σκόμπι να κρατήσει την Αθήνα με τη βία όταν ξέσπασαν τα Δεκεμβριανά, και πέταξε στην
+    πόλη τα Χριστούγεννα του 1944 για να επιβάλει την αντιβασιλεία που τερμάτισε τις
+    συγκρούσεις.
+body:
+  en: |
+    Churchill's Greek policy had one aim, which he never concealed: to keep the country
+    out of the Soviet sphere and to restore the king. At Moscow on 9 October 1944 he and
+    Stalin wrote out the informal percentages that allotted Britain ninety per cent
+    influence in Greece and the Soviet Union ninety per cent in Romania. It was not a
+    treaty and bound nobody, but Stalin honoured it, and EAM fought the Dekemvriana
+    without a word of Soviet support.
+
+    When the shooting started in Athens he instructed Scobie by telegram to hold the city
+    as if it were a conquered one, diverted troops from the Italian front, and defended
+    the decision in the Commons against considerable criticism at home and in the United
+    States. He then reversed himself on the point that mattered most to the Greeks: having
+    resisted a regency for months, he flew to Athens on 25 December 1944 with Anthony
+    Eden, convened a conference that included EAM, and persuaded George II to appoint
+    Archbishop Damaskinos Regent. The regency and the Plastiras government that followed
+    made the truce of 11 January possible. In Greek memory Churchill is the man who
+    guaranteed the country's place in the West and the man who turned British guns on the
+    resistance in the streets of Athens, and both are true.
+  el: |
+    Η ελληνική πολιτική του Τσόρτσιλ είχε έναν σκοπό, που ποτέ δεν τον έκρυψε: να κρατήσει
+    τη χώρα έξω από τη σοβιετική σφαίρα και να αποκαταστήσει τον βασιλιά. Στη Μόσχα, στις 9
+    Οκτωβρίου 1944, έγραψε με τον Στάλιν τα άτυπα ποσοστά που έδιναν στη Βρετανία ενενήντα
+    τοις εκατό επιρροής στην Ελλάδα και στη Σοβιετική Ένωση ενενήντα τοις εκατό στη
+    Ρουμανία. Δεν ήταν συνθήκη και δεν δέσμευε κανέναν, ο Στάλιν όμως το τήρησε, και το
+    ΕΑΜ έδωσε τα Δεκεμβριανά χωρίς λέξη σοβιετικής στήριξης.
+
+    Όταν άρχισαν οι πυροβολισμοί στην Αθήνα, τηλεγράφησε στον Σκόμπι να κρατήσει την πόλη
+    σαν να ήταν κατακτημένη, εξέτρεψε στρατεύματα από το ιταλικό μέτωπο και υπερασπίστηκε
+    την απόφαση στη Βουλή των Κοινοτήτων απέναντι σε έντονη κριτική στη Βρετανία και στις
+    Ηνωμένες Πολιτείες. Στη συνέχεια αναίρεσε τον εαυτό του στο σημείο που μετρούσε
+    περισσότερο για τους Έλληνες: έχοντας αντισταθεί επί μήνες στην ιδέα της αντιβασιλείας,
+    πέταξε στην Αθήνα στις 25 Δεκεμβρίου 1944 με τον Άντονι Ίντεν, συγκάλεσε διάσκεψη στην
+    οποία μετείχε και το ΕΑΜ, και έπεισε τον Γεώργιο Β΄ να ορίσει αντιβασιλέα τον
+    αρχιεπίσκοπο Δαμασκηνό. Η αντιβασιλεία και η κυβέρνηση Πλαστήρα που ακολούθησε έκαναν
+    δυνατή την ανακωχή της 11ης Ιανουαρίου. Στην ελληνική μνήμη ο Τσόρτσιλ είναι ο άνθρωπος
+    που εγγυήθηκε τη θέση της χώρας στη Δύση και ο άνθρωπος που έστρεψε τα βρετανικά όπλα
+    εναντίον της Αντίστασης στους δρόμους της Αθήνας, και τα δύο ισχύουν.
+sources: [{id: close-1995}, {id: mazower-2000}]
