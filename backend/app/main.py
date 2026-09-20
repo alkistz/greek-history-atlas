@@ -22,6 +22,7 @@ from app.modules.places.router import router as places_router
 from app.modules.regimes.router import router as regimes_router
 from app.modules.regions.router import router as regions_router
 from app.modules.sources.router import router as sources_router
+from app.modules.threads.router import router as threads_router
 
 log = logging.getLogger("uvicorn.error")
 
@@ -63,6 +64,7 @@ for router in (
     regimes_router,
     regions_router,
     sources_router,
+    threads_router,
 ):
     app.include_router(router, prefix=API)
 

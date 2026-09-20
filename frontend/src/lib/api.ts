@@ -11,7 +11,9 @@ import type {
 	InstrumentSummary,
 	Meta,
 	Regime,
-	Region
+	Region,
+	ThreadDetail,
+	ThreadSummary
 } from './types';
 
 type Fetch = typeof fetch;
@@ -43,6 +45,8 @@ export const api = {
 	figures: (f: Fetch) => get<FigureSummary[]>(f, '/api/figures'),
 	regions: (f: Fetch) => get<Region[]>(f, '/api/regions'),
 	regimes: (f: Fetch) => get<Regime[]>(f, '/api/regimes'),
+	threads: (f: Fetch) => get<ThreadSummary[]>(f, '/api/threads'),
+	thread: (f: Fetch, id: string) => get<ThreadDetail>(f, `/api/threads/${id}`),
 	figure: (f: Fetch, id: string) => get<FigureDetail>(f, `/api/figures/${id}`),
 	instruments: (f: Fetch) => get<InstrumentSummary[]>(f, '/api/instruments'),
 	instrument: (f: Fetch, id: string) => get<InstrumentDetail>(f, `/api/instruments/${id}`)

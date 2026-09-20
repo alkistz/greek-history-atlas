@@ -112,6 +112,31 @@ export interface EventRef {
 }
 
 /** What `/api/events/{id}` returns. */
+/** An arc an event sits on, with the step either way along it. */
+export interface EventThread {
+	id: string;
+	name: LangText;
+	previous: EventRef | null;
+	next: EventRef | null;
+}
+
+/** A narrative arc in the index: no events, but its length and span. */
+export interface ThreadSummary {
+	id: string;
+	name: LangText;
+	summary: LangText;
+	count: number;
+	span: [string, string];
+}
+
+export interface ThreadDetail {
+	id: string;
+	name: LangText;
+	summary: LangText;
+	events: EventRef[];
+	span: [string, string];
+}
+
 export interface EventDetail extends Omit<AtlasEvent, 'place' | 'instrument'> {
 	body_html: LangText | null;
 	place: ResolvedPlace | null;
@@ -119,6 +144,7 @@ export interface EventDetail extends Omit<AtlasEvent, 'place' | 'instrument'> {
 	figures: { id: string; name: LangText; role: string }[];
 	sources: Citation[];
 	related: EventRef[];
+	threads: EventThread[];
 }
 
 export interface LifeEvent {

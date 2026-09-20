@@ -27,6 +27,7 @@ PLACES_YAML = CONTENT / "places.yaml"
 REGIMES_YAML = CONTENT / "regimes.yaml"
 REGIONS_YAML = CONTENT / "regions.yaml"
 SOURCES_YAML = CONTENT / "sources.yaml"
+THREADS_YAML = CONTENT / "threads.yaml"
 
 # Prose-carrying entries: one file per entry.
 EVENTS_DIR = CONTENT / "events"

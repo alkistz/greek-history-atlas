@@ -82,6 +82,29 @@
 			<p><a href="/instruments/{event.instrument.id}">{event.instrument.name.en}</a></p>
 		{/if}
 
+		{#if event.threads.length}
+			<h2>Threads</h2>
+			<ul class="threads">
+				{#each event.threads as t (t.id)}
+					<li>
+						<a class="arc" href="/threads/{t.id}">{t.name.en}</a>
+						<span class="step">
+							{#if t.previous}
+								<a href="/events/{t.previous.id}">← {t.previous.title.en}</a>
+							{:else}
+								<span class="muted">← starts here</span>
+							{/if}
+							{#if t.next}
+								<a href="/events/{t.next.id}">{t.next.title.en} →</a>
+							{:else}
+								<span class="muted">ends here →</span>
+							{/if}
+						</span>
+					</li>
+				{/each}
+			</ul>
+		{/if}
+
 		{#if event.related.length}
 			<h2>Nearby</h2>
 			<ul class="plain">
@@ -103,6 +126,30 @@
 </article>
 
 <style>
+	.threads {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	.threads li {
+		padding: 6px 0;
+		border-top: 1px solid var(--rule);
+	}
+	.threads li:first-child {
+		border-top: none;
+	}
+	.arc {
+		font-weight: 600;
+	}
+	/* The two steps sit under the arc's name: where you are, and the way out either side. */
+	.step {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 4px 16px;
+		font-size: 0.85rem;
+		margin-top: 2px;
+	}
 	.event {
 		display: grid;
 		grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);

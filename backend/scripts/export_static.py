@@ -36,6 +36,7 @@ COLLECTIONS: dict[str, Callable[[Corpus], list[str]]] = {
     "/api/events/{event_id}": lambda c: [e.id for e in c.events],
     "/api/figures/{figure_id}": lambda c: [f.id for f in c.figures],
     "/api/instruments/{instrument_id}": lambda c: [i.id for i in c.instruments],
+    "/api/threads/{thread_id}": lambda c: [t.id for t in c.threads],
 }
 
 

@@ -10,12 +10,12 @@ and redraws convincingly.
 ## The corpus
 
 127 events from the outbreak of the revolution to the Tempi disaster, 78 figures, 76
-places, 32 instruments and 22 cited works. Every event and figure is written in both
+places, 32 instruments, 19 narrative threads and 22 cited works. Every event and figure is written in both
 English and Greek. `significance` ranks events 2 to 5 on what they changed: fifteen events
 across two centuries are rated 5, meaning they changed the shape or the nature of the
 state, and the scale is meant to stay that steep.
 
-## The three ideas the project rests on
+## The four ideas the project rests on
 
 **Atoms.** An atom is an area whose sovereignty history is identical throughout the whole
 period. Roughly nineteen of them cover Greece. Everything geographic is expressed as a set
@@ -33,6 +33,14 @@ events happen in Athens, so territory stops telling them apart long before the c
 ends. The regimes are an unbroken chain of half-open periods, contiguity enforced in
 `validate.py`, which is what lets an event's regime be a lookup from its date with nothing
 stored on any event -- the same bargain `regions.yaml` strikes with atoms.
+
+**Threads.** Regions and regimes shorten a list; a thread is a way to get from one event
+to the next one that belongs with it. `related` on an event page means "same atom within
+two years", which found nothing for 56% of events once the corpus reached 2023. The
+nineteen arcs in `threads.yaml` cover 97% of events and are allowed to overlap, because
+1922 belongs to the Great Idea, to the Asia Minor campaign and to the National Schism at
+once. Reading order is derived from the dates, so a list written out of order cannot
+produce an arc that contradicts the timeline.
 
 ## Running it
 
@@ -53,8 +61,8 @@ deployable site in `frontend/build/`. See **Deploying** below.
 
 ```
 content/     the source of truth. YAML in git: atoms, polities, control, regimes, regions,
-             instruments, places, sources as one file each; events/ and figures/ as one
-             file per entry.
+             threads, instruments, places, sources as one file each; events/ and figures/
+             as one file per entry.
 data/        raw boundary downloads (gitignored) and the built geometry (committed)
 backend/     content pipeline and a read-only API. No database. `app/core` is shared
              plumbing; `app/modules/<name>` owns one domain each (models, crud, validate, router).
@@ -108,7 +116,7 @@ interpretations. TopoJSON and merged borders. Server-side rendering and prerende
 
 The deployed site has no server. Every route is a pure read off a corpus that changes only
 when someone edits `content/`, so `make export` runs the real app through `TestClient` and
-writes each response body verbatim to `frontend/static/api/`: 248 files, about 2.2 MB. The
+writes each response body verbatim to `frontend/static/api/`: 268 files, about 2.3 MB. The
 whole build is 2.9 MB. `events.json` is 255 KB of that, because the ledger carries every
 event's summary in both languages; if it starts to hurt, splitting the ledger from the
 summaries is the first thing to try.

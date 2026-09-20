@@ -7,6 +7,7 @@
 	const nav = [
 		{ href: '/', label: 'Atlas' },
 		{ href: '/events', label: 'Events' },
+		{ href: '/threads', label: 'Threads' },
 		{ href: '/figures', label: 'Figures' },
 		{ href: '/instruments', label: 'Instruments' }
 	];
