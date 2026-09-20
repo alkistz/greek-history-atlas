@@ -1,0 +1,22 @@
+id: metaxas
+name: {en: Ioannis Metaxas, el: Ιωάννης Μεταξάς}
+born: {date: 1871-04-12, precision: day, place: ithaca}
+died: {date: 1941-01-29, precision: day, place: athens}
+roles: [military, statesman]
+summary:
+  en: >
+    Staff officer, royalist, and from 1936 dictator of Greece under the Fourth of
+    August regime. His refusal of the Italian ultimatum on 28 October 1940 took Greece
+    into the Second World War. He died three months before the German invasion.
+body:
+  en: |
+    Metaxas trained at the Prussian war academy and was the ablest planner of the
+    Balkan War campaigns. He opposed the Asia Minor expedition on military grounds, and
+    was proved right. With the king's consent he suspended parliament in August 1936 and
+    ruled by decree, borrowing the outward forms of fascism without its expansionism.
+
+    When Italy delivered its ultimatum in the early hours of 28 October 1940 he
+    rejected it, and the Greek army drove the invaders back into Albania over the
+    following weeks. He died of illness in January 1941, leaving no one able to hold
+    the state together when the Germans came in April.
+sources: [{id: clogg-2021}, {id: mazower-1993}]

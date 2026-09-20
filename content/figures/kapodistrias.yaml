@@ -1,0 +1,24 @@
+id: kapodistrias
+name: {en: Ioannis Kapodistrias, el: Ιωάννης Καποδίστριας}
+born: {date: 1776-02-11, precision: day, place: corfu}
+died: {date: 1831-10-09, precision: day, place: nafplio}
+roles: [statesman, diplomat]
+summary:
+  en: >
+    Corfiot diplomat, joint foreign minister of Russia, and from 1828 the first head of
+    state of independent Greece. He built the institutions of the new state and was
+    assassinated in Nafplio in 1831.
+body:
+  en: |
+    Kapodistrias made his career in the Russian foreign service, where he represented
+    the Tsar at the Congress of Vienna and helped to secure the Ionian settlement of
+    1815. He refused the leadership of the Filiki Eteria in 1820, judging a rising
+    premature, but was elected Governor of Greece by the Third National Assembly in 1827.
+
+    He arrived in January 1828 to a country without an administration, a currency or
+    a functioning army, and set about creating all three. His centralising rule made
+    enemies among the island shipowners and the Peloponnesian notables. On 9 October
+    1831 he was shot on the steps of the church of Saint Spyridon in Nafplio by members
+    of the Mavromichalis family. The anarchy that followed hastened the Powers'
+    decision to impose a monarchy.
+sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]

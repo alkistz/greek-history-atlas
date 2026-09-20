@@ -4,6 +4,7 @@ Every route is a pure read off an in-memory corpus loaded once at startup.
 There is no database and no request-path computation worth the name.
 """
 
+import logging
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -13,13 +14,22 @@ from app.core.dependencies import get_corpus
 from app.modules.atoms.router import router as atoms_router
 from app.modules.control.router import router as control_router
 from app.modules.events.router import router as events_router
+from app.modules.figures.router import router as figures_router
+from app.modules.figures.validate import lifetime_warnings
+from app.modules.instruments.router import router as instruments_router
 from app.modules.meta.router import router as meta_router
+from app.modules.places.router import router as places_router
+from app.modules.sources.router import router as sources_router
+
+log = logging.getLogger("uvicorn.error")
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Load eagerly so bad content fails the boot, not the first request.
-    get_corpus()
+    corpus = get_corpus()
+    for warning in lifetime_warnings(corpus):
+        log.warning("content: %s", warning)
     yield
 
 
@@ -40,10 +50,17 @@ app.add_middleware(
 )
 
 API = "/api"
-app.include_router(atoms_router, prefix=API)
-app.include_router(meta_router, prefix=API)
-app.include_router(control_router, prefix=API)
-app.include_router(events_router, prefix=API)
+for router in (
+    atoms_router,
+    meta_router,
+    control_router,
+    events_router,
+    figures_router,
+    instruments_router,
+    places_router,
+    sources_router,
+):
+    app.include_router(router, prefix=API)
 
 
 @app.get("/")

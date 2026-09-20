@@ -1,0 +1,28 @@
+id: arrival-of-otto
+title:
+  en: King Otto Lands at Nafplio
+summary:
+  en: >
+    The seventeen-year-old Bavarian prince chosen by the Powers as King of Greece
+    arrived at Nafplio aboard a British frigate, with a regency and a loan. The
+    monarchy that would rule Greece until 1974 began here.
+body:
+  en: |
+    Otto sailed from Trieste with the three Bavarian regents who would govern in his
+    name, several thousand Bavarian troops, and the first instalment of the loan of
+    sixty million francs guaranteed by Britain, France and Russia. He came ashore at
+    Nafplio on 6 February 1833 (25 January Old Style) to a crowd that had, for the
+    first time in a decade, a government it had not fought over.
+
+    The regency dissolved the irregular bands, built a Bavarian-model army and
+    bureaucracy, and moved the capital to Athens in 1834. It governed without a
+    constitution, and it took the officers' rising of 1843 to change that.
+period: [1833-02-06, 1833-02-07]
+precision: day
+as_written: {date: 1833-01-25, calendar: julian}
+atom: peloponnese
+place: nafplio
+significance: 4
+figures:
+  - {figure: otto, role: leader}
+sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]

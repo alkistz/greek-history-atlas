@@ -15,3 +15,8 @@ def get_atom(corpus: Corpus, atom_id: str) -> Atom | None:
 def geojson(corpus: Corpus) -> dict[str, Any]:
     """The atom geometry as a GeoJSON FeatureCollection."""
     return corpus.geojson
+
+
+def context(corpus: Corpus) -> dict[str, Any]:
+    """The neutral land backdrop as a GeoJSON FeatureCollection with one `land` feature."""
+    return corpus.context

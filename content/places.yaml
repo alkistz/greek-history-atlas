@@ -1,0 +1,166 @@
+# Points on the map. A place keeps its coordinates and changes its name; each name
+# carries a half-open period. `atom` is optional and, when set, is checked against
+# the atom polygon at load time. Places abroad simply have no atom.
+
+- id: athens
+  kind: city
+  lon: 23.73
+  lat: 37.98
+  atom: attica
+  names: [{name: {en: Athens, el: Αθήνα}}]
+
+- id: nafplio
+  kind: town
+  lon: 22.80
+  lat: 37.57
+  atom: peloponnese
+  names: [{name: {en: Nafplio, el: Ναύπλιο}}]
+
+- id: tripolitsa
+  kind: town
+  lon: 22.37
+  lat: 37.51
+  atom: peloponnese
+  names: [{name: {en: Tripolitsa, el: Τριπολιτσά}}]
+
+- id: navarino
+  kind: battlefield
+  lon: 21.68
+  lat: 36.92
+  atom: peloponnese
+  names: [{name: {en: Navarino Bay, el: Ναυαρίνο}}]
+
+- id: ramavouni
+  kind: village
+  lon: 21.97
+  lat: 37.19
+  atom: peloponnese
+  names: [{name: {en: Ramavouni, el: Ραμαβούνι}}]
+
+- id: messolonghi
+  kind: town
+  lon: 21.43
+  lat: 38.37
+  atom: aitoloakarnania
+  names: [{name: {en: Messolonghi, el: Μεσολόγγι}}]
+
+- id: chios-town
+  kind: town
+  lon: 26.14
+  lat: 38.37
+  atom: chios
+  names: [{name: {en: Chios, el: Χίος}}]
+
+- id: corfu
+  kind: city
+  lon: 19.92
+  lat: 39.62
+  atom: ionian
+  names: [{name: {en: Corfu, el: Κέρκυρα}}]
+
+- id: ithaca
+  kind: island
+  lon: 20.72
+  lat: 38.37
+  atom: ionian
+  names: [{name: {en: Ithaca, el: Ιθάκη}}]
+
+- id: thessaloniki
+  kind: city
+  lon: 22.94
+  lat: 40.64
+  atom: macedonia-central
+  names:
+    - {name: {en: Salonica, el: Θεσσαλονίκη}, to: 1913-08-10}
+    - {name: {en: Thessaloniki, el: Θεσσαλονίκη}, from: 1913-08-10}
+
+- id: kavala
+  kind: city
+  lon: 24.41
+  lat: 40.94
+  atom: macedonia-east
+  names: [{name: {en: Kavala, el: Καβάλα}}]
+
+- id: mournies
+  kind: village
+  lon: 24.02
+  lat: 35.48
+  atom: crete
+  names: [{name: {en: Mournies, el: Μουρνιές}}]
+
+- id: rhodes
+  kind: city
+  lon: 28.22
+  lat: 36.44
+  atom: dodecanese
+  names: [{name: {en: Rhodes, el: Ρόδος}}]
+
+- id: smyrna
+  kind: city
+  lon: 27.14
+  lat: 38.42
+  names:
+    - {name: {en: Smyrna, el: Σμύρνη}, to: 1930-03-28}
+    - {name: {en: İzmir, el: Σμύρνη}, from: 1930-03-28}
+
+- id: constantinople
+  kind: city
+  lon: 28.98
+  lat: 41.01
+  names:
+    - {name: {en: Constantinople, el: Κωνσταντινούπολη}, to: 1930-03-28}
+    - {name: {en: Istanbul, el: Κωνσταντινούπολη}, from: 1930-03-28}
+
+- id: bucharest
+  kind: city
+  lon: 26.10
+  lat: 44.43
+  names: [{name: {en: Bucharest, el: Βουκουρέστι}}]
+
+- id: lausanne
+  kind: city
+  lon: 6.63
+  lat: 46.52
+  names: [{name: {en: Lausanne, el: Λωζάνη}}]
+
+- id: paris
+  kind: city
+  lon: 2.35
+  lat: 48.86
+  names: [{name: {en: Paris, el: Παρίσι}}]
+
+- id: london
+  kind: city
+  lon: -0.13
+  lat: 51.51
+  names: [{name: {en: London, el: Λονδίνο}}]
+
+- id: vienna
+  kind: city
+  lon: 16.37
+  lat: 48.21
+  names: [{name: {en: Vienna, el: Βιέννη}}]
+
+- id: salzburg
+  kind: city
+  lon: 13.04
+  lat: 47.80
+  names: [{name: {en: Salzburg, el: Σάλτσμπουργκ}}]
+
+- id: bamberg
+  kind: city
+  lon: 10.89
+  lat: 49.89
+  names: [{name: {en: Bamberg, el: Βαμβέργη}}]
+
+- id: copenhagen
+  kind: city
+  lon: 12.57
+  lat: 55.68
+  names: [{name: {en: Copenhagen, el: Κοπεγχάγη}}]
+
+- id: cairo
+  kind: city
+  lon: 31.24
+  lat: 30.04
+  names: [{name: {en: Cairo, el: Κάιρο}}]

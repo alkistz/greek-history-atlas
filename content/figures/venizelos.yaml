@@ -1,0 +1,22 @@
+id: venizelos
+name: {en: Eleftherios Venizelos, el: Ελευθέριος Βενιζέλος}
+born: {date: 1864-08-23, precision: day, place: mournies}
+died: {date: 1936-03-18, precision: day, place: paris}
+roles: [statesman]
+summary:
+  en: >
+    Cretan lawyer and revolutionary who became the dominant Greek statesman of the
+    twentieth century. He led the country through the Balkan Wars and the First World
+    War, and negotiated both Sèvres and Lausanne.
+body:
+  en: |
+    Venizelos made his name in the Cretan revolts of 1897 and 1905 and was called to
+    Athens by the Military League in 1910. As prime minister he rebuilt the army and
+    navy and put together the Balkan alliance that defeated the Ottoman Empire in 1912.
+
+    His insistence on joining the Entente split the country against the king in the
+    National Schism of 1915 to 1917. At Sèvres in 1920 he won a Greece of "two
+    continents and five seas"; he then lost the election, and the Asia Minor campaign
+    ended in catastrophe under his successors. He returned to negotiate Lausanne and
+    served twice more as prime minister before dying in exile in Paris.
+sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]

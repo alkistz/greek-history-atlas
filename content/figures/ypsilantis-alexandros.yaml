@@ -1,0 +1,23 @@
+id: ypsilantis-alexandros
+name: {en: Alexandros Ypsilantis, el: Αλέξανδρος Υψηλάντης}
+born: {date: 1792-12-12, precision: day, place: constantinople}
+died: {date: 1828-01-31, precision: day, place: vienna}
+roles: [military, revolutionary]
+summary:
+  en: >
+    Phanariot officer in the Russian army and leader of the Filiki Eteria from 1820.
+    He opened the revolution by crossing into Moldavia in February 1821, in an
+    expedition that collapsed within four months.
+body:
+  en: |
+    Ypsilantis was born into one of the great Phanariot families of Constantinople and
+    lost an arm fighting for Russia at Dresden in 1813. In 1820 he accepted the
+    leadership of the Filiki Eteria, the secret society preparing a Greek rising, after
+    Kapodistrias had declined it.
+
+    His crossing of the Pruth into Moldavia on 6 March 1821 was meant to draw Russia
+    into the war. It did not. Disowned by the Tsar and defeated at Drăgășani in June,
+    he fled into Austrian territory and was imprisoned for six years. He died in Vienna
+    a few weeks after his release, as the Greek state he had helped to start was
+    taking shape without him.
+sources: [{id: brewer-2001}, {id: clogg-2021}]

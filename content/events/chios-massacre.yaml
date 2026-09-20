@@ -1,0 +1,26 @@
+id: chios-massacre
+title:
+  en: The Massacre of Chios
+summary:
+  en: >
+    Ottoman forces landed on Chios in response to a rising encouraged from Samos, and
+    destroyed the island's population by killing, enslavement and flight. The scale of
+    it turned European opinion toward the Greek cause, most visibly through Delacroix's
+    painting of 1824.
+body:
+  en: |
+    Chios was a wealthy island whose notables had wanted no part in the revolution.
+    A small force from Samos landed in March 1822 and forced the issue; the Ottoman
+    fleet arrived in April with orders to make an example of the island.
+
+    Over the following weeks tens of thousands were killed or sold into slavery and
+    most of the survivors fled. The island did not recover for a century. In Europe
+    the massacre did more than any Greek victory to make the war a popular cause, and
+    Delacroix's *Scenes from the Massacres of Chios*, shown at the Paris Salon of
+    1824, fixed the image.
+period: [1822-04-11, 1822-05-01]
+precision: span
+atom: chios
+place: chios-town
+significance: 4
+sources: [{id: brewer-2001}, {id: clogg-2021}]

@@ -15,4 +15,6 @@ def validate_atoms(c: Corpus) -> list[str]:
         problems.append(f"atom {missing!r} has no geometry in atoms.geojson")
     for orphan in sorted(geo_ids - atom_ids):
         problems.append(f"atoms.geojson has geometry {orphan!r} with no atom")
+    if not any(f.get("id") == "land" for f in c.context.get("features", [])):
+        problems.append("context.geojson has no `land` feature")
     return problems

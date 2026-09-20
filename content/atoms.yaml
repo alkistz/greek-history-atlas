@@ -1,8 +1,12 @@
 # Atoms: areas whose sovereignty history is identical throughout 1821 to the present.
 #
-# v0 dissolves whole NUTS3 units only. Where a historical frontier cut across a modern
-# NUTS3 unit, the atom is an approximation and the error is recorded in README.md.
-# Sub-NUTS3 cuts (Kythira, Sporades, Elassona, Arta/Preveza, Samos) come later.
+# Atoms dissolve whole NUTS3 units (`nuts3`). Where a historical frontier cut an island
+# group off a mainland unit, `parts` picks the polygon parts of that unit whose bounds fall
+# inside a bounding box (w, s, e, n), and the mainland atom gets the remainder. Land cuts
+# inside a unit (Elassona, Domokos, Preveza) are not modelled; see README.md.
+#
+# `external: true` marks atoms outside the modern Greek state. They are excluded from
+# area totals and only drawn while a control row covers them.
 #
 # NUTS 2021 codes, Eurostat Nuts2json 03M.
 
@@ -13,7 +17,7 @@
 - id: attica
   name: {en: Attica, el: Αττική}
   nuts3: [EL301, EL302, EL303, EL304, EL305, EL306, EL307]
-  # Includes Kythira, which was Ionian (British) until 1864, not Greek in 1832.
+  # EL307 minus Kythira and Antikythera, which the `ionian` atom takes by bbox.
 
 - id: sterea
   name: {en: Eastern Central Greece, el: Ανατολική Στερεά Ελλάδα}
@@ -36,11 +40,21 @@
 - id: ionian
   name: {en: Ionian Islands, el: Ιόνια Νησιά}
   nuts3: [EL621, EL622, EL623, EL624]
+  # Kythira and Antikythera were Ionian, so British until 1864 and not Greek in 1832.
+  parts:
+    - {nuts3: EL307, bbox: [22.8, 35.7, 23.4, 36.5]}
 
 - id: thessaly
   name: {en: Thessaly, el: Θεσσαλία}
   nuts3: [EL611, EL612, EL613]
+  # EL613 minus the Sporades, which `sporades` takes by bbox.
   # Includes Elassona, which remained Ottoman until 1912.
+
+- id: sporades
+  name: {en: Northern Sporades, el: Βόρειες Σποράδες}
+  # Greek from 1832 with the Cyclades, half a century before the Thessalian mainland.
+  parts:
+    - {nuts3: EL613, bbox: [23.36, 38.9, 24.5, 39.6]}
 
 - id: arta-preveza
   name: {en: Arta and Preveza, el: Άρτα και Πρέβεζα}
@@ -88,3 +102,34 @@
 - id: dodecanese
   name: {en: Dodecanese, el: Δωδεκάνησα}
   nuts3: [EL421]
+
+# ------------------------------------------------------------- outside modern Greece
+# No Ottoman baseline: rows exist only where a polity on this map is involved.
+
+- id: thrace-east
+  name: {en: Eastern Thrace, el: Ανατολική Θράκη}
+  nuts3: [TR211, TR212, TR213]
+  external: true
+
+- id: imbros-tenedos
+  name: {en: Imbros and Tenedos, el: Ίμβρος και Τένεδος}
+  parts:
+    - {nuts3: TR222, bbox: [25.6, 39.7, 26.1, 40.3]}
+  external: true
+
+- id: smyrna
+  name: {en: Smyrna zone, el: Ζώνη της Σμύρνης}
+  nuts3: [TR310]
+  # The Sèvres zone was smaller than the modern province. Approximation.
+  external: true
+
+- id: epirus-north
+  name: {en: Northern Epirus, el: Βόρεια Ήπειρος}
+  nuts3: [AL033, AL034, AL035]
+  external: true
+
+- id: cyprus
+  name: {en: Cyprus, el: Κύπρος}
+  nuts3: [CY000]
+  # Whole island. The 1974 partition needs a hand-drawn cut and is not modelled.
+  external: true

@@ -1,0 +1,32 @@
+id: treaty-of-lausanne-1923
+title:
+  en: The Treaty of Lausanne and the Exchange of Populations
+summary:
+  en: >
+    After the collapse of the Greek campaign in Asia Minor, Lausanne fixed the frontier
+    with the new Turkish republic and provided for a compulsory exchange of populations
+    on religious criteria. Roughly 1.2 million Orthodox Christians moved to Greece and
+    around 400,000 Muslims moved the other way. It ended the Greek presence in Anatolia
+    and reshaped the demography of Macedonia and Thrace within a few years.
+body:
+  en: |
+    The Treaty of Sèvres of 1920 had given Greece Eastern Thrace and the administration
+    of Smyrna. The Turkish national movement under Mustafa Kemal never accepted it, and
+    the Greek army's advance toward Ankara in 1921 ended in rout in August 1922. Smyrna
+    burned in September; the Greek government fell to a military revolt.
+
+    At Lausanne Venizelos, back from retirement to lead the delegation, negotiated the
+    best terms available. Greece kept Western Thrace and lost everything else Sèvres had
+    given. The convention on the exchange of populations, signed in January 1923, made
+    compulsory a movement most of whose Christians had already fled. The refugees
+    made up a fifth of the population of the state that received them.
+period: [1923-07-24, 1923-07-25]
+precision: day
+atom: thrace-east
+place: lausanne
+frame: aegean-east
+instrument: lausanne-1923
+significance: 5
+figures:
+  - {figure: venizelos, role: signatory}
+sources: [{id: clark-2006}, {id: clogg-2021}]

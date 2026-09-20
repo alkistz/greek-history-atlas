@@ -23,7 +23,7 @@ year-slider over Wikipedia borders cannot express that, and it is the reason thi
 ```sh
 make setup     # uv sync, npm install
 make fetch     # download the raw NUTS3 boundaries (once)
-make atoms     # build data/atoms.geojson (once, output is committed)
+make atoms     # build data/atoms.geojson and data/context.geojson (output is committed)
 make api       # backend on :8000
 make web       # frontend on :5173
 ```
@@ -33,8 +33,9 @@ Then open http://localhost:5173.
 ## Layout
 
 ```
-content/     the source of truth: atoms, polities, control, events. YAML in git.
-data/        raw boundary downloads (gitignored) and the built atom geometry (committed)
+content/     the source of truth. YAML in git: atoms, polities, control, instruments,
+             places, sources as one file each; events/ and figures/ as one file per entry.
+data/        raw boundary downloads (gitignored) and the built geometry (committed)
 backend/     content pipeline and a read-only API. No database. `app/core` is shared
              plumbing; `app/modules/<name>` owns one domain each (models, crud, validate, router).
 frontend/    SvelteKit, dev mode. d3-geo, plain SVG.
@@ -50,20 +51,21 @@ added it belongs downstream of the export, never between the content and the fro
 
 ## Known simplifications in v0
 
-v0 dissolves whole NUTS3 units. Several historical frontiers cut across modern ones, so the
-following are wrong on purpose. Each is fixed later by a sub-NUTS3 cut or an extra atom,
-and none of them changes the model.
+Atoms dissolve whole NUTS3 units, plus island groups cut off a mainland unit by bounding
+box (Kythira, the Sporades, Imbros and Tenedos). Land frontiers that cut through a unit are
+not modelled, so the following are wrong on purpose. None of them changes the model.
 
 | what | why it is wrong |
 |---|---|
-| `attica` includes Kythira | Kythira was Ionian, so British until 1864, not Greek in 1832 |
 | `sterea` uses modern boundaries | the 1832 Arta-Volos frontier cut across Fthiotida and Evrytania. Domokos and the northern Agrafa sit inside this atom but were Ottoman until 1881. This is the largest single error and puts the 1833 figure roughly 3% over the published one |
 | `thessaly` includes Elassona | Elassona stayed Ottoman until 1912 |
 | `arta-preveza` is one atom | Arta became Greek in 1881, Preveza in 1913. v0 treats both as 1881 |
 | `samos-ikaria` is one atom | Ikaria declared itself a free state in July 1912 |
+| `smyrna` is the whole İzmir province | the Sèvres zone was smaller |
+| `cyprus` is whole | the 1974 partition needs a hand-drawn line |
 | the revolution is static | Ibrahim's reconquest of most of the Peloponnese in 1825-27 is not modelled, so the insurgent extent does not move across the decade |
 | occupation zones are atom-grained | the German zone actually included an Evros strip, a Thessaloniki-Chalkidiki strip, and only part of Crete |
-| no neighbours | surrounding countries are not drawn at all |
+| neighbours are modern | the land backdrop is drawn at present-day extent, uncoloured, with no borders |
 
 Computed areas against published figures, as a check on the geometry rather than on the history:
 
@@ -71,17 +73,16 @@ Computed areas against published figures, as a check on the geometry rather than
 |---|---|---|---|
 | present day | 131,790 | 131,957 | -0.13% |
 | 1914-01-01 | 120,479 | 120,308 | +0.14% |
-| 1833-01-01 | 48,806 | 47,516 | +2.7% |
+| 1833-01-01 | 48,780 | 47,516 | +2.7% |
 
 The first two show the NUTS3 approximation is sound. The third is the Fthiotida and
 Evrytania problem described above, and it is the one worth fixing first.
 
 ## Deliberately not here yet
 
-Sub-NUTS3 cuts. Hand-drawn atoms outside the modern state (the Smyrna zone, Eastern Thrace,
-Imbros and Tenedos, Northern Epirus, a Cyprus split for 1974). Sources, claims and
-interpretations. The Greek text. TopoJSON and merged borders. Server-side rendering,
-prerendering, routing and per-event pages. CI.
+Sub-NUTS3 land cuts. A Cyprus split for 1974. Claims (numbers with citations) and
+interpretations. The Greek text. TopoJSON and merged borders. Server-side rendering and
+prerendering. CI.
 
 ## Data and licence
 

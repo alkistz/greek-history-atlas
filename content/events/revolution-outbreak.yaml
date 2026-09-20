@@ -1,0 +1,30 @@
+id: revolution-outbreak
+title:
+  en: Outbreak of the Greek Revolution
+summary:
+  en: >
+    Risings against Ottoman rule broke out across the Peloponnese and Central Greece
+    in the spring of 1821. The 25th of March, Old Style, is the date the Greek state later
+    chose to commemorate, though the first actions came earlier and in several places at
+    once, including Alexandros Ypsilantis crossing the Pruth into Moldavia in February.
+body:
+  en: |
+    The revolution had two openings. In the Danubian Principalities, Alexandros
+    Ypsilantis crossed the Pruth from Russian territory on 6 March 1821 at the head of a
+    small force, expecting Russian support that never came. His campaign was over by June.
+
+    In the Peloponnese the rising spread through the second half of March, Old Style,
+    from Kalavryta and Patras to the Mani, where Petrobey Mavromichalis and Kolokotronis
+    raised the clans. Within weeks the Ottoman garrisons were shut up in the fortresses
+    and the countryside was in Greek hands. The 25th of March, the feast of the
+    Annunciation, was fixed as the national day in 1838 and is 6 April in the Gregorian
+    calendar used on this map.
+period: [1821-04-06, 1821-04-07]
+precision: day
+as_written: {date: 1821-03-25, calendar: julian}
+atom: peloponnese
+significance: 5
+figures:
+  - {figure: ypsilantis-alexandros, role: leader}
+  - {figure: kolokotronis, role: commander}
+sources: [{id: brewer-2001}, {id: clogg-2021}]

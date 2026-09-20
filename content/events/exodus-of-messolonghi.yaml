@@ -1,0 +1,31 @@
+id: exodus-of-messolonghi
+title:
+  en: The Exodus of Messolonghi
+summary:
+  en: >
+    After a year under siege by Ottoman and Egyptian forces, the garrison and civilian
+    population of Messolonghi attempted a mass breakout by night. Most were killed or
+    taken. The town had already become the symbol of the revolution abroad, where Byron
+    had died two years earlier, and its fall did more for Greek diplomacy than its
+    defence had done for Greek arms.
+body:
+  en: |
+    Messolonghi had beaten off one siege in 1822 and 1823. The second began in April
+    1825 under Reşid Pasha and was joined in December by Ibrahim Pasha's Egyptians, who
+    brought the artillery and engineers to reduce the lagoon defences. By spring the town
+    was starving.
+
+    On the night of 22 April 1826 the defenders and most of the civilians tried to
+    break through the lines. The plan was betrayed; a few hundred reached the hills,
+    and the rest were killed or enslaved. The Powers took note. The Protocol of St
+    Petersburg, agreed by Britain and Russia while the siege was ending, was the first
+    step toward the intervention of 1827.
+period: [1826-04-22, 1826-04-24]
+precision: day
+as_written: {date: 1826-04-10, calendar: julian}
+atom: aitoloakarnania
+place: messolonghi
+significance: 5
+figures:
+  - {figure: ibrahim-pasha, role: commander}
+sources: [{id: brewer-2001}, {id: clogg-2021}]

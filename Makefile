@@ -1,4 +1,4 @@
-.PHONY: setup fetch atoms api web test lint
+.PHONY: setup fetch atoms api web test lint check
 
 setup:
 	cd backend && uv sync
@@ -21,3 +21,6 @@ test:
 
 lint:
 	cd backend && uv run ruff check . && uv run ruff format --check .
+
+check: lint test
+	cd frontend && npm run check && npx vite build

@@ -1,0 +1,28 @@
+id: italian-invasion-1940
+title:
+  en: The Italian Invasion and the Albanian Front
+summary:
+  en: >
+    Italy delivered an ultimatum in the small hours of 28 October 1940 and invaded from
+    Albania three hours later. Metaxas rejected it. Within six weeks the Greek army had
+    thrown the Italians back and was fighting inside Albania.
+body:
+  en: |
+    Mussolini wanted a victory of his own to match Germany's, and Greece, with a
+    dictator who looked at Berlin with respect and a king who looked at London, seemed
+    the easy one. The ultimatum demanded free passage for Italian troops and was
+    presented to Metaxas at his house in Kifisia at three in the morning.
+
+    The Italian divisions crossed the Epirus frontier in rain and mud and were held
+    within days at Elaia and Kalamas. The Greek counter-offensive of November took
+    Korçë, Gjirokastër and Sarandë and held a line in southern Albania through the
+    winter. The first Allied land victory of the war forced Germany to intervene in
+    April to rescue its partner.
+period: [1940-10-28, 1940-12-31]
+precision: span
+atom: epirus-north
+frame: epirus
+significance: 5
+figures:
+  - {figure: metaxas, role: leader}
+sources: [{id: mazower-1993}, {id: clogg-2021}]

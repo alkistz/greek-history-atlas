@@ -1,0 +1,29 @@
+id: assassination-of-kapodistrias
+title:
+  en: The Assassination of Kapodistrias
+summary:
+  en: >
+    The first head of state of independent Greece was shot outside a church in Nafplio
+    by members of the Mavromichalis clan. The disorder that followed convinced the
+    Powers to impose a monarchy.
+body:
+  en: |
+    Kapodistrias had governed since January 1828 with an authority that owed nothing
+    to the notables, the island shipowners or the captains, and all three had turned
+    against him. The Maniot leader Petrobey Mavromichalis was in prison in Nafplio on a
+    charge of rebellion.
+
+    On the morning of 9 October 1831 (27 September Old Style) his brother Konstantinos
+    and his son Georgios waited for the Governor at the door of the church of Saint
+    Spyridon and shot and stabbed him. Civil war between the Governor's party and its
+    opponents followed within months, and the Convention of London of May 1832 gave the
+    country a king.
+period: [1831-10-09, 1831-10-10]
+precision: day
+as_written: {date: 1831-09-27, calendar: julian}
+atom: peloponnese
+place: nafplio
+significance: 4
+figures:
+  - {figure: kapodistrias, role: victim}
+sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]

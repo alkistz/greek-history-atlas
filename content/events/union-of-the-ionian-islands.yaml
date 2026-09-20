@@ -1,0 +1,30 @@
+id: union-of-the-ionian-islands
+title:
+  en: The Union of the Ionian Islands
+summary:
+  en: >
+    Britain ceded the United States of the Ionian Islands to Greece, a protectorate it
+    had held since 1815. The transfer was tied to the accession of George I and was the
+    first enlargement of the kingdom. It was also the only one achieved by diplomacy
+    alone, without a war.
+body:
+  en: |
+    The Ionian Islands had been a British protectorate since the Treaty of Paris, with
+    their own assembly and a Lord High Commissioner who could overrule it. The assembly
+    had voted for union with Greece repeatedly since 1848, and by the 1860s London had
+    concluded the islands cost more to hold than they were worth.
+
+    The deposition of Otto in 1862 gave Britain its opening. It offered the islands as
+    the price of a Danish prince acceptable to all three Powers, and the Treaty of
+    London of March 1864 sealed the bargain. The British garrison left and the Greek
+    flag went up on 2 June.
+period: [1864-06-02, 1864-06-03]
+precision: day
+as_written: {date: 1864-05-21, calendar: julian}
+atom: ionian
+place: corfu
+instrument: london-1864
+significance: 4
+figures:
+  - {figure: george-i, role: participant}
+sources: [{id: clogg-2021}]

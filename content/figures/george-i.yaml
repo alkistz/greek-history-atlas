@@ -1,0 +1,22 @@
+id: george-i
+name: {en: George I, el: Γεώργιος Α΄}
+born: {date: 1845-12-24, precision: day, place: copenhagen}
+died: {date: 1913-03-18, precision: day, place: thessaloniki}
+roles: [monarch]
+summary:
+  en: >
+    Danish prince elected King of the Hellenes in 1863. His reign of fifty years saw the
+    kingdom gain the Ionian Islands, Thessaly, Epirus, Macedonia and Crete. He was
+    assassinated in Thessaloniki five months after its capture.
+body:
+  en: |
+    The National Assembly chose Prince William of Denmark after the British candidate,
+    Prince Alfred, was ruled out by the Powers. He arrived in October 1863; Britain's
+    cession of the Ionian Islands was the settlement's dowry.
+
+    George governed through parliament rather than around it, and after 1875 accepted
+    the principle that the prime minister must command a majority. He lived to see the
+    Balkan Wars double the size of his kingdom. On 18 March 1913, walking without a guard
+    in newly captured Thessaloniki, he was shot dead by a man with no political motive
+    anyone could establish.
+sources: [{id: clogg-2021}]

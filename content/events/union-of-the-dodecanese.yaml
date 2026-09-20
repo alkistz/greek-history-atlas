@@ -1,0 +1,27 @@
+id: union-of-the-dodecanese
+title:
+  en: The Union of the Dodecanese
+summary:
+  en: >
+    The Paris Peace Treaty transferred the Dodecanese from Italy, which had held the
+    islands since 1912, to Greece. Greek administration began in March 1947 and the
+    formal union followed on 7 March 1948. It was the last enlargement of the Greek
+    state.
+body:
+  en: |
+    Italy had taken the Dodecanese from the Ottoman Empire in 1912 as a pledge during
+    the Libyan war and never gave them back. Lausanne confirmed Italian sovereignty in
+    1923, and the fascist governors of the 1930s pursued a policy of Italianisation
+    that the islands' Greek majority resisted.
+
+    Germany seized the islands after the Italian armistice in 1943 and held them until
+    May 1945. The British military administration that followed handed over to Greece
+    in March 1947, three weeks after the peace treaty had been signed. The union was
+    proclaimed at Rhodes a year later.
+period: [1947-02-10, 1947-02-11]
+precision: day
+atom: dodecanese
+place: rhodes
+instrument: paris-1947
+significance: 4
+sources: [{id: clogg-2021}]

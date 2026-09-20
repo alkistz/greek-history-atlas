@@ -1,0 +1,29 @@
+id: fall-of-tripolitsa
+title:
+  en: The Fall of Tripolitsa
+summary:
+  en: >
+    Greek forces took the Ottoman administrative capital of the Morea after a long
+    siege. The capture was followed by the massacre of much of the Muslim and Jewish
+    population of the town. It secured the Peloponnese for the revolution and set a
+    pattern of reprisal that ran through the war on both sides.
+body:
+  en: |
+    Tripolitsa was the seat of the Ottoman governor of the Morea and the largest town
+    in the peninsula. Kolokotronis invested it through the summer of 1821 while the
+    other captains argued over the spoils. Greek irregulars broke in on 5 October (23
+    September Old Style) through a gate left unguarded during negotiations.
+
+    What followed was a massacre lasting several days, in which most of the Muslim and
+    Jewish inhabitants were killed. The town's fall gave the revolution its first
+    capital, a great quantity of arms, and a reputation in Europe that its supporters
+    spent the next years trying to repair.
+period: [1821-10-05, 1821-10-06]
+precision: day
+as_written: {date: 1821-09-23, calendar: julian}
+atom: peloponnese
+place: tripolitsa
+significance: 4
+figures:
+  - {figure: kolokotronis, role: commander}
+sources: [{id: brewer-2001}]

@@ -1,0 +1,24 @@
+id: otto
+name: {en: Otto, el: Όθων}
+also_known_as: [{en: Otto of Wittelsbach}]
+born: {date: 1815-06-01, precision: day, place: salzburg}
+died: {date: 1867-07-26, precision: day, place: bamberg}
+roles: [monarch]
+summary:
+  en: >
+    Second son of King Ludwig of Bavaria, chosen by the Powers in 1832 as the first
+    King of Greece. He landed at Nafplio in February 1833 aged seventeen and was
+    deposed in 1862.
+body:
+  en: |
+    The Convention of London of May 1832 gave the Greek throne to Otto and the
+    government, until he came of age, to a Bavarian regency. The regency and then the
+    king ruled without a constitution until the officers' rising of September 1843
+    forced one on him.
+
+    Otto learned Greek, wore the fustanella and embraced the Great Idea of a larger
+    Greece more warmly than his ministers thought wise. He was childless, Catholic in an
+    Orthodox kingdom, and unable to keep the confidence of the army. A rising in October
+    1862 ended the reign; he left on a British warship and died in Bamberg five years
+    later.
+sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]

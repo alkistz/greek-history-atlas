@@ -1,0 +1,25 @@
+id: kolokotronis
+name: {en: Theodoros Kolokotronis, el: Θεόδωρος Κολοκοτρώνης}
+also_known_as: [{en: The Old Man of the Morea, el: Ο Γέρος του Μοριά}]
+born: {date: 1770-04-03, precision: day, place: ramavouni}
+died: {date: 1843-02-04, precision: day, place: athens}
+roles: [military, revolutionary]
+summary:
+  en: >
+    Klepht, mercenary officer in British service on Zakynthos, and the most capable
+    Greek commander of the War of Independence. He took Tripolitsa in 1821 and broke
+    Dramali's army at Dervenakia in 1822.
+body:
+  en: |
+    Kolokotronis came from a family of klephts and armatoloi in Messenia and spent the
+    years before 1821 in Ionian exile, where he served as an officer in a Greek regiment
+    raised by the British. He landed in the Mani in March 1821 and within six months had
+    reduced Tripolitsa, the Ottoman administrative centre of the Peloponnese.
+
+    His victory at Dervenakia in July 1822 destroyed the army sent to reconquer the
+    Morea and made him the dominant military figure of the revolution. It also made him
+    a faction leader. He was imprisoned by the civil government on Hydra in 1825, released
+    to face Ibrahim Pasha, and later sentenced to death under the Bavarian regency before
+    Otto pardoned him. His memoirs, dictated in 1836, remain the classic account of the
+    war from the inside.
+sources: [{id: brewer-2001}, {id: clogg-2021}]

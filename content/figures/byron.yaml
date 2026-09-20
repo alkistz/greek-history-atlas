@@ -1,0 +1,23 @@
+id: byron
+name: {en: Lord Byron, el: Λόρδος Βύρων}
+also_known_as: [{en: George Gordon Byron}]
+born: {date: 1788-01-22, precision: day, place: london}
+died: {date: 1824-04-19, precision: day, place: messolonghi}
+roles: [writer]
+summary:
+  en: >
+    The most famous of the philhellenes. He came to Messolonghi in January 1824 with
+    money and a plan to take Lepanto, and died of fever there in April. His death
+    turned European opinion decisively toward the Greek cause.
+body:
+  en: |
+    Byron had travelled in Greece in 1809 and 1810 and made it, through *Childe Harold*,
+    the setting of Romantic longing for a whole generation of readers. When the London
+    Greek Committee looked for a public face for its loan in 1823, he was the obvious
+    choice.
+
+    He reached Messolonghi in January 1824, paid the Souliot troops from his own pocket,
+    and tried to hold together a faction-ridden command. He fell ill in April and died on
+    the 19th, before the loan money arrived. The effect on Greek fund-raising and on the
+    diplomacy of the Powers was greater than anything he could have achieved alive.
+sources: [{id: brewer-2001}]

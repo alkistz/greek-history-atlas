@@ -1,0 +1,32 @@
+id: treaty-of-bucharest-1913
+title:
+  en: The Treaty of Bucharest
+summary:
+  en: >
+    The settlement of the Second Balkan War divided Ottoman Macedonia between Greece,
+    Serbia and Bulgaria. Greece gained Epirus, most of Macedonia including Thessaloniki,
+    and the northern Aegean islands. In two campaigns the kingdom had roughly doubled in
+    both territory and population, and had absorbed a population that was not
+    predominantly Greek speaking.
+body:
+  en: |
+    The First Balkan War had driven the Ottoman Empire out of almost all of Europe by
+    the spring of 1913, and the Treaty of London left the allies to divide the spoils.
+    Bulgaria, which had done most of the fighting in Thrace, attacked its former allies
+    in June to take Macedonia and was beaten within a month.
+
+    At Bucharest in August Greece kept everything its army had reached: Thessaloniki,
+    which it had entered hours ahead of the Bulgarians in November 1912, Kavala, and
+    the whole of southern Macedonia. Crete's union was confirmed and the eastern Aegean
+    islands followed in 1914. The population of the state rose from about 2.7 to 4.8
+    million.
+period: [1913-08-10, 1913-08-11]
+precision: day
+as_written: {date: 1913-07-28, calendar: julian}
+atom: macedonia-central
+place: bucharest
+instrument: bucharest-1913
+significance: 5
+figures:
+  - {figure: venizelos, role: signatory}
+sources: [{id: hall-2000}, {id: clogg-2021}]

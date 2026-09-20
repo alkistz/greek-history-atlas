@@ -1,0 +1,164 @@
+# Treaties, protocols and conventions that moved a frontier on this map.
+# Referenced by id from control.yaml and from events. `parties` lists the
+# signatories that matter to this atlas, not every plenipotentiary present.
+
+- id: paris-1815
+  name: {en: Treaty of Paris, el: Συνθήκη των Παρισίων}
+  kind: treaty
+  signed: 1815-11-05
+  parties: [britain, russia, austria, prussia]
+  summary:
+    en: >
+      Placed the Ionian Islands under the exclusive protection of Britain as the United
+      States of the Ionian Islands, a nominally sovereign state run by a British Lord
+      High Commissioner.
+  sources: [{id: clogg-2021}]
+
+- id: london-protocol-1830
+  name: {en: London Protocol, el: Πρωτόκολλο του Λονδίνου}
+  kind: protocol
+  signed: 1830-02-03
+  parties: [britain, france, russia]
+  summary:
+    en: >
+      Declared Greece an independent state under the guarantee of the three Powers.
+      The frontier it drew, along the Aspropotamos and Spercheios rivers, was narrower
+      than the line finally agreed in 1832.
+  sources: [{id: clogg-2021}]
+
+- id: constantinople-1832
+  name: {en: Treaty of Constantinople, el: Συνθήκη της Κωνσταντινούπολης}
+  kind: treaty
+  signed: 1832-07-21
+  parties: [britain, france, russia, ottoman]
+  summary:
+    en: >
+      The Ottoman Empire recognised the independent Kingdom of Greece and accepted a
+      frontier from the Gulf of Arta to the Gulf of Volos, in return for an indemnity.
+  sources: [{id: clogg-2021}]
+
+- id: london-1864
+  name: {en: Treaty of London, el: Συνθήκη του Λονδίνου}
+  kind: treaty
+  signed: 1864-03-29
+  parties: [britain, france, russia, gr-kingdom]
+  summary:
+    en: >
+      Britain ceded the Ionian Islands to Greece on condition of their perpetual
+      neutrality. The transfer took effect on 2 June 1864.
+  sources: [{id: clogg-2021}]
+
+- id: constantinople-1881
+  name: {en: Convention of Constantinople, el: Σύμβαση της Κωνσταντινούπολης}
+  kind: convention
+  signed: 1881-07-02
+  parties: [ottoman, gr-kingdom]
+  summary:
+    en: >
+      Following the Congress of Berlin, the Ottoman Empire ceded Thessaly and the
+      district of Arta to Greece. Elassona and Preveza stayed Ottoman.
+  sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]
+
+- id: london-1913
+  name: {en: Treaty of London, el: Συνθήκη του Λονδίνου}
+  kind: treaty
+  signed: 1913-05-30
+  parties: [ottoman, gr-kingdom, bulgaria, serbia, montenegro]
+  summary:
+    en: >
+      Ended the First Balkan War. The Ottoman Empire gave up all its European territory
+      west of a line from Enos to Midia, and left the fate of the Aegean islands and of
+      Albania to the Great Powers.
+  sources: [{id: hall-2000}]
+
+- id: bucharest-1913
+  name: {en: Treaty of Bucharest, el: Συνθήκη του Βουκουρεστίου}
+  kind: treaty
+  signed: 1913-08-10
+  parties: [gr-kingdom, serbia, montenegro, romania, bulgaria]
+  summary:
+    en: >
+      Ended the Second Balkan War and divided Ottoman Macedonia. Greece received southern
+      Macedonia with Thessaloniki and Kavala; Bulgaria kept an outlet to the Aegean in
+      Western Thrace.
+  sources: [{id: hall-2000}]
+
+- id: neuilly-1919
+  name: {en: Treaty of Neuilly, el: Συνθήκη του Νεϊγύ}
+  kind: treaty
+  signed: 1919-11-27
+  parties: [bulgaria, britain, france, italy, gr-kingdom]
+  summary:
+    en: >
+      The peace with Bulgaria after the First World War. Bulgaria ceded Western Thrace
+      to the Allied Powers, who passed it to Greece in May 1920.
+  sources: [{id: clogg-2021}]
+
+- id: sevres-1920
+  name: {en: Treaty of Sèvres, el: Συνθήκη των Σεβρών}
+  kind: treaty
+  signed: 1920-08-10
+  parties: [ottoman, britain, france, italy, gr-kingdom]
+  summary:
+    en: >
+      Awarded Greece Eastern Thrace and the administration of the Smyrna zone, with a
+      plebiscite on sovereignty after five years. Never ratified, and overtaken by the
+      Turkish victory of 1922.
+  sources: [{id: clogg-2021}, {id: clark-2006}]
+
+- id: lausanne-1923
+  name: {en: Treaty of Lausanne, el: Συνθήκη της Λωζάνης}
+  kind: treaty
+  signed: 1923-07-24
+  parties: [turkey, gr-kingdom, britain, france, italy]
+  summary:
+    en: >
+      Replaced Sèvres. Fixed the Greek-Turkish frontier on the Evros, returned Eastern
+      Thrace, Imbros and Tenedos to Turkey, and gave the Dodecanese to Italy. The
+      convention on the exchange of populations was signed alongside it in January.
+  sources: [{id: clogg-2021}, {id: clark-2006}]
+
+- id: paris-1947
+  name: {en: Paris Peace Treaty with Italy, el: Συνθήκη Ειρήνης των Παρισίων}
+  kind: treaty
+  signed: 1947-02-10
+  parties: [italy, britain, france, gr-kingdom]
+  summary:
+    en: >
+      The peace with Italy after the Second World War. Italy ceded the Dodecanese to
+      Greece; the formal union followed on 7 March 1948.
+  sources: [{id: clogg-2021}]
+
+- id: cyprus-convention-1878
+  name: {en: Cyprus Convention, el: Σύμβαση της Κύπρου}
+  kind: convention
+  signed: 1878-06-04
+  parties: [britain, ottoman]
+  summary:
+    en: >
+      Britain took over the administration of Cyprus in return for a defensive alliance
+      against Russia. Ottoman sovereignty was preserved on paper until Britain annexed
+      the island on the outbreak of war with the Ottoman Empire in November 1914.
+  sources: [{id: clogg-2021}]
+
+- id: mudanya-1922
+  name: {en: Armistice of Mudanya, el: Ανακωχή των Μουδανιών}
+  kind: armistice
+  signed: 1922-10-11
+  parties: [turkey, gr-kingdom, britain, france, italy]
+  summary:
+    en: >
+      Ended the fighting in Anatolia and required Greece to evacuate Eastern Thrace
+      within thirty days, ahead of the settlement at Lausanne.
+  sources: [{id: clark-2006}]
+
+- id: zurich-london-1959
+  name: {en: Zürich and London Agreements, el: Συμφωνίες Ζυρίχης και Λονδίνου}
+  kind: treaty
+  signed: 1959-02-19
+  parties: [britain, gr-kingdom, turkey]
+  summary:
+    en: >
+      Settled the constitution and guarantee of an independent Cyprus. The Republic was
+      proclaimed on 16 August 1960, with Britain retaining two sovereign base areas.
+  sources: [{id: clogg-2021}]

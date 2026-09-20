@@ -1,0 +1,57 @@
+# Works cited. Every citation elsewhere in content/ points here by id.
+
+- id: clogg-2021
+  kind: book
+  author: Richard Clogg
+  title: A Concise History of Greece
+  year: 2021
+  publisher: Cambridge University Press
+
+- id: gallant-2016
+  kind: book
+  author: Thomas W. Gallant
+  title: "Modern Greece: From the War of Independence to the Present"
+  year: 2016
+  publisher: Bloomsbury
+
+- id: brewer-2001
+  kind: book
+  author: David Brewer
+  title: The Greek War of Independence
+  year: 2001
+  publisher: Overlook Press
+
+- id: koliopoulos-veremis-2010
+  kind: book
+  author: John S. Koliopoulos and Thanos M. Veremis
+  title: "Modern Greece: A History since 1821"
+  year: 2010
+  publisher: Wiley-Blackwell
+
+- id: mazower-1993
+  kind: book
+  author: Mark Mazower
+  title: "Inside Hitler's Greece: The Experience of Occupation, 1941-44"
+  year: 1993
+  publisher: Yale University Press
+
+- id: clark-2006
+  kind: book
+  author: Bruce Clark
+  title: "Twice a Stranger: The Mass Expulsions that Forged Modern Greece and Turkey"
+  year: 2006
+  publisher: Granta
+
+- id: hall-2000
+  kind: book
+  author: Richard C. Hall
+  title: "The Balkan Wars 1912-1913: Prelude to the First World War"
+  year: 2000
+  publisher: Routledge
+
+- id: woodhouse-1965
+  kind: book
+  author: C. M. Woodhouse
+  title: The Battle of Navarino
+  year: 1965
+  publisher: Hodder and Stoughton

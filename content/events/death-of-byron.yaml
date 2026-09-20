@@ -1,0 +1,28 @@
+id: death-of-byron
+title:
+  en: The Death of Byron at Messolonghi
+summary:
+  en: >
+    Lord Byron, the most famous foreign supporter of the Greek cause, died of fever at
+    Messolonghi three months after arriving to take a command. His death made the war
+    a cause across Europe.
+body:
+  en: |
+    Byron reached Messolonghi in January 1824 as the representative of the London Greek
+    Committee, with money, a personal following and a plan to attack Lepanto. He found
+    a town of quarrelling captains and unpaid troops and spent his funds keeping the
+    Souliots in the field.
+
+    He fell ill in early April and died on 19 April, treated with the bleeding that
+    probably killed him. The news reached London in May, at the moment the first Greek
+    loan was being raised, and did more for the loan and for the Greek cause in
+    European opinion than anything he had managed while alive.
+period: [1824-04-19, 1824-04-20]
+precision: day
+as_written: {date: 1824-04-07, calendar: julian}
+atom: aitoloakarnania
+place: messolonghi
+significance: 3
+figures:
+  - {figure: byron, role: victim}
+sources: [{id: brewer-2001}]

@@ -1,0 +1,22 @@
+id: ibrahim-pasha
+name: {en: Ibrahim Pasha, el: Ιμπραήμ Πασάς}
+born: {date: 1789-01-01, precision: year, place: kavala}
+died: {date: 1848-11-10, precision: day, place: cairo}
+roles: [military]
+summary:
+  en: >
+    Eldest son of Muhammad Ali of Egypt. His disciplined Egyptian army landed in the
+    Peloponnese in 1825 and had reconquered most of it, and taken Messolonghi, before
+    the loss of the fleet at Navarino cut him off.
+body:
+  en: |
+    Ibrahim commanded the Egyptian army the Sultan called in when his own forces failed
+    to put down the revolt. Landing at Methoni in February 1825, he brought the first
+    European-drilled infantry the Greeks had faced and moved systematically through the
+    Peloponnese, burning villages and orchards as he went.
+
+    He joined the siege of Messolonghi in December 1825 and took the town in April 1826.
+    The threat that he would depopulate the Morea was one of the arguments the Powers
+    used for intervention. After Navarino he held out for another year, until a French
+    expeditionary force supervised his evacuation in October 1828.
+sources: [{id: brewer-2001}, {id: woodhouse-1965}]

@@ -4,6 +4,7 @@ from typing import Literal
 from pydantic import Field
 
 from app.core.models import Strict
+from app.core.periods import covers as _covers
 
 ControlKind = Literal[
     "sovereign",
@@ -29,9 +30,9 @@ class Control(Strict):
     kind: ControlKind
     start: date = Field(alias="from")
     end: date | None = Field(default=None, alias="to")
-    instrument: str | None = None
+    instrument: str | None = None  # an id in content/instruments.yaml
     note: str | None = None
 
     def covers(self, on: date) -> bool:
         """Half-open [start, end): a transfer date belongs to the new holder."""
-        return self.start <= on and (self.end is None or on < self.end)
+        return _covers(self.start, self.end, on)

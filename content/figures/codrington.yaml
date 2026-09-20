@@ -1,0 +1,22 @@
+id: codrington
+name: {en: Sir Edward Codrington, el: Έντουαρντ Κόδριγκτον}
+born: {date: 1770-04-27, precision: day}
+died: {date: 1851-04-28, precision: day, place: london}
+roles: [military]
+summary:
+  en: >
+    British admiral commanding the allied fleet at Navarino in 1827. He had orders to
+    enforce an armistice without fighting, and destroyed the Ottoman and Egyptian fleet
+    in an afternoon.
+body:
+  en: |
+    Codrington had commanded a ship of the line at Trafalgar. In 1827 he was senior
+    officer of the British, French and Russian squadrons sent to impose the mediation
+    agreed in the Treaty of London on the Sultan and on Ibrahim Pasha.
+
+    He led the combined fleet into Navarino Bay on 20 October to make the point that
+    the blockade was real. A shot fired at a British boat became a general engagement,
+    and by evening most of the Ottoman and Egyptian fleet had been sunk or burnt. London
+    called it an "untoward event" and recalled him the following year. Greece gave him a
+    street and a statue.
+sources: [{id: woodhouse-1965}]

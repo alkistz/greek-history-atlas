@@ -1,58 +1,101 @@
 # Polities: states and state-like entities that held territory.
-# Colours are a muted historical-atlas palette, chosen to stay legible under the
-# occupation hatch and to remain distinguishable in greyscale.
+# Colours were chosen by a search that validated every set of polities that share a
+# map (1826, 1840, 1900, 1913, 1920, 1942, 1965) for normal and colour-blind separation
+# on both the light and the dark land surface. Lightness sits in the band both modes
+# accept, so one palette serves both. The Cretan State and the Principality of Samos
+# share a colour on purpose: both were autonomous under Ottoman suzerainty and they
+# were never neighbours.
 
 - id: ottoman
   name: {en: Ottoman Empire, el: Οθωμανική Αυτοκρατορία}
   kind: empire
-  colour: "#7d8471"
+  colour: "#a09565"
 
 - id: gr-provisional
   name: {en: Provisional Government of Greece, el: Προσωρινή Διοίκησις της Ελλάδος}
+  short: {en: Revolutionary Greece, el: Επαναστατημένη Ελλάδα}
   kind: de_facto
-  colour: "#a8443a"
+  colour: "#b7462c"
 
 - id: gr-kingdom
   name: {en: Greece, el: Ελλάδα}
   kind: state
-  colour: "#4a6d8c"
+  colour: "#0d61aa"
 
 - id: ionian-state
   name: {en: United States of the Ionian Islands, el: Ηνωμένον Κράτος των Ιονίων Νήσων}
+  short: {en: Ionian Islands, el: Ιόνιοι Νήσοι}
   kind: protectorate
-  colour: "#8a6f9e"
+  colour: "#a381be"
 
 - id: britain
   name: {en: United Kingdom, el: Ηνωμένο Βασίλειο}
   kind: state
-  colour: "#9c5f4e"
+  colour: "#933c85"
 
 - id: crete-autonomous
   name: {en: Cretan State, el: Κρητική Πολιτεία}
   kind: autonomous
-  colour: "#5f8a7d"
+  colour: "#029797"
 
 - id: samos-principality
   name: {en: Principality of Samos, el: Ηγεμονία της Σάμου}
+  short: {en: Samos, el: Σάμος}
   kind: autonomous
-  colour: "#7fa398"
+  colour: "#029797"
 
 - id: italy
   name: {en: Italy, el: Ιταλία}
   kind: state
-  colour: "#a8925c"
+  colour: "#b25b00"
 
 - id: germany
   name: {en: Germany, el: Γερμανία}
   kind: state
-  colour: "#6b6b6b"
+  colour: "#77717c"
 
 - id: bulgaria
   name: {en: Bulgaria, el: Βουλγαρία}
   kind: state
-  colour: "#8c4a52"
+  colour: "#017149"
 
 - id: turkey
   name: {en: Turkey, el: Τουρκία}
   kind: state
-  colour: "#b06a4f"
+  colour: "#8c4a20"
+
+- id: cyprus-republic
+  name: {en: Republic of Cyprus, el: Κυπριακή Δημοκρατία}
+  short: {en: Cyprus, el: Κύπρος}
+  kind: state
+  colour: "#a4883b"
+
+# Parties to treaties that never hold territory on this map. No colour needed;
+# the validator only demands one for polities that appear in control.yaml.
+- id: france
+  name: {en: France, el: Γαλλία}
+  kind: state
+
+- id: russia
+  name: {en: Russian Empire, el: Ρωσική Αυτοκρατορία}
+  kind: empire
+
+- id: austria
+  name: {en: Austrian Empire, el: Αυστριακή Αυτοκρατορία}
+  kind: empire
+
+- id: prussia
+  name: {en: Prussia, el: Πρωσία}
+  kind: state
+
+- id: serbia
+  name: {en: Serbia, el: Σερβία}
+  kind: state
+
+- id: romania
+  name: {en: Romania, el: Ρουμανία}
+  kind: state
+
+- id: montenegro
+  name: {en: Montenegro, el: Μαυροβούνιο}
+  kind: state

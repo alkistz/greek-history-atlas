@@ -1,0 +1,28 @@
+id: axis-invasion-1941
+title:
+  en: The Axis Invasion and the Triple Occupation
+summary:
+  en: >
+    German forces invaded on 6 April 1941 after the Italian attack from Albania had
+    failed. Athens fell on 27 April and Crete followed in May. The country was then
+    divided into German, Italian and Bulgarian zones of occupation while the Greek state
+    continued to exist in exile, which is why the map shows occupation as a layer over
+    sovereignty rather than in place of it.
+body:
+  en: |
+    The German attack came through Bulgaria against the Metaxas Line and through
+    Yugoslavia behind it. Thessaloniki fell on 9 April, the army in Albania was cut off
+    and surrendered on 20 April, and the swastika flew on the Acropolis on 27 April.
+    The king and government withdrew to Crete and then, after the airborne invasion of
+    May, to Cairo.
+
+    The occupiers divided the country. Germany kept Athens, central Macedonia, the
+    strategic islands and most of Crete; Bulgaria annexed in all but name eastern
+    Macedonia and western Thrace; Italy took the rest. The famine of the winter of
+    1941 to 1942 killed tens of thousands in Athens alone.
+period: [1941-04-06, 1941-06-01]
+precision: span
+atom: attica
+place: athens
+significance: 5
+sources: [{id: mazower-1993}]

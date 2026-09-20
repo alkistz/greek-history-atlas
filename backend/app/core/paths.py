@@ -14,10 +14,18 @@ CONTENT = ROOT / "content"
 DATA = ROOT / "data"
 RAW = DATA / "raw"
 
+# Reference tables: one file each.
 ATOMS_YAML = CONTENT / "atoms.yaml"
 POLITIES_YAML = CONTENT / "polities.yaml"
 CONTROL_YAML = CONTENT / "control.yaml"
-EVENTS_YAML = CONTENT / "events.yaml"
+INSTRUMENTS_YAML = CONTENT / "instruments.yaml"
+PLACES_YAML = CONTENT / "places.yaml"
+SOURCES_YAML = CONTENT / "sources.yaml"
+
+# Prose-carrying entries: one file per entry.
+EVENTS_DIR = CONTENT / "events"
+FIGURES_DIR = CONTENT / "figures"
 
 NUTS3_RAW = RAW / "nutsrg_3.json"
 ATOMS_GEOJSON = DATA / "atoms.geojson"
+CONTEXT_GEOJSON = DATA / "context.geojson"
