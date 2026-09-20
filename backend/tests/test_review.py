@@ -34,11 +34,14 @@ def test_the_cyprus_thread_is_done(corpus):
     assert all(by_id[i].review and by_id[i].review.auto for i in thread.events)
 
 
-def test_absent_review_means_nobody_looked(corpus):
-    """The field is optional so the 119 entries written before it stay honest
-    rather than being backfilled with a claim nobody made."""
-    assert any(e.review is None for e in corpus.events)
+def test_absent_review_is_valid(corpus):
+    """An entry nobody has examined must stay valid and say so by omission, rather
+    than being backfilled with a claim nobody made. Asserted as a property: the
+    first version of this test checked that some entry was unreviewed, which was
+    a fact about the day it was written and broke the moment the sweep finished."""
     assert validate(corpus) == []
+    bare = corpus.events[0].model_copy(update={"review": None})
+    assert validate(replace(corpus, events=swap(corpus.events, bare))) == []
 
 
 def test_clean_requires_every_language_the_entry_has(corpus):
