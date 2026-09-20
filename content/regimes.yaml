@@ -1,0 +1,212 @@
+# What kind of state Greece was, when.
+#
+# control.yaml answers "who held this ground". This file answers the other question
+# the corpus asks after 1832, which the map cannot show: what the Greek state itself
+# was at the time. Two thirds of the events are dated after 1900 and a third of them
+# happen in Athens, so the territorial axis stops discriminating long before the
+# corpus stops. This is the axis that carries the rest.
+#
+# Periods are half-open [from, to), exactly as in control.yaml: a transition date
+# belongs to the new regime. `to: null` means open-ended.
+#
+# The rows are contiguous and non-overlapping, and validate.py enforces both, so
+# every date from the outbreak onward resolves to exactly one regime. That is what
+# lets an event's regime be a lookup from its date, with nothing stored per event --
+# the same bargain regions.yaml strikes with atoms.
+#
+# Dates are proleptic Gregorian, like every date in the corpus. Nineteenth-century
+# boundaries are therefore 12 days later than the Old Style dates the sources give,
+# and the comment on each row records the date as it is usually written.
+#
+# Where a change was a process rather than a moment, the row takes the date on which
+# the old regime stopped functioning, not the date the new one was ratified. The
+# ratification is usually an event in its own right; see the note on 1935 and 1974.
+
+# ------------------------------------------------------------------- Revolution
+- id: provisional-1821
+  kind: revolutionary
+  name: {en: Provisional administrations, el: Προσωρινές διοικήσεις}
+  polity: gr-provisional
+  from: 1821-04-06   # 25 March OS, the outbreak
+  to: 1833-02-06
+  summary:
+    en: >
+      The national assemblies, their provisional constitutions and the governorate of
+      Kapodistrias: a state that existed and fought before anyone recognised it.
+    el: >
+      Οι εθνοσυνελεύσεις, τα προσωρινά συντάγματά τους και η κυβερνητεία του Καποδίστρια:
+      ένα κράτος που υπήρχε και πολεμούσε πριν το αναγνωρίσει κανείς.
+
+# ------------------------------------------------------------------- Kingdom
+- id: absolute-monarchy-1833
+  kind: absolute_monarchy
+  name: {en: Absolute monarchy under Otto, el: Απόλυτη μοναρχία επί Όθωνα}
+  polity: gr-kingdom
+  from: 1833-02-06   # Otto lands at Nafplio
+  to: 1843-09-15
+  summary:
+    en: >
+      A Bavarian regency and then a king who ruled without a constitution for ten years.
+    el: >
+      Μια βαυαρική αντιβασιλεία και έπειτα ένας βασιλιάς που κυβέρνησε δέκα χρόνια χωρίς
+      σύνταγμα.
+
+- id: constitutional-monarchy-1843
+  kind: constitutional_monarchy
+  name: {en: Constitutional monarchy, el: Συνταγματική μοναρχία}
+  polity: gr-kingdom
+  from: 1843-09-15   # 3 September OS, the revolution that forced the 1844 constitution
+  to: 1862-10-23
+  summary:
+    en: >
+      The 3rd of September revolution obliged Otto to grant the 1844 constitution, and
+      the crown kept the upper hand under it until he was deposed.
+    el: >
+      Η επανάσταση της 3ης Σεπτεμβρίου υποχρέωσε τον Όθωνα να παραχωρήσει το σύνταγμα του
+      1844, και το στέμμα κράτησε το πάνω χέρι υπό αυτό ως την έξωσή του.
+
+- id: interregnum-1862
+  kind: interregnum
+  name: {en: Interregnum, el: Μεσοβασιλεία}
+  polity: gr-kingdom
+  from: 1862-10-23   # 11 October OS, the provisional government
+  to: 1863-10-30
+  summary:
+    en: >
+      A year between two dynasties: Otto gone, a provisional government in place and the
+      powers looking for a king Greece would accept.
+    el: >
+      Ένας χρόνος ανάμεσα σε δύο δυναστείες: ο Όθων έφυγε, μια προσωρινή κυβέρνηση ανέλαβε
+      και οι δυνάμεις αναζητούσαν βασιλιά που θα δεχόταν η Ελλάδα.
+
+- id: crowned-democracy-1863
+  kind: constitutional_monarchy
+  name: {en: Crowned democracy, el: Βασιλευομένη δημοκρατία}
+  polity: gr-kingdom
+  from: 1863-10-30   # 18 October OS, George I reaches Athens
+  to: 1924-03-25
+  summary:
+    en: >
+      The 1864 constitution made the assembly sovereign and the 1875 convention of the
+      declared confidence made the government answer to it. Sixty years, the Megali Idea,
+      and the schism that broke them.
+    el: >
+      Το σύνταγμα του 1864 έκανε κυρίαρχη τη Βουλή και η αρχή της δεδηλωμένης του 1875
+      υποχρέωσε την κυβέρνηση να λογοδοτεί σε αυτήν. Εξήντα χρόνια, η Μεγάλη Ιδέα και ο
+      Διχασμός που τα διέλυσε.
+
+# ------------------------------------------------------------------- Republic and reaction
+- id: second-republic-1924
+  kind: republic
+  name: {en: Second Hellenic Republic, el: Β΄ Ελληνική Δημοκρατία}
+  polity: gr-kingdom
+  from: 1924-03-25   # parliament proclaims it; the referendum confirms on 13 April
+  to: 1935-10-10
+  summary:
+    en: >
+      Declared after the catastrophe and the trial of the six, confirmed by referendum,
+      and never secure: eleven years, a dozen governments and repeated attempts at a coup.
+    el: >
+      Ανακηρύχθηκε μετά την Καταστροφή και τη Δίκη των Έξι, επικυρώθηκε με δημοψήφισμα και
+      ποτέ δεν στερεώθηκε: έντεκα χρόνια, δώδεκα κυβερνήσεις και επανειλημμένα πραξικοπήματα.
+
+- id: restored-monarchy-1935
+  kind: constitutional_monarchy
+  name: {en: Restored monarchy, el: Παλινόρθωση της μοναρχίας}
+  polity: gr-kingdom
+  from: 1935-10-10   # Kondylis abolishes the republic; the referendum follows on 3 November
+  to: 1936-08-04
+  summary:
+    en: >
+      Kondylis abolished the republic by coup and a referendum ratified it afterwards.
+      George II returned to a parliament too evenly split to govern.
+    el: >
+      Ο Κονδύλης κατέλυσε τη δημοκρατία με πραξικόπημα και το δημοψήφισμα το επικύρωσε εκ
+      των υστέρων. Ο Γεώργιος Β΄ επέστρεψε σε μια Βουλή υπερβολικά μοιρασμένη για να κυβερνήσει.
+
+- id: fourth-of-august-1936
+  kind: dictatorship
+  name: {en: The 4th of August Regime, el: Καθεστώς της 4ης Αυγούστου}
+  polity: gr-kingdom
+  from: 1936-08-04
+  to: 1941-04-27
+  summary:
+    en: >
+      Metaxas suspended the constitution with the king's consent and governed by decree
+      until the German army arrived.
+    el: >
+      Ο Μεταξάς ανέστειλε το σύνταγμα με τη συναίνεση του βασιλιά και κυβέρνησε με
+      διατάγματα ως την άφιξη του γερμανικού στρατού.
+
+- id: occupation-1941
+  kind: occupation
+  name: {en: Occupation and exile, el: Κατοχή και εξορία}
+  polity: gr-kingdom
+  from: 1941-04-27   # the Wehrmacht enters Athens
+  to: 1944-10-12
+  summary:
+    en: >
+      A collaborationist government in Athens, the lawful one in Cairo and the resistance
+      governing much of the country in fact. Sovereignty never moved; everything else did.
+    el: >
+      Μια δωσιλογική κυβέρνηση στην Αθήνα, η νόμιμη στο Κάιρο και η αντίσταση να διοικεί
+      στην πράξη μεγάλο μέρος της χώρας. Η κυριαρχία δεν μετακινήθηκε ποτέ· όλα τα άλλα ναι.
+
+# ------------------------------------------------------------------- Post-war
+- id: crowned-democracy-1944
+  kind: constitutional_monarchy
+  name: {en: Crowned democracy, el: Βασιλευομένη δημοκρατία}
+  polity: gr-kingdom
+  from: 1944-10-12   # the liberation of Athens
+  to: 1967-04-21
+  summary:
+    en: >
+      A regency, then a civil war, then a referendum that brought the king back and
+      twenty years in which the crown, the army and the parliament never settled their
+      order of precedence.
+    el: >
+      Μια αντιβασιλεία, μετά ένας εμφύλιος, μετά ένα δημοψήφισμα που επανέφερε τον βασιλιά
+      και είκοσι χρόνια στα οποία το στέμμα, ο στρατός και η Βουλή δεν διευθέτησαν ποτέ τη
+      σειρά τους.
+
+- id: junta-1967
+  kind: dictatorship
+  name: {en: The Colonels' junta, el: Δικτατορία των Συνταγματαρχών}
+  polity: gr-kingdom
+  from: 1967-04-21
+  to: 1974-07-24
+  summary:
+    en: >
+      Seven years of military rule, ended by the coup it ordered in Cyprus and the
+      invasion that answered it.
+    el: >
+      Επτά χρόνια στρατιωτικής εξουσίας, που τερματίστηκαν από το πραξικόπημα που η ίδια
+      διέταξε στην Κύπρο και την εισβολή που το ακολούθησε.
+
+- id: metapolitefsi-1974
+  kind: interregnum
+  name: {en: Metapolitefsi, el: Μεταπολίτευση}
+  polity: gr-kingdom
+  from: 1974-07-24   # Karamanlis is sworn in; the form of the state is still open
+  to: 1974-12-08
+  summary:
+    en: >
+      Four and a half months in which civilian rule returned, the parties were legalised
+      and elections were held, while the question of monarchy or republic stayed open.
+    el: >
+      Τεσσερισήμισι μήνες στους οποίους επανήλθε η πολιτική εξουσία, νομιμοποιήθηκαν τα
+      κόμματα και έγιναν εκλογές, ενώ το ερώτημα βασιλεία ή δημοκρατία παρέμενε ανοιχτό.
+
+- id: third-republic-1974
+  kind: republic
+  name: {en: Third Hellenic Republic, el: Γ΄ Ελληνική Δημοκρατία}
+  polity: gr-kingdom
+  from: 1974-12-08   # the referendum abolishes the monarchy
+  to: null
+  summary:
+    en: >
+      The referendum ended the monarchy and the 1975 constitution defined what replaced
+      it. It is the longest unbroken constitutional order in the history of the state.
+    el: >
+      Το δημοψήφισμα τερμάτισε τη μοναρχία και το σύνταγμα του 1975 όρισε τι την
+      αντικατέστησε. Είναι η μακροβιότερη αδιάκοπη συνταγματική τάξη στην ιστορία του κράτους.

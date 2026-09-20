@@ -32,6 +32,7 @@ from app.core.paths import (
     INSTRUMENTS_YAML,
     PLACES_YAML,
     POLITIES_YAML,
+    REGIMES_YAML,
     REGIONS_YAML,
     SOURCES_YAML,
 )
@@ -42,6 +43,7 @@ from app.modules.figures.models import Figure
 from app.modules.instruments.models import Instrument
 from app.modules.places.models import Place
 from app.modules.polities.models import Polity
+from app.modules.regimes.models import Regime
 from app.modules.regions.models import Region
 from app.modules.sources.models import Source
 
@@ -55,6 +57,7 @@ class Corpus:
     figures: list[Figure] = field(default_factory=list)
     instruments: list[Instrument] = field(default_factory=list)
     places: list[Place] = field(default_factory=list)
+    regimes: list[Regime] = field(default_factory=list)
     regions: list[Region] = field(default_factory=list)
     sources: list[Source] = field(default_factory=list)
     geojson: dict[str, Any] = field(default_factory=dict)
@@ -118,6 +121,7 @@ def validate(c: Corpus) -> list[str]:
     from app.modules.instruments.validate import validate_instruments
     from app.modules.places.validate import validate_places
     from app.modules.polities.validate import validate_polities
+    from app.modules.regimes.validate import validate_regimes
     from app.modules.regions.validate import validate_regions
 
     problems: list[str] = []
@@ -130,6 +134,7 @@ def validate(c: Corpus) -> list[str]:
         ("figure", c.figures),
         ("instrument", c.instruments),
         ("place", c.places),
+        ("regime", c.regimes),
         ("region", c.regions),
         ("source", c.sources),
     )
@@ -145,6 +150,7 @@ def validate(c: Corpus) -> list[str]:
     problems += validate_control(c)
     problems += validate_instruments(c)
     problems += validate_places(c)
+    problems += validate_regimes(c)
     problems += validate_regions(c)
     problems += validate_figures(c)
     problems += validate_events(c)
@@ -159,6 +165,7 @@ def load() -> Corpus:
     control = load_yaml(CONTROL_YAML, Control, problems)
     instruments = load_yaml(INSTRUMENTS_YAML, Instrument, problems)
     places = load_yaml(PLACES_YAML, Place, problems)
+    regimes = load_yaml(REGIMES_YAML, Regime, problems)
     regions = load_yaml(REGIONS_YAML, Region, problems)
     sources = load_yaml(SOURCES_YAML, Source, problems)
     events = load_dir(EVENTS_DIR, Event, problems)
@@ -178,6 +185,7 @@ def load() -> Corpus:
         figures=figures,
         instruments=instruments,
         places=places,
+        regimes=regimes,
         regions=regions,
         sources=sources,
         geojson=geojson,

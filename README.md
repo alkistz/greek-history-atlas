@@ -15,7 +15,7 @@ English and Greek. `significance` ranks events 2 to 5 on what they changed: fift
 across two centuries are rated 5, meaning they changed the shape or the nature of the
 state, and the scale is meant to stay that steep.
 
-## The two ideas the project rests on
+## The three ideas the project rests on
 
 **Atoms.** An atom is an area whose sovereignty history is identical throughout the whole
 period. Roughly nineteen of them cover Greece. Everything geographic is expressed as a set
@@ -25,6 +25,14 @@ of atoms rather than as drawn borders, so a border is never stored, only derived
 the same time. This is why 1941 to 1944 is drawn as hatching over the Greek fill rather
 than as a change of colour: the Greek state remained sovereign while others occupied. A
 year-slider over Wikipedia borders cannot express that, and it is the reason this exists.
+
+**Regimes.** `control.yaml` says who held the ground; `regimes.yaml` says what the Greek
+state itself was. The map needs the first and the corpus needs the second: the last date
+on which control changes is 1960, twenty-one events fall after it, and a third of all
+events happen in Athens, so territory stops telling them apart long before the corpus
+ends. The regimes are an unbroken chain of half-open periods, contiguity enforced in
+`validate.py`, which is what lets an event's regime be a lookup from its date with nothing
+stored on any event -- the same bargain `regions.yaml` strikes with atoms.
 
 ## Running it
 
@@ -44,8 +52,9 @@ deployable site in `frontend/build/`. See **Deploying** below.
 ## Layout
 
 ```
-content/     the source of truth. YAML in git: atoms, polities, control, instruments,
-             places, sources as one file each; events/ and figures/ as one file per entry.
+content/     the source of truth. YAML in git: atoms, polities, control, regimes, regions,
+             instruments, places, sources as one file each; events/ and figures/ as one
+             file per entry.
 data/        raw boundary downloads (gitignored) and the built geometry (committed)
 backend/     content pipeline and a read-only API. No database. `app/core` is shared
              plumbing; `app/modules/<name>` owns one domain each (models, crud, validate, router).
@@ -99,7 +108,7 @@ interpretations. TopoJSON and merged borders. Server-side rendering and prerende
 
 The deployed site has no server. Every route is a pure read off a corpus that changes only
 when someone edits `content/`, so `make export` runs the real app through `TestClient` and
-writes each response body verbatim to `frontend/static/api/`: 246 files, about 2.2 MB. The
+writes each response body verbatim to `frontend/static/api/`: 248 files, about 2.2 MB. The
 whole build is 2.9 MB. `events.json` is 255 KB of that, because the ledger carries every
 event's summary in both languages; if it starts to hurt, splitting the ledger from the
 summaries is the first thing to try.

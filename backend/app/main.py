@@ -19,6 +19,7 @@ from app.modules.figures.validate import lifetime_warnings
 from app.modules.instruments.router import router as instruments_router
 from app.modules.meta.router import router as meta_router
 from app.modules.places.router import router as places_router
+from app.modules.regimes.router import router as regimes_router
 from app.modules.regions.router import router as regions_router
 from app.modules.sources.router import router as sources_router
 
@@ -59,6 +60,7 @@ for router in (
     figures_router,
     instruments_router,
     places_router,
+    regimes_router,
     regions_router,
     sources_router,
 ):

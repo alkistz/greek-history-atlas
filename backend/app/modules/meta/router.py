@@ -9,6 +9,7 @@ from app.modules.atoms import crud as atoms
 from app.modules.control import crud as control
 from app.modules.instruments import crud as instruments
 from app.modules.polities import crud as polities
+from app.modules.regimes import crud as regimes
 from app.modules.regions import crud as regions
 
 router = APIRouter(prefix="/meta", tags=["Meta"])
@@ -16,7 +17,7 @@ router = APIRouter(prefix="/meta", tags=["Meta"])
 
 @router.get("")
 def meta(corpus: CorpusDep) -> dict[str, Any]:
-    """Polities with their colours, the atom index, the regions, and the epoch list.
+    """Polities with their colours, the atom index, the regions and regimes, and the epochs.
 
     Epochs are every date on which control changes, so they are the complete set
     of distinct maps.
@@ -32,6 +33,7 @@ def meta(corpus: CorpusDep) -> dict[str, Any]:
             {"id": i.id, "name": i.name.model_dump(mode="json"), "signed": i.signed.isoformat()}
             for i in instruments.list_instruments(corpus)
         ],
+        "regimes": [r.model_dump(mode="json", by_alias=True) for r in regimes.list_regimes(corpus)],
         "regions": [r.model_dump(mode="json") for r in regions.list_regions(corpus)],
         "epochs": [d.isoformat() for d in epochs],
         "range": {"from": epochs[0].isoformat(), "to": "1975-01-01"},

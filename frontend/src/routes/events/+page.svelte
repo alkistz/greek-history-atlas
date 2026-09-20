@@ -3,6 +3,7 @@
 	import { page } from '$app/state';
 	import ChipGroup from '$lib/ChipGroup.svelte';
 	import FilterBar from '$lib/FilterBar.svelte';
+	import { regimeLabel, regimeOn } from '$lib/regimes';
 	import { prettyPeriod, year } from '$lib/time';
 	import { list, matches, params, replaceParams } from '$lib/urlstate';
 	import { atlasHref } from '$lib/viewstate';
@@ -11,8 +12,9 @@
 
 	let query = $state(untrack(() => page.url.searchParams.get('q') ?? ''));
 	let regions = $state<string[]>(untrack(() => list(page.url, 'regions')));
+	let regimes = $state<string[]>(untrack(() => list(page.url, 'regimes')));
 
-	$effect(() => replaceParams(params({ q: query, regions })));
+	$effect(() => replaceParams(params({ q: query, regions, regimes })));
 
 	const regionOf = $derived(
 		new Map(data.meta.regions.flatMap((r) => r.atoms.map((a) => [a, r.id] as const)))
@@ -20,11 +22,20 @@
 	const regionName = $derived(new Map(data.meta.regions.map((r) => [r.id, r.name.en])));
 	const regionItems = $derived(data.meta.regions.map((r) => ({ id: r.id, label: r.name.en })));
 
-	const active = $derived(query.trim().length > 0 || regions.length > 0);
+	// Nothing is stored per event: an event's regime is a lookup from its start date,
+	// the way its region is a lookup from its atom. The chips are already in order,
+	// so the row doubles as a chronological spine for the century the map cannot show.
+	const regimeItems = $derived(
+		data.meta.regimes.map((r) => ({ id: r.id, label: regimeLabel(r) }))
+	);
+
+	const active = $derived(query.trim().length > 0 || regions.length > 0 || regimes.length > 0);
 	const shown = $derived(
 		data.events.filter((e) => {
 			const region = e.atom ? regionOf.get(e.atom) : undefined;
 			if (regions.length && (!region || !regions.includes(region))) return false;
+			const regime = regimeOn(data.meta.regimes, e.period[0]);
+			if (regimes.length && (!regime || !regimes.includes(regime.id))) return false;
 			return matches(query, e.title.en, e.title.el, e.summary.en, e.period[0]);
 		})
 	);
@@ -43,9 +54,13 @@
 	function toggleRegion(id: string) {
 		regions = regions.includes(id) ? regions.filter((r) => r !== id) : [...regions, id];
 	}
+	function toggleRegime(id: string) {
+		regimes = regimes.includes(id) ? regimes.filter((r) => r !== id) : [...regimes, id];
+	}
 	function clear() {
 		query = '';
 		regions = [];
+		regimes = [];
 	}
 </script>
 
@@ -73,6 +88,12 @@
 			selected={regions}
 			ontoggle={toggleRegion}
 		/>
+		<ChipGroup
+			label="Regime"
+			items={regimeItems}
+			selected={regimes}
+			ontoggle={toggleRegime}
+		/>
 	{/snippet}
 </FilterBar>
 
@@ -81,6 +102,7 @@
 		<h2>{g.decade}</h2>
 		<ol class="events">
 			{#each g.events as e (e.id)}
+				{@const regime = regimeOn(data.meta.regimes, e.period[0])}
 				<li>
 					<span class="when">{year(e.period[0])}</span>
 					<div>
@@ -88,6 +110,7 @@
 						{#if e.atom && regionOf.get(e.atom)}
 							<span class="region">{regionName.get(regionOf.get(e.atom)!)}</span>
 						{/if}
+						{#if regime}<span class="regime">{regime.name.en}</span>{/if}
 						<p>{e.summary.en}</p>
 						<p class="meta">
 							<span>{prettyPeriod(e.period, e.precision)}</span>
@@ -155,12 +178,17 @@
 	.title:hover {
 		color: var(--accent);
 	}
-	.region {
+	.region,
+	.regime {
 		margin-left: 8px;
 		color: var(--ink-soft);
 		font-size: 0.74rem;
 		text-transform: uppercase;
 		letter-spacing: 0.06em;
+	}
+	/* The regime is the softer of the two: it is context for the row, not its subject. */
+	.regime {
+		opacity: 0.72;
 	}
 	.events p {
 		margin: 4px 0 0;

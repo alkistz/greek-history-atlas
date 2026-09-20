@@ -30,6 +30,31 @@ export interface Region {
 	summary: LangText | null;
 }
 
+export type RegimeKind =
+	| 'revolutionary'
+	| 'absolute_monarchy'
+	| 'constitutional_monarchy'
+	| 'republic'
+	| 'dictatorship'
+	| 'occupation'
+	| 'interregnum';
+
+/**
+ * What kind of state Greece was, over a half-open period [from, to).
+ *
+ * The rows are an unbroken chain, so a date inside it resolves to exactly one
+ * regime. Nothing is stored per event; see `regimeOn` in `regimes.ts`.
+ */
+export interface Regime {
+	id: string;
+	kind: RegimeKind;
+	name: LangText;
+	polity: string;
+	from: string;
+	to: string | null;
+	summary: LangText | null;
+}
+
 export interface ControlRow {
 	atom: string;
 	polity: string;
@@ -148,6 +173,7 @@ export interface Meta {
 	atoms: { id: string; name: LangText; external: boolean }[];
 	instruments: { id: string; name: LangText; signed: string }[];
 	regions: Region[];
+	regimes: Regime[];
 	epochs: string[];
 	range: { from: string; to: string };
 }
