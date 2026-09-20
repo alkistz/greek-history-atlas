@@ -47,6 +47,12 @@
 
 	const colour = $derived(new Map(meta.polities.map((p) => [p.id, p.colour ?? 'transparent'])));
 	const nameOf = $derived(new Map(meta.polities.map((p) => [p.id, p.name.en])));
+	// `state` is the unmarked case; naming it on every row would be noise. An empire,
+	// a protectorate or an autonomy is the thing a reader cannot infer from a colour.
+	const kindOf = $derived(
+		new Map(meta.polities.filter((p) => p.kind !== 'state').map((p) => [p.id, p.kind]))
+	);
+	const propsOf = $derived(new Map(atoms.map((f) => [f.properties.id, f.properties])));
 	const atomName = $derived(new Map(atoms.map((f) => [f.properties.id, f.properties.name.en])));
 	const instrumentName = $derived(new Map(meta.instruments.map((i) => [i.id, i.name.en])));
 	// Naming the region in the tooltip is how a reader learns the vocabulary — at
@@ -177,7 +183,8 @@
 					polity: nameOf.get(r.polity) ?? r.polity,
 					since: r.from,
 					instrument: r.instrument ? (instrumentName.get(r.instrument) ?? null) : null,
-					note: r.note
+					note: r.note,
+					polityKind: kindOf.get(r.polity) ?? null
 				}))
 			: []
 	);
@@ -342,6 +349,8 @@
 			title={atomName.get(tip.atom) ?? tip.atom}
 			region={regionLabel(tip.atom)}
 			rows={tipRows}
+			areaKm2={propsOf.get(tip.atom)?.area_km2 ?? null}
+			external={propsOf.get(tip.atom)?.external ?? false}
 		/>
 	{/if}
 </div>

@@ -125,8 +125,20 @@
 		if (!id) return;
 		toggleRegion(id);
 	}
+	/**
+	 * Selecting a region carries the map to it, where the region says where it is.
+	 *
+	 * Cyprus and Asia Minor are outside the default frame entirely, so filtering by
+	 * them used to narrow the ledger while leaving the reader looking at a map with
+	 * nothing selected on it. `Region.frame` is a viewport hint for exactly this;
+	 * it does not define the region, so it is only ever followed on the way in.
+	 */
 	function toggleRegion(id: string) {
-		regions = regions.includes(id) ? regions.filter((r) => r !== id) : [...regions, id];
+		const off = regions.includes(id);
+		regions = off ? regions.filter((r) => r !== id) : [...regions, id];
+		if (off) return;
+		const hint = data.meta.regions.find((r) => r.id === id)?.frame;
+		if (hint) frame = hint;
 	}
 </script>
 

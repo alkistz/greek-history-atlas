@@ -22,6 +22,15 @@ read. `result` is `clean`, `corrected` or `unresolved`; the third is the state a
 boolean would destroy, distinguishing "nobody looked" from "someone looked hard and
 the sources do not agree".
 
+Every entry shows its own review state in the app, and every index can be filtered by it:
+what the pass concluded, whether it was checked against published sources or only read,
+and whether a person has looked. Nothing is summarised across entries, because the
+interesting question is always about a particular claim.
+
+A standing notice on every page says the prose is machine-written and unverified. It is
+not dismissible: the claim it qualifies is on every event page, so a notice the reader
+could turn off would be off exactly where it matters.
+
 Open items from the first sweep are in `FOLLOWUPS.md`.
 
 `make review` reports what has been reviewed, what has been edited since it was
@@ -139,8 +148,8 @@ interpretations. TopoJSON and merged borders. Server-side rendering and prerende
 
 The deployed site has no server. Every route is a pure read off a corpus that changes only
 when someone edits `content/`, so `make export` runs the real app through `TestClient` and
-writes each response body verbatim to `frontend/static/api/`: 268 files, about 2.5 MB. The
-whole build is 3.3 MB. `events.json` is 255 KB of that, because the ledger carries every
+writes each response body verbatim to `frontend/static/api/`: 268 files, about 2.6 MB. The
+whole build is 3.5 MB. `events.json` is 255 KB of that, because the ledger carries every
 event's summary in both languages; if it starts to hurt, splitting the ledger from the
 summaries is the first thing to try.
 

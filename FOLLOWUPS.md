@@ -100,6 +100,12 @@ pass and a `clean` from a sourced pass are not the same claim, and only a string
 comparison tells them apart. If you want to filter reliably on "actually verified", depth
 probably wants its own field.
 
+This now has a second reader. The app's **Checked against sources** filter is that same
+string comparison, against the same `verified against public sources` marker this file
+greps for, in `frontend/src/lib/review.ts`. So the marker is load-bearing in two places
+and is still only prose. Giving depth a field would let both stop guessing; until then,
+changing the wording of `review.auto.by` silently changes what that filter returns.
+
 ## 6. Two figures are thinly anchored
 
 - **`vassos`** had no dates at all before this sweep. Born 1836 in Athens, died there in

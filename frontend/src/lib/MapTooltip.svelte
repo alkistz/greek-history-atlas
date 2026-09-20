@@ -8,6 +8,8 @@
 		instrument: string | null;
 		/** why the row is drawn as it is, where the atom grain approximates something */
 		note: string | null;
+		/** empire, protectorate, autonomous... shown only where it is not a plain state */
+		polityKind: string | null;
 	}
 	interface Props {
 		x: number;
@@ -16,8 +18,23 @@
 		title: string;
 		region?: string | null;
 		rows: Row[];
+		/** the atom's own area, which is what the km² figure is built from */
+		areaKm2?: number | null;
+		/** outside the modern Greek state, so excluded from that figure */
+		external?: boolean;
 	}
-	let { x, y, flip, title, region = null, rows }: Props = $props();
+	let {
+		x,
+		y,
+		flip,
+		title,
+		region = null,
+		rows,
+		areaKm2 = null,
+		external = false
+	}: Props = $props();
+
+	const km2 = (n: number) => `${n.toLocaleString('en-GB', { maximumFractionDigits: 0 })} km²`;
 
 	const verb: Record<string, string> = {
 		sovereign: 'Sovereign',
@@ -36,10 +53,15 @@
 >
 	<div class="title">{title}</div>
 	{#if region}<div class="region">{region}</div>{/if}
+	{#if areaKm2 != null}
+		<div class="area">
+			{km2(areaKm2)}{#if external}<span class="ext"> · outside the modern state, not counted in the total</span>{/if}
+		</div>
+	{/if}
 	{#each rows as r (r.kind + r.polity)}
 		<div class="row">
 			<span class="kind">{verb[r.kind] ?? r.kind}</span>
-			{r.polity} since {prettyDate(r.since)}
+			{r.polity}{#if r.polityKind}<span class="pk"> ({r.polityKind})</span>{/if} since {prettyDate(r.since)}
 			{#if r.instrument}<span class="inst">{r.instrument}</span>{/if}
 			{#if r.note}<span class="note">{r.note}</span>{/if}
 		</div>
@@ -78,6 +100,19 @@
 		text-transform: uppercase;
 		letter-spacing: 0.06em;
 		margin-bottom: 3px;
+	}
+	.area {
+		color: var(--ink-soft);
+		font-family: var(--mono);
+		font-size: 0.74rem;
+		margin-bottom: 3px;
+	}
+	.ext {
+		font-family: var(--sans);
+		font-style: italic;
+	}
+	.pk {
+		color: var(--ink-soft);
 	}
 	.row {
 		color: var(--ink-soft);
