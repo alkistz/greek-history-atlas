@@ -66,3 +66,11 @@ figures:
   - {figure: glezos, role: participant}
   - {figure: santas, role: participant}
 sources: [{id: mazower-1993}, {id: clogg-2021}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      27 April for the swastika and 30 May for its removal consistent with the invasion chronology.

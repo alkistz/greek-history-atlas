@@ -86,3 +86,11 @@ figures:
   - {figure: papandreou-georgios, role: leader}
   - {figure: scobie, role: commander}
 sources: [{id: mazower-1993}, {id: close-1995}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Hitler's 23 August authorisation, the overnight withdrawal and the 12 October flag-lowering consistent.

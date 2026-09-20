@@ -81,3 +81,11 @@ atom: macedonia-east
 place: drama
 significance: 2
 sources: [{id: mazower-1993}, {id: koliopoulos-veremis-2010}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Date and the forty-eight hours consistent; reprisal figures already given as a range.

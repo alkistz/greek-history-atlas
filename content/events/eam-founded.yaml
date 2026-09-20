@@ -81,3 +81,11 @@ figures:
   - {figure: velouchiotis, role: commander}
   - {figure: sarafis, role: commander}
 sources: [{id: mazower-1993}, {id: close-1995}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Founding date and composition consistent; the text already hedges the size claim.

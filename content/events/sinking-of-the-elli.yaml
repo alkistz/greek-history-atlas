@@ -86,3 +86,11 @@ figures:
 sources:
   - {id: koliopoulos-veremis-2010}
   - {id: clogg-2021}
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Dates and the Tinos setting consistent; nothing contradicts itself.

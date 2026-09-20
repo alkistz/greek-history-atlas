@@ -77,3 +77,11 @@ significance: 3
 figures:
   - {figure: siantos, role: leader}
 sources: [{id: close-1995}, {id: mazower-1993}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Founding at Viniani, the April elections and the mountain administration consistent.

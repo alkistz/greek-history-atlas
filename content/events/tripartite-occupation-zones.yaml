@@ -90,3 +90,11 @@ significance: 3
 figures:
   - {figure: tsolakoglou, role: leader}
 sources: [{id: mazower-1993}, {id: koliopoulos-veremis-2010}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Zone boundaries agree with control.yaml; the Bulgarian annexation is correctly the only outright one.

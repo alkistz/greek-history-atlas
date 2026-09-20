@@ -8,8 +8,10 @@ summary:
     from the Baron Hirsch ghetto in Thessaloniki to Auschwitz-Birkenau, where some 96 per
     cent were murdered, most of them on arrival. The operation was run from 6 February by
     two of Eichmann's officers, Dieter Wisliceny and Alois Brunner, and roughly 1,700
-    more Greek Jews were put on the same trains from five other communities, making about
-    48,974 who reached Auschwitz. Thessaloniki had been the largest Jewish city in the
+    more Greek Jews were put on the same trains from five other communities. The figure
+    usually given for all Greek Jews who reached Auschwitz is 48,974, about two thousand
+    more than those two numbers make: the totals rest on different counts and the
+    literature does not reconcile them. Thessaloniki had been the largest Jewish city in the
     Balkans, Sephardic and continuously settled since 1492; in five months it ceased to
     exist. The Jews of the Bulgarian-occupied zone had been deported to Treblinka a
     fortnight before the first train left here.
@@ -19,7 +21,10 @@ summary:
     δολοφονήθηκε το 96 τοις εκατό, οι περισσότεροι με την άφιξη. Την επιχείρηση διηύθυναν
     από τις 6 Φεβρουαρίου δύο αξιωματικοί του Άιχμαν, ο Ντίτερ Βισλιτσένι και ο Αλόις
     Μπρούνερ, ενώ στους ίδιους συρμούς επιβιβάστηκαν άλλοι 1.700 περίπου Έλληνες Εβραίοι
-    από πέντε ακόμη κοινότητες: συνολικά περί τους 48.974 έφτασαν στο Άουσβιτς. Η
+    από πέντε ακόμη κοινότητες. Ο αριθμός που δίνεται συνήθως για το σύνολο των Ελλήνων
+    Εβραίων που έφτασαν στο Άουσβιτς είναι 48.974, δύο χιλιάδες περίπου περισσότεροι από
+    όσους δίνουν τα δύο προηγούμενα μεγέθη: στηρίζονται σε διαφορετικές καταμετρήσεις και
+    η βιβλιογραφία δεν τα συμφιλιώνει. Η
     Θεσσαλονίκη ήταν η μεγαλύτερη εβραϊκή πόλη των Βαλκανίων, σεφαραδίτικη και αδιάκοπα
     κατοικημένη από το 1492. Σε πέντε μήνες έπαψε να υπάρχει. Οι Εβραίοι της βουλγαρικής
     ζώνης κατοχής είχαν εκτοπιστεί στην Τρεμπλίνκα δεκαπέντε μέρες πριν φύγει από εδώ ο
@@ -45,7 +50,9 @@ body:
     Vardar ghettos, and then funnelled through the Baron Hirsch ghetto beside the railway
     sidings. Nineteen transports left between 15 March and 10 August 1943, each carrying
     between 1,000 and 4,000 people; about 45,200 went from Thessaloniki and roughly 1,700
-    more from five other communities, making some 48,974 Greek Jews who reached Auschwitz.
+    more from five other communities. The total usually given for Greek Jews at Auschwitz
+    is 48,974, which those two figures do not reach by about two thousand; the discrepancy
+    is in the sources rather than a rounding of them.
     Chief Rabbi Zvi Koretz, president of the Judenrat since December 1942, was deported to
     Bergen-Belsen on 7 August 1943 and died of typhus at Tröbitz on 3 June 1945, days
     after liberation; whether he served the community or the Germans is still argued
@@ -76,8 +83,9 @@ body:
     διοχετεύθηκαν μέσα από το γκέτο Βαρώνου Χιρς, δίπλα στις σιδηροδρομικές γραμμές.
     Δεκαεννέα συρμοί αναχώρησαν από τις 15 Μαρτίου ως τις 10 Αυγούστου 1943, ο καθένας με
     1.000 ως 4.000 ανθρώπους: περίπου 45.200 από τη Θεσσαλονίκη και άλλοι 1.700 περίπου
-    από πέντε ακόμη κοινότητες, συνολικά περί τους 48.974 Έλληνες Εβραίους που έφτασαν στο
-    Άουσβιτς. Ο αρχιρραβίνος Τσβι Κόρετς, πρόεδρος του Judenrat από τον Δεκέμβριο του 1942,
+    από πέντε ακόμη κοινότητες. Το σύνολο που δίνεται συνήθως για τους Έλληνες Εβραίους στο
+    Άουσβιτς είναι 48.974, δύο χιλιάδες περίπου περισσότεροι από όσους δίνουν τα δύο αυτά
+    μεγέθη· η απόκλιση βρίσκεται στις πηγές και όχι σε στρογγυλοποίηση. Ο αρχιρραβίνος Τσβι Κόρετς, πρόεδρος του Judenrat από τον Δεκέμβριο του 1942,
     εκτοπίστηκε στο Μπέργκεν-Μπέλσεν στις 7 Αυγούστου 1943 και πέθανε από τύφο στο
     Τρέμπιτς στις 3 Ιουνίου 1945, λίγες μέρες μετά την απελευθέρωση. Το αν υπηρέτησε την
     κοινότητα ή τους Γερμανούς παραμένει αντικείμενο έντονης διαμάχης ανάμεσα σε ιστορικούς
@@ -95,3 +103,11 @@ figures:
   - {figure: koretz, role: victim}
   - {figure: damaskinos, role: witness}
 sources: [{id: mazower-1993}, {id: clogg-2021}]
+review:
+  auto:
+    date: 2026-09-20
+    result: corrected
+    langs: [en, el]
+    by: assistant, verified against public sources
+    note: >
+      Nineteen transports, 15 March to 10 August 1943 and about 96 per cent murdered all confirmed. The component figures did not add up: 45,200 from Thessaloniki plus roughly 1,700 from five other communities was presented as making 48,974, which is two thousand short. The totals rest on different counts and the literature does not reconcile them, so both texts now say so instead of implying a sum. The event also correctly separates the Bulgarian zone deportations, which went to Treblinka rather than Auschwitz, and that is the detail most often got wrong.
