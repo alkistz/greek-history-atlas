@@ -1,28 +1,24 @@
 <script lang="ts">
-	type Theme = 'auto' | 'light' | 'dark';
+	type Theme = 'light' | 'dark';
 
-	const NEXT: Record<Theme, Theme> = { auto: 'light', light: 'dark', dark: 'auto' };
-	const LABEL: Record<Theme, string> = { auto: 'Auto', light: 'Light', dark: 'Dark' };
-	const GLYPH: Record<Theme, string> = { auto: '◐', light: '☀', dark: '☾' };
+	const LABEL: Record<Theme, string> = { light: 'Light', dark: 'Dark' };
+	const GLYPH: Record<Theme, string> = { light: '☀', dark: '☾' };
 
-	function stored(): Theme {
+	/** A stored choice wins; otherwise take the system preference once and keep it. */
+	function initial(): Theme {
 		try {
 			const v = localStorage.getItem('theme');
-			if (v === 'light' || v === 'dark' || v === 'auto') return v;
+			if (v === 'light' || v === 'dark') return v;
 		} catch {
 			// private mode, blocked storage: fall through to the system preference
 		}
-		return 'auto';
+		return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 	}
 
-	let theme = $state<Theme>(stored());
+	let theme = $state<Theme>(initial());
 
-	// `auto` removes the attribute so the media query in the layout decides. The
-	// two explicit values set it, which is what the [data-theme] rules key off.
 	$effect(() => {
-		const root = document.documentElement;
-		if (theme === 'auto') root.removeAttribute('data-theme');
-		else root.setAttribute('data-theme', theme);
+		document.documentElement.setAttribute('data-theme', theme);
 		try {
 			localStorage.setItem('theme', theme);
 		} catch {
@@ -32,9 +28,9 @@
 </script>
 
 <button
-	onclick={() => (theme = NEXT[theme])}
+	onclick={() => (theme = theme === 'light' ? 'dark' : 'light')}
 	title="Theme: {LABEL[theme]}"
-	aria-label="Theme: {LABEL[theme]}. Switch to {LABEL[NEXT[theme]]}."
+	aria-label="Theme: {LABEL[theme]}. Switch to {LABEL[theme === 'light' ? 'dark' : 'light']}."
 >
 	<span aria-hidden="true">{GLYPH[theme]}</span>
 	{LABEL[theme]}
