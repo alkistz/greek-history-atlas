@@ -44,3 +44,11 @@ significance: 3
 figures:
   - {figure: kolokotronis, role: commander}
 sources: [{id: brewer-2001}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Date, the siege and the massacre that followed are consistent; the text does not soften it.

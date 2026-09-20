@@ -76,3 +76,11 @@ figures:
   - {figure: prince-george, role: leader}
   - {figure: george-i, role: participant}
 sources: [{id: clogg-2021}, {id: koliopoulos-veremis-2010}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Prince George as High Commissioner under nominal suzerainty, and the Ottoman withdrawal five weeks earlier, consistent.

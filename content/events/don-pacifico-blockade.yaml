@@ -83,3 +83,11 @@ significance: 2
 sources:
   - {id: gallant-2016}
   - {id: clogg-2021}
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      The 1847 sacking, the three-year gap and Palmerston's blockade consistent.

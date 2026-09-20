@@ -94,3 +94,11 @@ figures:
 sources:
   - {id: gallant-2016}
   - {id: clogg-2021}
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      241 athletes from 14 nations, Averoff's marble stadium and the bankrupt state paying nothing are consistent.

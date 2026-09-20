@@ -82,3 +82,11 @@ figures:
 sources:
   - {id: clogg-2021}
   - {id: koliopoulos-veremis-2010}
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      The 1815 protectorate, the 1864 cession and its price consistent; the treaty is correctly a separate instrument from the handover date.

@@ -89,3 +89,11 @@ sources:
   - {id: gallant-2016}
   - {id: clogg-2021}
   - {id: koliopoulos-veremis-2010}
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, both texts read; dates, arithmetic and cross-references checked, individual figures not independently sourced
+    note: >
+      Crimean context, the ultimatum and the length of the occupation consistent.
