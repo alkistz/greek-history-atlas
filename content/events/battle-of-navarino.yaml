@@ -22,8 +22,9 @@ body:
     the blockade felt.
 
     A musket shot at a British boat set off a general action at anchor. Within a few
-    hours about sixty Ottoman and Egyptian ships had been sunk or burned, against no
-    allied losses. The Sultan's ability to supply Ibrahim was gone. It was the last
+    hours about sixty Ottoman and Egyptian ships had been sunk or burned. The allies
+    lost no ship, but about 180 of their men were killed and nearly 500 wounded.
+    The Sultan's ability to supply Ibrahim was gone. It was the last
     fleet action fought entirely under sail, and the decisive act of the war.
   el: |
     Η Συνθήκη του Λονδίνου του Ιουλίου 1827 δέσμευε τη Βρετανία, τη Γαλλία και τη Ρωσία να
@@ -33,7 +34,8 @@ body:
 
     Ένας πυροβολισμός εναντίον βρετανικής λέμβου πυροδότησε γενική σύγκρουση με τα πλοία
     αγκυροβολημένα. Μέσα σε λίγες ώρες περίπου εξήντα οθωμανικά και αιγυπτιακά πλοία είχαν
-    βυθιστεί ή καεί, χωρίς καμία συμμαχική απώλεια σε πλοία. Η δυνατότητα του σουλτάνου να
+    βυθιστεί ή καεί. Οι σύμμαχοι δεν έχασαν κανένα πλοίο, είχαν όμως περίπου 180
+    νεκρούς και κοντά στους 500 τραυματίες. Η δυνατότητα του σουλτάνου να
     ανεφοδιάζει τον Ιμπραήμ είχε χαθεί. Ήταν η τελευταία σύγκρουση στόλων που δόθηκε
     αποκλειστικά με ιστιοφόρα, και η αποφασιστική πράξη του πολέμου.
 period: [1827-10-20, 1827-10-21]
@@ -46,3 +48,11 @@ figures:
   - {figure: codrington, role: commander}
   - {figure: ibrahim-pasha, role: commander}
 sources: [{id: woodhouse-1965}, {id: brewer-2001}]
+review:
+  auto:
+    date: 2026-09-20
+    result: corrected
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      English said 'no allied losses'; the allies lost no ship but about 180 killed and nearly 500 wounded. The Greek was already the more precise of the two.

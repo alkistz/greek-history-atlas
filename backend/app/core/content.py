@@ -126,6 +126,7 @@ def validate(c: Corpus) -> list[str]:
     from app.modules.polities.validate import validate_polities
     from app.modules.regimes.validate import validate_regimes
     from app.modules.regions.validate import validate_regions
+    from app.modules.sources.validate import validate_sources
     from app.modules.threads.validate import validate_threads
 
     problems: list[str] = []
@@ -154,6 +155,7 @@ def validate(c: Corpus) -> list[str]:
     problems += validate_polities(c)
     problems += validate_control(c)
     problems += validate_instruments(c)
+    problems += validate_sources(c)
     problems += validate_places(c)
     problems += validate_regimes(c)
     problems += validate_regions(c)

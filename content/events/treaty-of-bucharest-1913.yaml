@@ -24,7 +24,9 @@ body:
 
     At Bucharest in August Greece kept everything its army had reached: Thessaloniki,
     which it had entered hours ahead of the Bulgarians in November 1912, Kavala, and
-    the whole of southern Macedonia. Crete's union was confirmed and the eastern Aegean
+    the whole of southern Macedonia. Crete, assigned to Greece by the Treaty of London in May and
+    settled with the Ottomans at Athens in November, was formally taken over in the
+    December, and the eastern Aegean
     islands followed in 1914. The population of the state rose from about 2.7 to 4.8
     million.
   el: |
@@ -36,7 +38,9 @@ body:
 
     Στο Βουκουρέστι, τον Αύγουστο, η Ελλάδα κράτησε ό,τι είχε φτάσει ο στρατός της: τη
     Θεσσαλονίκη, στην οποία είχε μπει λίγες ώρες πριν από τους Βουλγάρους τον Νοέμβριο του
-    1912, την Καβάλα και ολόκληρη τη νότια Μακεδονία. Η ένωση της Κρήτης επικυρώθηκε και τα
+    1912, την Καβάλα και ολόκληρη τη νότια Μακεδονία. Η Κρήτη, που είχε επιδικαστεί στην Ελλάδα με τη Συνθήκη του
+    Λονδίνου τον Μάιο και ρυθμίστηκε με τους Οθωμανούς στην Αθήνα τον Νοέμβριο,
+    παραλήφθηκε επίσημα τον Δεκέμβριο, και τα
     νησιά του ανατολικού Αιγαίου ακολούθησαν το 1914. Ο πληθυσμός του κράτους ανέβηκε από
     περίπου 2,7 σε 4,8 εκατομμύρια.
 period: [1913-08-10, 1913-08-11]
@@ -49,3 +53,11 @@ significance: 5
 figures:
   - {figure: venizelos, role: signatory}
 sources: [{id: hall-2000}, {id: clogg-2021}]
+review:
+  auto:
+    date: 2026-09-20
+    result: corrected
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      Said Crete's union was confirmed at Bucharest. Crete was assigned at London in May and settled with the Ottomans at Athens in November; the Ottomans were not party to Bucharest.

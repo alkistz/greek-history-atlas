@@ -37,10 +37,14 @@ body:
 
     Total mortality is contested and the sources differ by a factor of three. The figure
     most often used is about 300,000 excess deaths in Greece from famine and malnutrition
-    across the whole occupation, with around 150,000 of them in 1941; the demographic
-    study by Violetta Hionidou, which is the standard scholarly reference, puts famine
-    deaths at roughly 250,000; lower figures of around 100,000 for the acute famine period
-    also appear in the literature. What is not in dispute is the shortfall of some 300,000
+    across the whole occupation, with around 150,000 of them in 1941; Violetta Hionidou's
+    demographic study, the standard scholarly treatment, works from regional vital
+    statistics rather than from national aggregates and is read as supporting a figure
+    at the upper end of that range; lower figures of around 100,000 for the acute famine
+    period of 1941 to 1942 also appear in the literature. The estimates in circulation
+    run from about 200,000 to about 450,000, and the spread is a disagreement about
+    method -- which deaths count as famine deaths, and against what counterfactual
+    population -- rather than a dispute about the records. What is not in dispute is the shortfall of some 300,000
     against the population Greece should have had by the end of the war.
 
     Relief came slowly and against British resistance. The first ship through was the
@@ -66,9 +70,13 @@ body:
     Ο συνολικός αριθμός των νεκρών αμφισβητείται και οι πηγές διαφέρουν κατά τρεις φορές.
     Ο συνηθέστερος αριθμός είναι περίπου 300.000 επιπλέον θάνατοι από πείνα και υποσιτισμό
     σε όλη την Κατοχή, από τους οποίους περί τους 150.000 μέσα στο 1941. Η δημογραφική
-    μελέτη της Βιολέττας Χιονίδου, που αποτελεί τη στάνταρ επιστημονική αναφορά, υπολογίζει
-    τους θανάτους από τον λιμό σε περίπου 250.000, ενώ στη βιβλιογραφία εμφανίζονται και
-    χαμηλότεροι αριθμοί, γύρω στις 100.000 για την οξεία φάση. Αδιαμφισβήτητο είναι το
+    μελέτη της Βιολέττας Χιονίδου, η στάνταρ επιστημονική πραγμάτευση, στηρίζεται σε
+    τοπικά ληξιαρχικά στοιχεία και όχι σε εθνικά αθροίσματα και διαβάζεται ως συνηγορούσα
+    σε αριθμό προς το ανώτερο άκρο αυτού του εύρους· στη βιβλιογραφία εμφανίζονται και
+    χαμηλότεροι αριθμοί, γύρω στις 100.000 για την οξεία φάση του 1941 με 1942. Οι
+    εκτιμήσεις που κυκλοφορούν κινούνται από περίπου 200.000 ως περίπου 450.000, και η
+    διαφορά είναι ζήτημα μεθόδου -- ποιοι θάνατοι μετρούν ως θάνατοι από τον λιμό και
+    έναντι ποιου υποθετικού πληθυσμού -- και όχι διαφωνία για τα αρχεία. Αδιαμφισβήτητο είναι το
     δημογραφικό έλλειμμα των 300.000 περίπου ανθρώπων σε σχέση με τον πληθυσμό που θα
     έπρεπε να έχει η Ελλάδα στο τέλος του πολέμου.
 
@@ -87,4 +95,12 @@ period: [1941-10-01, 1942-06-01]
 precision: span
 place: athens
 significance: 4
-sources: [{id: mazower-1993}, {id: gallant-2016}]
+sources: [{id: mazower-1993}, {id: hionidou-2006}, {id: gallant-2016}]
+review:
+  auto:
+    date: 2026-09-20
+    result: unresolved
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      The figure of 250,000 attributed to Hionidou could not be substantiated in any source reachable from here, and she was not cited by this event at all. Replaced with the range and the reason the estimates differ; she is now cited. Settling her actual figure needs the book.

@@ -1,5 +1,13 @@
 # Works cited. Every citation elsewhere in content/ points here by id.
 
+- id: hionidou-2006
+  kind: book
+  author: Violetta Hionidou
+  title: "Famine and Death in Occupied Greece, 1941-1944"
+  year: 2006
+  publisher: Cambridge University Press
+  isbn: "978-0-521-82932-8"
+
 - id: clogg-2021
   kind: book
   author: Richard Clogg

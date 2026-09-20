@@ -4,14 +4,17 @@ title:
   el: Η Επανάσταση της 3ης Σεπτεμβρίου 1843
 summary:
   en: >
-    On the night of 14 to 15 September 1843 the Athens garrison surrounded the royal
+    On the night of 14 to 15 September 1843, the 2nd to the 3rd of September Old Style
+    and the date the revolution carries as its name in Greek, the Athens garrison
+    surrounded the royal
     palace and refused to disperse until Otto agreed to a constitution. Not a shot was
     fired. The king dismissed his Bavarian ministers, called a National Assembly, and
     assented the following March to a text that gave Greece a parliament and near
     universal suffrage for men. The square in front of the palace has been called
     Syntagma, Constitution Square, ever since.
   el: >
-    Τη νύχτα της 2ας προς 3η Σεπτεμβρίου 1843 η φρουρά της Αθήνας περικύκλωσε τα
+    Τη νύχτα της 2ας προς 3η Σεπτεμβρίου 1843 με το παλαιό ημερολόγιο, 14 προς 15
+    Σεπτεμβρίου με το νέο, η φρουρά της Αθήνας περικύκλωσε τα
     ανάκτορα και αρνήθηκε να διαλυθεί ώσπου ο Όθων να δεχθεί σύνταγμα. Δεν έπεσε
     ντουφεκιά. Ο βασιλιάς απέπεμψε τους Βαβαρούς υπουργούς του, συγκάλεσε Εθνοσυνέλευση
     και τον επόμενο Μάρτιο επικύρωσε κείμενο που έδινε στην Ελλάδα βουλή και σχεδόν
@@ -80,3 +83,11 @@ sources:
   - {id: clogg-2021}
   - {id: koliopoulos-veremis-2010}
   - {id: gallant-2016}
+review:
+  auto:
+    date: 2026-09-20
+    result: corrected
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      English gave New Style, Greek gave Old Style. Both texts now carry both, since the Old Style date is the event's name in Greek.

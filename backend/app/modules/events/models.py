@@ -5,7 +5,7 @@ from typing import Literal
 from pydantic import Field, computed_field
 
 from app.core.markdown import render_lang_text
-from app.core.models import Citation, FrameId, LangText, Precision, Strict
+from app.core.models import Citation, FrameId, LangText, Precision, Review, Strict
 
 ParticipationRole = Literal[
     "leader", "commander", "signatory", "victim", "witness", "author", "participant"
@@ -39,6 +39,7 @@ class Event(Strict):
     body: LangText | None = None
     figures: list[Participation] = Field(default_factory=list)
     sources: list[Citation] = Field(default_factory=list)
+    review: Review | None = None
 
     @property
     def start(self) -> date:

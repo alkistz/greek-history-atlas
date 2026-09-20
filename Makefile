@@ -1,4 +1,4 @@
-.PHONY: setup fetch atoms export api web build deploy test lint check
+.PHONY: setup fetch atoms export api web build deploy test lint check review
 
 setup:
 	cd backend && uv sync
@@ -27,6 +27,9 @@ deploy: build
 
 test:
 	cd backend && uv run pytest -q
+
+review:
+	cd backend && uv run python scripts/review_status.py
 
 lint:
 	cd backend && uv run ruff check . && uv run ruff format --check .

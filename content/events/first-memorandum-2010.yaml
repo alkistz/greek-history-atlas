@@ -31,15 +31,16 @@ body:
     Kastellorizo, George Papandreou asked for the European Union and the IMF support
     mechanism to be activated. The programme agreed nine days later consisted of 80
     billion euros in bilateral loans from euro-area governments through the Greek Loan
-    Facility, of which 52.9 billion was in the end disbursed, and about 20 billion from
+    Facility, of which 52.9 billion was in the end disbursed, and 30 billion from
     the Fund.
 
     The conditions were written by the Troika of the European Commission, the European
     Central Bank and the IMF, and Parliament passed the first austerity law on 6 May. On
     5 May, during a general strike, a firebomb thrown into a branch of Marfin Egnatia
     Bank on Stadiou Street in Athens killed three employees, one of them pregnant. A
-    second programme followed on 9 March 2012: 141.8 billion euros from the European
-    Financial Stability Facility and about 12 billion from the Fund, together with the
+    second programme followed in March 2012, committing 144.7 billion euros through the
+    European Financial Stability Facility and 19.8 billion from the Fund, of which 141.8
+    and about 12 billion were in the end disbursed, together with the
     largest sovereign debt restructuring ever carried out, in which private holders of
     roughly 200 billion euros of Greek bonds accepted a nominal cut of about 53.5 per
     cent.
@@ -69,14 +70,15 @@ body:
     Ευρωπαϊκής Ένωσης και του ΔΝΤ. Το πρόγραμμα που συμφωνήθηκε εννέα μέρες αργότερα
     αποτελούνταν από 80 δισεκατομμύρια ευρώ διμερών δανείων των κρατών της ευρωζώνης μέσω
     του Greek Loan Facility, από τα οποία τελικά εκταμιεύτηκαν 52,9 δισεκατομμύρια, και
-    περίπου 20 δισεκατομμύρια από το Ταμείο.
+    30 δισεκατομμύρια από το Ταμείο.
 
     Τους όρους έγραψε η τρόικα της Ευρωπαϊκής Επιτροπής, της Ευρωπαϊκής Κεντρικής
     Τράπεζας και του ΔΝΤ, και η Βουλή ψήφισε τον πρώτο μνημονιακό νόμο στις 6 Μαΐου. Στις
     5 Μαΐου, στη διάρκεια γενικής απεργίας, εμπρηστική βόμβα σε υποκατάστημα της Marfin
     Εγνατία Τράπεζας στην οδό Σταδίου σκότωσε τρεις υπαλλήλους, μία από τις οποίες ήταν
-    έγκυος. Δεύτερο πρόγραμμα ακολούθησε στις 9 Μαρτίου 2012: 141,8 δισεκατομμύρια ευρώ
-    από το EFSF και περίπου 12 από το Ταμείο, μαζί με τη μεγαλύτερη αναδιάρθρωση
+    έγκυος. Δεύτερο πρόγραμμα ακολούθησε τον Μάρτιο του 2012, με δέσμευση 144,7 δισεκατομμυρίων
+    ευρώ μέσω του EFSF και 19,8 από το Ταμείο, από τα οποία εκταμιεύτηκαν τελικά 141,8
+    και περίπου 12 αντίστοιχα, μαζί με τη μεγαλύτερη αναδιάρθρωση
     κρατικού χρέους που έχει γίνει, όπου οι ιδιώτες κάτοχοι περίπου 200 δισεκατομμυρίων
     ευρώ ελληνικών ομολόγων δέχτηκαν ονομαστικό κούρεμα περίπου 53,5%.
 
@@ -106,3 +108,11 @@ sources:
   - {id: siani-davies-2017}
   - {id: kalyvas-2015}
   - {id: beaton-2019}
+review:
+  auto:
+    date: 2026-09-20
+    result: corrected
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      IMF share of the first programme was 30 billion, not 20, which also failed to add up to the 110 stated in the same event. The 2012 figures were disbursements presented as the size of the programme; both bases now named.

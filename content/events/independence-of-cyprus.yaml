@@ -100,3 +100,11 @@ figures:
   - {figure: kucuk, role: signatory}
   - {figure: karamanlis-konstantinos, role: participant}
 sources: [{id: ker-lindsay-2011}, {id: holland-1998}]
+review:
+  auto:
+    date: 2026-09-20
+    result: clean
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      Twelve specifics checked including the base areas, the contingents and the constitutional ratios; all held.

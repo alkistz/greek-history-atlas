@@ -7,6 +7,27 @@ This is **v0**: one working vertical slice, built to answer the only genuinely u
 question in the project, which is whether the atom model produces a map that looks right
 and redraws convincingly.
 
+## Reviewing the corpus
+
+Every event, figure and instrument can carry a `review` block with two independent
+tracks. `auto` is a machine pass: broad, cheap, repeatable, never authoritative.
+`manual` is a person who has read the sources, and only a person sets it. They never
+share a column, because merging them would let the cheap pass launder itself as the
+expensive one.
+
+A pass records which languages it read, and that is load-bearing rather than
+bookkeeping: the two texts are translations of one another, so a fact wrong in one is
+wrong in both, and `result: clean` is refused unless every language the entry has was
+read. `result` is `clean`, `corrected` or `unresolved`; the third is the state a
+boolean would destroy, distinguishing "nobody looked" from "someone looked hard and
+the sources do not agree".
+
+`make review` reports what has been reviewed, what has been edited since it was
+reviewed, and where the English and Greek do not carry the same numbers. Staleness
+comes from git rather than a digest stored in the file: a stored hash has to be
+written back by tooling and invites hand editing, while git already knows when a file
+changed.
+
 ## The corpus
 
 127 events from the outbreak of the revolution to the Tempi disaster, 78 figures, 76

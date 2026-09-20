@@ -5,13 +5,15 @@ title:
 summary:
   en: >
     Otto and Queen Amalia were touring the Peloponnese when Athens rose against them on
-    the night of 22 October 1862. Within a day a provisional government under Voulgaris,
+    the night of 22 October 1862, the 10th of October Old
+    Style. Within a day a provisional government under Voulgaris,
     Kanaris and Rouphos held the capital and declared the king deposed. Otto sailed back
     to Piraeus, was refused permission to land, and left Greece on a British warship. He
     never abdicated, and Greece was without a monarch for the next fourteen months.
   el: >
     Ο Όθων και η βασίλισσα Αμαλία περιόδευαν στην Πελοπόννησο όταν η Αθήνα ξεσηκώθηκε
-    εναντίον τους τη νύχτα της 10ης Οκτωβρίου 1862. Μέσα σε μια μέρα προσωρινή κυβέρνηση
+    εναντίον τους τη νύχτα της 10ης Οκτωβρίου 1862 με το παλαιό
+    ημερολόγιο, 22 Οκτωβρίου με το νέο. Μέσα σε μια μέρα προσωρινή κυβέρνηση
     υπό τους Βούλγαρη, Κανάρη και Ρούφο κρατούσε την πρωτεύουσα και κήρυσσε έκπτωτο τον
     βασιλιά. Ο Όθων επέστρεψε στον Πειραιά, δεν του επετράπη να αποβιβαστεί και έφυγε
     από την Ελλάδα με βρετανικό πολεμικό. Ποτέ δεν παραιτήθηκε επισήμως, και η χώρα
@@ -79,3 +81,11 @@ sources:
   - {id: clogg-2021}
   - {id: koliopoulos-veremis-2010}
   - {id: gallant-2016}
+review:
+  auto:
+    date: 2026-09-20
+    result: corrected
+    langs: [en, el]
+    by: assistant, against public sources
+    note: >
+      Same New Style / Old Style split between the two texts as the 1843 revolution.

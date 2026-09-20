@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from app.core.refs import check_citations, ids
+from app.core.review import check_review, langs_present
 
 if TYPE_CHECKING:
     from app.core.content import Corpus
@@ -20,6 +21,7 @@ def validate_figures(c: Corpus) -> list[str]:
         if fig.born is not None and fig.died is not None and fig.born.date >= fig.died.date:
             problems.append(f"{where}: born {fig.born.date} is not before died {fig.died.date}")
         problems += check_citations(c, fig.sources, where)
+        problems += check_review(fig.review, langs_present(fig.summary, fig.body), where)
 
     return problems
 

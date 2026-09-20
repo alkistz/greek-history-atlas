@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from app.core.refs import check_citations, ids
+from app.core.review import check_review, langs_present
 
 if TYPE_CHECKING:
     from app.core.content import Corpus
@@ -33,4 +34,5 @@ def validate_events(c: Corpus) -> list[str]:
                 problems.append(f"{where}: figure {p.figure!r} listed twice")
             seen.add(p.figure)
         problems += check_citations(c, e.sources, where)
+        problems += check_review(e.review, langs_present(e.summary, e.body), where)
     return problems

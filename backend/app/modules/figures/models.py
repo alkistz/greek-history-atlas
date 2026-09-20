@@ -5,7 +5,7 @@ from typing import Literal
 from pydantic import Field, computed_field
 
 from app.core.markdown import render_lang_text
-from app.core.models import Citation, LangText, Precision, Strict
+from app.core.models import Citation, LangText, Precision, Review, Strict
 
 FigureRole = Literal[
     "monarch",
@@ -38,6 +38,7 @@ class Figure(Strict):
     summary: LangText
     body: LangText | None = None
     sources: list[Citation] = Field(default_factory=list)
+    review: Review | None = None
 
     @computed_field
     @cached_property
