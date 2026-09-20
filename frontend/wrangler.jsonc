@@ -5,7 +5,7 @@
 	//
 	// The name must match the Worker's name in the dashboard or a git-connected
 	// build fails.
-	"name": "after1821",
+	"name": "greek-history-atlas",
 	"compatibility_date": "2026-09-20",
 	"assets": {
 		"directory": "./build",
