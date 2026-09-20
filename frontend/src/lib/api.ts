@@ -8,6 +8,7 @@ import type {
 	FigureDetail,
 	FigureSummary,
 	InstrumentDetail,
+	InstrumentSummary,
 	Meta
 } from './types';
 
@@ -39,5 +40,6 @@ export const api = {
 	event: (f: Fetch, id: string) => get<EventDetail>(f, `/api/events/${id}`),
 	figures: (f: Fetch) => get<FigureSummary[]>(f, '/api/figures'),
 	figure: (f: Fetch, id: string) => get<FigureDetail>(f, `/api/figures/${id}`),
+	instruments: (f: Fetch) => get<InstrumentSummary[]>(f, '/api/instruments'),
 	instrument: (f: Fetch, id: string) => get<InstrumentDetail>(f, `/api/instruments/${id}`)
 };

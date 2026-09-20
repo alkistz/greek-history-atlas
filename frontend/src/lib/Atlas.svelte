@@ -90,6 +90,58 @@
 		const r = wrapper.getBoundingClientRect();
 		tip = { atom, x: e.clientX - r.left, y: e.clientY - r.top };
 	}
+	// Keyboard and screen-reader access to what the pointer gets. The map is one
+	// tab stop; the arrow keys then walk the atoms in reading order.
+	const focusOrder = $derived.by(() => {
+		const ids = [...held].filter((id) => shapes.has(id));
+		return ids.sort((a, b) => {
+			const [ax, ay] = shapes.get(a)!.centroid;
+			const [bx, by] = shapes.get(b)!.centroid;
+			// Banded, so a chain of islands reads left to right rather than by latitude.
+			return Math.floor(ay / 60) - Math.floor(by / 60) || ax - bx;
+		});
+	});
+	let cursor = $state(0);
+
+	function labelFor(id: string): string {
+		const holder = layered.sovereign.get(id);
+		const name = atomName.get(id) ?? id;
+		return holder ? `${name}, ${nameOf.get(holder) ?? holder}` : name;
+	}
+
+	/** Attributes that only make sense on the live map, not on a static mini-map. */
+	function reach(id: string) {
+		if (!interactive) return {};
+		return {
+			role: 'button',
+			tabindex: focusOrder[cursor] === id ? 0 : -1,
+			'aria-label': labelFor(id),
+			onkeydown: walk
+		};
+	}
+
+	function showAt(id: string) {
+		if (!interactive) return;
+		const shape = shapes.get(id);
+		if (!shape) return;
+		const scale = width ? width / REF_W : 1;
+		tip = { atom: id, x: shape.centroid[0] * scale, y: shape.centroid[1] * scale };
+		const i = focusOrder.indexOf(id);
+		if (i >= 0) cursor = i;
+	}
+
+	function walk(e: KeyboardEvent) {
+		if (e.key === 'Escape') {
+			tip = null;
+			return;
+		}
+		const dir = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+		if (dir === undefined || !wrapper || !focusOrder.length) return;
+		e.preventDefault();
+		const i = Math.min(Math.max(cursor + dir, 0), focusOrder.length - 1);
+		wrapper.querySelector<SVGPathElement>(`[data-atom="${CSS.escape(focusOrder[i])}"]`)?.focus();
+	}
+
 	const tipRows = $derived(
 		tip
 			? rowsFor(control, tip.atom, date).map((r) => ({
@@ -154,6 +206,7 @@
 			role="group"
 			aria-label="Territories"
 			onpointermove={move}
+			onpointerdown={move}
 			onpointerleave={() => (tip = null)}
 		>
 			{#each atoms as f (f.properties.id)}
@@ -164,6 +217,9 @@
 						class="sov"
 						class:highlighted={highlight === id}
 						data-atom={id}
+						{...reach(id)}
+						onfocus={() => showAt(id)}
+						onblur={() => (tip = null)}
 						style:fill={colour.get(holder)}
 						d={shapes.get(id)!.d}
 					/>
@@ -275,6 +331,11 @@
 	}
 	.sov.highlighted {
 		filter: brightness(1.18);
+	}
+	.sov:focus-visible {
+		outline: none;
+		stroke: var(--accent);
+		stroke-width: 2;
 	}
 
 	.hairlines {

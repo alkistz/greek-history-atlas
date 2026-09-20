@@ -110,6 +110,16 @@ export interface FigureDetail extends Omit<FigureSummary, 'born' | 'died'> {
 	events: (EventRef & { role: string })[];
 }
 
+/** What `/api/instruments` returns: the list, without the control rows. */
+export interface InstrumentSummary {
+	id: string;
+	name: LangText;
+	kind: string;
+	signed: string;
+	parties: string[];
+	summary: LangText | null;
+}
+
 /** What `/api/instruments/{id}` returns. */
 export interface InstrumentDetail {
 	id: string;

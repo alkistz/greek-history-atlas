@@ -9,37 +9,192 @@
 		onselect: (e: AtlasEvent) => void;
 	}
 	let { events, date, selectedId, onselect }: Props = $props();
+
+	let query = $state('');
+	const uid = $props.id();
+
+	const shown = $derived.by(() => {
+		const q = query.trim().toLowerCase();
+		if (!q) return events;
+		return events.filter(
+			(e) =>
+				e.title.en.toLowerCase().includes(q) ||
+				e.summary.en.toLowerCase().includes(q) ||
+				e.period[0].startsWith(q)
+		);
+	});
+
+	/** Decades, because a flat list of every event stops being readable well before a century. */
+	const groups = $derived.by(() => {
+		const out: { decade: string; events: AtlasEvent[] }[] = [];
+		for (const e of shown) {
+			const decade = `${e.period[0].slice(0, 3)}0s`;
+			const last = out.at(-1);
+			if (last?.decade === decade) last.events.push(e);
+			else out.push({ decade, events: [e] });
+		}
+		return out;
+	});
+
+	/** The last event to have begun on or before the shown date: what the map is looking at. */
+	const anchorId = $derived.by(() => {
+		let id: string | null = null;
+		for (const e of shown) if (e.period[0] <= date) id = e.id;
+		return id;
+	});
+
+	const nodes = new Map<string, HTMLElement>();
+	function register(node: HTMLElement, id: string) {
+		nodes.set(id, node);
+		return { destroy: () => nodes.delete(id) };
+	}
+
+	let box: HTMLDivElement | undefined = $state();
+
+	// Scrolls the list, never the page: the map must not slide out of view while
+	// the reader is scrubbing.
+	function reveal(el: HTMLElement) {
+		if (!box) return;
+		const top = el.offsetTop - box.offsetTop;
+		const bottom = top + el.offsetHeight;
+		const behavior = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+		if (top < box.scrollTop + 28) box.scrollTo({ top: top - 34, behavior });
+		else if (bottom > box.scrollTop + box.clientHeight)
+			box.scrollTo({ top: bottom - box.clientHeight + 8, behavior });
+	}
+	$effect(() => {
+		const id = selectedId ?? anchorId;
+		if (!id) return;
+		const el = nodes.get(id);
+		if (el) reveal(el);
+	});
 </script>
 
-<ol class="ledger">
-	{#each events as e (e.id)}
-		{@const active = within(date, e.period[0], e.period[1])}
-		{@const past = e.period[1] <= date}
-		<li class:active class:past class:selected={selectedId === e.id}>
-			<button onclick={() => onselect(e)}>
-				<span class="etime">{year(e.period[0])}</span>
-				<span class="etitle">{e.title.en}</span>
-			</button>
-			{#if active || selectedId === e.id}
-				<p class="esummary">{e.summary.en}</p>
-				<p class="emore">
-					{#if e.as_written}<span class="eold">Old Style: {e.as_written.date}</span>{/if}
-					<a href="/events/{e.id}">Read more</a>
-				</p>
-			{/if}
-		</li>
+<div class="head">
+	<label class="search">
+		<span class="sr">Filter events</span>
+		<input
+			id="{uid}-q"
+			type="search"
+			bind:value={query}
+			placeholder="Filter events…"
+			autocomplete="off"
+		/>
+	</label>
+	<p class="count" aria-live="polite">
+		{#if query.trim()}{shown.length} of {events.length}{:else}{events.length} events{/if}
+	</p>
+</div>
+
+<div class="box" bind:this={box}>
+	{#each groups as g (g.decade)}
+		<h3 class="decade">{g.decade}</h3>
+		<ol class="ledger">
+			{#each g.events as e (e.id)}
+				{@const active = within(date, e.period[0], e.period[1])}
+				{@const past = e.period[1] <= date}
+				<li
+					use:register={e.id}
+					class:active
+					class:past
+					class:selected={selectedId === e.id}
+					class:anchor={selectedId === null && anchorId === e.id}
+				>
+					<button onclick={() => onselect(e)} aria-current={selectedId === e.id ? 'true' : undefined}>
+						<span class="etime">{year(e.period[0])}</span>
+						<span class="etitle">{e.title.en}</span>
+					</button>
+					{#if active || selectedId === e.id}
+						<p class="esummary">{e.summary.en}</p>
+						<p class="emore">
+							{#if e.as_written}<span class="eold">Old Style: {e.as_written.date}</span>{/if}
+							<a href="/events/{e.id}">Read more</a>
+						</p>
+					{/if}
+				</li>
+			{/each}
+		</ol>
+	{:else}
+		<p class="empty">Nothing matches “{query}”.</p>
 	{/each}
-</ol>
+</div>
 
 <style>
+	.sr {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+	}
+	.head {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-bottom: 8px;
+	}
+	.search {
+		flex: 1;
+		min-width: 0;
+	}
+	input[type='search'] {
+		width: 100%;
+		box-sizing: border-box;
+		font: inherit;
+		font-size: 0.88rem;
+		background: var(--panel);
+		color: var(--ink);
+		border: 1px solid var(--rule);
+		border-radius: var(--radius);
+		padding: 5px 9px;
+	}
+	input[type='search']:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: -1px;
+		border-color: transparent;
+	}
+	.count {
+		flex: none;
+		margin: 0;
+		color: var(--ink-soft);
+		font-size: 0.78rem;
+		font-variant-numeric: tabular-nums;
+	}
+
+	.box {
+		position: relative;
+		overflow-y: auto;
+		max-height: min(72vh, 760px);
+		border-top: 1px solid var(--rule);
+		overscroll-behavior: contain;
+	}
+	.decade {
+		position: sticky;
+		top: 0;
+		z-index: 1;
+		margin: 0;
+		padding: 5px 2px 3px;
+		background: var(--ground);
+		color: var(--ink-soft);
+		font-family: var(--mono);
+		font-size: 0.74rem;
+		letter-spacing: 0.08em;
+		border-bottom: 1px solid var(--rule);
+	}
 	.ledger {
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		border-top: 1px solid var(--rule);
 	}
 	li {
 		border-bottom: 1px solid var(--rule);
+	}
+	li.anchor,
+	li.selected {
+		background: var(--panel);
+	}
+	li.active {
+		box-shadow: inset 2px 0 0 var(--accent);
 	}
 	button {
 		display: flex;
@@ -50,7 +205,7 @@
 		background: none;
 		border: 0;
 		color: var(--ink-soft);
-		padding: 7px 2px;
+		padding: 7px 2px 7px 8px;
 		cursor: pointer;
 	}
 	button:hover .etitle {
@@ -73,13 +228,13 @@
 	}
 	.esummary {
 		margin: 0 0 6px;
-		padding-left: 46px;
+		padding-left: 52px;
 		font-size: 0.88rem;
 		color: var(--ink-soft);
 	}
 	.emore {
 		margin: 0 0 10px;
-		padding-left: 46px;
+		padding-left: 52px;
 		font-size: 0.78rem;
 		display: flex;
 		gap: 12px;
@@ -88,7 +243,21 @@
 		font-family: var(--mono);
 		color: var(--ink-soft);
 	}
+	.empty {
+		color: var(--ink-soft);
+		font-size: 0.9rem;
+		padding: 12px 2px;
+	}
 	a {
 		color: var(--accent);
+	}
+
+	/* Stacked under the map, the list is the page's own tail; a nested scroller
+	   there is a trap on touch. */
+	@media (max-width: 900px) {
+		.box {
+			max-height: none;
+			overflow: visible;
+		}
 	}
 </style>

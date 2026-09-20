@@ -6,6 +6,7 @@
 	import { legendEntries, resolveOn } from '$lib/resolve';
 	import { prettyPeriod } from '$lib/time';
 	import type { Pin } from '$lib/types';
+	import { atlasHref } from '$lib/viewstate';
 
 	let { data } = $props();
 	const event = $derived(data.event);
@@ -42,6 +43,11 @@
 		/>
 		<figcaption>
 			<Legend entries={legend} />
+			<p class="open">
+				<a href={atlasHref({ on: date, frame: event.frame, event: event.id })}>
+					Open this day on the atlas →
+				</a>
+			</p>
 		</figcaption>
 	</figure>
 
@@ -114,6 +120,10 @@
 	}
 	figcaption {
 		margin-top: 10px;
+	}
+	.open {
+		margin: 10px 0 0;
+		font-size: 0.85rem;
 	}
 	.kicker {
 		margin: 0;

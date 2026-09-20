@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { prettyDate, year } from '$lib/time';
+	import { atlasHref } from '$lib/viewstate';
 
 	let { data } = $props();
 	const inst = $derived(data.instrument);
@@ -15,6 +16,7 @@
 	<p class="kicker">{inst.kind} · signed {prettyDate(inst.signed)}</p>
 	<h1>{inst.name.en}</h1>
 	<p class="parties">{inst.parties.map((p) => polityName.get(p) ?? p).join(', ')}</p>
+	<p class="open"><a href={atlasHref({ on: inst.signed })}>Open the atlas on this day →</a></p>
 	{#if inst.summary}<p class="summary">{inst.summary.en}</p>{/if}
 
 	{#if inst.control.length}
@@ -22,9 +24,13 @@
 		<ul class="plain">
 			{#each inst.control as r, i (i)}
 				<li>
-					<span class="mono">{year(r.from)}</span>
-					{atomName.get(r.atom) ?? r.atom}: {polityName.get(r.polity) ?? r.polity}
-					<span class="muted">{r.kind}</span>
+					<a class="mono" href={atlasHref({ on: r.from })} title="Open the atlas on {prettyDate(r.from)}">
+						{year(r.from)}
+					</a>
+					<span>
+						{atomName.get(r.atom) ?? r.atom}: {polityName.get(r.polity) ?? r.polity}
+						<span class="muted">{r.kind}</span>
+					</span>
 				</li>
 			{/each}
 		</ul>
@@ -54,8 +60,12 @@
 		margin: 4px 0 4px;
 	}
 	.parties {
-		margin: 0 0 12px;
+		margin: 0 0 4px;
 		color: var(--ink-soft);
+	}
+	.open {
+		margin: 0 0 14px;
+		font-size: 0.85rem;
 	}
 	.summary {
 		font-size: 1.05rem;

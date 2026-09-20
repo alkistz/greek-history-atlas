@@ -1,16 +1,22 @@
 <script lang="ts">
 	import { untrack } from 'svelte';
+	import { page } from '$app/state';
 	import Atlas from '$lib/Atlas.svelte';
 	import EventLedger from '$lib/EventLedger.svelte';
+	import FrameSwitch from '$lib/FrameSwitch.svelte';
 	import Legend from '$lib/Legend.svelte';
 	import MapCaption from '$lib/MapCaption.svelte';
-	import { visibleIn, type FrameId } from '$lib/projection';
-	import Scrubber from '$lib/Scrubber.svelte';
+	import { visibleIn } from '$lib/projection';
+	import type { TrendPoint } from '$lib/TerritoryTrend.svelte';
+	import Timeline, { type TimelineEvent } from '$lib/Timeline.svelte';
 	import { instrumentsOn, legendEntries, resolveOn } from '$lib/resolve';
 	import { daysBetween, toDay, toISO, within, year } from '$lib/time';
 	import type { AtlasEvent } from '$lib/types';
+	import { parseView, writeView } from '$lib/viewstate';
 
 	let { data } = $props();
+
+	const DEFAULT_DATE = '1913-08-10';
 
 	const origin = $derived(data.meta.range.from);
 	const maxDay = $derived(daysBetween(origin, data.meta.range.to));
@@ -18,12 +24,19 @@
 	const areaOf = $derived(new Map(data.atoms.features.map((f) => [f.properties.id, f.properties])));
 	const instrumentName = $derived(new Map(data.meta.instruments.map((i) => [i.id, i.name.en])));
 
-	let day = $state(untrack(() => toDay('1913-08-10', origin)));
-	let showOccupation = $state(true);
-	let selectedId = $state<string | null>(null);
-	let frame = $state<FrameId>('greece');
+	// The query string is the entry point; from here the local state leads and is
+	// mirrored back, so dragging the timeline stays cheap.
+	const initial = untrack(() => parseView(page.url, DEFAULT_DATE));
+	let day = $state(untrack(() => toDay(initial.on ?? DEFAULT_DATE, data.meta.range.from)));
+	let showOccupation = $state(initial.occupation);
+	let selectedId = $state<string | null>(initial.event);
+	let frame = $state(initial.frame);
 
 	const date = $derived(toISO(day, origin));
+	$effect(() => {
+		writeView({ on: date, frame, event: selectedId, occupation: showOccupation });
+	});
+
 	const layered = $derived(resolveOn(data.control, date));
 	const legend = $derived(
 		legendEntries(layered, data.meta.polities, visibleIn(data.atoms.features, frame))
@@ -38,19 +51,42 @@
 		selected && within(date, selected.period[0], selected.period[1]) ? selected.atom : null
 	);
 
-	const greekArea = $derived.by(() => {
+	const marks = $derived.by((): TimelineEvent[] =>
+		data.events.map((e) => ({
+			id: e.id,
+			day: toDay(e.period[0], origin),
+			title: `${year(e.period[0])} — ${e.title.en}`,
+			significance: e.significance
+		}))
+	);
+
+	function greekAreaIn(sovereign: Map<string, string>): number {
 		let km2 = 0;
-		for (const [atom, polity] of layered.sovereign) {
+		for (const [atom, polity] of sovereign) {
 			const props = areaOf.get(atom);
 			if (props && !props.external && polity.startsWith('gr-')) km2 += props.area_km2;
 		}
 		return km2;
-	});
+	}
+	const greekArea = $derived(greekAreaIn(layered.sovereign));
+
+	// Sampled at the epochs only, because that is the complete set of dates on
+	// which the figure can change.
+	const trend = $derived.by((): TrendPoint[] =>
+		data.meta.epochs.map((iso) => ({
+			day: toDay(iso, origin),
+			km2: greekAreaIn(resolveOn(data.control, iso).sovereign)
+		}))
+	);
 
 	function select(e: AtlasEvent) {
 		selectedId = e.id;
 		day = toDay(e.period[0], origin);
 		frame = e.frame;
+	}
+	function selectById(id: string) {
+		const e = data.events.find((x) => x.id === id);
+		if (e) select(e);
 	}
 </script>
 
@@ -71,14 +107,23 @@
 			/>
 		</div>
 
-		<MapCaption {date} areaKm2={greekArea} {instruments} {frame} onreset={() => (frame = 'greece')} />
+		<MapCaption {date} areaKm2={greekArea} {instruments} {trend} {day} {maxDay} />
 
 		<div class="scrub">
-			<Scrubber bind:day {maxDay} {epochDays} year={year(date)} />
+			<Timeline
+				bind:day
+				{maxDay}
+				{epochDays}
+				{origin}
+				events={marks}
+				{selectedId}
+				onselectevent={selectById}
+			/>
 		</div>
 
 		<div class="controls">
-			<label>
+			<FrameSwitch bind:frame />
+			<label class="occ">
 				<input type="checkbox" bind:checked={showOccupation} />
 				Show occupation
 			</label>
@@ -113,25 +158,35 @@
 	}
 	main {
 		display: grid;
-		grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr);
+		grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
 		gap: 28px;
 		align-items: start;
 	}
 	.mapframe {
+		/* Never wider than the 760-unit reference drawing (the source geometry is
+		   1:3M, so upscaling buys nothing), and on a short window narrower still,
+		   by the frame's own aspect ratio, so the timeline stays on screen with
+		   the map it drives. */
+		max-width: min(760px, calc((100vh - 350px) * 1.118));
 		background: var(--panel);
 		border: 1px solid var(--rule);
 		border-radius: var(--radius);
 		padding: 8px;
 	}
 	.scrub {
-		margin-top: 14px;
+		margin-top: 10px;
 	}
 	.controls {
-		margin-top: 8px;
+		margin-top: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		flex-wrap: wrap;
 		color: var(--ink-soft);
 		font-size: 0.88rem;
 	}
-	.controls label {
+	.occ {
 		display: inline-flex;
 		gap: 6px;
 		align-items: center;

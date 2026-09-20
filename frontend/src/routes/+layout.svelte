@@ -1,11 +1,14 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import ThemeToggle from '$lib/ThemeToggle.svelte';
 
 	let { children } = $props();
 
 	const nav = [
 		{ href: '/', label: 'Atlas' },
-		{ href: '/figures', label: 'Figures' }
+		{ href: '/events', label: 'Events' },
+		{ href: '/figures', label: 'Figures' },
+		{ href: '/instruments', label: 'Instruments' }
 	];
 	const current = (href: string) =>
 		href === '/' ? page.url.pathname === '/' : page.url.pathname.startsWith(href);
@@ -17,6 +20,15 @@
 		name="description"
 		content="An interactive atlas of Greek history from 1821, where the map redraws as territorial control changes."
 	/>
+	<meta property="og:site_name" content="Greek History Atlas" />
+	<meta property="og:title" content="Greek History Atlas" />
+	<meta
+		property="og:description"
+		content="An interactive atlas of Greek history from 1821, where the map redraws as territorial control changes."
+	/>
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={page.url.href} />
+	<meta name="twitter:card" content="summary" />
 </svelte:head>
 
 <div class="shell">
@@ -27,6 +39,7 @@
 				<a href={n.href} aria-current={current(n.href) ? 'page' : undefined}>{n.label}</a>
 			{/each}
 		</nav>
+		<ThemeToggle />
 	</header>
 
 	{@render children()}
@@ -85,6 +98,22 @@
 		}
 	}
 
+	/* The same tokens, but chosen rather than inherited from the system. */
+	:global(:root[data-theme='dark']) {
+		--ground: #1b1a17;
+		--panel: #232120;
+		--ink: #ece7dc;
+		--ink-soft: #9a9287;
+		--rule: #3a3631;
+		--sea: #1a2026;
+		--land: #2c2a26;
+		--coast: #57524a;
+		--hairline: #00000088;
+		--label: #f0ebe0;
+		--label-halo: #2c2a26dd;
+		color-scheme: dark;
+	}
+
 	:global(body) {
 		margin: 0;
 		background: var(--ground);
@@ -114,6 +143,10 @@
 		align-items: baseline;
 		gap: 24px;
 		margin-bottom: 20px;
+		flex-wrap: wrap;
+	}
+	header :global(button) {
+		margin-left: auto;
 	}
 	.brand {
 		font-family: var(--serif);
