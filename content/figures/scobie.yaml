@@ -3,6 +3,7 @@ name: {en: Ronald Scobie, el: Ρόναλντ Σκόμπι}
 born: {date: 1893-06-08, precision: day}
 died: {date: 1969-02-23, precision: day}
 roles: [military]
+polity: britain
 summary:
   en: >
     British lieutenant-general who commanded all forces in Greece from the Caserta

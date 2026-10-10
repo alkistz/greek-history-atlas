@@ -3,6 +3,7 @@ name: {en: İsmet İnönü, el: Ισμέτ Ινονού}
 born: {date: 1884-09-24, precision: day, place: smyrna}
 died: {date: 1973-12-25, precision: day, place: ankara}
 roles: [statesman, military]
+polity: turkey
 summary:
   en: >
     Turkish prime minister from 1923 to 1937 and Atatürk's successor as President. Born in

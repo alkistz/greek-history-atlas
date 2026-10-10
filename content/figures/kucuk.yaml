@@ -3,6 +3,7 @@ name: {en: Fazıl Küçük, el: Φαζίλ Κιουτσούκ}
 born: {date: 1906-03-14, precision: day, place: nicosia}
 died: {date: 1984-01-15, precision: day, place: london}
 roles: [statesman]
+polity: cyprus-republic
 summary:
   en: >
     Physician and newspaper publisher who led the Turkish Cypriot community through the end of

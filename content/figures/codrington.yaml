@@ -3,6 +3,7 @@ name: {en: Sir Edward Codrington, el: Έντουαρντ Κόδριγκτον}
 born: {date: 1770-04-27, precision: day}
 died: {date: 1851-04-28, precision: day, place: london}
 roles: [military]
+polity: britain
 summary:
   en: >
     British admiral commanding the allied fleet at Navarino in 1827. He had orders to

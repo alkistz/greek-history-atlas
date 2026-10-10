@@ -62,6 +62,8 @@
 		}))
 	);
 	const hasMap = $derived(pins.length > 0 || figure.events.length > 0);
+	const shared = (n: number) =>
+		n === 1 ? ui('figure.shared.one') : ui('figure.shared', { n });
 </script>
 
 <svelte:head>
@@ -133,6 +135,31 @@
 					</li>
 				{/each}
 			</ol>
+		{/if}
+
+		{#if figure.connections.length}
+			<h2 class="row">
+				{ui('figure.connections')}
+				<a class="more" href="/network?focus={figure.id}">{ui('figure.network')}</a>
+			</h2>
+			<ul class="plain conns">
+				{#each figure.connections as c (c.id)}
+					<li>
+						<span>
+							<a href="/figures/{c.id}">{t(c.name)}</a>
+							{#each c.relations as r (r.kind)}
+								<span class="tie">{term('relation', r.kind)}</span>
+							{/each}
+							{#if c.events.length}
+								<span class="muted">{shared(c.events.length)}</span>
+							{/if}
+						</span>
+						{#each c.relations.filter((r) => r.note) as r (r.kind)}
+							<span class="note">{t(r.note)}</span>
+						{/each}
+					</li>
+				{/each}
+			</ul>
 		{/if}
 
 		{#if figure.sources.length}
@@ -252,6 +279,42 @@
 	.muted {
 		color: var(--ink-soft);
 		font-size: 0.85rem;
+	}
+	.row {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 12px;
+	}
+	.more {
+		font-family: var(--sans);
+		font-weight: 400;
+		font-size: 0.85rem;
+		text-decoration: none;
+	}
+	.more:hover {
+		text-decoration: underline;
+	}
+	.conns li {
+		display: flex;
+		flex-direction: column;
+	}
+	.conns li > span > * + * {
+		margin-left: 8px;
+	}
+	/* What the listed figure is to this one, as a small chip in the accent. */
+	.tie {
+		font-size: 0.72rem;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--accent);
+		background: var(--accent-soft);
+		padding: 1px 6px;
+		border-radius: var(--radius);
+	}
+	.note {
+		font-size: 0.85rem;
+		color: var(--ink-soft);
 	}
 	.sources {
 		font-size: 0.88rem;

@@ -3,6 +3,7 @@ name: {en: Winston Churchill, el: Ουίνστων Τσόρτσιλ}
 born: {date: 1874-11-30, precision: day}
 died: {date: 1965-01-24, precision: day, place: london}
 roles: [statesman]
+polity: britain
 summary:
   en: >
     British prime minister during the Second World War and the decisive foreign actor in

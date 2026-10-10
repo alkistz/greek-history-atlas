@@ -4,6 +4,7 @@ also_known_as: [{en: Michail Christodoulou Mouskos, el: Μιχαήλ Χριστ�
 born: {date: 1913-08-13, precision: day}
 died: {date: 1977-08-03, precision: day, place: nicosia}
 roles: [cleric, statesman]
+polity: cyprus-republic
 summary:
   en: >
     Archbishop of Cyprus from September 1950 and first President of the Republic of Cyprus from

@@ -15,6 +15,7 @@
 		{ href: '/events', label: ui('page.events') },
 		{ href: '/threads', label: ui('page.threads') },
 		{ href: '/figures', label: ui('page.figures') },
+		{ href: '/network', label: ui('page.network') },
 		{ href: '/instruments', label: ui('page.instruments') },
 		{ href: '/places', label: ui('page.places') },
 		{ href: '/sources', label: ui('page.sources') }

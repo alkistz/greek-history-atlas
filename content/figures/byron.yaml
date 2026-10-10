@@ -4,6 +4,7 @@ also_known_as: [{en: George Gordon Byron, el: Τζορτζ Γκόρντον Βύ
 born: {date: 1788-01-22, precision: day, place: london}
 died: {date: 1824-04-19, precision: day, place: messolonghi}
 roles: [writer]
+polity: britain
 summary:
   en: >
     The most famous of the philhellenes. He came to Messolonghi in January 1824 with

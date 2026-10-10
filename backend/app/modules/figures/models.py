@@ -41,6 +41,10 @@ class Figure(Strict):
     born: LifeEvent | None = None
     died: LifeEvent | None = None
     roles: list[FigureRole] = Field(min_length=1)
+    # The state the figure served, as a polity id. Absent means Greece, which is
+    # the default this atlas is about; it is set only where the reader would be
+    # misled without it -- Kemal and İnönü sit inside the same graph as Venizelos.
+    polity: str | None = None
     summary: LangText
     body: LangText | None = None
     sources: list[Citation] = Field(default_factory=list)

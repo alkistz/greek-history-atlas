@@ -3,6 +3,7 @@ from typing import Any
 from fastapi import APIRouter, HTTPException, status
 
 from app.core.dependencies import CorpusDep
+from app.modules.network import crud as network
 from app.modules.places import crud as places
 from app.modules.sources import crud as sources
 
@@ -10,7 +11,17 @@ from . import crud
 
 router = APIRouter(prefix="/figures", tags=["Figures"])
 
-LIST_FIELDS = {"id", "name", "also_known_as", "born", "died", "roles", "summary", "review"}
+LIST_FIELDS = {
+    "id",
+    "name",
+    "also_known_as",
+    "born",
+    "died",
+    "roles",
+    "polity",
+    "summary",
+    "review",
+}
 
 
 @router.get("")
@@ -44,4 +55,5 @@ def figure(figure_id: str, corpus: CorpusDep) -> dict[str, Any]:
             }
             for e, role in crud.events_of(corpus, figure_id)
         ],
+        "connections": network.connections_of(corpus, figure_id),
     }
