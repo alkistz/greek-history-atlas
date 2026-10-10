@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { untrack } from 'svelte';
 	import { page } from '$app/state';
-	import Atlas from '$lib/Atlas.svelte';
+	import Atlas, { type MapPin } from '$lib/Atlas.svelte';
 	import EventLedger from '$lib/EventLedger.svelte';
 	import FrameSwitch from '$lib/FrameSwitch.svelte';
 	import Legend from '$lib/Legend.svelte';
@@ -9,10 +9,10 @@
 	import RegionFilter from '$lib/RegionFilter.svelte';
 	import { t } from '$lib/lang.svelte';
 	import { ui } from '$lib/ui';
-	import { visibleIn } from '$lib/projection';
+	import { frameRect, visibleIn, type Rect } from '$lib/projection';
 	import { regimeOn } from '$lib/regimes';
 	import type { TrendPoint } from '$lib/TerritoryTrend.svelte';
-	import Timeline, { type TimelineEvent } from '$lib/Timeline.svelte';
+	import Timeline, { type TimelineBand, type TimelineEvent } from '$lib/Timeline.svelte';
 	import { instrumentsOn, legendEntries, resolveOn } from '$lib/resolve';
 	import { daysBetween, toDay, toISO, within, year } from '$lib/time';
 	import type { AtlasEvent } from '$lib/types';
@@ -27,6 +27,7 @@
 	const epochDays = $derived(data.meta.epochs.map((d) => toDay(d, origin)));
 	const areaOf = $derived(new Map(data.atoms.features.map((f) => [f.properties.id, f.properties])));
 	const instrumentName = $derived(new Map(data.meta.instruments.map((i) => [i.id, t(i.name)])));
+	const placeOf = $derived(new Map(data.places.map((p) => [p.id, p])));
 
 	// The query string is the entry point; from here the local state leads and is
 	// mirrored back, so dragging the timeline stays cheap.
@@ -43,8 +44,15 @@
 	});
 
 	const layered = $derived(resolveOn(data.control, date));
+	// What the camera is showing, so the legend lists what is on screen and not
+	// what the frame nominally contains.
+	let view = $state<Rect | null>(null);
 	const legend = $derived(
-		legendEntries(layered, data.meta.polities, visibleIn(data.atoms.features, frame))
+		legendEntries(
+			layered,
+			data.meta.polities,
+			visibleIn(data.atoms.features, view ?? frameRect(frame))
+		)
 	);
 	const instruments = $derived(
 		instrumentsOn(data.control, date).map((id) => ({ id, name: instrumentName.get(id) ?? id }))
@@ -52,6 +60,14 @@
 	// Undefined only before the chain begins, in the weeks of 1821 before there was
 	// a Greek state to have a form.
 	const regime = $derived(regimeOn(data.meta.regimes, date) ?? null);
+	const bands = $derived.by((): TimelineBand[] =>
+		data.meta.regimes.map((r) => ({
+			id: r.id,
+			from: toDay(r.from, origin),
+			to: r.to ? toDay(r.to, origin) : maxDay,
+			label: `${t(r.name)} · ${year(r.from)}–${r.to ? year(r.to) : ''}`
+		}))
+	);
 
 	// A region is a set of atoms, so the filter is a set membership test and nothing
 	// is stored per event. Empty selection means the whole map.
@@ -91,6 +107,33 @@
 			muted: !inScope(e.atom)
 		}))
 	);
+
+	// Events of the surrounding years, as dots where they happened: the map is a
+	// place to browse from, not only a picture of a date. Only the selected one
+	// is named; the rest speak on hover.
+	const NEAR_DAYS = 365 * 6;
+	const pins = $derived.by((): MapPin[] => {
+		const out: MapPin[] = [];
+		for (const e of data.events) {
+			if (!e.place) continue;
+			const d = toDay(e.period[0], origin);
+			const isSelected = e.id === selectedId;
+			if (!isSelected && Math.abs(d - day) > NEAR_DAYS) continue;
+			const p = placeOf.get(e.place);
+			if (!p) continue;
+			out.push({
+				id: e.id,
+				lon: p.lon,
+				lat: p.lat,
+				label: `${year(e.period[0])} — ${t(e.title)}`,
+				selected: isSelected,
+				muted: !inScope(e.atom),
+				labelled: isSelected
+			});
+		}
+		// The selected one last, so it is drawn on top.
+		return out.sort((a, b) => Number(a.selected ?? false) - Number(b.selected ?? false));
+	});
 
 	function greekAreaIn(sovereign: Map<string, string>): number {
 		let km2 = 0;
@@ -142,12 +185,26 @@
 		const hint = data.meta.regions.find((r) => r.id === id)?.frame;
 		if (hint) frame = hint;
 	}
+
+	// Two columns or one. On a desktop the legend on the map is open and the frame
+	// chips sit on the map; on a phone the map is small, so the legend folds to its
+	// heading and the chips move under the timeline.
+	const mq = matchMedia('(min-width: 900px)');
+	let wide = $state(mq.matches);
+	$effect(() => {
+		const on = () => (wide = mq.matches);
+		mq.addEventListener('change', on);
+		return () => mq.removeEventListener('change', on);
+	});
+	let legendOpen = $state(mq.matches);
 </script>
 
-<p class="tagline">{ui('atlas.tagline')}</p>
+<svelte:head>
+	<title>{ui('site.name')}</title>
+</svelte:head>
 
-<main>
-	<section class="mapcol">
+<main class="atlas">
+	<section class="stage">
 		<div class="mapframe">
 			<Atlas
 				atoms={data.atoms.features}
@@ -159,120 +216,248 @@
 				{showOccupation}
 				{highlight}
 				{dimmed}
+				{pins}
 				onpick={pick}
+				onpin={selectById}
+				onview={(r) => (view = r)}
+				fill
 			/>
+
+			{#if wide}
+				<div class="frames">
+					<FrameSwitch bind:frame />
+				</div>
+			{/if}
+
+			<details class="legend" bind:open={legendOpen}>
+				<summary>{ui('atlas.legend')}</summary>
+				<div class="legend-body">
+					<Legend entries={legend} />
+					{#if layered.insurgent.size}
+						<p class="note">{ui('atlas.note.insurgent')}</p>
+					{/if}
+					{#if layered.occupied.size}
+						<p class="note">{ui('atlas.note.occupied')}</p>
+					{/if}
+					<label class="occ">
+						<input type="checkbox" bind:checked={showOccupation} />
+						{ui('atlas.occupation')}
+					</label>
+					<details class="about">
+						<summary>{ui('atlas.about')}</summary>
+						<p class="note">{ui('site.footer')}</p>
+					</details>
+				</div>
+			</details>
 		</div>
 
-		<MapCaption {date} areaKm2={greekArea} {instruments} {trend} {day} {maxDay} {regime} />
-
-		<div class="scrub">
-			<Timeline
-				bind:day
-				{maxDay}
-				{epochDays}
-				{origin}
-				events={marks}
-				{selectedId}
-				onselectevent={selectById}
-			/>
+		<div class="deck">
+			<MapCaption {date} areaKm2={greekArea} {instruments} {trend} {day} {maxDay} {regime} compact />
+			<div class="scrub">
+				<Timeline
+					bind:day
+					{maxDay}
+					{epochDays}
+					{origin}
+					events={marks}
+					{bands}
+					{selectedId}
+					onselectevent={selectById}
+				/>
+			</div>
+			{#if !wide}
+				<div class="frames-row">
+					<FrameSwitch bind:frame />
+				</div>
+			{/if}
 		</div>
-
-		<div class="controls">
-			<FrameSwitch bind:frame />
-			<label class="occ">
-				<input type="checkbox" bind:checked={showOccupation} />
-				{ui('atlas.occupation')}
-			</label>
-		</div>
-
-		<div class="legend">
-			<Legend entries={legend} />
-		</div>
-
-		{#if layered.insurgent.size}
-			<p class="note">{ui('atlas.note.insurgent')}</p>
-		{/if}
-		{#if layered.occupied.size}
-			<p class="note">{ui('atlas.note.occupied')}</p>
-		{/if}
 	</section>
 
 	<aside>
-		<h2>{ui('page.events')}</h2>
-		<RegionFilter
-			regions={data.meta.regions}
-			selected={regions}
-			ontoggle={toggleRegion}
-			onclear={() => (regions = [])}
-		/>
+		<div class="aside-head">
+			<h2>{ui('page.events')}</h2>
+			<RegionFilter
+				regions={data.meta.regions}
+				selected={regions}
+				ontoggle={toggleRegion}
+				onclear={() => (regions = [])}
+			/>
+		</div>
 		<EventLedger
 			events={shownEvents}
 			total={data.events.length}
 			{date}
 			{selectedId}
 			onselect={select}
+			fill
 		/>
 	</aside>
 </main>
 
 <style>
-	.tagline {
-		margin: 0 0 20px;
-		color: var(--ink-soft);
-		max-width: 60ch;
-	}
 	main {
 		display: grid;
-		grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-		gap: 28px;
-		align-items: start;
+		grid-template-columns: minmax(0, 1fr) minmax(300px, 400px);
+		gap: 24px;
+		align-items: stretch;
+		flex: 1;
+		min-height: 0;
+	}
+	.stage {
+		display: flex;
+		flex-direction: column;
+		min-height: 0;
 	}
 	.mapframe {
-		/* Never wider than the 760-unit reference drawing (the source geometry is
-		   1:3M, so upscaling buys nothing), and on a short window narrower still,
-		   by the frame's own aspect ratio, so the timeline stays on screen with
-		   the map it drives. */
-		max-width: min(760px, calc((100vh - 350px) * 1.118));
+		position: relative;
+		flex: 1;
+		min-height: 320px;
 		background: var(--panel);
 		border: 1px solid var(--rule);
-		border-radius: var(--radius);
-		padding: 8px;
+		border-radius: var(--radius-lg, 8px);
+		overflow: hidden;
 	}
-	.scrub {
-		margin-top: 10px;
+	.frames {
+		position: absolute;
+		top: 8px;
+		left: 8px;
+		padding: 4px 6px;
+		background: color-mix(in srgb, var(--panel) 85%, transparent);
+		backdrop-filter: blur(6px);
+		border: 1px solid var(--rule);
+		border-radius: var(--radius-lg, 8px);
+		font-size: 0.85rem;
 	}
-	.controls {
-		margin-top: 10px;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 16px;
-		flex-wrap: wrap;
+	/* Bottom right: in the default frame that corner is open sea, where the
+	   bottom left is the Ionian and the Peloponnese. */
+	.legend {
+		position: absolute;
+		right: 8px;
+		bottom: 8px;
+		max-width: min(300px, calc(100% - 16px));
+		background: color-mix(in srgb, var(--panel) 88%, transparent);
+		backdrop-filter: blur(6px);
+		border: 1px solid var(--rule);
+		border-radius: var(--radius-lg, 8px);
+		font-size: 0.85rem;
+	}
+	.legend summary {
+		cursor: pointer;
+		padding: 5px 10px;
 		color: var(--ink-soft);
-		font-size: 0.88rem;
+		font-size: 0.74rem;
+		text-transform: uppercase;
+		letter-spacing: 0.07em;
+		list-style: none;
+	}
+	.legend summary::-webkit-details-marker {
+		display: none;
+	}
+	.legend summary::before {
+		content: '▸';
+		display: inline-block;
+		margin-right: 6px;
+		transition: transform 150ms ease;
+	}
+	.legend[open] summary::before {
+		transform: rotate(90deg);
+	}
+	.legend-body {
+		padding: 0 10px 8px;
+		max-height: 40vh;
+		overflow: auto;
 	}
 	.occ {
 		display: inline-flex;
 		gap: 6px;
 		align-items: center;
 		cursor: pointer;
-	}
-	.legend {
-		margin-top: 16px;
+		margin-top: 8px;
+		font-size: 0.84rem;
+		color: var(--ink-soft);
 	}
 	.note {
-		margin: 10px 0 0;
+		margin: 8px 0 0;
 		color: var(--ink-soft);
-		font-size: 0.84rem;
-		max-width: 68ch;
+		font-size: 0.8rem;
+		max-width: 60ch;
+	}
+	.about {
+		margin-top: 8px;
+		font-size: 0.74rem;
+		color: var(--ink-soft);
+	}
+	.about summary {
+		cursor: pointer;
+	}
+	.about .note {
+		margin-top: 4px;
+		font-size: 0.72rem;
+	}
+	.legend-body :global(.legend) {
+		grid-template-columns: 1fr;
+	}
+	.deck {
+		flex: none;
+		padding-top: 2px;
+	}
+	.scrub {
+		margin-top: 6px;
+	}
+
+	aside {
+		display: flex;
+		flex-direction: column;
+		min-height: 0;
+	}
+	.aside-head {
+		flex: none;
 	}
 	aside h2 {
 		font-size: 1.15rem;
 		margin: 0 0 8px;
 	}
+
 	@media (max-width: 900px) {
 		main {
-			grid-template-columns: 1fr;
+			display: block;
+		}
+		/* The map and its date control stay put while the list scrolls under them:
+		   picking an event must never scroll the map out of sight. */
+		.stage {
+			position: sticky;
+			top: 0;
+			z-index: 3;
+			background: var(--ground);
+			padding-bottom: 8px;
+		}
+		.mapframe {
+			height: 36vh;
+			min-height: 220px;
+			flex: none;
+		}
+		.frames-row {
+			margin-top: 6px;
+			font-size: 0.8rem;
+		}
+		/* No room for the sparkline here; the figure itself stays. */
+		.deck :global(.trend) {
+			display: none;
+		}
+		.legend {
+			max-width: calc(100% - 16px);
+		}
+		.legend-body {
+			max-height: 30vh;
+		}
+		aside {
+			display: block;
+			margin-top: 12px;
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.legend summary::before {
+			transition: none;
 		}
 	}
 </style>

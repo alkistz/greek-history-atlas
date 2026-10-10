@@ -18,6 +18,8 @@
 		/**
 		 * Fold the facets behind a disclosure. Worth it past about three groups,
 		 * where the chip rows stand taller than the list they filter; noise below that.
+		 * Only ever folded when the bar sits above the list: in a sidebar there is
+		 * room, and the facets are the point of the column.
 		 */
 		collapsible?: boolean;
 		/** how many facet selections are in force, shown on the closed disclosure */
@@ -41,9 +43,19 @@
 	// shared link shows what is narrowing it rather than an unexplained short list.
 	// Deliberately the arrival value only: past that the disclosure is the reader's.
 	let open = $state(untrack(() => facetCount > 0));
+
+	// The same breakpoint as IndexPage: beside the list, nothing folds.
+	const mq = matchMedia('(min-width: 1100px)');
+	let wide = $state(mq.matches);
+	$effect(() => {
+		const on = () => (wide = mq.matches);
+		mq.addEventListener('change', on);
+		return () => mq.removeEventListener('change', on);
+	});
+	const folded = $derived(collapsible && !wide);
 </script>
 
-<div class="bar">
+<div class="bar" class:wide>
 	<div class="row">
 		<input
 			id="{uid}-q"
@@ -63,7 +75,7 @@
 			<button class="clear" onclick={onclear}>{ui('filter.clear')}</button>
 		{/if}
 	</div>
-	{#if facets && collapsible}
+	{#if facets && folded}
 		<details class="fold" bind:open>
 			<summary>
 				{ui('filter.filters')}{#if facetCount}<span class="badge">{facetCount}</span>{/if}
@@ -71,7 +83,7 @@
 			<div class="facets">{@render facets()}</div>
 		</details>
 	{:else if facets}
-		<div class="facets">{@render facets()}</div>
+		<div class="facets" class:stacked={wide}>{@render facets()}</div>
 	{/if}
 </div>
 
@@ -82,6 +94,9 @@
 		display: flex;
 		flex-direction: column;
 		gap: 9px;
+	}
+	.bar.wide {
+		max-width: none;
 	}
 	.row {
 		display: flex;
@@ -98,7 +113,11 @@
 		color: var(--ink);
 		border: 1px solid var(--rule);
 		border-radius: var(--radius);
-		padding: 5px 10px;
+		padding: 6px 10px;
+		transition: border-color 120ms ease;
+	}
+	input[type='search']:hover {
+		border-color: var(--ink-soft);
 	}
 	input[type='search']:focus-visible {
 		outline: 2px solid var(--accent);
@@ -124,11 +143,22 @@
 		outline-offset: 2px;
 		border-radius: var(--radius);
 	}
-	.fold .facets {
+	.facets {
 		display: flex;
 		flex-direction: column;
 		gap: 9px;
+	}
+	.fold .facets {
 		margin-top: 9px;
+	}
+	/* In the sidebar each group's caption takes a line of its own, as a heading. */
+	.facets.stacked {
+		gap: 14px;
+		margin-top: 4px;
+	}
+	.facets.stacked :global(.chips > .caption) {
+		flex-basis: 100%;
+		margin: 0 0 2px;
 	}
 	.badge {
 		margin-left: 6px;
@@ -145,5 +175,10 @@
 		text-decoration: underline;
 		cursor: pointer;
 		padding: 0;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		input[type='search'] {
+			transition: none;
+		}
 	}
 </style>

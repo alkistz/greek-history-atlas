@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { untrack } from 'svelte';
 	import { page } from '$app/state';
+	import Atlas, { type MapPin } from '$lib/Atlas.svelte';
 	import ChipGroup from '$lib/ChipGroup.svelte';
 	import FilterBar from '$lib/FilterBar.svelte';
+	import IndexPage from '$lib/IndexPage.svelte';
 	import { alt, both, byText, num, t } from '$lib/lang.svelte';
 	import { term, Term, ui } from '$lib/ui';
 	import { year } from '$lib/time';
@@ -79,6 +81,23 @@
 		})
 	);
 
+	// Every place that survives the filter, as a dot. A click finds its row.
+	let picked = $state<string | null>(null);
+	const pins = $derived.by((): MapPin[] =>
+		shown.map((p) => ({
+			id: p.id,
+			lon: p.lon,
+			lat: p.lat,
+			label: t(current(p).name),
+			labelled: p.id === picked,
+			selected: p.id === picked
+		}))
+	);
+	function find(id: string) {
+		picked = id;
+		document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+	}
+
 	const toggle = (c: string[], id: string) =>
 		c.includes(id) ? c.filter((x) => x !== id) : [...c, id];
 
@@ -92,126 +111,170 @@
 	<meta name="description" content={ui('places.description')} />
 </svelte:head>
 
-<h1>{ui('page.places')}</h1>
-<p class="lead">{ui('places.lead')}</p>
-
-<FilterBar
-	bind:query
-	placeholder={ui('places.placeholder')}
-	shown={shown.length}
-	total={data.places.length}
-	noun="places"
-	{active}
-	onclear={() => {
-		query = '';
-		kinds = [];
-	}}
->
-	{#snippet facets()}
-		<ChipGroup
-			label={ui('facet.kind')}
-			items={kindItems}
-			selected={kinds}
-			ontoggle={(id) => (kinds = toggle(kinds, id))}
-			onclear={() => (kinds = [])}
-		/>
+<IndexPage title={ui('page.places')} lead={ui('places.lead')}>
+	{#snippet filters()}
+		<FilterBar
+			bind:query
+			placeholder={ui('places.placeholder')}
+			shown={shown.length}
+			total={data.places.length}
+			noun="places"
+			{active}
+			onclear={() => {
+				query = '';
+				kinds = [];
+			}}
+		>
+			{#snippet facets()}
+				<ChipGroup
+					label={ui('facet.kind')}
+					items={kindItems}
+					selected={kinds}
+					ontoggle={(id) => (kinds = toggle(kinds, id))}
+					onclear={() => (kinds = [])}
+				/>
+			{/snippet}
+		</FilterBar>
 	{/snippet}
-</FilterBar>
 
-<ol class="places">
-	{#each shown as p (p.id)}
-		{@const now = current(p)}
-		{@const past = p.names.filter((n) => n !== now)}
-		{@const here = eventsAt.get(p.id) ?? []}
-		{@const lives = livesAt.get(p.id) ?? []}
-		<li id={p.id}>
-			<div class="head">
-				<span class="name">{t(now.name)}</span>
-				{#if alt(now.name)}<span class="alt">{alt(now.name)}</span>{/if}
-				<span class="kind">{term('kind.place', p.kind)}</span>
-			</div>
-			<p class="where">
-				{#if p.atom}
-					<span>{atomName.get(p.atom) ?? p.atom}</span>
-					{#if regionOf.get(p.atom) && regionOf.get(p.atom) !== atomName.get(p.atom)}
-						<span class="region">{regionOf.get(p.atom)}</span>
+	<figure class="overview">
+		<Atlas
+			atoms={data.atoms.features}
+			land={data.land}
+			meta={data.meta}
+			control={data.control}
+			date={data.meta.range.to}
+			{pins}
+			onpin={find}
+			showLabels={false}
+			showOccupation={false}
+			interactive={false}
+			fill
+		/>
+		<figcaption>{ui('places.mapAria')}</figcaption>
+	</figure>
+
+	<ol class="places">
+		{#each shown as p (p.id)}
+			{@const now = current(p)}
+			{@const past = p.names.filter((n) => n !== now)}
+			{@const here = eventsAt.get(p.id) ?? []}
+			{@const lives = livesAt.get(p.id) ?? []}
+			<li id={p.id} class="card" class:picked={picked === p.id}>
+				<div class="head">
+					<span class="name">{t(now.name)}</span>
+					{#if alt(now.name)}<span class="alt">{alt(now.name)}</span>{/if}
+					<span class="kind">{term('kind.place', p.kind)}</span>
+				</div>
+				<p class="where">
+					{#if p.atom}
+						<span>{atomName.get(p.atom) ?? p.atom}</span>
+						{#if regionOf.get(p.atom) && regionOf.get(p.atom) !== atomName.get(p.atom)}
+							<span class="region">{regionOf.get(p.atom)}</span>
+						{/if}
+					{:else}
+						<span class="region">{ui('places.outside')}</span>
 					{/if}
-				{:else}
-					<span class="region">{ui('places.outside')}</span>
-				{/if}
-				<span class="coords">{ui('places.coords', { lat: num(p.lat, 2), lon: num(p.lon, 2) })}</span
-				>
-			</p>
-
-			{#if past.length}
-				<p class="formerly">
-					{ui('places.alsoknown')}
-					{#each past as n, i (n.name.en)}{i ? '; ' : ' '}<span class="oldname"
-							>{t(n.name)}</span
-						>{#if alt(n.name)}<span class="alt"> {alt(n.name)}</span>{/if}{#if n.from || n.to}<span
-							class="span"
-						>
-							{n.from ? year(n.from) : '…'}–{n.to ? year(n.to) : '…'}</span
-						>{/if}{/each}
+					<span class="coords">{ui('places.coords', { lat: num(p.lat, 2), lon: num(p.lon, 2) })}</span
+					>
 				</p>
-			{/if}
 
-			{#if here.length > FOLD_AT}
-				<details class="fold">
-					<summary>{ui('places.eventshere', { n: here.length })}</summary>
+				{#if past.length}
+					<p class="formerly">
+						{ui('places.alsoknown')}
+						{#each past as n, i (n.name.en)}{i ? '; ' : ' '}<span class="oldname"
+								>{t(n.name)}</span
+							>{#if alt(n.name)}<span class="alt"> {alt(n.name)}</span>{/if}{#if n.from || n.to}<span
+								class="span"
+							>
+								{n.from ? year(n.from) : '…'}–{n.to ? year(n.to) : '…'}</span
+							>{/if}{/each}
+					</p>
+				{/if}
+
+				{#if here.length > FOLD_AT}
+					<details class="fold">
+						<summary>{ui('places.eventshere', { n: here.length })}</summary>
+						<ul class="at">
+							{#each here as e (e.id)}
+								<li><span class="mono">{e.when}</span> <a href="/events/{e.id}">{e.title}</a></li>
+							{/each}
+						</ul>
+					</details>
+				{:else if here.length}
 					<ul class="at">
 						{#each here as e (e.id)}
 							<li><span class="mono">{e.when}</span> <a href="/events/{e.id}">{e.title}</a></li>
 						{/each}
 					</ul>
-				</details>
-			{:else if here.length}
-				<ul class="at">
-					{#each here as e (e.id)}
-						<li><span class="mono">{e.when}</span> <a href="/events/{e.id}">{e.title}</a></li>
-					{/each}
-				</ul>
-			{/if}
-			{#if lives.length}
-				<ul class="at lives">
-					{#each lives as l (l.id + l.what)}
-						<li>
-							<span class="mono">{l.when}</span>
-							<a href="/figures/{l.id}">{l.name}</a>
-							<span class="what">{term('what', l.what)}</span>
-						</li>
-					{/each}
-				</ul>
-			{/if}
-			{#if !here.length && !lives.length}
-				<p class="none">{ui('places.nothing')}</p>
-			{/if}
-		</li>
-	{:else}
-		<li class="empty">{ui('places.empty')}</li>
-	{/each}
-</ol>
+				{/if}
+				{#if lives.length}
+					<ul class="at lives">
+						{#each lives as l (l.id + l.what)}
+							<li>
+								<span class="mono">{l.when}</span>
+								<a href="/figures/{l.id}">{l.name}</a>
+								<span class="what">{term('what', l.what)}</span>
+							</li>
+						{/each}
+					</ul>
+				{/if}
+				{#if !here.length && !lives.length}
+					<p class="none">{ui('places.nothing')}</p>
+				{/if}
+			</li>
+		{:else}
+			<li class="empty">{ui('places.empty')}</li>
+		{/each}
+	</ol>
+</IndexPage>
 
 <style>
-	h1 {
-		font-size: 1.9rem;
-		margin: 0 0 4px;
+	.overview {
+		margin: 0 0 16px;
+		height: clamp(240px, 38vh, 420px);
+		display: flex;
+		flex-direction: column;
+		background: var(--panel);
+		border: 1px solid var(--rule);
+		border-radius: var(--radius-lg);
+		padding: 8px;
+		box-sizing: border-box;
 	}
-	.lead {
+	.overview > :global(.wrap) {
+		flex: 1;
+		min-height: 0;
+	}
+	figcaption {
+		flex: none;
+		padding-top: 6px;
+		font-size: 0.78rem;
 		color: var(--ink-soft);
-		margin: 0 0 18px;
-		max-width: 66ch;
 	}
 	.places {
 		list-style: none;
 		padding: 0;
 		margin: 0;
-		max-width: 76ch;
-		border-top: 1px solid var(--rule);
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+		gap: 10px;
 	}
-	.places > li {
-		padding: 12px 0;
-		border-bottom: 1px solid var(--rule);
+	.card {
+		padding: 12px 14px;
+		background: var(--panel);
+		border: 1px solid var(--rule);
+		border-radius: var(--radius-lg);
+		scroll-margin-top: calc(var(--header-h, 0px) + 16px);
+		transition:
+			border-color 120ms ease,
+			box-shadow 120ms ease;
+	}
+	.card:hover {
+		border-color: var(--ink-soft);
+	}
+	.card.picked {
+		border-color: var(--accent);
+		box-shadow: 0 0 0 2px var(--accent-soft);
 	}
 	.head {
 		display: flex;
@@ -308,5 +371,10 @@
 		display: block;
 		color: var(--ink-soft);
 		padding: 14px 0;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.card {
+			transition: none;
+		}
 	}
 </style>

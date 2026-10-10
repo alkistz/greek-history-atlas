@@ -25,6 +25,7 @@ const STRINGS = {
 		en: 'An interactive atlas of Greek history from 1821, where the map redraws as territorial control changes.',
 		el: 'Ένας διαδραστικός άτλας της ελληνικής ιστορίας από το 1821, όπου ο χάρτης ξαναχαράσσεται καθώς αλλάζει ο έλεγχος του εδάφους.'
 	},
+	'site.loading': { en: 'Loading', el: 'Φόρτωση' },
 	'site.footer': {
 		en: 'Boundaries from Eurostat Nuts2json (2021, 03M), dissolved into atoms. Neighbouring land is drawn at present-day extent and uncoloured. Several historical frontiers are approximated; see the README for the list.',
 		el: 'Τα όρια προέρχονται από το Eurostat Nuts2json (2021, 03M), συγχωνευμένα σε άτομα. Τα γειτονικά εδάφη σχεδιάζονται στη σημερινή τους έκταση και χωρίς χρώμα. Αρκετά ιστορικά σύνορα αποδίδονται κατά προσέγγιση· ο κατάλογος βρίσκεται στο README.'
@@ -57,6 +58,22 @@ const STRINGS = {
 		en: 'Exact accuracy not verified. Check the cited sources before relying on dates, figures or attributions.',
 		el: 'Η ακρίβεια δεν έχει επαληθευτεί πλήρως. Ανατρέξτε στις πηγές πριν βασιστείτε σε ημερομηνίες, αριθμούς ή αποδόσεις.'
 	},
+	// The same on a phone, where the full sentence folds behind this.
+	'draft.short': { en: 'Accuracy not verified', el: 'Μη επαληθευμένη ακρίβεια' },
+
+	// Error pages. The failed request's path is for the console, not the reader.
+	'error.404.title': { en: 'Not here', el: 'Δεν βρέθηκε' },
+	'error.404.body': {
+		en: 'There is no page at this address. It may have been renamed, or the link may be wrong.',
+		el: 'Δεν υπάρχει σελίδα σε αυτή τη διεύθυνση. Ίσως μετονομάστηκε, ή ο σύνδεσμος είναι λάθος.'
+	},
+	'error.other.title': { en: 'Something went wrong', el: 'Κάτι πήγε στραβά' },
+	'error.other.body': {
+		en: 'The page could not be loaded. Try again in a moment.',
+		el: 'Η σελίδα δεν φορτώθηκε. Δοκιμάστε ξανά σε λίγο.'
+	},
+	'error.back.atlas': { en: 'Open the atlas', el: 'Άνοιγμα του άτλαντα' },
+	'error.back.events': { en: 'Browse the events', el: 'Περιήγηση στα γεγονότα' },
 
 	// Filtering, shared by every index
 	'filter.placeholder': { en: 'Search…', el: 'Αναζήτηση…' },
@@ -159,6 +176,27 @@ const STRINGS = {
 		el: 'Χάρτης του εδαφικού ελέγχου στις {date}'
 	},
 	'map.territories': { en: 'Territories', el: 'Εδάφη' },
+	'map.zoomin': { en: 'Zoom in', el: 'Μεγέθυνση' },
+	'map.zoomout': { en: 'Zoom out', el: 'Σμίκρυνση' },
+	'map.reset': { en: 'Reset the view', el: 'Επαναφορά προβολής' },
+	'map.events': { en: 'Events near this date', el: 'Γεγονότα κοντά σε αυτή την ημερομηνία' },
+	'atlas.legend': { en: 'Legend', el: 'Υπόμνημα' },
+	'index.decades': { en: 'Decades', el: 'Δεκαετίες' },
+	'index.readmore': { en: 'Read more →', el: 'Περισσότερα →' },
+	'strip.aria': {
+		en: '{n} events between {from} and {to}',
+		el: '{n} γεγονότα μεταξύ {from} και {to}'
+	},
+	'figure.strip': {
+		en: 'Lifetime and events, on the atlas’s span of years',
+		el: 'Η ζωή και τα γεγονότα, στα χρόνια του άτλαντα'
+	},
+	'thread.strip': { en: 'The arc in time', el: 'Το νήμα στον χρόνο' },
+	'places.mapAria': {
+		en: 'Every place on one map. Click a dot to find it in the list.',
+		el: 'Όλοι οι τόποι σε έναν χάρτη. Πατήστε μια κουκκίδα για να τον βρείτε στον κατάλογο.'
+	},
+	'atlas.about': { en: 'About this map', el: 'Για τον χάρτη' },
 	'map.sovereignty': { en: 'Sovereignty held by {polities}', el: 'Κυριαρχία: {polities}' },
 	'map.occupied': { en: 'Occupied by {polities}', el: 'Υπό κατοχή: {polities}' },
 	'map.revolt': { en: '{polity} in armed revolt', el: '{polity} σε ένοπλη εξέγερση' },

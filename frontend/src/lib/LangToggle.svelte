@@ -26,19 +26,26 @@
 	button {
 		font: inherit;
 		font-size: 0.82rem;
-		background: none;
+		background: var(--panel);
 		border: 1px solid var(--rule);
-		border-radius: var(--radius);
+		border-radius: 999px;
 		color: var(--ink-soft);
-		padding: 2px 9px;
+		padding: 3px 11px;
 		cursor: pointer;
 		display: inline-flex;
 		align-items: center;
 		gap: 6px;
+		transition:
+			color 120ms ease,
+			border-color 120ms ease;
 	}
 	button:hover {
 		color: var(--accent);
 		border-color: var(--accent);
+	}
+	button:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
 	}
 	span {
 		font-family: var(--mono);

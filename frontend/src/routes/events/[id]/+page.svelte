@@ -4,7 +4,7 @@
 	import Legend from '$lib/Legend.svelte';
 	import { t } from '$lib/lang.svelte';
 	import { term, ui } from '$lib/ui';
-	import { visibleIn } from '$lib/projection';
+	import { frameRect, visibleIn } from '$lib/projection';
 	import { regimeOn } from '$lib/regimes';
 	import { legendEntries, resolveOn } from '$lib/resolve';
 	import Significance from '$lib/Significance.svelte';
@@ -19,7 +19,7 @@
 		legendEntries(
 			resolveOn(data.control, date),
 			data.meta.polities,
-			visibleIn(data.atoms.features, event.frame)
+			visibleIn(data.atoms.features, frameRect(event.frame))
 		)
 	);
 	const pins = $derived.by((): Pin[] =>
@@ -204,10 +204,10 @@
 	.map {
 		margin: 0;
 		position: sticky;
-		top: 16px;
+		top: calc(var(--header-h, 0px) + 12px);
 		background: var(--panel);
 		border: 1px solid var(--rule);
-		border-radius: var(--radius);
+		border-radius: var(--radius-lg);
 		padding: 8px;
 	}
 	figcaption {

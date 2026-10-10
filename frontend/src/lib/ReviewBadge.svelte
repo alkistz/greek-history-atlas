@@ -1,37 +1,31 @@
 <script lang="ts">
-	import { badgeLabel, strongest, toneOf } from './review';
-	import { term, ui } from './ui';
+	import { ui } from './ui';
 	import type { Review } from './types';
 
 	interface Props {
 		review: Review | null | undefined;
-		/** the bare result, for dense rows where the word "pass" is noise */
+		/** kept for the call sites; the one label shown is short already */
 		compact?: boolean;
 	}
 	let { review, compact = false }: Props = $props();
 
-	const shown = $derived(strongest(review));
-	const tone = $derived(toneOf(review));
-	const label = $derived(
-		compact
-			? shown
-				? term('result', shown.pass.result)
-				: ui('review.compact.none')
-			: badgeLabel(review)
-	);
-	// The title carries what the badge has no room for: who, when, and in which
-	// languages. A badge that only says "corrected" invites the wrong inference.
+	// Only a person's pass earns a mark. The machine track still drives the
+	// index filters, but as a badge it confused more than it told: "corrected"
+	// described the entry's history, not its state, and the note that explained
+	// it was never on screen. Nothing is shown for an auto pass or no pass at all.
+	const pass = $derived(review?.manual ?? null);
 	const hint = $derived.by(() => {
-		if (!shown) return ui('review.hint.none');
-		const who = ui(shown.track === 'manual' ? 'review.manual' : 'review.by.auto');
-		const date = shown.pass.date;
-		return shown.pass.by
-			? ui('review.tip.by', { who, date, by: shown.pass.by })
-			: ui('review.tip', { who, date });
+		if (!pass) return '';
+		const who = ui('review.manual');
+		return pass.by
+			? ui('review.tip.by', { who, date: pass.date, by: pass.by })
+			: ui('review.tip', { who, date: pass.date });
 	});
 </script>
 
-<span class="badge {tone}" class:compact title={hint}>{label}</span>
+{#if pass}
+	<span class="badge" class:compact title={hint}>{ui('review.by.manual')}</span>
+{/if}
 
 <style>
 	.badge {
@@ -41,6 +35,7 @@
 		text-transform: uppercase;
 		letter-spacing: 0.07em;
 		white-space: nowrap;
+		color: var(--accent);
 		border: 1px solid currentColor;
 		border-radius: var(--radius);
 		padding: 0 5px;
@@ -49,19 +44,5 @@
 	}
 	.compact {
 		letter-spacing: 0.05em;
-	}
-	.muted {
-		color: var(--ink-soft);
-		opacity: 0.8;
-	}
-	.warn {
-		color: var(--warn-ink);
-	}
-	.ok {
-		color: var(--ink-soft);
-		border-color: var(--ink-soft);
-	}
-	.strong {
-		color: var(--accent);
 	}
 </style>

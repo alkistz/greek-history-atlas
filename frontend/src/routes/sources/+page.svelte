@@ -4,6 +4,7 @@
 	import ChipGroup from '$lib/ChipGroup.svelte';
 	import Citation from '$lib/Citation.svelte';
 	import FilterBar from '$lib/FilterBar.svelte';
+	import IndexPage from '$lib/IndexPage.svelte';
 	import { both, t } from '$lib/lang.svelte';
 	import { Term, ui } from '$lib/ui';
 	import { list, matches, params, replaceParams } from '$lib/urlstate';
@@ -55,38 +56,38 @@
 	<meta name="description" content={ui('sources.description')} />
 </svelte:head>
 
-<h1>{ui('page.sources')}</h1>
-<p class="lead">
-	{ui('sources.lead')}
-	{#if uncited}
-		{ui('sources.uncited', { n: uncited, total: data.sources.length })}
-	{/if}
-</p>
-
-<FilterBar
-	bind:query
-	placeholder={ui('sources.placeholder')}
-	shown={shown.length}
-	total={data.sources.length}
-	noun="works"
-	{active}
-	onclear={() => {
-		query = '';
-		kinds = [];
-	}}
+<IndexPage
+	title={ui('page.sources')}
+	lead={uncited
+		? `${ui('sources.lead')} ${ui('sources.uncited', { n: uncited, total: data.sources.length })}`
+		: ui('sources.lead')}
 >
-	{#snippet facets()}
-		{#if kindItems.length}
-			<ChipGroup
-				label={ui('facet.kind')}
-				items={kindItems}
-				selected={kinds}
-				ontoggle={(id) => (kinds = kinds.includes(id) ? kinds.filter((k) => k !== id) : [...kinds, id])}
-				onclear={() => (kinds = [])}
-			/>
-		{/if}
+	{#snippet filters()}
+		<FilterBar
+			bind:query
+			placeholder={ui('sources.placeholder')}
+			shown={shown.length}
+			total={data.sources.length}
+			noun="works"
+			{active}
+			onclear={() => {
+				query = '';
+				kinds = [];
+			}}
+		>
+			{#snippet facets()}
+				{#if kindItems.length}
+					<ChipGroup
+						label={ui('facet.kind')}
+						items={kindItems}
+						selected={kinds}
+						ontoggle={(id) => (kinds = kinds.includes(id) ? kinds.filter((k) => k !== id) : [...kinds, id])}
+						onclear={() => (kinds = [])}
+					/>
+				{/if}
+			{/snippet}
+		</FilterBar>
 	{/snippet}
-</FilterBar>
 
 <ol class="sources">
 	{#each shown as s (s.id)}
@@ -113,34 +114,28 @@
 		<li class="empty">{ui('sources.empty')}</li>
 	{/each}
 </ol>
+</IndexPage>
 
 <style>
-	h1 {
-		font-size: 1.9rem;
-		margin: 0 0 4px;
-	}
-	.lead {
-		color: var(--ink-soft);
-		margin: 0 0 18px;
-		max-width: 66ch;
-	}
 	.sources {
 		list-style: none;
 		padding: 0;
 		margin: 0;
-		max-width: 76ch;
-		border-top: 1px solid var(--rule);
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
+		gap: 10px;
 	}
 	.sources > li {
-		padding: 12px 0;
-		border-bottom: 1px solid var(--rule);
+		padding: 12px 14px;
+		background: var(--panel);
+		border: 1px solid var(--rule);
+		border-radius: var(--radius-lg);
 		/* So a jump from a citation link does not land under the sticky header. */
-		scroll-margin-top: 16px;
+		scroll-margin-top: calc(var(--header-h, 0px) + 16px);
 	}
 	.sources > li:target {
-		background: var(--panel);
-		box-shadow: inset 2px 0 0 var(--accent);
-		padding-left: 10px;
+		border-color: var(--accent);
+		box-shadow: 0 0 0 2px var(--accent-soft);
 	}
 	.work {
 		margin: 0;

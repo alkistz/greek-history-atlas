@@ -54,16 +54,26 @@
 		background: var(--panel);
 		color: var(--ink-soft);
 		border: 1px solid var(--rule);
-		border-radius: var(--radius);
-		padding: 1px 8px;
+		border-radius: 999px;
+		padding: 2px 10px;
 		cursor: pointer;
+		transition:
+			color 120ms ease,
+			border-color 120ms ease,
+			background 120ms ease;
 	}
 	button:hover {
 		color: var(--accent);
 		border-color: var(--accent);
 	}
+	button:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 1px;
+	}
+	/* Selected is filled, not just outlined: a row of ten outlines reads as ten
+	   buttons, and the one that is on has to be found rather than seen. */
 	button.on {
-		background: transparent;
+		background: var(--accent-soft);
 		color: var(--accent);
 		border-color: var(--accent);
 		font-weight: 600;
@@ -72,5 +82,10 @@
 		background: none;
 		border-color: transparent;
 		text-decoration: underline;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		button {
+			transition: none;
+		}
 	}
 </style>

@@ -3,6 +3,7 @@
 	import { page } from '$app/state';
 	import ChipGroup from '$lib/ChipGroup.svelte';
 	import FilterBar from '$lib/FilterBar.svelte';
+	import IndexPage from '$lib/IndexPage.svelte';
 	import { both, collator, t } from '$lib/lang.svelte';
 	import { term, Term, ui } from '$lib/ui';
 	import { REVIEW_FACETS, reviewLabel, reviewTags, tally } from '$lib/review';
@@ -90,62 +91,63 @@
 	<meta name="description" content={ui('instruments.description')} />
 </svelte:head>
 
-<h1>{ui('page.instruments')}</h1>
-<p class="lead">{ui('instruments.lead')}</p>
-
-<FilterBar
-	bind:query
-	placeholder={ui('instruments.placeholder')}
-	shown={shown.length}
-	total={sorted.length}
-	noun="instruments"
-	{active}
-	{facetCount}
-	collapsible
-	onclear={clear}
->
-	{#snippet facets()}
-		<ChipGroup
-			label={ui('facet.kind')}
-			items={kindItems}
-			selected={kinds}
-			ontoggle={(id) => (kinds = toggle(kinds, id))}
-			onclear={() => (kinds = [])}
-		/>
-		<ChipGroup
-			label={ui('facet.party')}
-			items={partyItems}
-			selected={parties}
-			ontoggle={(id) => (parties = toggle(parties, id))}
-			onclear={() => (parties = [])}
-		/>
-		<ChipGroup
-			label={ui('facet.text')}
-			items={textItems}
-			selected={text}
-			ontoggle={(id) => (text = toggle(text, id))}
-			onclear={() => (text = [])}
-		/>
-		<ChipGroup
-			label={ui('facet.review')}
-			items={reviewItems}
-			selected={review}
-			ontoggle={(id) => (review = toggle(review, id))}
-			onclear={() => (review = [])}
-		/>
+<IndexPage title={ui('page.instruments')} lead={ui('instruments.lead')}>
+	{#snippet filters()}
+		<FilterBar
+			bind:query
+			placeholder={ui('instruments.placeholder')}
+			shown={shown.length}
+			total={sorted.length}
+			noun="instruments"
+			{active}
+			{facetCount}
+			collapsible
+			onclear={clear}
+		>
+			{#snippet facets()}
+				<ChipGroup
+					label={ui('facet.kind')}
+					items={kindItems}
+					selected={kinds}
+					ontoggle={(id) => (kinds = toggle(kinds, id))}
+					onclear={() => (kinds = [])}
+				/>
+				<ChipGroup
+					label={ui('facet.party')}
+					items={partyItems}
+					selected={parties}
+					ontoggle={(id) => (parties = toggle(parties, id))}
+					onclear={() => (parties = [])}
+				/>
+				<ChipGroup
+					label={ui('facet.text')}
+					items={textItems}
+					selected={text}
+					ontoggle={(id) => (text = toggle(text, id))}
+					onclear={() => (text = [])}
+				/>
+				<ChipGroup
+					label={ui('facet.review')}
+					items={reviewItems}
+					selected={review}
+					ontoggle={(id) => (review = toggle(review, id))}
+					onclear={() => (review = [])}
+				/>
+			{/snippet}
+		</FilterBar>
 	{/snippet}
-</FilterBar>
 
-<ol class="instruments">
-	{#each shown as i (i.id)}
-		<li>
-			<span class="when">{year(i.signed)}</span>
-			<div>
+	<ol class="instruments">
+		{#each shown as i (i.id)}
+			<li class="card">
+				<p class="top">
+					<span class="when">{year(i.signed)}</span>
+					<span class="kind">{term('kind.instrument', i.kind)}</span>
+					<ReviewBadge review={i.review} />
+				</p>
 				<a class="title" href="/instruments/{i.id}">{t(i.name)}</a>
-				<span class="kind">{term('kind.instrument', i.kind)}</span>
-				<ReviewBadge review={i.review} />
 				<p class="parties">{i.parties.map((p) => t(polityName.get(p)) || p).join(' · ')}</p>
-				{#if i.summary}<p>{t(i.summary)}</p>{/if}
+				{#if i.summary}<p class="summary">{t(i.summary)}</p>{/if}
 				<p class="meta">
 					<span>{ui('instruments.signed', { date: prettyDate(i.signed) })}</span>
 					<a href={atlasHref({ on: i.signed })}>{ui('events.openatlas')}</a>
@@ -153,43 +155,53 @@
 						<a href={i.text_url} rel="noreferrer">{ui('instruments.readtext')}</a>
 					{/if}
 				</p>
-			</div>
-		</li>
-	{:else}
-		<li class="empty">{ui('instruments.empty')}</li>
-	{/each}
-</ol>
+			</li>
+		{:else}
+			<li class="empty">{ui('instruments.empty')}</li>
+		{/each}
+	</ol>
+</IndexPage>
 
 <style>
-	h1 {
-		font-size: 1.9rem;
-		margin: 0 0 4px;
-	}
-	.lead {
-		color: var(--ink-soft);
-		margin: 0 0 18px;
-		max-width: 64ch;
-	}
 	.instruments {
 		list-style: none;
 		padding: 0;
 		margin: 0;
-		max-width: 76ch;
-		border-top: 1px solid var(--rule);
-	}
-	.instruments li {
 		display: grid;
-		grid-template-columns: 7ch 1fr;
-		gap: 12px;
-		padding: 12px 0;
-		border-bottom: 1px solid var(--rule);
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+		gap: 10px;
+	}
+	.card {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		padding: 12px 14px;
+		background: var(--panel);
+		border: 1px solid var(--rule);
+		border-radius: var(--radius-lg);
+		transition: border-color 120ms ease;
+	}
+	.card:hover {
+		border-color: var(--ink-soft);
+	}
+	.card p {
+		margin: 0;
+	}
+	.top {
+		display: flex;
+		align-items: baseline;
+		gap: 10px;
+		font-size: 0.78rem;
+		color: var(--ink-soft);
 	}
 	.when {
 		font-family: var(--mono);
 		font-variant-numeric: tabular-nums;
-		font-size: 0.85rem;
-		color: var(--ink-soft);
-		padding-top: 3px;
+	}
+	.kind {
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		font-size: 0.72rem;
 	}
 	.title {
 		font-family: var(--serif);
@@ -201,31 +213,32 @@
 	.title:hover {
 		color: var(--accent);
 	}
-	.kind {
-		margin-left: 8px;
-		margin-right: 6px;
+	.parties {
 		color: var(--ink-soft);
 		font-size: 0.82rem;
 	}
-	.parties {
-		margin: 2px 0 0;
+	.summary {
+		margin-top: 6px !important;
 		color: var(--ink-soft);
-		font-size: 0.85rem;
-	}
-	.instruments p {
-		margin: 4px 0 0;
-		color: var(--ink-soft);
-		font-size: 0.92rem;
+		font-size: 0.9rem;
 	}
 	.meta {
+		margin-top: auto !important;
+		padding-top: 8px;
 		display: flex;
 		gap: 14px;
 		flex-wrap: wrap;
 		font-size: 0.82rem;
+		color: var(--ink-soft);
 	}
 	.empty {
 		display: block;
 		color: var(--ink-soft);
 		padding: 14px 0;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.card {
+			transition: none;
+		}
 	}
 </style>

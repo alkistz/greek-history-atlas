@@ -3,6 +3,7 @@
 	import { page } from '$app/state';
 	import ChipGroup from '$lib/ChipGroup.svelte';
 	import FilterBar from '$lib/FilterBar.svelte';
+	import IndexPage from '$lib/IndexPage.svelte';
 	import { both, t } from '$lib/lang.svelte';
 	import { term, Term, ui } from '$lib/ui';
 	import { REVIEW_FACETS, reviewLabel, reviewTags, tally } from '$lib/review';
@@ -81,123 +82,153 @@
 	<meta name="description" content={ui('figures.description')} />
 </svelte:head>
 
-<h1>{ui('page.figures')}</h1>
-<p class="lead">{ui('figures.lead')}</p>
-
-<FilterBar
-	bind:query
-	placeholder={ui('figures.placeholder')}
-	shown={shown.length}
-	total={data.figures.length}
-	noun="figures"
-	{active}
-	{facetCount}
-	collapsible
-	onclear={clear}
->
-	{#snippet facets()}
-		<ChipGroup
-			label={ui('facet.role')}
-			items={roleItems}
-			selected={roles}
-			ontoggle={(id) => (roles = toggle(roles, id))}
-			onclear={() => (roles = [])}
-		/>
-		<ChipGroup
-			label={ui('facet.born')}
-			items={centuryItems}
-			selected={born}
-			ontoggle={(id) => (born = toggle(born, id))}
-			onclear={() => (born = [])}
-		/>
-		<ChipGroup
-			label={ui('facet.review')}
-			items={reviewItems}
-			selected={review}
-			ontoggle={(id) => (review = toggle(review, id))}
-			onclear={() => (review = [])}
-		/>
+<IndexPage title={ui('page.figures')} lead={ui('figures.lead')}>
+	{#snippet filters()}
+		<FilterBar
+			bind:query
+			placeholder={ui('figures.placeholder')}
+			shown={shown.length}
+			total={data.figures.length}
+			noun="figures"
+			{active}
+			{facetCount}
+			collapsible
+			onclear={clear}
+		>
+			{#snippet facets()}
+				<ChipGroup
+					label={ui('facet.role')}
+					items={roleItems}
+					selected={roles}
+					ontoggle={(id) => (roles = toggle(roles, id))}
+					onclear={() => (roles = [])}
+				/>
+				<ChipGroup
+					label={ui('facet.born')}
+					items={centuryItems}
+					selected={born}
+					ontoggle={(id) => (born = toggle(born, id))}
+					onclear={() => (born = [])}
+				/>
+				<ChipGroup
+					label={ui('facet.review')}
+					items={reviewItems}
+					selected={review}
+					ontoggle={(id) => (review = toggle(review, id))}
+					onclear={() => (review = [])}
+				/>
+			{/snippet}
+		</FilterBar>
 	{/snippet}
-</FilterBar>
 
-<ol class="figures">
-	{#each shown as f (f.id)}
-		<li>
-			<span class="dates">
-				{f.born ? year(f.born.date) : '?'}–{f.died ? year(f.died.date) : ''}
-			</span>
-			<div>
-				<a href="/figures/{f.id}">{t(f.name)}</a>
-				<span class="roles">{f.roles.map((r) => term('role.figure', r)).join(', ')}</span>
-				<ReviewBadge review={f.review} />
-				{#if f.also_known_as.length}
-					<p class="aka">{f.also_known_as.map(t).join('; ')}</p>
-				{/if}
-				<p>{t(f.summary)}</p>
-			</div>
-		</li>
-	{:else}
-		<li class="empty">{ui('figures.empty')}</li>
-	{/each}
-</ol>
+	<ol class="figures">
+		{#each shown as f (f.id)}
+			<li>
+				<a class="card" href="/figures/{f.id}">
+					<span class="dates">
+						{f.born ? year(f.born.date) : '?'}–{f.died ? year(f.died.date) : ''}
+					</span>
+					<span class="name">{t(f.name)}</span>
+					{#if f.also_known_as.length}
+						<span class="aka">{f.also_known_as.map(t).join('; ')}</span>
+					{/if}
+					<span class="roles">{f.roles.map((r) => term('role.figure', r)).join(', ')}</span>
+					<span class="summary">{t(f.summary)}</span>
+					<span class="foot"><ReviewBadge review={f.review} /></span>
+				</a>
+			</li>
+		{:else}
+			<li class="empty">{ui('figures.empty')}</li>
+		{/each}
+	</ol>
+</IndexPage>
 
 <style>
-	h1 {
-		font-size: 1.9rem;
-		margin: 0 0 4px;
-	}
-	.lead {
-		color: var(--ink-soft);
-		margin: 0 0 18px;
-	}
 	.figures {
 		list-style: none;
 		padding: 0;
 		margin: 0;
-		max-width: 76ch;
-		border-top: 1px solid var(--rule);
-	}
-	.figures li {
 		display: grid;
-		grid-template-columns: 9ch 1fr;
-		gap: 12px;
-		padding: 12px 0;
-		border-bottom: 1px solid var(--rule);
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr));
+		gap: 10px;
+	}
+	.card {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+		height: 100%;
+		box-sizing: border-box;
+		padding: 12px 14px;
+		background: var(--panel);
+		border: 1px solid var(--rule);
+		border-radius: var(--radius-lg);
+		color: inherit;
+		text-decoration: none;
+		transition:
+			border-color 120ms ease,
+			box-shadow 120ms ease,
+			transform 120ms ease;
+	}
+	.card:hover {
+		border-color: var(--ink-soft);
+		box-shadow: var(--elev-1);
+		transform: translateY(-1px);
+	}
+	.card:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
 	}
 	.dates {
 		font-family: var(--mono);
 		font-variant-numeric: tabular-nums;
-		font-size: 0.85rem;
+		font-size: 0.78rem;
 		color: var(--ink-soft);
-		padding-top: 3px;
 	}
-	.figures a {
+	.name {
 		font-family: var(--serif);
-		font-size: 1.1rem;
+		font-size: 1.12rem;
 		font-weight: 600;
-		text-decoration: none;
 		color: var(--ink);
 	}
-	.figures a:hover {
+	.card:hover .name {
 		color: var(--accent);
-	}
-	.roles {
-		margin-left: 8px;
-		margin-right: 6px;
-		color: var(--ink-soft);
-		font-size: 0.82rem;
 	}
 	.aka {
 		font-style: italic;
-	}
-	.figures p {
-		margin: 4px 0 0;
+		font-size: 0.85rem;
 		color: var(--ink-soft);
-		font-size: 0.92rem;
+	}
+	.roles {
+		color: var(--ink-soft);
+		font-size: 0.76rem;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+	}
+	.summary {
+		margin-top: 6px;
+		color: var(--ink-soft);
+		font-size: 0.88rem;
+		display: -webkit-box;
+		-webkit-line-clamp: 4;
+		line-clamp: 4;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	.foot {
+		margin-top: auto;
+		padding-top: 8px;
 	}
 	.empty {
 		display: block;
 		color: var(--ink-soft);
 		padding: 14px 0;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.card {
+			transition: none;
+		}
+		.card:hover {
+			transform: none;
+		}
 	}
 </style>

@@ -19,6 +19,8 @@
 		 * the whole reason the axis exists.
 		 */
 		regime?: Regime | null;
+		/** one line for the regime, no gloss: the deck under a map has no room for prose */
+		compact?: boolean;
 	}
 	let {
 		date,
@@ -27,13 +29,14 @@
 		trend = [],
 		day = 0,
 		maxDay = 1,
-		regime = null
+		regime = null,
+		compact = false
 	}: Props = $props();
 
 	const kindLabel = (kind: string) => term('kind.regime', kind);
 </script>
 
-<div class="caption">
+<div class="caption" class:compact>
 	<div class="date">{prettyDate(date)}</div>
 	<div class="figures">
 		<div class="value">
@@ -46,16 +49,23 @@
 	</div>
 </div>
 {#if regime}
-	<p class="regime">
+	<p class="regime" class:compact>
 		<a href="/events?regimes={regime.id}">{t(regime.name)}</a>
 		<span class="kind">{kindLabel(regime.kind)}</span>
-		{#if regime.summary}<span class="gloss">{t(regime.summary)}</span>{/if}
+		{#if regime.summary && !compact}<span class="gloss">{t(regime.summary)}</span>{/if}
+		{#if instruments.length}
+			<span class="instrument">
+				· {ui('caption.inforce')}
+				{#each instruments as i, n (i.id)}{n ? '; ' : ''}<a href="/instruments/{i.id}">{i.name}</a>{/each}
+			</span>
+		{/if}
 	</p>
-{/if}
-{#if instruments.length}
-	<p class="instrument">
-		{ui('caption.inforce')}
-		{#each instruments as i, n (i.id)}{n ? '; ' : ''}<a href="/instruments/{i.id}">{i.name}</a>{/each}
+{:else if instruments.length}
+	<p class="regime" class:compact>
+		<span class="instrument">
+			{ui('caption.inforce')}
+			{#each instruments as i, n (i.id)}{n ? '; ' : ''}<a href="/instruments/{i.id}">{i.name}</a>{/each}
+		</span>
 	</p>
 {/if}
 
@@ -68,9 +78,16 @@
 		flex-wrap: wrap;
 		margin-top: 14px;
 	}
+	.caption.compact {
+		margin-top: 8px;
+	}
 	.date {
 		font-family: var(--serif);
 		font-size: 1.4rem;
+		font-variant-numeric: tabular-nums;
+	}
+	.compact .date {
+		font-size: 1.25rem;
 	}
 	.figures {
 		display: flex;
@@ -97,6 +114,13 @@
 		font-size: 0.88rem;
 		color: var(--ink-soft);
 	}
+	.regime.compact {
+		margin-top: 2px;
+		font-size: 0.84rem;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
 	.regime .kind {
 		margin-left: 8px;
 		font-size: 0.72rem;
@@ -109,9 +133,7 @@
 		font-size: 0.84rem;
 	}
 	.instrument {
-		margin: 6px 0 0;
 		color: var(--accent);
-		font-size: 0.9rem;
 	}
 	.instrument a {
 		color: inherit;
@@ -122,6 +144,19 @@
 			flex-direction: column;
 			align-items: flex-start;
 			gap: 6px;
+		}
+		.compact .figures {
+			flex-direction: row;
+			align-items: baseline;
+		}
+		.compact .km2-label {
+			display: none;
+		}
+		.caption.compact {
+			margin-top: 4px;
+		}
+		.compact .date {
+			font-size: 1.1rem;
 		}
 	}
 </style>

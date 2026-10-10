@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ChipGroup from './ChipGroup.svelte';
 	import { t } from './lang.svelte';
+	import { ui } from './ui';
 	import type { Region } from './types';
 
 	interface Props {
@@ -18,7 +19,7 @@
 <!-- Every region is listed rather than hidden behind a menu: Cyprus and Asia Minor
      are not visible in the default frame, so the map alone could never reach them. -->
 <div class="wrap">
-	<ChipGroup label="Region" quiet {items} {selected} {ontoggle} {onclear} />
+	<ChipGroup label={ui('facet.region')} quiet {items} {selected} {ontoggle} {onclear} />
 </div>
 
 <style>

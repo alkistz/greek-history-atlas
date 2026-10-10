@@ -3,6 +3,7 @@
 	import { page } from '$app/state';
 	import ChipGroup from '$lib/ChipGroup.svelte';
 	import FilterBar from '$lib/FilterBar.svelte';
+	import IndexPage from '$lib/IndexPage.svelte';
 	import { both, t } from '$lib/lang.svelte';
 	import { ui } from '$lib/ui';
 	import { regimeLabel, regimeOn } from '$lib/regimes';
@@ -118,6 +119,29 @@
 		return out;
 	});
 
+	/**
+	 * Two columns read down, then across, like an index. Each card is laid in
+	 * its own column rather than a grid row, because a title that wraps makes
+	 * its card taller and a grid row then leaves a hole under its neighbour.
+	 * The cut balances the columns by lines, not by count: a title past about
+	 * forty-five characters pushes its tags onto a second line at the widths
+	 * the page takes, so its card is twice the height of a one-line card.
+	 */
+	function columns<T extends { title: LangText }>(events: T[]): [T[], T[]] {
+		const weight = (e: T) => (t(e.title).length > 45 ? 2 : 1);
+		const total = events.reduce((n, e) => n + weight(e), 0);
+		let acc = 0;
+		let cut = events.length;
+		for (let i = 0; i < events.length; i++) {
+			acc += weight(events[i]);
+			if (acc >= total / 2) {
+				cut = i + 1;
+				break;
+			}
+		}
+		return [events.slice(0, cut), events.slice(cut)];
+	}
+
 	const toggle = (current: string[], id: string) =>
 		current.includes(id) ? current.filter((x) => x !== id) : [...current, id];
 
@@ -136,174 +160,263 @@
 	<meta name="description" content={ui('events.description')} />
 </svelte:head>
 
-<h1>{ui('page.events')}</h1>
-<p class="lead">{ui('events.lead')}</p>
-
-<FilterBar
-	bind:query
-	placeholder={ui('events.placeholder')}
-	shown={shown.length}
-	total={data.events.length}
-	noun="events"
-	{active}
-	{facetCount}
-	collapsible
-	onclear={clear}
->
-	{#snippet facets()}
-		<ChipGroup
-			label={ui('facet.region')}
-			items={regionItems}
-			selected={regions}
-			ontoggle={(id) => (regions = toggle(regions, id))}
-			onclear={() => (regions = [])}
-		/>
-		<ChipGroup
-			label={ui('facet.thread')}
-			items={threadItems}
-			selected={threads}
-			ontoggle={(id) => (threads = toggle(threads, id))}
-			onclear={() => (threads = [])}
-		/>
-		<ChipGroup
-			label={ui('facet.regime')}
-			items={regimeItems}
-			selected={regimes}
-			ontoggle={(id) => (regimes = toggle(regimes, id))}
-			onclear={() => (regimes = [])}
-		/>
-		<ChipGroup
-			label={ui('facet.significance')}
-			items={sigItems}
-			selected={sig}
-			ontoggle={(id) => (sig = toggle(sig, id))}
-			onclear={() => (sig = [])}
-		/>
-		<ChipGroup
-			label={ui('facet.review')}
-			items={reviewItems}
-			selected={review}
-			ontoggle={(id) => (review = toggle(review, id))}
-			onclear={() => (review = [])}
-		/>
+<IndexPage title={ui('page.events')} lead={ui('events.lead')}>
+	{#snippet filters()}
+		<FilterBar
+			bind:query
+			placeholder={ui('events.placeholder')}
+			shown={shown.length}
+			total={data.events.length}
+			noun="events"
+			{active}
+			{facetCount}
+			collapsible
+			onclear={clear}
+		>
+			{#snippet facets()}
+				<ChipGroup
+					label={ui('facet.region')}
+					items={regionItems}
+					selected={regions}
+					ontoggle={(id) => (regions = toggle(regions, id))}
+					onclear={() => (regions = [])}
+				/>
+				<ChipGroup
+					label={ui('facet.thread')}
+					items={threadItems}
+					selected={threads}
+					ontoggle={(id) => (threads = toggle(threads, id))}
+					onclear={() => (threads = [])}
+				/>
+				<ChipGroup
+					label={ui('facet.regime')}
+					items={regimeItems}
+					selected={regimes}
+					ontoggle={(id) => (regimes = toggle(regimes, id))}
+					onclear={() => (regimes = [])}
+				/>
+				<ChipGroup
+					label={ui('facet.significance')}
+					items={sigItems}
+					selected={sig}
+					ontoggle={(id) => (sig = toggle(sig, id))}
+					onclear={() => (sig = [])}
+				/>
+				<ChipGroup
+					label={ui('facet.review')}
+					items={reviewItems}
+					selected={review}
+					ontoggle={(id) => (review = toggle(review, id))}
+					onclear={() => (review = [])}
+				/>
+			{/snippet}
+		</FilterBar>
 	{/snippet}
-</FilterBar>
 
-{#each decades as g (g.decade)}
-	<section>
-		<h2>{g.decade}</h2>
-		<ol class="events">
-			{#each g.events as e (e.id)}
-				{@const regime = regimeOn(data.meta.regimes, e.period[0])}
-				{@const arcs = arcsOf.get(e.id) ?? []}
-				<li>
-					<span class="when">{year(e.period[0])}</span>
-					<div>
-						<a class="title" href="/events/{e.id}">{t(e.title)}</a>
-						{#if e.atom && regionOf.get(e.atom)}
-							<span class="region">{t(regionName.get(regionOf.get(e.atom)!))}</span>
-						{/if}
-						{#if regime}<span class="regime">{t(regime.name)}</span>{/if}
-						<p class="marks">
-							<Significance significance={e.significance} />
-							<ReviewBadge review={e.review} />
-						</p>
-						<p>{t(e.summary)}</p>
-						<p class="meta">
-							<span>{prettyPeriod(e.period, e.precision)}</span>
-							{#if e.place && placeName.get(e.place)}
-								<span class="where">{t(placeName.get(e.place))}</span>
-							{/if}
-							{#if e.instrument && instrumentName.get(e.instrument)}
-								<a href="/instruments/{e.instrument}">{t(instrumentName.get(e.instrument))}</a>
-							{/if}
-							<a href={atlasHref({ on: e.period[0], frame: e.frame, event: e.id })}>
-								{ui('events.openatlas')}
-							</a>
-						</p>
-						{#if arcs.length}
-							<p class="arcs">
-								{#each arcs as a (a.id)}<a href="/threads/{a.id}">{t(a.name)}</a>{/each}
-							</p>
-						{/if}
-					</div>
-				</li>
+	{#if decades.length > 1}
+		<!-- A rail of decades: two centuries of rows is a long way to scroll for 1974. -->
+		<nav class="decades" aria-label={ui('index.decades')}>
+			{#each decades as g (g.decade)}
+				<a href="#d-{g.decade}">{g.decade}</a>
 			{/each}
-		</ol>
-	</section>
-{:else}
-	<p class="empty">{ui('events.empty')}</p>
-{/each}
+		</nav>
+	{/if}
+
+	{#each decades as g (g.decade)}
+		<section id="d-{g.decade}">
+			<h2>{g.decade}</h2>
+			<div class="cards">
+				{#each columns(g.events) as col, i (i)}
+					<div class="col">
+						{#each col as e (e.id)}
+							{@const regime = regimeOn(data.meta.regimes, e.period[0])}
+							{@const arcs = arcsOf.get(e.id) ?? []}
+							{@const region = e.atom ? regionOf.get(e.atom) : undefined}
+							<!-- Closed, a card is one line: the year, the name, where, how much it
+							     mattered. Open, it says what happened and where to go next. -->
+							<details class="card">
+								<summary>
+									<span class="when">{year(e.period[0])}</span>
+									<span class="head">
+										<span class="title">{t(e.title)}</span>
+										<span class="tags">
+											{#if region}<span class="region">{t(regionName.get(region))}</span>{/if}
+											<Significance significance={e.significance} compact />
+										</span>
+									</span>
+								</summary>
+								<div class="body">
+									<p class="summary">{t(e.summary)}</p>
+									<p class="marks">
+										<Significance significance={e.significance} />
+										<ReviewBadge review={e.review} />
+										{#if regime}<span class="regime">{t(regime.name)}</span>{/if}
+									</p>
+									<p class="meta">
+										<span>{prettyPeriod(e.period, e.precision)}</span>
+										{#if e.place && placeName.get(e.place)}
+											<span class="where">{t(placeName.get(e.place))}</span>
+										{/if}
+										{#if e.instrument && instrumentName.get(e.instrument)}
+											<a href="/instruments/{e.instrument}">{t(instrumentName.get(e.instrument))}</a>
+										{/if}
+									</p>
+									{#if arcs.length}
+										<p class="arcs">
+											{#each arcs as a (a.id)}<a href="/threads/{a.id}">{t(a.name)}</a>{/each}
+										</p>
+									{/if}
+									<p class="links">
+										<a class="go" href="/events/{e.id}">{ui('index.readmore')}</a>
+										<a href={atlasHref({ on: e.period[0], frame: e.frame, event: e.id })}>
+											{ui('events.openatlas')}
+										</a>
+									</p>
+								</div>
+							</details>
+						{/each}
+					</div>
+				{/each}
+			</div>
+		</section>
+	{:else}
+		<p class="empty">{ui('events.empty')}</p>
+	{/each}
+</IndexPage>
 
 <style>
-	h1 {
-		font-size: 1.9rem;
-		margin: 0 0 4px;
+	.decades {
+		position: sticky;
+		top: var(--header-h, 0px);
+		z-index: 2;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2px 10px;
+		padding: 8px 0;
+		margin-bottom: 4px;
+		background: var(--ground);
+		border-bottom: 1px solid var(--rule);
+		font-family: var(--mono);
+		font-size: 0.76rem;
+		letter-spacing: 0.06em;
 	}
-	.lead {
+	.decades a {
 		color: var(--ink-soft);
-		margin: 0 0 18px;
-		max-width: 66ch;
+		text-decoration: none;
+		padding: 1px 4px;
+		border-radius: var(--radius);
+	}
+	.decades a:hover {
+		color: var(--accent);
+		background: var(--accent-soft);
 	}
 	section {
-		max-width: 76ch;
+		scroll-margin-top: calc(var(--header-h, 0px) + 44px);
+		container-type: inline-size;
 	}
 	h2 {
 		font-family: var(--mono);
 		font-size: 0.78rem;
 		letter-spacing: 0.1em;
 		color: var(--ink-soft);
-		margin: 26px 0 0;
-		padding-bottom: 4px;
-		border-bottom: 1px solid var(--rule);
+		margin: 22px 0 8px;
 	}
-	.events {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-	.events li {
+	.cards {
 		display: grid;
-		grid-template-columns: 7ch 1fr;
-		gap: 12px;
-		padding: 12px 0;
-		border-bottom: 1px solid var(--rule);
+		grid-template-columns: 1fr;
+		gap: 8px;
+		align-items: start;
+	}
+	/* The same width at which two 380px cards used to fit side by side. Below
+	   it the two columns stack, first then second, and the order still reads. */
+	@container (min-width: 768px) {
+		.cards {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	.col {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		min-width: 0;
+	}
+	.card {
+		background: var(--panel);
+		border: 1px solid var(--rule);
+		border-radius: var(--radius-lg);
+		transition:
+			border-color 120ms ease,
+			box-shadow 120ms ease;
+	}
+	.card:hover,
+	.card[open] {
+		border-color: var(--ink-soft);
+	}
+	.card[open] {
+		box-shadow: var(--elev-1);
+	}
+	summary {
+		display: flex;
+		gap: 10px;
+		align-items: baseline;
+		padding: 8px 12px;
+		cursor: pointer;
+		list-style: none;
+	}
+	summary::-webkit-details-marker {
+		display: none;
+	}
+	summary:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: -2px;
+		border-radius: var(--radius-lg);
 	}
 	.when {
+		flex: none;
 		font-family: var(--mono);
 		font-variant-numeric: tabular-nums;
-		font-size: 0.85rem;
+		font-size: 0.82rem;
 		color: var(--ink-soft);
-		padding-top: 3px;
+	}
+	.head {
+		min-width: 0;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 2px 10px;
 	}
 	.title {
 		font-family: var(--serif);
-		font-size: 1.1rem;
+		font-size: 1.02rem;
 		font-weight: 600;
-		text-decoration: none;
 		color: var(--ink);
 	}
-	.title:hover {
+	.card:hover .title {
 		color: var(--accent);
+	}
+	.tags {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
 	}
 	.region,
 	.regime {
-		margin-left: 8px;
 		color: var(--ink-soft);
-		font-size: 0.74rem;
+		font-size: 0.72rem;
 		text-transform: uppercase;
 		letter-spacing: 0.06em;
-		/* As a unit, so "Provisional administrations" does not break across lines
-		   and read as two separate labels. */
 		white-space: nowrap;
 	}
-	/* The regime is the softer of the two: it is context for the row, not its
-	   subject, and the mark keeps the two from running together as one phrase. */
-	.regime {
-		opacity: 0.72;
+	.body {
+		padding: 0 12px 10px 12px;
 	}
-	.regime::before {
-		content: '· ';
+	.body p {
+		margin: 4px 0 0;
+		color: var(--ink-soft);
+		font-size: 0.9rem;
+	}
+	.summary {
+		color: var(--ink);
 	}
 	.marks {
 		display: flex;
@@ -311,16 +424,18 @@
 		gap: 12px;
 		flex-wrap: wrap;
 	}
-	.events p {
-		margin: 4px 0 0;
-		color: var(--ink-soft);
-		font-size: 0.92rem;
-	}
-	.meta {
+	.meta,
+	.links {
 		display: flex;
 		gap: 14px;
 		flex-wrap: wrap;
 		font-size: 0.82rem;
+	}
+	.links {
+		margin-top: 8px;
+	}
+	.go {
+		font-weight: 600;
 	}
 	.where::before {
 		content: '· ';
@@ -342,5 +457,10 @@
 	.empty {
 		color: var(--ink-soft);
 		max-width: 60ch;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.card {
+			transition: none;
+		}
 	}
 </style>

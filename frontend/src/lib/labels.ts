@@ -1,4 +1,4 @@
-import { clampToFrame, inFrame, type Shape } from './projection';
+import { clampToRect, inRect, type Rect, type Shape } from './projection';
 import { t } from './lang.svelte';
 import type { Layered } from './resolve';
 import type { AtomFeature, Polity } from './types';
@@ -24,12 +24,18 @@ const PREFERRED: Record<string, string[]> = {
 
 const LARGE_KM2 = 20_000;
 
-/** One label per sovereign polity. Sovereign atoms are disjoint, so nothing collides. */
+/**
+ * One label per sovereign polity. Sovereign atoms are disjoint, so nothing collides.
+ * `view` is what the camera shows: a label whose anchor is outside it is dropped,
+ * one near its edge is nudged in by `margin` world units.
+ */
 export function polityLabels(
 	layered: Layered,
 	features: AtomFeature[],
 	shapes: Map<string, Shape>,
-	polities: Polity[]
+	polities: Polity[],
+	view: Rect,
+	margin: number
 ): Label[] {
 	const area = new Map(features.map((f) => [f.properties.id, f.properties.area_km2]));
 	const held = new Map<string, string[]>();
@@ -49,9 +55,8 @@ export function polityLabels(
 			[...atoms].sort((a, b) => (area.get(b) ?? 0) - (area.get(a) ?? 0))[0];
 		const total = atoms.reduce((sum, a) => sum + (area.get(a) ?? 0), 0);
 		const centroid = shapes.get(anchor)!.centroid;
-		// Outside the frame entirely: no label. Near an edge: nudge it inward.
-		if (!inFrame(centroid)) continue;
-		const [x, y] = clampToFrame(centroid, 48);
+		if (!inRect(centroid, view)) continue;
+		const [x, y] = clampToRect(centroid, view, margin);
 		out.push({
 			polity: p.id,
 			text: t(p.short) || t(p.name),

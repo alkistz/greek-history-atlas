@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { prefersReducedMotion } from 'svelte/motion';
+	import { slide } from 'svelte/transition';
 	import { t } from './lang.svelte';
 	import { ui } from './ui';
 	import ReviewBadge from './ReviewBadge.svelte';
@@ -13,8 +15,10 @@
 		date: string;
 		selectedId: string | null;
 		onselect: (e: AtlasEvent) => void;
+		/** take the parent's full height and scroll inside it, rather than cap at a size */
+		fill?: boolean;
 	}
-	let { events, total, date, selectedId, onselect }: Props = $props();
+	let { events, total, date, selectedId, onselect, fill = false }: Props = $props();
 	const all = $derived(total ?? events.length);
 
 	let query = $state('');
@@ -62,15 +66,22 @@
 	}
 
 	let box: HTMLDivElement | undefined = $state();
+	// The sticky decade heading covers the top of the list, so a row scrolled to
+	// the very top would sit under it. Measured rather than assumed: the heading's
+	// height follows the font.
+	let decadeH = $state(0);
 
 	// Scrolls the list, never the page: the map must not slide out of view while
 	// the reader is scrubbing.
 	function reveal(el: HTMLElement) {
 		if (!box) return;
-		const top = el.offsetTop - box.offsetTop;
+		// Measured against the box's own scroll origin rather than through
+		// offsetParent, which depends on which ancestor happens to be positioned.
+		const top = el.getBoundingClientRect().top - box.getBoundingClientRect().top + box.scrollTop;
 		const bottom = top + el.offsetHeight;
-		const behavior = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
-		if (top < box.scrollTop + 28) box.scrollTo({ top: top - 34, behavior });
+		const behavior = prefersReducedMotion.current ? 'auto' : 'smooth';
+		const cover = decadeH + 6;
+		if (top < box.scrollTop + cover) box.scrollTo({ top: top - cover, behavior });
 		else if (bottom > box.scrollTop + box.clientHeight)
 			box.scrollTo({ top: bottom - box.clientHeight + 8, behavior });
 	}
@@ -80,67 +91,83 @@
 		const el = nodes.get(id);
 		if (el) reveal(el);
 	});
+
+	const slideOpts = $derived({ duration: prefersReducedMotion.current ? 0 : 180 });
 </script>
 
-<div class="head">
-	<label class="search">
-		<span class="sr">{ui('ledger.filter')}</span>
-		<input
-			id="{uid}-q"
-			type="search"
-			bind:value={query}
-			placeholder={ui('ledger.placeholder')}
-			autocomplete="off"
-		/>
-	</label>
-	<p class="count" aria-live="polite">
-		{#if query.trim() || shown.length !== all}{ui('ledger.shown', {
-				shown: shown.length,
-				total: all
-			})}{:else}{ui('ledger.total', { total: all })}{/if}
-	</p>
-</div>
+<div class="ledger-root" class:fill>
+	<div class="head">
+		<label class="search">
+			<span class="sr">{ui('ledger.filter')}</span>
+			<input
+				id="{uid}-q"
+				type="search"
+				bind:value={query}
+				placeholder={ui('ledger.placeholder')}
+				autocomplete="off"
+			/>
+		</label>
+		<p class="count" aria-live="polite">
+			{#if query.trim() || shown.length !== all}{ui('ledger.shown', {
+					shown: shown.length,
+					total: all
+				})}{:else}{ui('ledger.total', { total: all })}{/if}
+		</p>
+	</div>
 
-<div class="box" bind:this={box}>
-	{#each groups as g (g.decade)}
-		<h3 class="decade">{g.decade}</h3>
-		<ol class="ledger">
-			{#each g.events as e (e.id)}
-				{@const active = within(date, e.period[0], e.period[1])}
-				{@const past = e.period[1] <= date}
-				<li
-					use:register={e.id}
-					class:active
-					class:past
-					class:selected={selectedId === e.id}
-					class:anchor={selectedId === null && anchorId === e.id}
-				>
-					<button onclick={() => onselect(e)} aria-current={selectedId === e.id ? 'true' : undefined}>
-						<span class="etime">{year(e.period[0])}</span>
-						<span class="etitle">{t(e.title)}</span>
-					</button>
-					{#if active || selectedId === e.id}
-						<p class="esummary">{t(e.summary)}</p>
-						<p class="emarks">
-							<Significance significance={e.significance} compact />
-							<ReviewBadge review={e.review} compact />
-						</p>
-						<p class="emore">
-							{#if e.as_written}<span class="eold"
-									>{ui('date.oldstyle.label', { date: e.as_written.date })}</span
-								>{/if}
-							<a href="/events/{e.id}">{ui('ledger.readmore')}</a>
-						</p>
-					{/if}
-				</li>
-			{/each}
-		</ol>
-	{:else}
-		<p class="empty">{ui('ledger.empty', { query })}</p>
-	{/each}
+	<div class="box" bind:this={box} style:scroll-padding-top="{decadeH}px">
+		{#each groups as g, i (g.decade)}
+			{#if i === 0}
+				<h3 class="decade" bind:clientHeight={decadeH}>{g.decade}</h3>
+			{:else}
+				<h3 class="decade">{g.decade}</h3>
+			{/if}
+			<ol class="ledger">
+				{#each g.events as e (e.id)}
+					{@const active = within(date, e.period[0], e.period[1])}
+					{@const past = e.period[1] <= date}
+					<li
+						use:register={e.id}
+						class:active
+						class:past
+						class:selected={selectedId === e.id}
+						class:anchor={selectedId === null && anchorId === e.id}
+					>
+						<button onclick={() => onselect(e)} aria-current={selectedId === e.id ? 'true' : undefined}>
+							<span class="etime">{year(e.period[0])}</span>
+							<span class="etitle">{t(e.title)}</span>
+						</button>
+						{#if active || selectedId === e.id}
+							<div class="ebody" transition:slide={slideOpts}>
+								<p class="esummary">{t(e.summary)}</p>
+								<p class="emarks">
+									<Significance significance={e.significance} />
+									<ReviewBadge review={e.review} compact />
+								</p>
+								<p class="emore">
+									{#if e.as_written}<span class="eold"
+											>{ui('date.oldstyle.label', { date: e.as_written.date })}</span
+										>{/if}
+									<a href="/events/{e.id}">{ui('ledger.readmore')}</a>
+								</p>
+							</div>
+						{/if}
+					</li>
+				{/each}
+			</ol>
+		{:else}
+			<p class="empty">{ui('ledger.empty', { query })}</p>
+		{/each}
+	</div>
 </div>
 
 <style>
+	.ledger-root.fill {
+		display: flex;
+		flex-direction: column;
+		min-height: 0;
+		height: 100%;
+	}
 	.sr {
 		position: absolute;
 		width: 1px;
@@ -153,6 +180,7 @@
 		align-items: center;
 		gap: 10px;
 		margin-bottom: 8px;
+		flex: none;
 	}
 	.search {
 		flex: 1;
@@ -189,6 +217,11 @@
 		border-top: 1px solid var(--rule);
 		overscroll-behavior: contain;
 	}
+	.fill .box {
+		flex: 1;
+		min-height: 0;
+		max-height: none;
+	}
 	.decade {
 		position: sticky;
 		top: 0;
@@ -209,12 +242,19 @@
 	}
 	li {
 		border-bottom: 1px solid var(--rule);
+		transition: background 160ms ease;
 	}
 	li.anchor,
 	li.selected {
 		background: var(--panel);
 	}
-	li.active {
+	/* Where the map is: a quiet bar for the last event it has passed, the accent
+	   for one it is inside or that the reader has opened. */
+	li.anchor {
+		box-shadow: inset 2px 0 0 var(--rule);
+	}
+	li.active,
+	li.selected {
 		box-shadow: inset 2px 0 0 var(--accent);
 	}
 	button {
@@ -246,6 +286,9 @@
 		font-size: 0.82rem;
 		flex: none;
 		padding-top: 1px;
+	}
+	.ebody {
+		overflow: hidden;
 	}
 	.esummary {
 		margin: 0 0 6px;
@@ -283,9 +326,18 @@
 	/* Stacked under the map, the list is the page's own tail; a nested scroller
 	   there is a trap on touch. */
 	@media (max-width: 900px) {
-		.box {
+		.box,
+		.fill .box {
 			max-height: none;
 			overflow: visible;
+		}
+		.ledger-root.fill {
+			height: auto;
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		li {
+			transition: none;
 		}
 	}
 </style>

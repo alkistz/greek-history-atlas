@@ -2,7 +2,10 @@
 	import { untrack } from 'svelte';
 	import { page } from '$app/state';
 	import FilterBar from '$lib/FilterBar.svelte';
+	import IndexPage from '$lib/IndexPage.svelte';
+	import Strip from '$lib/Strip.svelte';
 	import { both, t } from '$lib/lang.svelte';
+	import { daysBetween, toDay } from '$lib/time';
 	import { ui } from '$lib/ui';
 	import { matches, params, replaceParams } from '$lib/urlstate';
 
@@ -19,6 +22,8 @@
 		)
 	);
 
+	const origin = $derived(data.meta.range.from);
+	const maxDay = $derived(daysBetween(origin, data.meta.range.to));
 	const years = (span: [string, string]) =>
 		`${span[0].slice(0, 4)}–${span[1].slice(0, 4)}`;
 </script>
@@ -28,85 +33,112 @@
 	<meta name="description" content={ui('threads.description')} />
 </svelte:head>
 
-<h1>{ui('page.threads')}</h1>
-<p class="lead">{ui('threads.lead')}</p>
+<IndexPage title={ui('page.threads')} lead={ui('threads.lead')}>
+	{#snippet filters()}
+		<FilterBar
+			bind:query
+			placeholder={ui('threads.placeholder')}
+			shown={shown.length}
+			total={data.threads.length}
+			noun="threads"
+			{active}
+			onclear={() => (query = '')}
+		/>
+	{/snippet}
 
-<FilterBar
-	bind:query
-	placeholder={ui('threads.placeholder')}
-	shown={shown.length}
-	total={data.threads.length}
-	noun="threads"
-	{active}
-	onclear={() => (query = '')}
-/>
-
-<ol class="threads">
-	{#each shown as thread (thread.id)}
-		<li>
-			<span class="when">{years(thread.span)}</span>
-			<div>
+	<ol class="threads">
+		{#each shown as thread (thread.id)}
+			<li class="card">
+				<p class="top">
+					<span class="when">{years(thread.span)}</span>
+					<span class="count">{ui('threads.count', { n: thread.count })}</span>
+				</p>
 				<a class="title" href="/threads/{thread.id}">{t(thread.name)}</a>
-				<span class="count">{ui('threads.count', { n: thread.count })}</span>
-				<p>{t(thread.summary)}</p>
+				<p class="summary">{t(thread.summary)}</p>
+				<!-- Where on the two centuries the arc lies, as a bar. -->
+				<Strip
+					{origin}
+					{maxDay}
+					span={[toDay(thread.span[0], origin), toDay(thread.span[1], origin)]}
+					label={`${t(thread.name)}, ${years(thread.span)}`}
+				/>
 				<p class="meta">
 					<a href="/events?threads={thread.id}">{ui('threads.filter')}</a>
 				</p>
-			</div>
-		</li>
-	{:else}
-		<p class="empty">{ui('threads.empty')}</p>
-	{/each}
-</ol>
+			</li>
+		{:else}
+			<p class="empty">{ui('threads.empty')}</p>
+		{/each}
+	</ol>
+</IndexPage>
 
 <style>
-	h1 {
-		font-size: 1.9rem;
-		margin: 0 0 4px;
-	}
-	.lead {
-		color: var(--ink-soft);
-		max-width: 62ch;
-		margin: 0 0 20px;
-	}
 	.threads {
 		list-style: none;
 		padding: 0;
 		margin: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
+		gap: 10px;
 	}
-	.threads li {
+	.card {
 		display: flex;
-		gap: 14px;
-		padding: 11px 0;
-		border-top: 1px solid var(--rule);
+		flex-direction: column;
+		gap: 2px;
+		padding: 12px 14px;
+		background: var(--panel);
+		border: 1px solid var(--rule);
+		border-radius: var(--radius-lg);
+		transition: border-color 120ms ease;
+	}
+	.card:hover {
+		border-color: var(--ink-soft);
+	}
+	.card p {
+		margin: 0;
+	}
+	.top {
+		display: flex;
+		align-items: baseline;
+		gap: 10px;
+		font-size: 0.78rem;
+		color: var(--ink-soft);
 	}
 	.when {
-		flex: 0 0 8.5ch;
-		color: var(--ink-soft);
+		font-family: var(--mono);
 		font-variant-numeric: tabular-nums;
-		font-size: 0.85rem;
-		padding-top: 2px;
-	}
-	.title {
-		font-weight: 600;
 	}
 	.count {
-		margin-left: 8px;
-		color: var(--ink-soft);
-		font-size: 0.74rem;
 		text-transform: uppercase;
 		letter-spacing: 0.06em;
+		font-size: 0.72rem;
 	}
-	.threads p {
-		margin: 4px 0 0;
+	.title {
+		font-family: var(--serif);
+		font-size: 1.15rem;
+		font-weight: 600;
+		text-decoration: none;
+		color: var(--ink);
+	}
+	.title:hover {
+		color: var(--accent);
+	}
+	.summary {
+		margin-top: 4px !important;
+		margin-bottom: 8px !important;
 		color: var(--ink-soft);
-		font-size: 0.92rem;
-		max-width: 68ch;
+		font-size: 0.9rem;
 	}
 	.meta {
+		margin-top: 6px !important;
 		font-size: 0.82rem;
 	}
 	.empty {
 		color: var(--ink-soft);
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.card {
+			transition: none;
+		}
 	}
 </style>

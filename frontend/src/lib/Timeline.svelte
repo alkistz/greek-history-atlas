@@ -7,6 +7,13 @@
 		/** outside the current filter: drawn faint, never removed */
 		muted?: boolean;
 	}
+	/** A span drawn behind the ruler: what kind of state Greece was. */
+	export interface TimelineBand {
+		id: string;
+		from: number;
+		to: number;
+		label: string;
+	}
 </script>
 
 <script lang="ts">
@@ -22,6 +29,7 @@
 		/** ISO date that day 0 counts from, for the year ruler */
 		origin: string;
 		events?: TimelineEvent[];
+		bands?: TimelineBand[];
 		selectedId?: string | null;
 		onselectevent?: (id: string) => void;
 	}
@@ -32,13 +40,16 @@
 		epochDays,
 		origin,
 		events = [],
+		bands = [],
 		selectedId = null,
 		onselectevent
 	}: Props = $props();
 
-	const H = 82;
+	const ROWS = 3;
+	const ROW_H = 8;
+	const AXIS = 12 + ROWS * ROW_H + 6;
+	const H = AXIS + 22;
 	const PAD = 10;
-	const AXIS = 42;
 
 	let width = $state(0);
 	const span = $derived(Math.max(width - PAD * 2, 1));
@@ -71,17 +82,21 @@
 		for (const s of [5, 10, 20, 25, 50]) if ((years / s) * 62 <= width) return s;
 		return 100;
 	});
+	// The origin is always labelled: a ruler that starts at 1821 and first says
+	// "1850" leaves the opening decades unplaced. Round years follow, skipping
+	// any that would sit on top of the origin's label.
 	const ticks = $derived.by(() => {
-		const out: { y: number; x: number }[] = [];
+		const out: { y: number; x: number }[] = [{ y: startYear, x: x(0) }];
+		const minGap = (44 / span) * maxDay;
 		for (let y = Math.ceil(startYear / step) * step; y <= endYear; y += step) {
-			out.push({ y, x: x(toDay(`${y}-01-01`, origin)) });
+			const d = toDay(`${y}-01-01`, origin);
+			if (d < minGap) continue;
+			out.push({ y, x: x(d) });
 		}
 		return out;
 	});
 
-	const ROWS = 4;
-	const ROW_H = 8;
-	const radius = (significance: number) => 2.5 + Math.min(Math.max(significance, 1), 5) * 0.6;
+	const radius = (significance: number) => 2 + Math.min(Math.max(significance, 1), 5) * 0.55;
 
 	/**
 	 * Events cluster hard — a revolution is a decade of them — so markers stack into
@@ -98,9 +113,18 @@
 				while (row < ROWS && lastInRow[row] !== undefined && cx - r < lastInRow[row] + 1.5) row++;
 				if (row === ROWS) row = 0;
 				lastInRow[row] = cx + r;
-				return { ...e, cx, r, cy: AXIS - 12 - row * ROW_H };
+				return { ...e, cx, r, cy: AXIS - 10 - row * ROW_H, past: e.day <= day };
 			});
 	});
+
+	const drawnBands = $derived(
+		bands.map((b, i) => ({
+			...b,
+			x0: x(Math.max(b.from, 0)),
+			x1: x(Math.min(b.to, maxDay)),
+			alt: i % 2 === 1
+		}))
+	);
 
 	function step1(dir: -1 | 1) {
 		const next =
@@ -122,6 +146,7 @@
 			onselectevent?.(id);
 			return;
 		}
+		playing = false;
 		dragging = true;
 		(e.currentTarget as SVGSVGElement).setPointerCapture(e.pointerId);
 		scrubTo(e.clientX);
@@ -144,7 +169,8 @@
 			PageDown: () => step1(-1),
 			PageUp: () => step1(1),
 			Home: () => (day = 0),
-			End: () => (day = maxDay)
+			End: () => (day = maxDay),
+			' ': play
 		};
 		const fn = moves[e.key];
 		if (!fn) return;
@@ -152,17 +178,27 @@
 		fn();
 	}
 
-	// Playback walks the changes of control rather than sweeping the calendar:
-	// the interesting frames are the ones where the map actually redraws.
+	// Playback sweeps the calendar at a steady pace, so the map's changes land
+	// in proportion to the time between them: forty quiet years feel like forty
+	// quiet years, and 1912 to 1913 arrives as the rush it was.
+	const YEARS_PER_SECOND = 16;
 	let playing = $state(false);
 	$effect(() => {
 		if (!playing) return;
-		const id = setInterval(() => {
-			const next = epochDays.find((d) => d > day);
-			if (next === undefined) playing = false;
-			else day = next;
-		}, 1100);
-		return () => clearInterval(id);
+		let last = performance.now();
+		let acc = day;
+		let id = requestAnimationFrame(function tick(now) {
+			acc += ((now - last) / 1000) * YEARS_PER_SECOND * 365.25;
+			last = now;
+			if (acc >= maxDay) {
+				day = maxDay;
+				playing = false;
+				return;
+			}
+			day = Math.round(acc);
+			id = requestAnimationFrame(tick);
+		});
+		return () => cancelAnimationFrame(id);
 	});
 	function play() {
 		if (!playing && day >= maxDay) day = 0;
@@ -215,26 +251,39 @@
 				onpointerup={up}
 				onpointercancel={up}
 			>
+				<!-- 0. what the state was, as bands behind everything -->
+				<g class="bands">
+					{#each drawnBands as b (b.id)}
+						<rect class:alt={b.alt} x={b.x0} y={4} width={Math.max(b.x1 - b.x0, 0)} height={AXIS - 4}>
+							<title>{b.label}</title>
+						</rect>
+					{/each}
+				</g>
+
 				<!-- 1. the years -->
 				<line class="axis" x1={PAD} y1={AXIS} x2={width - PAD} y2={AXIS} />
 				{#each ticks as t (t.y)}
 					<line class="tick" x1={t.x} y1={AXIS} x2={t.x} y2={AXIS + 5} />
-					<text class="tick-label" x={t.x} y={AXIS + 18}>{t.y}</text>
+					<text class="tick-label" x={t.x} y={AXIS + 17}>{t.y}</text>
 				{/each}
 
 				<!-- 2. one mark per change of control, so the dense decades are visible -->
 				<g class="epochs">
 					{#each epochDays as d (d)}
-						<line x1={x(d)} y1={AXIS - 7} x2={x(d)} y2={AXIS} />
+						<line x1={x(d)} y1={AXIS - 6} x2={x(d)} y2={AXIS} />
 					{/each}
 				</g>
 
-				<!-- 3. events, sized by significance -->
+				<!-- 3. the elapsed part of the ruler -->
+				<line class="elapsed" x1={PAD} y1={AXIS} x2={x(day)} y2={AXIS} />
+
+				<!-- 4. events, sized by significance; filled once the date has passed them -->
 				<g class="events">
 					{#each marks as e (e.id)}
 						<circle
 							class="event"
 							class:muted={e.muted}
+							class:past={e.past}
 							class:selected={selectedId === e.id}
 							data-event={e.id}
 							cx={e.cx}
@@ -246,9 +295,9 @@
 					{/each}
 				</g>
 
-				<!-- 4. where we are -->
+				<!-- 5. where we are -->
 				<g class="handle" style:transform="translateX({x(day)}px)">
-					<line y1={AXIS - 12 - ROWS * ROW_H} y2={AXIS + 5} />
+					<line y1={4} y2={AXIS + 5} />
 					<circle cy={AXIS} r="4.5" />
 				</g>
 			</svg>
@@ -279,14 +328,18 @@
 		border-radius: var(--radius);
 		padding: 7px 9px;
 		cursor: pointer;
+		transition:
+			color 120ms ease,
+			border-color 120ms ease;
 	}
 	button:hover {
 		border-color: var(--accent);
 		color: var(--accent);
 	}
 	.play[aria-pressed='true'] {
+		background: var(--accent);
 		border-color: var(--accent);
-		color: var(--accent);
+		color: var(--panel);
 	}
 
 	.track {
@@ -307,9 +360,21 @@
 		cursor: grabbing;
 	}
 
+	.bands rect {
+		fill: var(--ink);
+		opacity: 0.035;
+	}
+	.bands rect.alt {
+		opacity: 0.08;
+	}
 	.axis {
 		stroke: var(--rule);
 		stroke-width: 1;
+	}
+	.elapsed {
+		stroke: var(--accent);
+		stroke-width: 2;
+		opacity: 0.55;
 	}
 	.tick {
 		stroke: var(--rule);
@@ -327,28 +392,27 @@
 		opacity: 0.55;
 	}
 	.event {
-		fill: var(--panel);
-		stroke: var(--ink-soft);
-		stroke-width: 1.2;
+		fill: var(--ink-soft);
+		opacity: 0.45;
 		cursor: pointer;
-		transition: fill 120ms ease;
+		transition:
+			fill 160ms ease,
+			opacity 160ms ease;
+	}
+	.event.past {
+		fill: var(--ink);
+		opacity: 0.85;
 	}
 	/* Pushed back, never removed: the reader should still see that something was
 	   happening then, only not there. */
 	.event.muted {
-		stroke: var(--rule);
-		opacity: 0.55;
+		fill: var(--rule);
+		opacity: 0.6;
 	}
-	.event.muted:hover {
-		opacity: 1;
-	}
-	.event:hover {
-		fill: var(--accent);
-		stroke: var(--accent);
-	}
+	.event:hover,
 	.event.selected {
 		fill: var(--accent);
-		stroke: var(--accent);
+		opacity: 1;
 	}
 	.handle line {
 		stroke: var(--accent);
@@ -376,6 +440,12 @@
 		.track {
 			order: -1;
 			flex-basis: 100%;
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.event,
+		button {
+			transition: none;
 		}
 	}
 </style>

@@ -54,9 +54,11 @@
 		border: 1px solid var(--ink-soft);
 		opacity: 0.55;
 	}
+	/* Ink, not the accent: the rating is on every card, and in the accent it
+	   outshouted the map and read as a link. */
 	.dot.on {
-		background: var(--accent);
-		border-color: var(--accent);
+		background: var(--ink);
+		border-color: var(--ink);
 		opacity: 1;
 	}
 	.label {
