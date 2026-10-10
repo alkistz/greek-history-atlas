@@ -106,6 +106,6 @@ review:
     date: 2026-09-20
     result: corrected
     langs: [en, el]
-    by: assistant, against public sources
+    by: checked against public sources
     note: >
       All damage figures confirmed exactly: 4,214 homes, 1,004 businesses, 73 churches, 26 schools, 5,317 in total, with deaths given as a disputed range. Added what both texts omitted: the Yassiada trials established the Thessaloniki bomb was planted on the Turkish government's own orders, which is the difference between a provocation by one man and a state-organised one.

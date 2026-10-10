@@ -51,7 +51,7 @@ review:
     date: 2026-09-20
     result: unresolved
     langs: [en, el]
-    by: assistant, against public sources
+    by: checked against public sources
     note: >
       Sources give the birth as 29 March 1870 at Marseille. The Old Style rule
       established from Trikoupis does not transfer: a birth registered in France

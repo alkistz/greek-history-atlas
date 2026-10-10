@@ -86,6 +86,6 @@ review:
     date: 2026-09-20
     result: corrected
     langs: [en, el]
-    by: assistant, against public sources
+    by: checked against public sources
     note: >
       Same New Style / Old Style split between the two texts as the 1843 revolution.

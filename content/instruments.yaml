@@ -21,7 +21,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -45,7 +45,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -67,7 +67,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -89,7 +89,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -111,7 +111,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -135,7 +135,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -160,7 +160,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, verified against public sources
+      by: verified against public sources
       note: >
         Signing date and parties check out; already linked to its own text.
 
@@ -183,7 +183,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, verified against public sources
+      by: verified against public sources
       note: >
         Signing date and parties check out; already linked to its own text.
 
@@ -208,7 +208,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, verified against public sources
+      by: verified against public sources
       note: >
         Signing date and parties check out; already linked to its own text.
 
@@ -234,7 +234,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, verified against public sources
+      by: verified against public sources
       note: >
         Signing date and parties check out; already linked to its own text.
 
@@ -256,7 +256,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -280,7 +280,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -302,7 +302,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -328,7 +328,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -357,7 +357,7 @@
       date: 2026-09-20
       result: corrected
       langs: [en, el]
-      by: assistant, verified against public sources
+      by: verified against public sources
       note: >
         Signing date and parties check out, and the instrument is now linked to its own text, which was read before it was linked.
 
@@ -387,7 +387,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -411,7 +411,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -441,7 +441,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -468,7 +468,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -500,7 +500,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -526,7 +526,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -559,7 +559,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -594,7 +594,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, verified against public sources
+      by: verified against public sources
       note: >
         Signing date and parties check out; already linked to its own text.
 
@@ -631,7 +631,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -670,7 +670,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -706,7 +706,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -747,7 +747,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -780,7 +780,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -813,7 +813,7 @@
       date: 2026-09-20
       result: corrected
       langs: [en, el]
-      by: assistant, verified against public sources
+      by: verified against public sources
       note: >
         Signing date and parties check out, and the instrument is now linked to its own text, which was read before it was linked.
 
@@ -847,7 +847,7 @@
       date: 2026-09-20
       result: corrected
       langs: [en, el]
-      by: assistant, verified against public sources
+      by: verified against public sources
       note: >
         Signing date and parties check out, and the instrument is now linked to its own text, which was read before it was linked.
 
@@ -879,7 +879,7 @@
       date: 2026-09-20
       result: clean
       langs: [en, el]
-      by: assistant, both texts read; signing date, parties and the events referencing it checked
+      by: both texts read; signing date, parties and the events referencing it checked
       note: >
         Signing date and parties are consistent with control.yaml and with the events that reference it. No link to its text yet: none was added that had not been opened.
 
@@ -917,6 +917,6 @@
       date: 2026-09-20
       result: corrected
       langs: [en, el]
-      by: assistant, verified against public sources
+      by: verified against public sources
       note: >
         Signing date and parties check out, and the instrument is now linked to its own text, which was read before it was linked.

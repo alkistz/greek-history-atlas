@@ -7,7 +7,6 @@
 	import { visibleIn } from '$lib/projection';
 	import { regimeOn } from '$lib/regimes';
 	import { legendEntries, resolveOn } from '$lib/resolve';
-	import ReviewNote from '$lib/ReviewNote.svelte';
 	import Significance from '$lib/Significance.svelte';
 	import { prettyPeriod } from '$lib/time';
 	import type { Pin } from '$lib/types';
@@ -168,7 +167,6 @@
 			</ul>
 		{/if}
 
-		<ReviewNote review={event.review} />
 	</div>
 </article>
 

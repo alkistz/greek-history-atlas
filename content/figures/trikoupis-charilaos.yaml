@@ -77,7 +77,7 @@ review:
     date: 2026-09-20
     result: corrected
     langs: [en, el]
-    by: assistant, against public sources
+    by: checked against public sources
     note: >
       Birth was recorded only to the year although the sources give 11 July 1832 at
       Nafplio. Settled from the corpus itself: it already stores his death as

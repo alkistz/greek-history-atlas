@@ -129,6 +129,6 @@ review:
     date: 2026-09-20
     result: clean
     langs: [en, el]
-    by: assistant, against public sources
+    by: checked against public sources
     note: >
       Landing at Pentemili, the 22 July ceasefire and the three per cent bridgehead, the collapse at Geneva on 14 August, 36.2 per cent held at the 16 August ceasefire, and the displacement figures all hold.

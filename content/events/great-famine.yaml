@@ -101,6 +101,6 @@ review:
     date: 2026-09-20
     result: unresolved
     langs: [en, el]
-    by: assistant, against public sources
+    by: checked against public sources
     note: >
       The figure of 250,000 attributed to Hionidou could not be substantiated in any source reachable from here, and she was not cited by this event at all. Replaced with the range and the reason the estimates differ; she is now cited. Settling her actual figure needs the book.

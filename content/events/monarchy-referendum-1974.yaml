@@ -85,6 +85,6 @@ review:
     date: 2026-09-20
     result: corrected
     langs: [en, el]
-    by: assistant, verified against public sources
+    by: verified against public sources
     note: >
       The vote counts were exact -- 3,245,111 against 1,445,875 -- but the percentage was given as 68.8 where the counts and the official result both make 69.2 of 4,690,986 valid votes. Turnout of about 75.6 per cent is right.

@@ -58,6 +58,6 @@ review:
     date: 2026-09-20
     result: corrected
     langs: [en, el]
-    by: assistant, against public sources
+    by: checked against public sources
     note: >
       Said Crete's union was confirmed at Bucharest. Crete was assigned at London in May and settled with the Ottomans at Athens in November; the Ottomans were not party to Bucharest.

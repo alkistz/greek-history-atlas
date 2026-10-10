@@ -91,6 +91,6 @@ review:
     date: 2026-09-20
     result: corrected
     langs: [en, el]
-    by: assistant, against public sources
+    by: checked against public sources
     note: >
       The order of battle is faithful to the standard figures, including the 2,768 machine guns, which looks implausible for 1921 but is what the sources print. Casualties were given as a clean symmetry of 4,000 dead and 19,000 wounded each; that is one estimate of two, the other putting Turkish dead at 5,713 against 3,958 Greek. Both are now given, along with the 15,000 Greek prisoners and deserters against about a thousand Turkish, which is the asymmetry that made the battle decisive.

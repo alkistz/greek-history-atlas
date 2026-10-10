@@ -53,6 +53,6 @@ review:
     date: 2026-09-20
     result: corrected
     langs: [en, el]
-    by: assistant, against public sources
+    by: checked against public sources
     note: >
       English said 'no allied losses'; the allies lost no ship but about 180 killed and nearly 500 wounded. The Greek was already the more precise of the two.

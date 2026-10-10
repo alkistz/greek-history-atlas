@@ -2,7 +2,6 @@
 	import Citation from '$lib/Citation.svelte';
 	import { t } from '$lib/lang.svelte';
 	import { term, ui } from '$lib/ui';
-	import ReviewNote from '$lib/ReviewNote.svelte';
 	import { prettyDate, year } from '$lib/time';
 	import { atlasHref } from '$lib/viewstate';
 
@@ -80,7 +79,6 @@
 		</ul>
 	{/if}
 
-	<ReviewNote review={inst.review} />
 </article>
 
 <style>

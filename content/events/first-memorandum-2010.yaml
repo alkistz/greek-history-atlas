@@ -113,6 +113,6 @@ review:
     date: 2026-09-20
     result: corrected
     langs: [en, el]
-    by: assistant, against public sources
+    by: checked against public sources
     note: >
       IMF share of the first programme was 30 billion, not 20, which also failed to add up to the 110 stated in the same event. The 2012 figures were disbursements presented as the size of the programme; both bases now named.

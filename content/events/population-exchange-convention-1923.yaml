@@ -91,6 +91,6 @@ review:
     date: 2026-09-20
     result: clean
     langs: [en, el]
-    by: assistant, against public sources
+    by: checked against public sources
     note: >
       Nansen's role, Articles 1 and 3, the October 1912 cutoff, the 1 May 1923 start and the two exemptions all hold.

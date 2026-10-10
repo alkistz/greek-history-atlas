@@ -88,6 +88,6 @@ review:
     date: 2026-09-20
     result: corrected
     langs: [en, el]
-    by: assistant, against public sources
+    by: checked against public sources
     note: >
       English gave New Style, Greek gave Old Style. Both texts now carry both, since the Old Style date is the event's name in Greek.

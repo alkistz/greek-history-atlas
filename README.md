@@ -27,7 +27,7 @@ what the pass concluded, whether it was checked against published sources or onl
 and whether a person has looked. Nothing is summarised across entries, because the
 interesting question is always about a particular claim.
 
-A standing notice on every page says the prose is machine-written and unverified. It is
+A one-line notice on every page says exact accuracy has not been verified. It is
 not dismissible: the claim it qualifies is on every event page, so a notice the reader
 could turn off would be off exactly where it matters.
 

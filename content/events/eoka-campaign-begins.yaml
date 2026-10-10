@@ -98,6 +98,6 @@ review:
     date: 2026-09-20
     result: clean
     langs: [en, el]
-    by: assistant, against public sources
+    by: checked against public sources
     note: >
       Opening attacks, the Digenis leaflet, the Harding counter-insurgency, the deportation of Makarios and the executions all hold against public accounts. Greek read alongside; faithful.

@@ -85,10 +85,6 @@ export function badgeLabel(review: Review | null | undefined): string {
 	return isSourced(review) ? ui('review.suffix.sourced', { who }) : who;
 }
 
-export function langList(pass: Pass): string {
-	return pass.langs.map((l) => term('langname', l)).join(ui('langname.join'));
-}
-
 /** Counts per facet across a list, so a chip can show how many it would leave. */
 export function tally<T>(rows: T[], of: (row: T) => Review | null | undefined): Map<string, number> {
 	const out = new Map<string, number>();

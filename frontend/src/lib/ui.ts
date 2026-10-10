@@ -51,19 +51,11 @@ const STRINGS = {
 		el: 'Γλώσσα: {name}. Αλλαγή σε {other}.'
 	},
 
-	// The standing notice. Not dismissible, so it is worth saying well in both.
-	'draft.badge': { en: 'AI draft', el: 'Προσχέδιο AI' },
+	// The standing notice, one line on every page.
+	'draft.badge': { en: 'Draft', el: 'Προσχέδιο' },
 	'draft.summary': {
-		en: 'The history in this atlas was researched and written by an AI model, not by a historian. Dates, figures and attributions may be wrong.',
-		el: 'Η ιστορία σε αυτόν τον άτλαντα ερευνήθηκε και γράφτηκε από μοντέλο τεχνητής νοημοσύνης, όχι από ιστορικό. Ημερομηνίες, αριθμοί και αποδόσεις μπορεί να είναι λανθασμένα.'
-	},
-	'draft.checked': {
-		en: 'Every entry has been read in both English and Greek and checked for internal consistency — dates, arithmetic, and whether the instruments and people it names are the right ones. That is not the same as being verified. Only a small number of entries have been checked against published sources, and none has yet been reviewed by a person.',
-		el: 'Κάθε καταχώριση έχει διαβαστεί στα αγγλικά και στα ελληνικά και έχει ελεγχθεί ως προς την εσωτερική της συνέπεια — ημερομηνίες, αριθμητικά και το αν οι πράξεις και τα πρόσωπα που αναφέρει είναι τα σωστά. Αυτό δεν ισοδυναμεί με επαλήθευση. Μόνο λίγες καταχωρίσεις έχουν ελεγχθεί έναντι δημοσιευμένων πηγών, και καμία δεν έχει ελεγχθεί ακόμη από άνθρωπο.'
-	},
-	'draft.cite': {
-		en: 'Each event, figure and treaty cites its sources; follow them before relying on anything here. This is a prototype, and the corpus is a first draft.',
-		el: 'Κάθε γεγονός, πρόσωπο και συνθήκη παραπέμπει στις πηγές του· ανατρέξτε σε αυτές πριν βασιστείτε σε οτιδήποτε εδώ. Πρόκειται για πρωτότυπο, και το σώμα κειμένων είναι πρώτη γραφή.'
+		en: 'Exact accuracy not verified. Check the cited sources before relying on dates, figures or attributions.',
+		el: 'Η ακρίβεια δεν έχει επαληθευτεί πλήρως. Ανατρέξτε στις πηγές πριν βασιστείτε σε ημερομηνίες, αριθμούς ή αποδόσεις.'
 	},
 
 	// Filtering, shared by every index
@@ -109,7 +101,7 @@ const STRINGS = {
 	'review.corrected': { en: 'Corrected', el: 'Διορθωμένο' },
 	'review.clean': { en: 'Read clean', el: 'Διαβάστηκε καθαρό' },
 	'review.sourced': { en: 'Checked against sources', el: 'Ελεγμένο έναντι πηγών' },
-	'review.manual': { en: 'Reviewed by a person', el: 'Ελεγμένο από άνθρωπο' },
+	'review.manual': { en: 'Reviewed by an editor', el: 'Ελεγμένο από επιμελητή' },
 	'review.hint.none': {
 		en: 'Nobody has looked at this entry yet.',
 		el: 'Κανείς δεν έχει εξετάσει ακόμη αυτή την καταχώριση.'
@@ -131,11 +123,11 @@ const STRINGS = {
 		el: 'Ελέγχθηκε έναντι δημοσιευμένων πηγών, όχι μόνο ως προς την εσωτερική συνέπεια.'
 	},
 	'review.hint.manual': {
-		en: 'A person who has read the sources, rather than a machine pass.',
-		el: 'Άνθρωπος που έχει διαβάσει τις πηγές, όχι μηχανικός έλεγχος.'
+		en: 'Reviewed by someone who has read the sources.',
+		el: 'Ελέγχθηκε από κάποιον που έχει διαβάσει τις πηγές.'
 	},
 	'review.by.manual': { en: 'Reviewed', el: 'Ελεγμένο' },
-	'review.by.auto': { en: 'Machine pass', el: 'Μηχανικός έλεγχος' },
+	'review.by.auto': { en: 'Checked', el: 'Ελεγμένο' },
 	'review.suffix.unresolved': { en: '{who} · unresolved', el: '{who} · ανεπίλυτο' },
 	'review.suffix.corrected': { en: '{who} · corrected', el: '{who} · διορθωμένο' },
 	'review.suffix.sourced': { en: '{who} · sourced', el: '{who} · με πηγές' },
@@ -143,41 +135,6 @@ const STRINGS = {
 	'review.tip': { en: '{who}, {date}', el: '{who}, {date}' },
 	'review.tip.by': { en: '{who}, {date} — {by}', el: '{who}, {date} — {by}' },
 
-	// The per-entry review note
-	'reviewnote.heading': {
-		en: 'How this entry was checked',
-		el: 'Πώς ελέγχθηκε αυτή η καταχώριση'
-	},
-	'reviewnote.none': {
-		en: 'Nobody has looked at this entry yet. It is machine-written and unverified; follow the sources before relying on it.',
-		el: 'Κανείς δεν έχει εξετάσει ακόμη αυτή την καταχώριση. Είναι γραμμένη από μηχανή και ανεπαλήθευτη· ανατρέξτε στις πηγές πριν βασιστείτε σε αυτήν.'
-	},
-	'reviewnote.track.manual': { en: 'Read by a person', el: 'Διαβάστηκε από άνθρωπο' },
-	'reviewnote.track.auto': { en: 'Machine pass', el: 'Μηχανικός έλεγχος' },
-	'reviewnote.said.clean': {
-		en: 'read in full, and the languages agree',
-		el: 'διαβάστηκε ολόκληρη, και οι γλώσσες συμφωνούν'
-	},
-	'reviewnote.said.corrected': {
-		en: 'something was wrong and has been fixed',
-		el: 'κάτι ήταν λάθος και έχει διορθωθεί'
-	},
-	'reviewnote.said.unresolved': {
-		en: 'could not be settled from the sources reached',
-		el: 'δεν μπόρεσε να κριθεί από τις πηγές που εξετάστηκαν'
-	},
-	'reviewnote.readin': { en: 'Read in {langs}.', el: 'Διαβάστηκε στα {langs}.' },
-	'reviewnote.caveat.sourced': {
-		en: 'Checked against published sources, but still by a machine: no person has reviewed this entry.',
-		el: 'Ελέγχθηκε έναντι δημοσιευμένων πηγών, αλλά και πάλι από μηχανή: κανένας άνθρωπος δεν έχει ελέγξει αυτή την καταχώριση.'
-	},
-	'reviewnote.caveat.unsourced': {
-		en: 'This pass read the text for internal consistency — dates, arithmetic and cross-references. It did not check the claims against published sources, and no person has reviewed it.',
-		el: 'Αυτός ο έλεγχος διάβασε το κείμενο ως προς την εσωτερική του συνέπεια — ημερομηνίες, αριθμητικά και παραπομπές. Δεν έλεγξε τους ισχυρισμούς έναντι δημοσιευμένων πηγών, και κανένας άνθρωπος δεν το έχει ελέγξει.'
-	},
-	'langname.en': { en: 'English', el: 'Αγγλικά' },
-	'langname.el': { en: 'Greek', el: 'Ελληνικά' },
-	'langname.join': { en: ' and ', el: ' και ' },
 
 	// Citations
 	'cite.online': { en: 'Online', el: 'Στο διαδίκτυο' },

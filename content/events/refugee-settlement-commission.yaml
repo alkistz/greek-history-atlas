@@ -124,6 +124,6 @@ review:
     date: 2026-09-20
     result: unresolved
     langs: [en, el]
-    by: assistant, against public sources
+    by: checked against public sources
     note: >
       The Commission's own totals, 578,824 settled in 2,085 rural settlements and some 27,600 urban dwellings, could not be confirmed from anything reachable; they appear to come from the RSC's final report, which is the right source and not one available here. Separately clarified: the 1928 census counted 1,221,849 refugees in all against 1,164,267 from Asia Minor, and the two are frequently quoted against each other as if one were an error.

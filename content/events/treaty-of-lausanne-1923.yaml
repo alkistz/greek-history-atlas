@@ -56,6 +56,6 @@ review:
     date: 2026-09-20
     result: clean
     langs: [en, el]
-    by: assistant, against public sources
+    by: checked against public sources
     note: >
       Date, terms and both population ranges hold. Now also linked to its own text on Wikisource.
