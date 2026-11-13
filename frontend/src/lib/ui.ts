@@ -75,6 +75,60 @@ const STRINGS = {
 	'error.back.atlas': { en: 'Open the atlas', el: 'Άνοιγμα του άτλαντα' },
 	'error.back.events': { en: 'Browse the events', el: 'Περιήγηση στα γεγονότα' },
 
+	// The front page
+	'home.eyebrow': {
+		en: 'Modern Greece, {from} to today',
+		el: 'Η νεότερη Ελλάδα, από το {from} ως σήμερα'
+	},
+	'home.title': {
+		en: 'Two centuries of Greek history, on one map',
+		el: 'Δύο αιώνες ελληνικής ιστορίας σε έναν χάρτη'
+	},
+	'home.lead': {
+		en: 'The map redraws on every date a frontier moved, from the revolution of 1821 to the present. {events} events, {figures} people and {instruments} treaties and agreements are tied to the days and places they belong to.',
+		el: 'Ο χάρτης ξαναχαράσσεται σε κάθε ημερομηνία που μετακινήθηκαν τα σύνορα, από την Επανάσταση του 1821 ως σήμερα. {events} γεγονότα, {figures} πρόσωπα και {instruments} συνθήκες και συμφωνίες δένονται με τις ημέρες και τους τόπους στους οποίους ανήκουν.'
+	},
+	'home.cta.atlas': { en: 'Open the atlas', el: 'Άνοιγμα του άτλαντα' },
+	'home.cta.threads': { en: 'Start with a story', el: 'Ξεκινήστε από μια ιστορία' },
+	'home.map.open': { en: 'Open the atlas in {year}', el: 'Άνοιγμα του άτλαντα στο {year}' },
+	'home.map.area': { en: '{km2} km² Greek territory', el: '{km2} km² ελληνικό έδαφος' },
+	'home.map.nostate': { en: 'No Greek state yet', el: 'Δεν υπάρχει ακόμη ελληνικό κράτος' },
+	'home.map.play': { en: 'Play', el: 'Αναπαραγωγή' },
+	'home.map.pause': { en: 'Pause', el: 'Παύση' },
+	'home.how.title': { en: 'How to read the map', el: 'Πώς διαβάζεται ο χάρτης' },
+	'home.how.1.title': {
+		en: 'Colour is who held the ground',
+		el: 'Το χρώμα δείχνει ποιος κρατούσε το έδαφος'
+	},
+	'home.how.1.body': {
+		en: 'A flat fill is sovereignty. Hatching laid over it is an occupation; stippling is a territory in revolt.',
+		el: 'Το συμπαγές χρώμα είναι η κυριαρχία. Η διαγράμμιση από πάνω σημαίνει κατοχή· οι κουκκίδες, έδαφος σε επανάσταση.'
+	},
+	'home.how.held': { en: 'Held', el: 'Κυριαρχία' },
+	'home.how.occupied': { en: 'Occupied', el: 'Κατοχή' },
+	'home.how.revolt': { en: 'In revolt', el: 'Σε επανάσταση' },
+	'home.how.2.title': { en: 'Move through time', el: 'Κινηθείτε στον χρόνο' },
+	'home.how.2.body': {
+		en: 'Drag the timeline or press play. The map redraws on every date that control changed, and the list of events keeps pace.',
+		el: 'Σύρετε τη χρονογραμμή ή πατήστε αναπαραγωγή. Ο χάρτης ξαναχαράσσεται σε κάθε ημερομηνία που άλλαξε ο έλεγχος, και ο κατάλογος των γεγονότων ακολουθεί.'
+	},
+	'home.how.3.title': { en: 'Open an event', el: 'Ανοίξτε ένα γεγονός' },
+	'home.how.3.body': {
+		en: 'Pick one from the list or a dot on the map. The map goes to its day and place, and its full entry is one more click away.',
+		el: 'Επιλέξτε ένα από τον κατάλογο ή μια κουκκίδα στον χάρτη. Ο χάρτης πηγαίνει στην ημέρα και στον τόπο του, και η πλήρης καταχώριση απέχει ένα κλικ.'
+	},
+	'home.turning.title': { en: 'Turning points', el: 'Σημεία καμπής' },
+	'home.turning.lead': {
+		en: 'The {n} events rated most significant. Each one opens the map on the day it happened.',
+		el: 'Τα {n} γεγονότα με τη μεγαλύτερη σημασία. Καθένα ανοίγει τον χάρτη στην ημέρα που συνέβη.'
+	},
+	'home.threads.title': { en: 'Follow a thread', el: 'Ακολουθήστε ένα νήμα' },
+	'home.threads.lead': {
+		en: '{n} arcs that carry the events in the order they are best read. Where the bars overlap, the stories ran at the same time.',
+		el: '{n} αφηγηματικές γραμμές που παρουσιάζουν τα γεγονότα με τη σειρά που διαβάζονται καλύτερα. Όπου οι μπάρες επικαλύπτονται, οι ιστορίες εξελίσσονταν ταυτόχρονα.'
+	},
+	'home.browse.title': { en: 'Browse everything', el: 'Περιήγηση σε όλα' },
+
 	// Filtering, shared by every index
 	'filter.placeholder': { en: 'Search…', el: 'Αναζήτηση…' },
 	'filter.clear': { en: 'Clear', el: 'Καθαρισμός' },

@@ -1,463 +1,602 @@
+<!--
+	The front page: what the atlas is, how to read its map, and the ways in.
+
+	The atlas itself is an instrument with a lot on it at once. This page exists
+	so that a first visit starts with one sentence and a moving picture rather
+	than with a timeline, a ledger and a legend; everything below the hero is a
+	door into one of the other pages, chosen from the corpus rather than written
+	here, so it grows with the content.
+-->
 <script lang="ts">
-	import { untrack } from 'svelte';
-	import { page } from '$app/state';
-	import Atlas, { type MapPin } from '$lib/Atlas.svelte';
-	import EventLedger from '$lib/EventLedger.svelte';
-	import FrameSwitch from '$lib/FrameSwitch.svelte';
-	import Legend from '$lib/Legend.svelte';
-	import MapCaption from '$lib/MapCaption.svelte';
-	import RegionFilter from '$lib/RegionFilter.svelte';
+	import HeroMap from '$lib/HeroMap.svelte';
+	import Swatch from '$lib/Swatch.svelte';
 	import { t } from '$lib/lang.svelte';
-	import { ui } from '$lib/ui';
-	import { frameRect, visibleIn, type Rect } from '$lib/projection';
-	import { regimeOn } from '$lib/regimes';
-	import type { TrendPoint } from '$lib/TerritoryTrend.svelte';
-	import Timeline, { type TimelineBand, type TimelineEvent } from '$lib/Timeline.svelte';
-	import { instrumentsOn, legendEntries, resolveOn } from '$lib/resolve';
-	import { daysBetween, toDay, toISO, within, year } from '$lib/time';
-	import type { AtlasEvent } from '$lib/types';
-	import { parseView, writeView } from '$lib/viewstate';
+	import { daysBetween, toDay, year } from '$lib/time';
+	import { ui, type UiKey } from '$lib/ui';
+	import { ATLAS_PATH, atlasHref } from '$lib/viewstate';
 
 	let { data } = $props();
 
-	const DEFAULT_DATE = '1913-08-10';
-
 	const origin = $derived(data.meta.range.from);
 	const maxDay = $derived(daysBetween(origin, data.meta.range.to));
-	const epochDays = $derived(data.meta.epochs.map((d) => toDay(d, origin)));
-	const areaOf = $derived(new Map(data.atoms.features.map((f) => [f.properties.id, f.properties])));
-	const instrumentName = $derived(new Map(data.meta.instruments.map((i) => [i.id, t(i.name)])));
-	const placeOf = $derived(new Map(data.places.map((p) => [p.id, p])));
+	const pct = (iso: string) => (toDay(iso, origin) / maxDay) * 100;
 
-	// The query string is the entry point; from here the local state leads and is
-	// mirrored back, so dragging the timeline stays cheap.
-	const initial = untrack(() => parseView(page.url, DEFAULT_DATE));
-	let day = $state(untrack(() => toDay(initial.on ?? DEFAULT_DATE, data.meta.range.from)));
-	let showOccupation = $state(initial.occupation);
-	let selectedId = $state<string | null>(initial.event);
-	let frame = $state(initial.frame);
-	let regions = $state<string[]>(initial.regions);
+	// The turning points are the events the corpus rates highest, so the list is
+	// the corpus's own judgment and changes when a rating does.
+	const TOP = 5;
+	const turning = $derived(
+		data.events
+			.filter((e) => e.significance >= TOP)
+			.sort((a, b) => a.period[0].localeCompare(b.period[0]))
+	);
 
-	const date = $derived(toISO(day, origin));
-	$effect(() => {
-		writeView({ on: date, frame, event: selectedId, occupation: showOccupation, regions });
-	});
-
-	const layered = $derived(resolveOn(data.control, date));
-	// What the camera is showing, so the legend lists what is on screen and not
-	// what the frame nominally contains.
-	let view = $state<Rect | null>(null);
-	const legend = $derived(
-		legendEntries(
-			layered,
-			data.meta.polities,
-			visibleIn(data.atoms.features, view ?? frameRect(frame))
+	const eventDate = $derived(new Map(data.events.map((e) => [e.id, e.period[0]])));
+	const threads = $derived(
+		[...data.threads].sort(
+			(a, b) => a.span[0].localeCompare(b.span[0]) || a.span[1].localeCompare(b.span[1])
 		)
 	);
-	const instruments = $derived(
-		instrumentsOn(data.control, date).map((id) => ({ id, name: instrumentName.get(id) ?? id }))
-	);
-	// Undefined only before the chain begins, in the weeks of 1821 before there was
-	// a Greek state to have a form.
-	const regime = $derived(regimeOn(data.meta.regimes, date) ?? null);
-	const bands = $derived.by((): TimelineBand[] =>
-		data.meta.regimes.map((r) => ({
-			id: r.id,
-			from: toDay(r.from, origin),
-			to: r.to ? toDay(r.to, origin) : maxDay,
-			label: `${t(r.name)} · ${year(r.from)}–${r.to ? year(r.to) : ''}`
-		}))
-	);
+	const ticks = [1850, 1900, 1950, 2000];
 
-	// A region is a set of atoms, so the filter is a set membership test and nothing
-	// is stored per event. Empty selection means the whole map.
-	const regionOf = $derived(
-		new Map(data.meta.regions.flatMap((r) => r.atoms.map((a) => [a, r.id] as const)))
-	);
-	const scope = $derived.by(() => {
-		if (!regions.length) return null;
-		const byId = new Map(data.meta.regions.map((r) => [r.id, r]));
-		return new Set(regions.flatMap((id) => byId.get(id)?.atoms ?? []));
-	});
-	const inScope = (atom: string | null) => scope === null || (atom !== null && scope.has(atom));
-	const dimmed = $derived.by(() => {
-		const out = new Set<string>();
-		if (scope === null) return out;
-		for (const f of data.atoms.features) {
-			if (!scope.has(f.properties.id)) out.add(f.properties.id);
-		}
-		return out;
-	});
-	const shownEvents = $derived(
-		scope === null ? data.events : data.events.filter((e) => inScope(e.atom))
-	);
+	// The three ways a territory is drawn, with real polities so the swatches
+	// carry the map's own colours.
+	const colourOf = $derived(new Map(data.meta.polities.map((p) => [p.id, p.colour ?? 'transparent'])));
 
-	const selected = $derived(data.events.find((e) => e.id === selectedId) ?? null);
-	// The highlight follows the selected event only while the date is inside it.
-	const highlight = $derived(
-		selected && within(date, selected.period[0], selected.period[1]) ? selected.atom : null
-	);
-
-	const marks = $derived.by((): TimelineEvent[] =>
-		data.events.map((e) => ({
-			id: e.id,
-			day: toDay(e.period[0], origin),
-			title: `${year(e.period[0])} — ${t(e.title)}`,
-			significance: e.significance,
-			muted: !inScope(e.atom)
-		}))
-	);
-
-	// Events of the surrounding years, as dots where they happened: the map is a
-	// place to browse from, not only a picture of a date. Only the selected one
-	// is named; the rest speak on hover.
-	const NEAR_DAYS = 365 * 6;
-	const pins = $derived.by((): MapPin[] => {
-		const out: MapPin[] = [];
-		for (const e of data.events) {
-			if (!e.place) continue;
-			const d = toDay(e.period[0], origin);
-			const isSelected = e.id === selectedId;
-			if (!isSelected && Math.abs(d - day) > NEAR_DAYS) continue;
-			const p = placeOf.get(e.place);
-			if (!p) continue;
-			out.push({
-				id: e.id,
-				lon: p.lon,
-				lat: p.lat,
-				label: `${year(e.period[0])} — ${t(e.title)}`,
-				selected: isSelected,
-				muted: !inScope(e.atom),
-				labelled: isSelected
-			});
-		}
-		// The selected one last, so it is drawn on top.
-		return out.sort((a, b) => Number(a.selected ?? false) - Number(b.selected ?? false));
-	});
-
-	function greekAreaIn(sovereign: Map<string, string>): number {
-		let km2 = 0;
-		for (const [atom, polity] of sovereign) {
-			const props = areaOf.get(atom);
-			if (props && !props.external && polity.startsWith('gr-')) km2 += props.area_km2;
-		}
-		return km2;
-	}
-	const greekArea = $derived(greekAreaIn(layered.sovereign));
-
-	// Sampled at the epochs only, because that is the complete set of dates on
-	// which the figure can change.
-	const trend = $derived.by((): TrendPoint[] =>
-		data.meta.epochs.map((iso) => ({
-			day: toDay(iso, origin),
-			km2: greekAreaIn(resolveOn(data.control, iso).sovereign)
-		}))
-	);
-
-	function select(e: AtlasEvent) {
-		selectedId = e.id;
-		day = toDay(e.period[0], origin);
-		frame = e.frame;
-	}
-	function selectById(id: string) {
-		const e = data.events.find((x) => x.id === id);
-		if (e) select(e);
-	}
-
-	/** A click on the map filters by that territory's region. */
-	function pick(atom: string) {
-		const id = regionOf.get(atom);
-		if (!id) return;
-		toggleRegion(id);
-	}
-	/**
-	 * Selecting a region carries the map to it, where the region says where it is.
-	 *
-	 * Cyprus and Asia Minor are outside the default frame entirely, so filtering by
-	 * them used to narrow the ledger while leaving the reader looking at a map with
-	 * nothing selected on it. `Region.frame` is a viewport hint for exactly this;
-	 * it does not define the region, so it is only ever followed on the way in.
-	 */
-	function toggleRegion(id: string) {
-		const off = regions.includes(id);
-		regions = off ? regions.filter((r) => r !== id) : [...regions, id];
-		if (off) return;
-		const hint = data.meta.regions.find((r) => r.id === id)?.frame;
-		if (hint) frame = hint;
-	}
-
-	// Two columns or one. On a desktop the legend on the map is open and the frame
-	// chips sit on the map; on a phone the map is small, so the legend folds to its
-	// heading and the chips move under the timeline.
-	const mq = matchMedia('(min-width: 900px)');
-	let wide = $state(mq.matches);
-	$effect(() => {
-		const on = () => (wide = mq.matches);
-		mq.addEventListener('change', on);
-		return () => mq.removeEventListener('change', on);
-	});
-	let legendOpen = $state(mq.matches);
+	const counts = $derived({ ...data.counts, instruments: data.meta.instruments.length });
+	const doors: { href: string; key: 'events' | 'threads' | 'figures' | 'instruments' | 'places' | 'sources' }[] = [
+		{ href: '/events', key: 'events' },
+		{ href: '/threads', key: 'threads' },
+		{ href: '/figures', key: 'figures' },
+		{ href: '/instruments', key: 'instruments' },
+		{ href: '/places', key: 'places' },
+		{ href: '/sources', key: 'sources' }
+	];
+	const pageKey = (k: string) => `page.${k}` as UiKey;
+	const descKey = (k: string) => `${k}.description` as UiKey;
 </script>
 
 <svelte:head>
 	<title>{ui('site.name')}</title>
 </svelte:head>
 
-<main class="atlas">
-	<section class="stage">
-		<div class="mapframe">
-			<Atlas
-				atoms={data.atoms.features}
-				land={data.land}
-				meta={data.meta}
-				control={data.control}
-				{date}
-				{frame}
-				{showOccupation}
-				{highlight}
-				{dimmed}
-				{pins}
-				onpick={pick}
-				onpin={selectById}
-				onview={(r) => (view = r)}
-				fill
-			/>
-
-			{#if wide}
-				<div class="frames">
-					<FrameSwitch bind:frame />
-				</div>
-			{/if}
-
-			<details class="legend" bind:open={legendOpen}>
-				<summary>{ui('atlas.legend')}</summary>
-				<div class="legend-body">
-					<Legend entries={legend} />
-					{#if layered.insurgent.size}
-						<p class="note">{ui('atlas.note.insurgent')}</p>
-					{/if}
-					{#if layered.occupied.size}
-						<p class="note">{ui('atlas.note.occupied')}</p>
-					{/if}
-					<label class="occ">
-						<input type="checkbox" bind:checked={showOccupation} />
-						{ui('atlas.occupation')}
-					</label>
-					<details class="about">
-						<summary>{ui('atlas.about')}</summary>
-						<p class="note">{ui('site.footer')}</p>
-					</details>
-				</div>
-			</details>
+<main class="home">
+	<section class="hero">
+		<div class="pitch">
+			<p class="eyebrow">{ui('home.eyebrow', { from: year(origin) })}</p>
+			<h1>{ui('home.title')}</h1>
+			<p class="lead">
+				{ui('home.lead', {
+					events: counts.events,
+					figures: counts.figures,
+					instruments: counts.instruments
+				})}
+			</p>
+			<p class="ctas">
+				<a class="cta primary" href={ATLAS_PATH}>{ui('home.cta.atlas')} →</a>
+				<a class="cta" href="#threads">{ui('home.cta.threads')}</a>
+			</p>
 		</div>
+		<HeroMap atoms={data.atoms.features} land={data.land} meta={data.meta} control={data.control} />
+	</section>
 
-		<div class="deck">
-			<MapCaption {date} areaKm2={greekArea} {instruments} {trend} {day} {maxDay} {regime} compact />
-			<div class="scrub">
-				<Timeline
-					bind:day
-					{maxDay}
-					{epochDays}
-					{origin}
-					events={marks}
-					{bands}
-					{selectedId}
-					onselectevent={selectById}
-				/>
-			</div>
-			{#if !wide}
-				<div class="frames-row">
-					<FrameSwitch bind:frame />
+	<section class="how" aria-labelledby="how-h">
+		<h2 id="how-h" class="visually-hidden">{ui('home.how.title')}</h2>
+		<ol>
+			<li>
+				<span class="step">1</span>
+				<div>
+					<h3>{ui('home.how.1.title')}</h3>
+					<p>{ui('home.how.1.body')}</p>
+					<ul class="swatches">
+						<li><Swatch colour={colourOf.get('gr-kingdom') ?? ''} role="sovereign" polityId="gr-kingdom" />{ui('home.how.held')}</li>
+						<li><Swatch colour={colourOf.get('germany') ?? ''} role="occupying" polityId="germany" />{ui('home.how.occupied')}</li>
+						<li><Swatch colour={colourOf.get('gr-provisional') ?? ''} role="in revolt" polityId="gr-provisional" />{ui('home.how.revolt')}</li>
+					</ul>
 				</div>
-			{/if}
+			</li>
+			<li>
+				<span class="step">2</span>
+				<div>
+					<h3>{ui('home.how.2.title')}</h3>
+					<p>{ui('home.how.2.body')}</p>
+				</div>
+			</li>
+			<li>
+				<span class="step">3</span>
+				<div>
+					<h3>{ui('home.how.3.title')}</h3>
+					<p>{ui('home.how.3.body')}</p>
+				</div>
+			</li>
+		</ol>
+	</section>
+
+	<section aria-labelledby="turning-h">
+		<header class="section-head">
+			<h2 id="turning-h">{ui('home.turning.title')}</h2>
+			<p>{ui('home.turning.lead', { n: turning.length })}</p>
+		</header>
+		<ol class="turning">
+			{#each turning as e (e.id)}
+				<li>
+					<a href={atlasHref({ on: e.period[0], frame: e.frame, event: e.id })}>
+						<span class="when">{year(e.period[0])}</span>
+						<span class="what">{t(e.title)}</span>
+						<span class="why">{t(e.summary)}</span>
+					</a>
+				</li>
+			{/each}
+		</ol>
+	</section>
+
+	<section id="threads" aria-labelledby="threads-h">
+		<header class="section-head">
+			<h2 id="threads-h">{ui('home.threads.title')}</h2>
+			<p>{ui('home.threads.lead', { n: threads.length })}</p>
+		</header>
+		<div class="arcs">
+			<!-- One ruler for every arc, so where they overlap is the thing you see. -->
+			<div class="arc axis" aria-hidden="true">
+				<span></span>
+				<div class="track">
+					{#each ticks as y (y)}
+						<span class="tick" style:left="{pct(`${y}-01-01`)}%">{y}</span>
+					{/each}
+				</div>
+			</div>
+			<ol>
+				{#each threads as th (th.id)}
+					<li>
+						<a
+							class="arc"
+							href="/threads/{th.id}"
+							title={`${t(th.name)}, ${year(th.span[0])}–${year(th.span[1])} · ${ui('threads.count', { n: th.count })}`}
+						>
+							<span class="name">{t(th.name)}</span>
+							<span class="track">
+								{#each ticks as y (y)}
+									<span class="grid" style:left="{pct(`${y}-01-01`)}%"></span>
+								{/each}
+								<span
+									class="bar"
+									style:left="{pct(th.span[0])}%"
+									style:width="max(6px, {pct(th.span[1]) - pct(th.span[0])}%)"
+								></span>
+								{#each th.events as id (id)}
+									{@const d = eventDate.get(id)}
+									{#if d}<span class="dot" style:left="{pct(d)}%"></span>{/if}
+								{/each}
+								<span class="years" style:left="{pct(th.span[1])}%"
+									>{year(th.span[0])}–{year(th.span[1])}</span
+								>
+							</span>
+						</a>
+					</li>
+				{/each}
+			</ol>
 		</div>
 	</section>
 
-	<aside>
-		<div class="aside-head">
-			<h2>{ui('page.events')}</h2>
-			<RegionFilter
-				regions={data.meta.regions}
-				selected={regions}
-				ontoggle={toggleRegion}
-				onclear={() => (regions = [])}
-			/>
-		</div>
-		<EventLedger
-			events={shownEvents}
-			total={data.events.length}
-			{date}
-			{selectedId}
-			onselect={select}
-			fill
-		/>
-	</aside>
+	<section aria-labelledby="browse-h">
+		<header class="section-head">
+			<h2 id="browse-h">{ui('home.browse.title')}</h2>
+		</header>
+		<ul class="doors">
+			{#each doors as d (d.key)}
+				<li>
+					<a href={d.href}>
+						<span class="count">{counts[d.key]}</span>
+						<span class="label">{ui(pageKey(d.key))}</span>
+						<span class="desc">{ui(descKey(d.key))}</span>
+					</a>
+				</li>
+			{/each}
+		</ul>
+	</section>
 </main>
 
 <style>
-	main {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(300px, 400px);
-		gap: 24px;
-		align-items: stretch;
-		flex: 1;
-		min-height: 0;
-	}
-	.stage {
+	.home {
 		display: flex;
 		flex-direction: column;
-		min-height: 0;
+		gap: 56px;
 	}
-	.mapframe {
-		position: relative;
-		flex: 1;
-		min-height: 320px;
+	section {
+		scroll-margin-top: calc(var(--header-h, 0px) + 16px);
+	}
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
+	}
+
+	/* ---- the hero ---- */
+	.hero {
+		display: grid;
+		grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+		gap: 48px;
+		align-items: center;
+		padding-top: 12px;
+	}
+	.eyebrow {
+		margin: 0 0 10px;
+		font-family: var(--mono);
+		font-size: 0.8rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+	h1 {
+		font-size: clamp(2.1rem, 1.4rem + 2.6vw, 3.4rem);
+		line-height: 1.08;
+		margin: 0 0 18px;
+		letter-spacing: -0.02em;
+	}
+	.lead {
+		font-size: 1.12rem;
+		line-height: 1.6;
+		color: var(--ink-soft);
+		margin: 0 0 28px;
+		max-width: 46ch;
+	}
+	.ctas {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin: 0;
+	}
+	.cta {
+		display: inline-flex;
+		align-items: center;
+		padding: 10px 18px;
+		border-radius: 999px;
+		border: 1px solid var(--rule);
+		background: var(--panel);
+		color: var(--ink);
+		text-decoration: none;
+		font-weight: 600;
+		transition:
+			border-color 120ms ease,
+			background 120ms ease;
+	}
+	.cta:hover {
+		border-color: var(--ink-soft);
+	}
+	.cta.primary {
+		background: var(--accent);
+		border-color: var(--accent);
+		color: var(--ground);
+	}
+	.cta.primary:hover {
+		background: color-mix(in srgb, var(--accent) 86%, var(--ink));
+	}
+	.cta:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
+	}
+
+	/* ---- how to read the map ---- */
+	.how ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 12px;
+	}
+	.how ol > li {
+		display: flex;
+		gap: 14px;
+		padding: 16px 18px;
 		background: var(--panel);
 		border: 1px solid var(--rule);
-		border-radius: var(--radius-lg, 8px);
-		overflow: hidden;
+		border-radius: var(--radius-lg);
 	}
-	.frames {
-		position: absolute;
-		top: 8px;
-		left: 8px;
-		padding: 4px 6px;
-		background: color-mix(in srgb, var(--panel) 85%, transparent);
-		backdrop-filter: blur(6px);
-		border: 1px solid var(--rule);
-		border-radius: var(--radius-lg, 8px);
-		font-size: 0.85rem;
-	}
-	/* Bottom right: in the default frame that corner is open sea, where the
-	   bottom left is the Ionian and the Peloponnese. */
-	.legend {
-		position: absolute;
-		right: 8px;
-		bottom: 8px;
-		max-width: min(300px, calc(100% - 16px));
-		background: color-mix(in srgb, var(--panel) 88%, transparent);
-		backdrop-filter: blur(6px);
-		border: 1px solid var(--rule);
-		border-radius: var(--radius-lg, 8px);
-		font-size: 0.85rem;
-	}
-	.legend summary {
-		cursor: pointer;
-		padding: 5px 10px;
-		color: var(--ink-soft);
-		font-size: 0.74rem;
-		text-transform: uppercase;
-		letter-spacing: 0.07em;
-		list-style: none;
-	}
-	.legend summary::-webkit-details-marker {
-		display: none;
-	}
-	.legend summary::before {
-		content: '▸';
-		display: inline-block;
-		margin-right: 6px;
-		transition: transform 150ms ease;
-	}
-	.legend[open] summary::before {
-		transform: rotate(90deg);
-	}
-	.legend-body {
-		padding: 0 10px 8px;
-		max-height: 40vh;
-		overflow: auto;
-	}
-	.occ {
-		display: inline-flex;
-		gap: 6px;
-		align-items: center;
-		cursor: pointer;
-		margin-top: 8px;
-		font-size: 0.84rem;
-		color: var(--ink-soft);
-	}
-	.note {
-		margin: 8px 0 0;
-		color: var(--ink-soft);
-		font-size: 0.8rem;
-		max-width: 60ch;
-	}
-	.about {
-		margin-top: 8px;
-		font-size: 0.74rem;
-		color: var(--ink-soft);
-	}
-	.about summary {
-		cursor: pointer;
-	}
-	.about .note {
-		margin-top: 4px;
-		font-size: 0.72rem;
-	}
-	.legend-body :global(.legend) {
-		grid-template-columns: 1fr;
-	}
-	.deck {
+	.step {
 		flex: none;
-		padding-top: 2px;
+		display: grid;
+		place-items: center;
+		width: 26px;
+		height: 26px;
+		border-radius: 50%;
+		border: 1px solid var(--rule);
+		font-family: var(--mono);
+		font-size: 0.8rem;
+		color: var(--ink-soft);
 	}
-	.scrub {
-		margin-top: 6px;
+	h3 {
+		font-size: 1.05rem;
+		margin: 1px 0 4px;
+	}
+	.how p {
+		margin: 0;
+		font-size: 0.92rem;
+		color: var(--ink-soft);
+	}
+	.swatches {
+		list-style: none;
+		margin: 10px 0 0;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px 14px;
+		font-size: 0.82rem;
+		color: var(--ink-soft);
+	}
+	.swatches li {
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
 	}
 
-	aside {
+	/* ---- section heads ---- */
+	.section-head {
+		margin-bottom: 16px;
+	}
+	h2 {
+		font-size: 1.5rem;
+		margin: 0 0 4px;
+	}
+	.section-head p {
+		margin: 0;
+		color: var(--ink-soft);
+		max-width: 66ch;
+	}
+
+	/* ---- turning points ---- */
+	.turning {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+		gap: 10px;
+	}
+	.turning a {
 		display: flex;
 		flex-direction: column;
-		min-height: 0;
+		gap: 4px;
+		height: 100%;
+		box-sizing: border-box;
+		padding: 14px 16px;
+		background: var(--panel);
+		border: 1px solid var(--rule);
+		border-radius: var(--radius-lg);
+		color: var(--ink);
+		text-decoration: none;
+		transition:
+			border-color 120ms ease,
+			transform 120ms ease;
 	}
-	.aside-head {
-		flex: none;
+	.turning a:hover {
+		border-color: var(--ink-soft);
+		transform: translateY(-1px);
 	}
-	aside h2 {
-		font-size: 1.15rem;
-		margin: 0 0 8px;
+	.turning a:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
+	}
+	.when {
+		font-family: var(--mono);
+		font-size: 0.85rem;
+		color: var(--accent);
+		font-variant-numeric: tabular-nums;
+	}
+	.what {
+		font-family: var(--serif);
+		font-size: 1.08rem;
+		font-weight: 600;
+		line-height: 1.3;
+	}
+	.why {
+		font-size: 0.86rem;
+		color: var(--ink-soft);
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
 	}
 
-	@media (max-width: 900px) {
-		main {
-			display: block;
+	/* ---- threads on one ruler ---- */
+	.arcs {
+		background: var(--panel);
+		border: 1px solid var(--rule);
+		border-radius: var(--radius-lg);
+		padding: 10px 14px 12px;
+	}
+	.arcs ol {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.arc {
+		display: grid;
+		grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+		gap: 16px;
+		align-items: center;
+		padding: 5px 6px;
+		margin: 0 -6px;
+		border-radius: var(--radius);
+		color: var(--ink);
+		text-decoration: none;
+	}
+	a.arc:hover {
+		background: var(--accent-soft);
+	}
+	a.arc:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: -2px;
+	}
+	.name {
+		font-size: 0.92rem;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	a.arc:hover .name {
+		color: var(--accent);
+	}
+	.track {
+		position: relative;
+		display: block;
+		height: 18px;
+	}
+	/* The years sit at the end of the bar; the last arcs run to the present, so
+	   they keep a right margin for the label to land in. */
+	.arcs .track {
+		margin-right: 76px;
+	}
+	.axis .track {
+		height: 16px;
+	}
+	.tick {
+		position: absolute;
+		top: 0;
+		transform: translateX(-50%);
+		font-family: var(--mono);
+		font-size: 0.7rem;
+		color: var(--ink-soft);
+	}
+	.grid {
+		position: absolute;
+		top: -5px;
+		bottom: -5px;
+		width: 1px;
+		background: var(--rule);
+		opacity: 0.6;
+	}
+	.bar {
+		position: absolute;
+		top: 6px;
+		height: 6px;
+		border-radius: 3px;
+		background: var(--accent);
+		opacity: 0.3;
+	}
+	.dot {
+		position: absolute;
+		top: 9px;
+		width: 5px;
+		height: 5px;
+		margin: -2.5px 0 0 -2.5px;
+		border-radius: 50%;
+		background: var(--ink);
+	}
+	.years {
+		position: absolute;
+		top: 0;
+		padding-left: 8px;
+		font-family: var(--mono);
+		font-size: 0.7rem;
+		line-height: 18px;
+		color: var(--ink-soft);
+		white-space: nowrap;
+	}
+
+	/* ---- the indexes ---- */
+	.doors {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+		gap: 10px;
+	}
+	.doors a {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		grid-template-rows: auto 1fr;
+		column-gap: 12px;
+		height: 100%;
+		box-sizing: border-box;
+		padding: 14px 16px;
+		background: var(--panel);
+		border: 1px solid var(--rule);
+		border-radius: var(--radius-lg);
+		color: var(--ink);
+		text-decoration: none;
+		transition: border-color 120ms ease;
+	}
+	.doors a:hover {
+		border-color: var(--ink-soft);
+	}
+	.doors a:hover .label {
+		color: var(--accent);
+	}
+	.doors a:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
+	}
+	.count {
+		grid-row: 1 / 3;
+		font-family: var(--serif);
+		font-size: 1.9rem;
+		font-weight: 600;
+		line-height: 1;
+		font-variant-numeric: tabular-nums;
+		min-width: 2.2ch;
+	}
+	.label {
+		font-weight: 600;
+	}
+	.desc {
+		font-size: 0.84rem;
+		color: var(--ink-soft);
+		line-height: 1.4;
+	}
+
+	@media (max-width: 960px) {
+		.hero {
+			grid-template-columns: minmax(0, 1fr);
+			gap: 28px;
 		}
-		/* The map and its date control stay put while the list scrolls under them:
-		   picking an event must never scroll the map out of sight. */
-		.stage {
-			position: sticky;
-			top: 0;
-			z-index: 3;
-			background: var(--ground);
-			padding-bottom: 8px;
+		.how ol {
+			grid-template-columns: minmax(0, 1fr);
 		}
-		.mapframe {
-			height: 36vh;
-			min-height: 220px;
-			flex: none;
+	}
+	@media (max-width: 640px) {
+		.home {
+			gap: 40px;
 		}
-		.frames-row {
-			margin-top: 6px;
-			font-size: 0.8rem;
+		/* Fifteen cards stacked would be most of the page on a phone; a row the
+		   thumb swipes through keeps the threads and the indexes within reach. */
+		.turning {
+			grid-template-columns: none;
+			grid-auto-flow: column;
+			grid-auto-columns: 78%;
+			overflow-x: auto;
+			scroll-snap-type: x mandatory;
+			overscroll-behavior-x: contain;
+			margin-inline: -20px;
+			padding: 2px 20px 8px;
+			scroll-padding-inline: 20px;
+			scrollbar-width: thin;
 		}
-		/* No room for the sparkline here; the figure itself stays. */
-		.deck :global(.trend) {
+		.turning li {
+			scroll-snap-align: start;
+		}
+		.arc {
+			grid-template-columns: minmax(0, 1fr);
+			gap: 2px;
+		}
+		.axis > span:first-child {
 			display: none;
 		}
-		.legend {
-			max-width: calc(100% - 16px);
-		}
-		.legend-body {
-			max-height: 30vh;
-		}
-		aside {
-			display: block;
-			margin-top: 12px;
+		.arcs .track {
+			margin-right: 64px;
 		}
 	}
 	@media (prefers-reduced-motion: reduce) {
-		.legend summary::before {
+		.turning a,
+		.cta {
 			transition: none;
+		}
+		.turning a:hover {
+			transform: none;
 		}
 	}
 </style>

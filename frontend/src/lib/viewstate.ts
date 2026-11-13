@@ -25,6 +25,15 @@ export const DEFAULTS: View = {
 	regions: []
 };
 
+/** Where the atlas lives; the site's front page is the introduction to it. */
+export const ATLAS_PATH = '/atlas';
+
+/**
+ * The query keys a view is made of. The atlas used to live at `/`, so a link
+ * shared before the move is a front-page URL carrying these.
+ */
+export const VIEW_KEYS = ['on', 'frame', 'event', 'occupation', 'regions'] as const;
+
 const ISO = /^\d{4}-\d{2}-\d{2}$/;
 const isFrame = (s: string | null): s is FrameId => s !== null && s in FRAMES;
 
@@ -55,7 +64,7 @@ function toParams(v: View): string {
 /** A link into the atlas. Used by event pages and anything else off the map. */
 export function atlasHref(v: Partial<View>): string {
 	const q = toParams({ ...DEFAULTS, ...v });
-	return q ? `/?${q}` : '/';
+	return q ? `${ATLAS_PATH}?${q}` : ATLAS_PATH;
 }
 
 /** Mirrors the view into the address bar; see `replaceParams` for why it replaces. */

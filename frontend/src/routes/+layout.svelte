@@ -7,11 +7,12 @@
 	import LangToggle from '$lib/LangToggle.svelte';
 	import { ui } from '$lib/ui';
 	import ThemeToggle from '$lib/ThemeToggle.svelte';
+	import { ATLAS_PATH } from '$lib/viewstate';
 
 	let { children } = $props();
 
 	const nav = $derived([
-		{ href: '/', label: ui('page.atlas') },
+		{ href: ATLAS_PATH, label: ui('page.atlas') },
 		{ href: '/events', label: ui('page.events') },
 		{ href: '/threads', label: ui('page.threads') },
 		{ href: '/figures', label: ui('page.figures') },
@@ -19,12 +20,12 @@
 		{ href: '/places', label: ui('page.places') },
 		{ href: '/sources', label: ui('page.sources') }
 	]);
-	const current = (href: string) =>
-		href === '/' ? page.url.pathname === '/' : page.url.pathname.startsWith(href);
+	// The front page is the brand's link and has no tab of its own.
+	const current = (href: string) => page.url.pathname.startsWith(href);
 
 	// The atlas is an instrument, not a document: it takes the whole window and
 	// nothing on it scrolls but the list.
-	const atlas = $derived(page.url.pathname === '/');
+	const atlas = $derived(page.url.pathname === ATLAS_PATH);
 
 	// The header's height, for anything else that sticks: a rail or a sidebar
 	// pinned to the top of the window would otherwise slide in under it.

@@ -1,5 +1,5 @@
 import { within } from './time';
-import type { ControlRow, Polity } from './types';
+import type { AtomFeature, ControlRow, Polity } from './types';
 
 export interface Layered {
 	/** atom id -> polity id, the base fill */
@@ -38,6 +38,21 @@ export function resolveOn(rows: ControlRow[], on: string): Layered {
 		else if (r.kind === 'administered') push(out.administered, r.polity, r.atom);
 	}
 	return out;
+}
+
+/**
+ * The area under a Greek polity, provisional government included, in km².
+ * External atoms (Smyrna, Eastern Thrace and the rest) are left out: they are
+ * drawn for context, and counting them would make 1920 look like a gain that
+ * the treaties never confirmed.
+ */
+export function greekArea(sovereign: Map<string, string>, atoms: AtomFeature[]): number {
+	let km2 = 0;
+	for (const f of atoms) {
+		const polity = sovereign.get(f.properties.id);
+		if (polity?.startsWith('gr-') && !f.properties.external) km2 += f.properties.area_km2;
+	}
+	return km2;
 }
 
 /** Every atom that has any row on the date, so an empty outline is never drawn. */

@@ -6,6 +6,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { ui } from '$lib/ui';
+	import { ATLAS_PATH } from '$lib/viewstate';
 
 	const missing = $derived(page.status === 404);
 </script>
@@ -24,7 +25,7 @@
 	<h1>{ui(missing ? 'error.404.title' : 'error.other.title')}</h1>
 	<p class="body">{ui(missing ? 'error.404.body' : 'error.other.body')}</p>
 	<p class="links">
-		<a href="/">{ui('error.back.atlas')} →</a>
+		<a href={ATLAS_PATH}>{ui('error.back.atlas')} →</a>
 		<a href="/events">{ui('error.back.events')} →</a>
 	</p>
 </section>
