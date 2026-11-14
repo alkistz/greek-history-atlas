@@ -214,7 +214,7 @@
 	{/snippet}
 
 	{#if decades.length > 1}
-		<!-- A rail of decades: two centuries of rows is a long way to scroll for 1974. -->
+		<!-- A rail of decades: a century and a half of rows is a long way to scroll for 1974. -->
 		<nav class="decades" aria-label={ui('index.decades')}>
 			{#each decades as g (g.decade)}
 				<a href="#d-{g.decade}">{g.decade}</a>

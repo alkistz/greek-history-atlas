@@ -1,7 +1,9 @@
 # Follow-ups
 
 Open items left by the review sweep of 20 September 2026, which put a recorded pass on
-all 237 entries: 127 events, 78 figures, 32 instruments.
+all 237 entries then in the corpus. On 14 November 2026 the atlas was cut at 1975 and 15 of
+them moved to `content/archive/after-1975/`; the numbers below are for the 222 that remain:
+118 events, 74 figures, 30 instruments.
 
 Run `make review` for the live picture of what is reviewed, what has gone stale and where
 the English and Greek disagree numerically. This file holds what that report cannot say.
@@ -12,11 +14,11 @@ Every entry carries a pass, and that is not the same as every entry being verifi
 
 | | clean | corrected | unresolved | verified against sources |
 |---|---|---|---|---|
-| events | 114 | 10 | 3 | 4 |
-| figures | 67 | 2 | 9 | 2 |
-| instruments | 28 | 4 | 0 | 9 |
+| events | 106 | 9 | 3 | 3 |
+| figures | 63 | 2 | 9 | 2 |
+| instruments | 27 | 3 | 0 | 8 |
 
-Fifteen of 237 entries were checked against public sources. The rest were read in both
+Thirteen of 222 entries were checked against public sources. The rest were read in both
 languages with dates, arithmetic and cross-references checked, but their individual
 figures were not independently sourced. Which is which is recorded per entry in
 `review.auto.by`, so it can be filtered:
@@ -79,12 +81,12 @@ Found by checking every event's date against the signing date of the instrument 
 to. Eight other events differ from their instrument's date legitimately, because an
 occupation or a handover is not the treaty that regularised it.
 
-## 4. Twenty-three treaties still have no `text_url`
+## 4. Twenty-two treaties still have no `text_url`
 
-Nine of 32 are linked: Lausanne, Sèvres, Neuilly, Bucharest 1913, the Population Exchange
-Convention, Berlin 1878, both Nicosia treaties of 1960, and Prespa.
+Eight of 30 are linked: Lausanne, Sèvres, Neuilly, Bucharest 1913, the Population Exchange
+Convention, Berlin 1878 and both Nicosia treaties of 1960.
 
-The other 23 were left empty deliberately. Nothing was linked that had not been opened,
+The other 22 were left empty deliberately. Nothing was linked that had not been opened,
 because a plausible-looking unchecked URL is the same failure as the Hionidou figure.
 
 This is the cheapest large win still available: the treaty layer is the spine of the map,
@@ -95,7 +97,7 @@ and a treaty's own text is the most authoritative thing the atlas can point at.
 `clean | corrected | unresolved` answers *what was found*. It does not answer *how hard
 anyone looked*, which is currently carried informally in `by`.
 
-At eight reviewed entries that was fine. At 237 it is strained: a `clean` from a reading
+At eight reviewed entries that was fine. At 222 it is strained: a `clean` from a reading
 pass and a `clean` from a sourced pass are not the same claim, and only a string
 comparison tells them apart. If you want to filter reliably on "actually verified", depth
 probably wants its own field.
@@ -123,6 +125,19 @@ benign and will stay in the report unless the convention is normalised one way.
 The **mismatched** tier, where each language carries a *different* figure, is at zero.
 That tier is the one worth watching: it is how both Old Style / New Style splits were
 found.
+
+## 8. Northern Cyprus is not shaded after August 1974
+
+With the atlas ending in 1975, the last eighteen months of the timeline show all of Cyprus
+held by the Republic, while `turkish-invasion-of-cyprus-1974` sits on the same track. The
+map is not wrong about sovereignty, but it says nothing about occupation, and occupation is
+the distinction this atlas exists to draw (see 1941–44).
+
+Fixing it needs a cut below NUTS3: Cyprus is a single region (CY000), so the north has to
+become its own atom along the ceasefire line of 16 August 1974, with `cyprus` split into two
+atoms that share one history up to that date. Then add one `control` row for the
+occupation. It is the "Cyprus split for 1974" that the README lists as deliberately not
+built yet; the cut is what moves it up the list.
 
 ## What was tried and did not work
 

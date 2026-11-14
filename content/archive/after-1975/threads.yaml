@@ -1,0 +1,93 @@
+# The five threads that ran past 1975, exactly as they stood before the cut: the full
+# event lists and the summaries written for them. The live versions in
+# content/threads.yaml end at 1975 and carry rewritten summaries; restoring an archived
+# event means putting it back in these lists and bringing the summary back with it.
+
+- id: greece-and-turkey
+  name: {en: Greece and Turkey, el: Ελλάδα και Τουρκία}
+  summary:
+    en: >
+      Lausanne settled the border and settled nothing else. What followed was a
+      rapprochement, a pogrom, a war that did not quite happen and a pair of uninhabited
+      islets that nearly caused one.
+    el: >
+      Η Λωζάνη όρισε τα σύνορα και τίποτε άλλο. Ακολούθησαν μια προσέγγιση, ένα πογκρόμ,
+      ένας πόλεμος που δεν έγινε και δύο ακατοίκητες βραχονησίδες που παραλίγο να τον φέρουν.
+  events:
+    - treaty-of-lausanne-1923
+    - population-exchange-convention-1923
+    - ankara-rapprochement-1930
+    - istanbul-pogrom
+    - turkish-invasion-of-cyprus-1974
+    - imia-crisis-1996
+
+- id: greece-in-europe
+  name: {en: Greece in Europe, el: Η Ελλάδα στην Ευρώπη}
+  summary:
+    en: >
+      Forty years from the NATO accession that fixed Greece in the West to a currency
+      union, and then a decade spent arguing about whether either had been worth it.
+    el: >
+      Σαράντα χρόνια από την ένταξη στο ΝΑΤΟ που έδεσε την Ελλάδα με τη Δύση ως μια
+      νομισματική ένωση, και έπειτα μια δεκαετία διαμάχης για το αν άξιζαν.
+  events:
+    - greece-joins-nato
+    - eec-association-agreement-1961
+    - ec-accession-1981
+    - euro-adoption-2001
+    - prespa-agreement-2018
+
+- id: public-debt
+  name: {en: Building and the bill, el: Τα έργα και ο λογαριασμός}
+  summary:
+    en: >
+      Greece has defaulted before. Trikoupis opened the canal in the August and told
+      parliament the state was bankrupt in the December; it happened again in 1932; and
+      in 2010 the arrangement that followed was the largest of its kind ever attempted.
+    el: >
+      Η Ελλάδα έχει ξαναχρεοκοπήσει. Ο Τρικούπης εγκαινίασε τη διώρυγα τον Αύγουστο και
+      ανακοίνωσε στη Βουλή τη χρεοκοπία τον Δεκέμβριο· ξανάγινε το 1932· και το 2010 η
+      ρύθμιση που ακολούθησε ήταν η μεγαλύτερη του είδους της που επιχειρήθηκε ποτέ.
+  events:
+    - corinth-canal-opening
+    - national-bankruptcy-1893
+    - athens-olympics-1896
+    - greek-default-1932
+    - euro-adoption-2001
+    - athens-olympics-2004
+    - first-memorandum-2010
+    - bailout-referendum-2015
+
+- id: macedonian-question
+  name: {en: The Macedonian question, el: Το Μακεδονικό}
+  summary:
+    en: >
+      A three-sided struggle for a province, the partition that ended it, and a dispute
+      over the name that outlived every state involved by a century.
+    el: >
+      Ένας τριγωνικός αγώνας για μια επαρχία, η διανομή που τον τερμάτισε και μια διαφορά
+      για το όνομα που επέζησε έναν αιώνα μετά από όλα τα κράτη που την άρχισαν.
+  events:
+    - macedonian-struggle
+    - liberation-of-thessaloniki
+    - treaty-of-bucharest-1913
+    - incident-at-petrich
+    - closing-of-the-yugoslav-border
+    - prespa-agreement-2018
+
+- id: postwar-politics
+  name: {en: Politics after the war, el: Η πολιτική μετά τον πόλεμο}
+  summary:
+    en: >
+      A constitution, a general in office, the long Karamanlis ascendancy, the defection
+      that broke it, and the party that finally took power from the right in 1981.
+    el: >
+      Ένα σύνταγμα, ένας στρατηγός στην εξουσία, η μακρά κυριαρχία Καραμανλή, η αποστασία
+      που τη διέλυσε και το κόμμα που πήρε επιτέλους την εξουσία από τη Δεξιά το 1981.
+  events:
+    - constitution-of-1952
+    - papagos-government-1952
+    - karamanlis-in-power
+    - apostasia-of-1965
+    - metapolitefsi-1974
+    - pasok-first-government-1981

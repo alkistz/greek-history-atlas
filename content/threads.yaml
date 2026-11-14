@@ -300,55 +300,50 @@
   summary:
     en: >
       Lausanne settled the border and settled nothing else. What followed was a
-      rapprochement, a pogrom, a war that did not quite happen and a pair of uninhabited
-      islets that nearly caused one.
+      rapprochement, a pogrom, and in 1974 an invasion of Cyprus that brought the two
+      states to the edge of a war neither of them fought.
     el: >
-      Η Λωζάνη όρισε τα σύνορα και τίποτε άλλο. Ακολούθησαν μια προσέγγιση, ένα πογκρόμ,
-      ένας πόλεμος που δεν έγινε και δύο ακατοίκητες βραχονησίδες που παραλίγο να τον φέρουν.
+      Η Λωζάνη όρισε τα σύνορα και τίποτε άλλο. Ακολούθησαν μια προσέγγιση, ένα πογκρόμ
+      και, το 1974, μια εισβολή στην Κύπρο που έφερε τα δύο κράτη στα πρόθυρα ενός
+      πολέμου που κανένα από τα δύο δεν έκανε.
   events:
     - treaty-of-lausanne-1923
     - population-exchange-convention-1923
     - ankara-rapprochement-1930
     - istanbul-pogrom
     - turkish-invasion-of-cyprus-1974
-    - imia-crisis-1996
 
 - id: greece-in-europe
   name: {en: Greece in Europe, el: Η Ελλάδα στην Ευρώπη}
   summary:
     en: >
-      Forty years from the NATO accession that fixed Greece in the West to a currency
-      union, and then a decade spent arguing about whether either had been worth it.
+      NATO fixed Greece in the West in 1952. Nine years later it became the first country
+      to sign an association agreement with the European Community, which froze it when the
+      colonels took power and revived it once they had fallen.
     el: >
-      Σαράντα χρόνια από την ένταξη στο ΝΑΤΟ που έδεσε την Ελλάδα με τη Δύση ως μια
-      νομισματική ένωση, και έπειτα μια δεκαετία διαμάχης για το αν άξιζαν.
+      Το ΝΑΤΟ έδεσε την Ελλάδα με τη Δύση το 1952. Εννέα χρόνια αργότερα έγινε η πρώτη
+      χώρα που υπέγραψε συμφωνία σύνδεσης με την Ευρωπαϊκή Κοινότητα, η οποία την πάγωσε
+      όταν πήραν την εξουσία οι συνταγματάρχες και την αναβίωσε όταν έπεσαν.
   events:
     - greece-joins-nato
     - eec-association-agreement-1961
-    - ec-accession-1981
-    - euro-adoption-2001
-    - prespa-agreement-2018
 
 - id: public-debt
   name: {en: Building and the bill, el: Τα έργα και ο λογαριασμός}
   summary:
     en: >
-      Greece has defaulted before. Trikoupis opened the canal in the August and told
-      parliament the state was bankrupt in the December; it happened again in 1932; and
-      in 2010 the arrangement that followed was the largest of its kind ever attempted.
+      Trikoupis opened the canal in the August and told parliament the state was bankrupt
+      in the December. Three years later the bankrupt state staged the first modern
+      Olympics on private money, and in 1932 it defaulted again.
     el: >
-      Η Ελλάδα έχει ξαναχρεοκοπήσει. Ο Τρικούπης εγκαινίασε τη διώρυγα τον Αύγουστο και
-      ανακοίνωσε στη Βουλή τη χρεοκοπία τον Δεκέμβριο· ξανάγινε το 1932· και το 2010 η
-      ρύθμιση που ακολούθησε ήταν η μεγαλύτερη του είδους της που επιχειρήθηκε ποτέ.
+      Ο Τρικούπης εγκαινίασε τη διώρυγα τον Αύγουστο και ανακοίνωσε στη Βουλή τη
+      χρεοκοπία τον Δεκέμβριο. Τρία χρόνια αργότερα το χρεοκοπημένο κράτος οργάνωσε τους
+      πρώτους σύγχρονους Ολυμπιακούς Αγώνες με ιδιωτικά χρήματα, και το 1932 χρεοκόπησε ξανά.
   events:
     - corinth-canal-opening
     - national-bankruptcy-1893
     - athens-olympics-1896
     - greek-default-1932
-    - euro-adoption-2001
-    - athens-olympics-2004
-    - first-memorandum-2010
-    - bailout-referendum-2015
 
 - id: frontiers-completed
   name: {en: Completing the frontiers, el: Η ολοκλήρωση των συνόρων}
@@ -373,32 +368,33 @@
   name: {en: The Macedonian question, el: Το Μακεδονικό}
   summary:
     en: >
-      A three-sided struggle for a province, the partition that ended it, and a dispute
-      over the name that outlived every state involved by a century.
+      A three-sided struggle for a province, the partition that ended it, and the
+      neighbours on its northern edge who kept the frontier in question for a generation
+      after.
     el: >
-      Ένας τριγωνικός αγώνας για μια επαρχία, η διανομή που τον τερμάτισε και μια διαφορά
-      για το όνομα που επέζησε έναν αιώνα μετά από όλα τα κράτη που την άρχισαν.
+      Ένας τριγωνικός αγώνας για μια επαρχία, η διανομή που τον τερμάτισε και οι γείτονες
+      στο βόρειο άκρο της που κράτησαν τα σύνορα υπό αμφισβήτηση για μια γενιά ακόμη.
   events:
     - macedonian-struggle
     - liberation-of-thessaloniki
     - treaty-of-bucharest-1913
     - incident-at-petrich
     - closing-of-the-yugoslav-border
-    - prespa-agreement-2018
 
 - id: postwar-politics
   name: {en: Politics after the war, el: Η πολιτική μετά τον πόλεμο}
   summary:
     en: >
       A constitution, a general in office, the long Karamanlis ascendancy, the defection
-      that broke it, and the party that finally took power from the right in 1981.
+      that brought down the government after it, and in 1974 the return of Karamanlis
+      himself from eleven years in Paris.
     el: >
       Ένα σύνταγμα, ένας στρατηγός στην εξουσία, η μακρά κυριαρχία Καραμανλή, η αποστασία
-      που τη διέλυσε και το κόμμα που πήρε επιτέλους την εξουσία από τη Δεξιά το 1981.
+      που έριξε την κυβέρνηση που την ακολούθησε και, το 1974, η επιστροφή του ίδιου του
+      Καραμανλή μετά από έντεκα χρόνια στο Παρίσι.
   events:
     - constitution-of-1952
     - papagos-government-1952
     - karamanlis-in-power
     - apostasia-of-1965
     - metapolitefsi-1974
-    - pasok-first-government-1981

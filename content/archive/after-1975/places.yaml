@@ -1,0 +1,27 @@
+# Places used only by the archived events. Same shape as content/places.yaml.
+
+- id: brussels
+  kind: city
+  lon: 4.35
+  lat: 50.85
+  names: [{name: {en: Brussels, el: Βρυξέλλες}}]
+
+- id: psarades
+  kind: village
+  lon: 21.09
+  lat: 40.79
+  atom: macedonia-west
+  names: [{name: {en: Psarades, el: Ψαράδες}}]
+
+- id: imia
+  kind: island
+  lon: 27.15
+  lat: 37.05
+  names: [{name: {en: Imia, el: Ίμια}}]
+
+- id: tempi
+  kind: region
+  lon: 22.52
+  lat: 39.80
+  atom: thessaly
+  names: [{name: {en: Tempi, el: Τέμπη}}]

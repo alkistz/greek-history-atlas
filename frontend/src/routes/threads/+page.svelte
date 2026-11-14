@@ -55,7 +55,7 @@
 				</p>
 				<a class="title" href="/threads/{thread.id}">{t(thread.name)}</a>
 				<p class="summary">{t(thread.summary)}</p>
-				<!-- Where on the two centuries the arc lies, as a bar. -->
+				<!-- Where on the range the arc lies, as a bar. -->
 				<Strip
 					{origin}
 					{maxDay}

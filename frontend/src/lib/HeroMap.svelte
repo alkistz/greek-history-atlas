@@ -4,7 +4,7 @@
 	the page gives it; the page says which part of that box its own words cover.
 
 	It steps through the epochs rather than running a clock, because between two
-	epochs nothing moves, and two centuries at an even speed would spend most of
+	epochs nothing moves, and a century and a half at an even speed would spend most of
 	the loop on a still map. A reader who prefers reduced motion gets the last
 	date, still, with the play button to start it themselves. Clicking the map
 	opens the atlas on the date it is showing.
@@ -31,7 +31,7 @@
 	let { atoms, land, meta, control, insets }: Props = $props();
 
 	const STEP_MS = 900;
-	/** the last frame is today's map; it is held long enough to be read */
+	/** the last frame is the map as the atlas leaves it; it is held long enough to be read */
 	const HOLD_MS = 3500;
 
 	const epochs = $derived(meta.epochs);

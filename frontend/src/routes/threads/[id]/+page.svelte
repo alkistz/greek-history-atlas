@@ -35,7 +35,7 @@
 	<h1>{t(thread.name)}</h1>
 	<p class="summary">{t(thread.summary)}</p>
 
-	<!-- The arc on the ruler: how its events fall across the two centuries. -->
+	<!-- The arc on the ruler: how its events fall across the whole range. -->
 	<div class="strip">
 		<p class="label">{ui('thread.strip')}</p>
 		<Strip

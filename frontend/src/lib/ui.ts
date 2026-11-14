@@ -77,16 +77,16 @@ const STRINGS = {
 
 	// The front page
 	'home.eyebrow': {
-		en: 'Modern Greece, {from} to today',
-		el: 'Η νεότερη Ελλάδα, από το {from} ως σήμερα'
+		en: 'Modern Greece, {from} to 1975',
+		el: 'Η νεότερη Ελλάδα, από το {from} ως το 1975'
 	},
 	'home.title': {
-		en: 'Two centuries of Greek history, on one map',
-		el: 'Δύο αιώνες ελληνικής ιστορίας σε έναν χάρτη'
+		en: 'A century and a half of Greek history, on one map',
+		el: 'Ενάμισης αιώνας ελληνικής ιστορίας σε έναν χάρτη'
 	},
 	'home.lead': {
-		en: 'The map redraws on every date a frontier moved, from the revolution of 1821 to the present. {events} events, {figures} people and {instruments} treaties and agreements are tied to the days and places they belong to.',
-		el: 'Ο χάρτης ξαναχαράσσεται σε κάθε ημερομηνία που μετακινήθηκαν τα σύνορα, από την Επανάσταση του 1821 ως σήμερα. {events} γεγονότα, {figures} πρόσωπα και {instruments} συνθήκες και συμφωνίες δένονται με τις ημέρες και τους τόπους στους οποίους ανήκουν.'
+		en: 'The map redraws on every date a frontier moved, from the revolution of 1821 to the constitution of 1975. {events} events, {figures} people and {instruments} treaties and agreements are tied to the days and places they belong to.',
+		el: 'Ο χάρτης ξαναχαράσσεται σε κάθε ημερομηνία που μετακινήθηκαν τα σύνορα, από την Επανάσταση του 1821 ως το Σύνταγμα του 1975. {events} γεγονότα, {figures} πρόσωπα και {instruments} συνθήκες και συμφωνίες δένονται με τις ημέρες και τους τόπους στους οποίους ανήκουν.'
 	},
 	'home.cta.atlas': { en: 'Open the atlas', el: 'Άνοιγμα του άτλαντα' },
 	'home.cta.threads': { en: 'Start with a story', el: 'Ξεκινήστε από μια ιστορία' },

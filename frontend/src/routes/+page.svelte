@@ -485,7 +485,7 @@
 		position: relative;
 		display: block;
 		height: 18px;
-		/* The years sit at the end of the bar; the last arcs run to the present,
+		/* The years sit at the end of the bar; the last arcs run to the end of the range,
 		   so the track keeps a margin for the label to land in. */
 		margin-right: 76px;
 	}

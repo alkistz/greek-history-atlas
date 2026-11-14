@@ -1,6 +1,6 @@
 # Greek History Atlas
 
-An interactive atlas of Greek history from 1821 to the present. The map redraws as
+An interactive atlas of Greek history from 1821 to the Constitution of 1975. The map redraws as
 control of territory changes, and events are tied to the dates and places they happened.
 
 This is **v0**: one working vertical slice, built to answer the only genuinely uncertain
@@ -41,11 +41,16 @@ changed.
 
 ## The corpus
 
-127 events from the outbreak of the revolution to the Tempi disaster, 78 figures, 76
-places, 32 instruments, 19 narrative threads and 23 cited works. Every event and figure is written in both
-English and Greek. `significance` ranks events 2 to 5 on what they changed: fifteen events
-across two centuries are rated 5, meaning they changed the shape or the nature of the
-state, and the scale is meant to stay that steep.
+118 events from the outbreak of the revolution to the Constitution of 1975, 74 figures,
+72 places, 30 instruments, 19 narrative threads and 22 cited works. Every event and figure
+is written in both English and Greek. `significance` ranks events 2 to 5 on what they
+changed: thirteen events across a century and a half are rated 5, meaning they changed
+the shape or the nature of the state, and the scale is meant to stay that steep.
+
+The atlas ends with the Constitution of 11 June 1975, at `SCOPE_END` in
+`backend/app/core/scope.py`, and load-time validation refuses anything dated after it.
+The nine later events, and the figures, places, instruments and source only they used,
+are kept unpublished in `content/archive/after-1975/` for a possible later section.
 
 ## Two languages
 
@@ -87,7 +92,7 @@ year-slider over Wikipedia borders cannot express that, and it is the reason thi
 
 **Regimes.** `control.yaml` says who held the ground; `regimes.yaml` says what the Greek
 state itself was. The map needs the first and the corpus needs the second: the last date
-on which control changes is 1960, twenty-one events fall after it, and a third of all
+on which control changes is 1960, twelve events fall after it, and a third of all
 events happen in Athens, so territory stops telling them apart long before the corpus
 ends. The regimes are an unbroken chain of half-open periods, contiguity enforced in
 `validate.py`, which is what lets an event's regime be a lookup from its date with nothing
@@ -95,8 +100,8 @@ stored on any event -- the same bargain `regions.yaml` strikes with atoms.
 
 **Threads.** Regions and regimes shorten a list; a thread is a way to get from one event
 to the next one that belongs with it. `related` on an event page means "same atom within
-two years", which found nothing for 56% of events once the corpus reached 2023. The
-nineteen arcs in `threads.yaml` cover 97% of events and are allowed to overlap, because
+two years", which finds nothing for 53% of events. The
+nineteen arcs in `threads.yaml` cover 98% of events and are allowed to overlap, because
 1922 belongs to the Great Idea, to the Asia Minor campaign and to the National Schism at
 once. Reading order is derived from the dates, so a list written out of order cannot
 produce an arc that contradicts the timeline.

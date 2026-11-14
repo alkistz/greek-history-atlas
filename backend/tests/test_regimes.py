@@ -34,11 +34,11 @@ def test_a_transition_date_belongs_to_the_new_regime(corpus):
 
 
 def test_the_corpus_reaches_past_the_last_map_epoch(corpus):
-    """Why this file exists: control stops changing in 1960 and the events do not.
-    Those events need an axis that still moves."""
+    """Why this file exists: control stops changing in 1960 and the events do not,
+    even with the atlas ending in 1975. Those events need an axis that still moves."""
     late = [e for e in corpus.events if e.start > date(1960, 8, 16)]
     kinds = {crud.regime_on(corpus, e.start).kind for e in late}
-    assert len(late) > 20
+    assert len(late) > 10
     assert kinds == {"constitutional_monarchy", "dictatorship", "interregnum", "republic"}
 
 

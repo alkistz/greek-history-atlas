@@ -37,6 +37,7 @@ from app.core.paths import (
     SOURCES_YAML,
     THREADS_YAML,
 )
+from app.core.scope import SCOPE_END
 from app.modules.atoms.models import Atom
 from app.modules.control.models import Control
 from app.modules.events.models import Event
@@ -150,6 +151,18 @@ def validate(c: Corpus) -> list[str]:
             if it.id in seen:
                 problems.append(f"duplicate {label} id {it.id!r}")
             seen.add(it.id)
+
+    # Generic: nothing the timeline draws starts after the atlas ends, since a mark
+    # past the end of the track is drawn outside the viewBox, i.e. not at all.
+    dated = (
+        *((f"event {e.id!r}", e.period[0]) for e in c.events),
+        *((f"instrument {i.id!r}", i.signed) for i in c.instruments),
+        *((f"control {r.atom!r}/{r.polity!r}", r.start) for r in c.control),
+        *((f"regime {r.id!r}", r.start) for r in c.regimes),
+    )
+    for where, on in dated:
+        if on >= SCOPE_END:
+            problems.append(f"{where}: dated {on}, after the atlas ends ({SCOPE_END})")
 
     problems += validate_atoms(c)
     problems += validate_polities(c)

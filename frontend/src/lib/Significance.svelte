@@ -2,7 +2,7 @@
 	import { term, ui } from './ui';
 
 	/**
-	 * What an event changed, 2 to 5. Fifteen events across two centuries are 5s,
+	 * What an event changed, 2 to 5. Thirteen events across a century and a half are 5s,
 	 * and the scale is meant to stay that steep, so the labels say what the number
 	 * claims rather than leaving a bare digit to be read as a score out of five.
 	 */
