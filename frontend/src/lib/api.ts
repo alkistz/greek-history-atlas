@@ -1,4 +1,5 @@
 import { error } from '@sveltejs/kit';
+import { dev } from '$app/environment';
 import type {
 	AtlasEvent,
 	AtomCollection,
@@ -25,7 +26,27 @@ type Fetch = typeof fetch;
  * both ways: in production `.json` is a real file written by `make export`, and
  * in dev the Vite proxy strips the suffix and forwards to FastAPI.
  */
-async function get<T>(fetch: Fetch, path: string): Promise<T> {
+/**
+ * The deployed corpus is a set of static files that cannot change while a tab is
+ * open, so each is fetched and parsed once per visit; moving between pages then
+ * waits on nothing. In dev the API is live and the YAML is being edited, so
+ * nothing is kept.
+ */
+const cache = new Map<string, Promise<unknown>>();
+
+function get<T>(fetch: Fetch, path: string): Promise<T> {
+	if (dev) return load<T>(fetch, path);
+	let hit = cache.get(path) as Promise<T> | undefined;
+	if (!hit) {
+		hit = load<T>(fetch, path);
+		cache.set(path, hit);
+		// A failure is not kept: the next navigation tries again.
+		hit.catch(() => cache.delete(path));
+	}
+	return hit;
+}
+
+async function load<T>(fetch: Fetch, path: string): Promise<T> {
 	const r = await fetch(`${path}.json`);
 	if (!r.ok) error(r.status, `${path}: ${r.statusText}`);
 	// A static host answers an unknown path with the app shell rather than a 404,

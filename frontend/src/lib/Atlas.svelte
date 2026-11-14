@@ -116,7 +116,8 @@
 	// widest down, alternating a line and the sea, so rings run out from the
 	// shore and fade with distance. Strokes are in screen pixels, so the rings
 	// keep their spacing at every zoom. Everything they draw over the land is
-	// covered by the land itself.
+	// covered by the land itself. The path is defined once and each ring <use>s
+	// it, so the browser parses that very long string once rather than six times.
 	const coasts = $derived(
 		waterlines ? [landPath, ...[...shapes.values()].map((sh) => sh.d)].join(' ') : ''
 	);
@@ -491,6 +492,9 @@
 		<desc id="{uid}-d">{summary}</desc>
 
 		<defs>
+			{#if coasts}
+				<path id="{uid}-coasts" class="coasts" d={coasts} />
+			{/if}
 			{#each overlayPolities as pid (pid)}
 				<pattern
 					id="{uid}-hatch-{pid}"
@@ -522,9 +526,9 @@
 		{#if coasts}
 			<g class="waterlines" aria-hidden="true">
 				{#each WATER as w, i (i)}
-					<path
+					<use
+						href="#{uid}-coasts"
 						class={w.line ? 'wl' : 'ws'}
-						d={coasts}
 						style:stroke-width="{w.width}px"
 						opacity={w.opacity}
 					/>
@@ -771,7 +775,8 @@
 	.waterlines {
 		pointer-events: none;
 	}
-	.waterlines path {
+	.coasts,
+	.waterlines use {
 		fill: none;
 		stroke-linejoin: round;
 	}

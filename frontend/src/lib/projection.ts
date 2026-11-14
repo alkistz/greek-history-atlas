@@ -182,14 +182,25 @@ export function clampToRect([x, y]: [number, number], r: Rect, margin: number): 
 }
 
 /** One path string for a standalone feature such as the land backdrop. */
+/**
+ * Like the shapes, a path depends on the geometry alone, and the neighbouring
+ * land is the largest geometry there is: projecting it again for every map that
+ * mounts cost more than drawing the map.
+ */
+const pathCache = new WeakMap<GeoJSON.Polygon | GeoJSON.MultiPolygon, string>();
+
 export function pathOf(geometry: GeoJSON.Polygon | GeoJSON.MultiPolygon): string {
-	return (
-		worldPath()({
-			type: 'Feature',
-			properties: {},
-			geometry: reverseRings(geometry)
-		} as GeoJSON.Feature) ?? ''
-	);
+	let d = pathCache.get(geometry);
+	if (d === undefined) {
+		d =
+			worldPath()({
+				type: 'Feature',
+				properties: {},
+				geometry: reverseRings(geometry)
+			} as GeoJSON.Feature) ?? '';
+		pathCache.set(geometry, d);
+	}
+	return d;
 }
 
 /** Project a lon/lat point into world units, or null if it is outside the projection's domain. */

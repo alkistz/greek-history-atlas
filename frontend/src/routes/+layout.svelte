@@ -1,7 +1,5 @@
 <script lang="ts">
-	import { onNavigate } from '$app/navigation';
 	import { navigating, page } from '$app/state';
-	import { prefersReducedMotion } from 'svelte/motion';
 	import '$lib/fonts.css';
 	import DraftNotice from '$lib/DraftNotice.svelte';
 	import LangToggle from '$lib/LangToggle.svelte';
@@ -35,17 +33,10 @@
 	// float over the map and the camera has to fit around them.
 	const chrome = provideChrome();
 
-	// Pages cross-fade. The browser does the work; this only tells it when a
-	// navigation starts and when the new page is in place.
-	onNavigate((navigation) => {
-		if (!document.startViewTransition || prefersReducedMotion.current) return;
-		return new Promise((resolve) => {
-			document.startViewTransition(async () => {
-				resolve();
-				await navigation.complete;
-			});
-		});
-	});
+	// Pages do not cross-fade. A view transition holds the old page frozen until
+	// the new one has loaded and rendered, then animates on top of that, and its
+	// snapshots of a full-window map are expensive: measured, it was the largest
+	// single source of lag when moving between tabs.
 </script>
 
 <svelte:head>
@@ -211,12 +202,6 @@
 		font-weight: 600;
 		letter-spacing: -0.01em;
 		text-wrap: balance;
-	}
-
-	/* Route changes cross-fade, briefly. */
-	:global(::view-transition-old(root)),
-	:global(::view-transition-new(root)) {
-		animation-duration: 160ms;
 	}
 
 	/* A data fetch between pages is otherwise invisible: the old page just sits
