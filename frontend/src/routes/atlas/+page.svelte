@@ -17,6 +17,7 @@
 	import { daysBetween, toDay, toISO, within, year } from '$lib/time';
 	import type { AtlasEvent } from '$lib/types';
 	import { parseView, writeView } from '$lib/viewstate';
+	import { useChrome } from '$lib/chrome.svelte';
 
 	let { data } = $props();
 
@@ -181,10 +182,11 @@
 		if (hint) frame = hint;
 	}
 
-	// Two columns or one. On a desktop the legend on the map is open and the frame
-	// chips sit on the map; on a phone the map is small, so the legend folds to its
-	// heading and the chips move under the timeline.
-	const mq = matchMedia('(min-width: 900px)');
+	// The whole window or a tall page. On a desktop the map lies under everything
+	// and the header, the events and the date float over it as panels, with the
+	// legend open and the frame chips on the map; on a phone the map is small, so
+	// the legend folds to its heading and the chips move under the timeline.
+	const mq = matchMedia('(min-width: 1100px)');
 	let wide = $state(mq.matches);
 	$effect(() => {
 		const on = () => (wide = mq.matches);
@@ -192,13 +194,32 @@
 		return () => mq.removeEventListener('change', on);
 	});
 	let legendOpen = $state(mq.matches);
+
+	// What the panels cover, so the camera frames a region in the clear part of
+	// the window and never behind the list. These mirror the wide rules below.
+	const EDGE = 12;
+	const SEP = 8;
+	const SIDE = 400;
+	const chrome = useChrome();
+	let deckH = $state(0);
+	let framesH = $state(0);
+	const insets = $derived(
+		wide
+			? {
+					top: EDGE + chrome.header + SEP + chrome.notice + SEP + framesH + SEP,
+					right: EDGE + SIDE + SEP,
+					bottom: EDGE + deckH + SEP,
+					left: EDGE
+				}
+			: undefined
+	);
 </script>
 
 <svelte:head>
 	<title>{ui('page.title', { page: ui('page.atlas'), site: ui('site.name') })}</title>
 </svelte:head>
 
-<main class="atlas">
+<main class="atlas" style:--side="{SIDE}px" style:--deck-h="{deckH}px">
 	<section class="stage">
 		<div class="mapframe">
 			<Atlas
@@ -215,11 +236,12 @@
 				onpick={pick}
 				onpin={selectById}
 				onview={(r) => (view = r)}
+				{insets}
 				fill
 			/>
 
 			{#if wide}
-				<div class="frames">
+				<div class="frames" bind:offsetHeight={framesH}>
 					<FrameSwitch bind:frame />
 				</div>
 			{/if}
@@ -246,7 +268,7 @@
 			</details>
 		</div>
 
-		<div class="deck">
+		<div class="deck" bind:offsetHeight={deckH}>
 			<MapCaption {date} areaKm2={greekKm2} {instruments} {trend} {day} {maxDay} {regime} compact />
 			<div class="scrub">
 				<Timeline
@@ -290,13 +312,11 @@
 </main>
 
 <style>
+	/* Narrow first: a tall page, the map at the top and the list beneath. The
+	   wide arrangement, with everything floating over a full-window map, is in
+	   the media block at the end. */
 	main {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(300px, 400px);
-		gap: 24px;
-		align-items: stretch;
-		flex: 1;
-		min-height: 0;
+		display: block;
 	}
 	.stage {
 		display: flex;
@@ -305,22 +325,15 @@
 	}
 	.mapframe {
 		position: relative;
-		flex: 1;
-		min-height: 320px;
-		background: var(--panel);
-		border: 1px solid var(--rule);
-		border-radius: var(--radius-lg, 8px);
 		overflow: hidden;
+		background: var(--sea);
 	}
+	/* Panels on the map are cartouches: opaque, square, ruled in ink. */
 	.frames {
 		position: absolute;
-		top: 8px;
-		left: 8px;
 		padding: 4px 6px;
-		background: color-mix(in srgb, var(--panel) 85%, transparent);
-		backdrop-filter: blur(6px);
-		border: 1px solid var(--rule);
-		border-radius: var(--radius-lg, 8px);
+		background: var(--panel);
+		border: 1px solid var(--ink);
 		font-size: 0.85rem;
 	}
 	/* Bottom right: in the default frame that corner is open sea, where the
@@ -330,19 +343,18 @@
 		right: 8px;
 		bottom: 8px;
 		max-width: min(300px, calc(100% - 16px));
-		background: color-mix(in srgb, var(--panel) 88%, transparent);
-		backdrop-filter: blur(6px);
-		border: 1px solid var(--rule);
-		border-radius: var(--radius-lg, 8px);
+		background: var(--panel);
+		border: 1px solid var(--ink);
 		font-size: 0.85rem;
 	}
 	.legend summary {
 		cursor: pointer;
 		padding: 5px 10px;
 		color: var(--ink-soft);
-		font-size: 0.74rem;
-		text-transform: uppercase;
-		letter-spacing: 0.07em;
+		font-family: var(--serif);
+		font-variant-caps: all-small-caps;
+		font-size: 0.95rem;
+		letter-spacing: 0.1em;
 		list-style: none;
 	}
 	.legend summary::-webkit-details-marker {
@@ -409,14 +421,60 @@
 		flex: none;
 	}
 	aside h2 {
-		font-size: 1.15rem;
+		font-size: 1.25rem;
+		font-weight: 500;
+		font-variant-caps: small-caps;
+		letter-spacing: 0.04em;
 		margin: 0 0 8px;
 	}
 
-	@media (max-width: 900px) {
+	@media (min-width: 1100px) {
 		main {
-			display: block;
+			position: relative;
+			flex: 1;
+			min-height: 0;
 		}
+		.stage {
+			position: absolute;
+			inset: 0;
+		}
+		.mapframe {
+			position: absolute;
+			inset: 0;
+		}
+		.frames {
+			top: calc(12px + var(--header-h) + 8px + var(--notice-h) + 8px);
+			left: 12px;
+		}
+		.legend {
+			right: calc(var(--side) + 20px);
+			bottom: calc(var(--deck-h) + 20px);
+		}
+		.deck {
+			position: absolute;
+			z-index: 4;
+			left: 12px;
+			right: calc(var(--side) + 20px);
+			bottom: 12px;
+			padding: 4px 16px 10px;
+			background: var(--panel);
+			border: 1px solid var(--ink);
+		}
+		aside {
+			position: absolute;
+			z-index: 4;
+			top: calc(12px + var(--header-h) + 8px);
+			right: 12px;
+			bottom: 12px;
+			width: var(--side);
+			box-sizing: border-box;
+			padding: 12px 14px 0;
+			background: var(--panel);
+			border: 1px solid var(--ink);
+			--ledger-bg: var(--panel);
+		}
+	}
+	@media (max-width: 1099px) {
 		/* The map and its date control stay put while the list scrolls under them:
 		   picking an event must never scroll the map out of sight. */
 		.stage {

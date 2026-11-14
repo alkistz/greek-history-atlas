@@ -30,7 +30,7 @@
 <style>
 	.badge {
 		display: inline-block;
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-size: 0.66rem;
 		text-transform: uppercase;
 		letter-spacing: 0.07em;

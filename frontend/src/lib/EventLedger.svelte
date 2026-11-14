@@ -228,10 +228,13 @@
 		z-index: 1;
 		margin: 0;
 		padding: 5px 2px 3px;
-		background: var(--ground);
+		/* Sticky, so it needs the colour of whatever the list sits on: the page,
+		   or a panel where the atlas floats the list over the map. */
+		background: var(--ledger-bg, var(--ground));
 		color: var(--ink-soft);
-		font-family: var(--mono);
-		font-size: 0.74rem;
+		font-family: var(--serif);
+		font-variant-caps: all-small-caps;
+		font-size: 0.92rem;
 		letter-spacing: 0.08em;
 		border-bottom: 1px solid var(--rule);
 	}
@@ -281,7 +284,7 @@
 		font-weight: 600;
 	}
 	.etime {
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-variant-numeric: tabular-nums;
 		font-size: 0.82rem;
 		flex: none;
@@ -311,7 +314,7 @@
 		gap: 12px;
 	}
 	.eold {
-		font-family: var(--mono);
+		font-family: var(--figures);
 		color: var(--ink-soft);
 	}
 	.empty {

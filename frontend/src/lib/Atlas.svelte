@@ -28,6 +28,14 @@
 		labelled?: boolean;
 	}
 
+	/** Screen pixels along each edge that something else covers. */
+	export interface Insets {
+		top?: number;
+		right?: number;
+		bottom?: number;
+		left?: number;
+	}
+
 	interface Props {
 		atoms: AtomFeature[];
 		land: LandFeature;
@@ -53,6 +61,13 @@
 		fill?: boolean;
 		/** what the camera is pointed at, in world units, whenever that changes */
 		onview?: (view: Rect) => void;
+		/**
+		 * Panels floating over the map. A frame is fitted into what they leave
+		 * clear, so it is never framed behind one.
+		 */
+		insets?: Insets;
+		/** rings drawn out from every coast, as on an engraved chart */
+		waterlines?: boolean;
 	}
 
 	let {
@@ -71,7 +86,9 @@
 		showLabels = true,
 		interactive = true,
 		fill = false,
-		onview
+		onview,
+		insets,
+		waterlines = true
 	}: Props = $props();
 
 	// Unique per instance, so two maps on one page never share a pattern id.
@@ -95,6 +112,18 @@
 
 	const shapes = $derived(buildShapes(atoms));
 	const landPath = $derived(pathOf(land.geometry));
+	// Water-lining: every coast in one path, stroked several times from the
+	// widest down, alternating a line and the sea, so rings run out from the
+	// shore and fade with distance. Strokes are in screen pixels, so the rings
+	// keep their spacing at every zoom. Everything they draw over the land is
+	// covered by the land itself.
+	const coasts = $derived(
+		waterlines ? [landPath, ...[...shapes.values()].map((sh) => sh.d)].join(' ') : ''
+	);
+	const WATER = [3, 2, 1].flatMap((i) => [
+		{ line: true, width: i * 9 + 0.7, opacity: 0.75 - (i - 1) * 0.25 },
+		{ line: false, width: i * 9 - 0.7, opacity: 1 }
+	]);
 	const layered = $derived(resolveOn(control, date));
 	const held = $derived(heldAtoms(layered));
 
@@ -122,9 +151,29 @@
 		cy: number;
 		w: number;
 	}
+	const pad = $derived({
+		top: insets?.top ?? 0,
+		right: insets?.right ?? 0,
+		bottom: insets?.bottom ?? 0,
+		left: insets?.left ?? 0
+	});
 	const fitFrame = (f: FrameId, a: number): Cam => {
-		const r = fitRect(frameRect(f), a);
-		return { cx: r.x + r.w / 2, cy: r.y + r.h / 2, w: r.w };
+		if (!(width > 0 && height > 0)) {
+			const r = fitRect(frameRect(f), a);
+			return { cx: r.x + r.w / 2, cy: r.y + r.h / 2, w: r.w };
+		}
+		// Fit the frame into the clear part of the box, then move the camera so
+		// that part is where the frame lands: the centre shifts by half the
+		// difference between opposite insets.
+		const iw = Math.max(width - pad.left - pad.right, 40);
+		const ih = Math.max(height - pad.top - pad.bottom, 40);
+		const r = fitRect(frameRect(f), iw / ih);
+		const s = r.w / iw;
+		return {
+			cx: r.x + r.w / 2 + ((pad.right - pad.left) / 2) * s,
+			cy: r.y + r.h / 2 + ((pad.bottom - pad.top) / 2) * s,
+			w: s * width
+		};
 	};
 	// The starting value only; the effect below follows `frame` from then on.
 	const cam = new Tween<Cam>(untrack(() => fitFrame(frame, DEFAULT_ASPECT)), {
@@ -470,6 +519,18 @@
 		</defs>
 
 		<!-- 0. neighbouring land, at present-day extent, uncoloured; the sea is the background -->
+		{#if coasts}
+			<g class="waterlines" aria-hidden="true">
+				{#each WATER as w, i (i)}
+					<path
+						class={w.line ? 'wl' : 'ws'}
+						d={coasts}
+						style:stroke-width="{w.width}px"
+						opacity={w.opacity}
+					/>
+				{/each}
+			</g>
+		{/if}
 		<path class="land" d={landPath} />
 
 		<!-- 1. sovereignty: the base fill -->
@@ -632,7 +693,13 @@
 	{/if}
 
 	{#if zoomable}
-		<div class="zoom" role="group" aria-label={ui('map.reset')}>
+		<div
+			class="zoom"
+			role="group"
+			aria-label={ui('map.reset')}
+			style:top="{8 + pad.top}px"
+			style:right="{8 + pad.right}px"
+		>
 			<button type="button" onclick={() => zoomBy(1.6)} aria-label={ui('map.zoomin')} title={ui('map.zoomin')}>+</button>
 			<button type="button" onclick={() => zoomBy(1 / 1.6)} aria-label={ui('map.zoomout')} title={ui('map.zoomout')}>−</button>
 			<button type="button" onclick={reset} aria-label={ui('map.reset')} title={ui('map.reset')}>⌂</button>
@@ -700,6 +767,19 @@
 	.marks,
 	.labels {
 		pointer-events: none;
+	}
+	.waterlines {
+		pointer-events: none;
+	}
+	.waterlines path {
+		fill: none;
+		stroke-linejoin: round;
+	}
+	.wl {
+		stroke: var(--waterline);
+	}
+	.ws {
+		stroke: var(--sea);
 	}
 	.hairline {
 		fill: none;
@@ -803,10 +883,10 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1px;
-		border: 1px solid var(--rule);
-		border-radius: var(--radius-lg, 8px);
+		background: var(--rule);
+		border: 1px solid var(--ink);
+		border-radius: var(--radius-lg);
 		overflow: hidden;
-		box-shadow: var(--elev-1, 0 1px 4px #0002);
 	}
 	.zoom button {
 		font: inherit;

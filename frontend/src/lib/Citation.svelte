@@ -62,7 +62,7 @@
 	}
 	.id {
 		margin-left: 8px;
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-size: 0.74rem;
 		white-space: nowrap;
 	}

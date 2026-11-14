@@ -296,7 +296,7 @@
 		margin-bottom: 4px;
 		background: var(--ground);
 		border-bottom: 1px solid var(--rule);
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-size: 0.76rem;
 		letter-spacing: 0.06em;
 	}
@@ -315,7 +315,7 @@
 		container-type: inline-size;
 	}
 	h2 {
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-size: 0.78rem;
 		letter-spacing: 0.1em;
 		color: var(--ink-soft);
@@ -373,7 +373,7 @@
 	}
 	.when {
 		flex: none;
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-variant-numeric: tabular-nums;
 		font-size: 0.82rem;
 		color: var(--ink-soft);

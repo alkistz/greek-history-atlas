@@ -54,7 +54,7 @@
 		background: var(--panel);
 		color: var(--ink-soft);
 		border: 1px solid var(--rule);
-		border-radius: 999px;
+		border-radius: var(--radius);
 		padding: 2px 10px;
 		cursor: pointer;
 		transition:

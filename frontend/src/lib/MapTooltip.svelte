@@ -103,7 +103,7 @@
 	}
 	.area {
 		color: var(--ink-soft);
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-size: 0.74rem;
 		margin-bottom: 3px;
 	}

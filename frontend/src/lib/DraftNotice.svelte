@@ -25,19 +25,19 @@
 		align-items: baseline;
 		gap: 10px;
 		margin-bottom: 16px;
-		padding: 5px 10px;
-		background: var(--warn-bg);
-		border: 1px solid var(--warn-rule);
-		border-radius: var(--radius);
+		padding: 5px 0;
+		/* A ruled line rather than a box: the badge carries the warning. */
+		border-block: 1px solid var(--rule);
 		font-size: 0.82rem;
 		line-height: 1.45;
 	}
 	.badge {
 		flex: none;
-		font-family: var(--mono);
-		font-size: 0.66rem;
-		text-transform: uppercase;
-		letter-spacing: 0.09em;
+		font-family: var(--serif);
+		font-size: 0.86rem;
+		font-variant-caps: all-small-caps;
+		letter-spacing: 0.1em;
+		line-height: 1.3;
 		color: var(--warn-ink);
 		border: 1px solid currentColor;
 		border-radius: var(--radius);

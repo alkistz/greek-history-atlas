@@ -128,7 +128,7 @@
 	.when {
 		flex: 0 0 5ch;
 		color: var(--ink-soft);
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-variant-numeric: tabular-nums;
 		font-size: 0.85rem;
 		padding-top: 2px;

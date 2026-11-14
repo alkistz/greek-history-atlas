@@ -255,6 +255,7 @@ const STRINGS = {
 	'map.occupied': { en: 'Occupied by {polities}', el: 'Υπό κατοχή: {polities}' },
 	'map.revolt': { en: '{polity} in armed revolt', el: '{polity} σε ένοπλη εξέγερση' },
 	'caption.territory': { en: 'Greek sovereign territory', el: 'Ελληνικό κυρίαρχο έδαφος' },
+	'caption.nostate': { en: 'No Greek state yet', el: 'Δεν υπάρχει ακόμη ελληνικό κράτος' },
 	'caption.inforce': { en: 'In force from today:', el: 'Σε ισχύ από σήμερα:' },
 	'trend.aria': {
 		en: 'Greek sovereign territory over the whole period, peaking at {n} square kilometres',

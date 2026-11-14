@@ -37,7 +37,7 @@
 	}
 	.status {
 		margin: 0;
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-size: 0.8rem;
 		letter-spacing: 0.08em;
 		color: var(--ink-soft);

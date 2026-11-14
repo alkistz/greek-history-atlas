@@ -40,8 +40,14 @@
 	<div class="date">{prettyDate(date)}</div>
 	<div class="figures">
 		<div class="value">
-			<span class="km2">{num(areaKm2)} km²</span>
-			<span class="km2-label">{ui('caption.territory')}</span>
+			<!-- Before the first sovereign government there is a revolt on the map and
+			     no state under it; nought km² would read as a broken figure. -->
+			{#if areaKm2 > 0}
+				<span class="km2">{num(areaKm2)} km²</span>
+				<span class="km2-label">{ui('caption.territory')}</span>
+			{:else}
+				<span class="km2-label">{ui('caption.nostate')}</span>
+			{/if}
 		</div>
 		{#if trend.length}
 			<TerritoryTrend points={trend} {day} {maxDay} />
@@ -101,7 +107,7 @@
 	}
 	.km2 {
 		white-space: nowrap;
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-variant-numeric: tabular-nums;
 		font-size: 1.05rem;
 	}

@@ -311,7 +311,7 @@
 		font-size: 0.74rem;
 	}
 	.coords {
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-variant-numeric: tabular-nums;
 		font-size: 0.76rem;
 		opacity: 0.8;
@@ -325,7 +325,7 @@
 		font-style: italic;
 	}
 	.span {
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-size: 0.74rem;
 	}
 	.fold summary {
@@ -352,7 +352,7 @@
 		margin-left: 8px;
 	}
 	.mono {
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-variant-numeric: tabular-nums;
 		font-size: 0.8rem;
 		color: var(--ink-soft);

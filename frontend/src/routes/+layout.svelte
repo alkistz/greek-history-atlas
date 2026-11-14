@@ -7,6 +7,7 @@
 	import LangToggle from '$lib/LangToggle.svelte';
 	import { ui } from '$lib/ui';
 	import ThemeToggle from '$lib/ThemeToggle.svelte';
+	import { provideChrome } from '$lib/chrome.svelte';
 	import { ATLAS_PATH } from '$lib/viewstate';
 
 	let { children } = $props();
@@ -26,10 +27,13 @@
 	// The atlas is an instrument, not a document: it takes the whole window and
 	// nothing on it scrolls but the list.
 	const atlas = $derived(page.url.pathname === ATLAS_PATH);
+	// The front page runs edge to edge, so its map can.
+	const home = $derived(page.url.pathname === '/');
 
-	// The header's height, for anything else that sticks: a rail or a sidebar
-	// pinned to the top of the window would otherwise slide in under it.
-	let headerH = $state(0);
+	// The header's and the notice's heights: for anything else that sticks, which
+	// would otherwise slide in under the header, and for the atlas, where both
+	// float over the map and the camera has to fit around them.
+	const chrome = provideChrome();
 
 	// Pages cross-fade. The browser does the work; this only tells it when a
 	// navigation starts and when the new page is in place.
@@ -59,8 +63,14 @@
 	<div class="progress" role="progressbar" aria-label={ui('site.loading')}></div>
 {/if}
 
-<div class="shell" class:atlas style:--header-h="{atlas ? 0 : headerH}px">
-	<header bind:clientHeight={headerH}>
+<div
+	class="shell"
+	class:atlas
+	class:home
+	style:--header-h="{chrome.header}px"
+	style:--notice-h="{chrome.notice}px"
+>
+	<header bind:offsetHeight={chrome.header}>
 		<a class="brand" href="/">{ui('site.name')}</a>
 		<nav>
 			{#each nav as n (n.href)}
@@ -73,7 +83,9 @@
 		</div>
 	</header>
 
-	<DraftNotice />
+	<div class="notice-slot" bind:offsetHeight={chrome.notice}>
+		<DraftNotice />
+	</div>
 
 	{@render children()}
 
@@ -85,34 +97,35 @@
 </div>
 
 <style>
+	/* The page is the sea. The surfaces, the ink and the accent are one cool
+	   blue family, so the polity colours on the map are the only saturated
+	   things on screen. */
 	:global(:root) {
-		--ground: #f5f5f2;
+		--ground: #dbe6ed;
 		--panel: #ffffff;
-		--ink: #1a1a18;
-		--ink-soft: #5d5f5e;
-		--rule: #d6d7d3;
-		/* Wine: the one chromatic hue clear of every polity fill. The accent is also
-		   painted on the map (pins, the selected outline), so it must not match any
-		   territory. */
-		--accent: #7c1d34;
-		--accent-soft: #7c1d341a;
-		/* the draft notice; amber rather than the accent, which means "a link" here */
+		--ink: #13202b;
+		--ink-soft: #536373;
+		--rule: #bccbd5;
+		/* The accent is the ink. Wine was the one hue clear of every polity fill,
+		   and the accent is painted on the map (pins, the selected outline), so
+		   without wine nothing chromatic is left that the map does not use. */
+		--accent: #13202b;
+		--accent-soft: #13202b12;
+		/* the draft notice: amber, because it is a status and not a link */
 		--warn-ink: #8a5a12;
-		--warn-bg: #faf3e2;
-		--warn-rule: #e3d0a4;
-		--radius: 4px;
-		--radius-lg: 8px;
-		--elev-1: 0 1px 3px #0002, 0 4px 14px #0001;
+		--radius: 0px;
+		--radius-lg: 0px;
+		--elev-1: none;
 
-		/* The map. A real sea: land stands out by lightness, not only by hue, so coasts read
-		   at every zoom. The land stays in the lightness band the polity search
-		   validated. */
-		--sea: #aec3d1;
-		--land: #ebe7dc;
-		--coast: #6f8291;
-		--hairline: #ffffff99;
-		--label: #1a1a18;
-		--label-halo: #ebe7dcdd;
+		/* The map. Sea and page are one colour, so the map has no edge; the
+		   water-lining is drawn a step darker, out from every coast. */
+		--sea: #dbe6ed;
+		--waterline: #a6bccb;
+		--land: #f7f7f4;
+		--coast: #9db3c3;
+		--hairline: #ffffffb3;
+		--label: #13202b;
+		--label-halo: #f7f7f4cc;
 
 		/* Served from /fonts (see lib/fonts.css); the rest is what draws until they land. */
 		--serif:
@@ -121,7 +134,8 @@
 		--sans:
 			'Source Sans 3', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'Noto Sans',
 			sans-serif;
-		--mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+		/* Dates, years and quantities: the serif, as an atlas sets them. */
+		--figures: var(--serif);
 		color-scheme: light;
 
 		/* Reserve the scrollbar's width whether or not one is showing. The page
@@ -131,52 +145,45 @@
 		scrollbar-gutter: stable;
 	}
 
-	/* The polity palette was validated against both land surfaces, so only the
-	   surroundings change in dark mode; the fills do not. */
+	/* A night chart: the same family, deep navy. The polity fills do not change. */
 	:global(:root:not([data-theme='light'])) {
 		@media (prefers-color-scheme: dark) {
-			--ground: #141618;
-			--panel: #1d2023;
-			--ink: #ecebe6;
-			--ink-soft: #9a9c99;
-			--rule: #33373b;
-			/* The light accent fails on a dark ground (under 3:1), so it is lifted here. */
-			--accent: #e9899a;
-			--accent-soft: #e9899a33;
-			--elev-1: 0 1px 3px #0006, 0 4px 14px #0004;
-			--sea: #06111f;
-			--land: #34322c;
-			--coast: #51616f;
-			--hairline: #00000088;
-			--label: #f3f1ea;
-			--label-halo: #34322cdd;
+			--ground: #08111a;
+			--panel: #0f1b27;
+			--ink: #e6edf2;
+			--ink-soft: #8a9cad;
+			--rule: #24364a;
+			--accent: #e6edf2;
+			--accent-soft: #e6edf21c;
+			--sea: #08111a;
+			--waterline: #22384b;
+			--land: #18212a;
+			--coast: #2b4152;
+			--hairline: #08111a99;
+			--label: #eef3f7;
+			--label-halo: #08111acc;
 			--warn-ink: #dcab4c;
-			--warn-bg: #27231a;
-			--warn-rule: #4a4026;
 			color-scheme: dark;
 		}
 	}
 
 	/* The same tokens, but chosen rather than inherited from the system. */
 	:global(:root[data-theme='dark']) {
-		--ground: #141618;
-		--panel: #1d2023;
-		--ink: #ecebe6;
-		--ink-soft: #9a9c99;
-		--rule: #33373b;
-		/* The light accent fails on a dark ground (under 3:1), so it is lifted here. */
-		--accent: #e9899a;
-		--accent-soft: #e9899a33;
-		--elev-1: 0 1px 3px #0006, 0 4px 14px #0004;
-		--sea: #06111f;
-		--land: #34322c;
-		--coast: #51616f;
-		--hairline: #00000088;
-		--label: #f3f1ea;
-		--label-halo: #34322cdd;
+		--ground: #08111a;
+		--panel: #0f1b27;
+		--ink: #e6edf2;
+		--ink-soft: #8a9cad;
+		--rule: #24364a;
+		--accent: #e6edf2;
+		--accent-soft: #e6edf21c;
+		--sea: #08111a;
+		--waterline: #22384b;
+		--land: #18212a;
+		--coast: #2b4152;
+		--hairline: #08111a99;
+		--label: #eef3f7;
+		--label-halo: #08111acc;
 		--warn-ink: #dcab4c;
-		--warn-bg: #27231a;
-		--warn-rule: #4a4026;
 		color-scheme: dark;
 	}
 
@@ -189,7 +196,9 @@
 		font-size: 16px;
 		line-height: 1.55;
 		-webkit-font-smoothing: antialiased;
-		font-feature-settings: 'kern', 'liga', 'calt';
+		/* Old-style figures throughout, as in a printed atlas; tabular columns
+		   still set tabular-nums on top of them. */
+		font-feature-settings: 'kern', 'liga', 'calt', 'onum';
 	}
 	:global(button, input, select, textarea) {
 		font-family: inherit;
@@ -240,16 +249,27 @@
 		   rather than handing the reader a sideways scroll on every route. */
 		overflow-x: clip;
 	}
+	/* The front page runs edge to edge so its map can. Everything else on it
+	   keeps the usual measure through --inset, which resolves against whatever
+	   full-width box it is used in. */
+	.shell.home {
+		max-width: none;
+		padding-inline: 0;
+		--inset: max(20px, calc((100% - 1280px) / 2));
+	}
+	.shell.home > header {
+		margin-inline: calc(var(--inset) - 20px);
+	}
+	.shell.home > .notice-slot,
+	.shell.home > footer {
+		margin-inline: var(--inset);
+	}
+	/* Narrow, the atlas is a tall page: the map sticks at the top (see the page)
+	   and the list scrolls beneath it. */
 	.shell.atlas {
 		max-width: none;
-		height: 100dvh;
 		box-sizing: border-box;
-		display: flex;
-		flex-direction: column;
-		padding-block: 14px 14px;
-	}
-	.shell.atlas header {
-		margin-bottom: 12px;
+		padding-block: 14px 24px;
 	}
 	/* The header stays as the page scrolls, as a strip of frosted ground: the
 	   way back to the other indexes is always one glance up. On the atlas page
@@ -288,6 +308,44 @@
 	.shell.atlas header::after {
 		display: none;
 	}
+	/* Wide, the atlas takes the whole window: the map lies under everything and
+	   the header and the notice float over it, as panels on a chart. Below this
+	   width the panels would leave too little map, so it stays a tall page; the
+	   atlas page uses the same breakpoint. */
+	@media (min-width: 1100px) {
+		.shell.atlas {
+			position: relative;
+			height: 100dvh;
+			display: flex;
+			flex-direction: column;
+			padding: 0;
+		}
+		.shell.atlas header {
+			position: absolute;
+			z-index: 7;
+			top: 12px;
+			left: 12px;
+			right: 12px;
+			margin: 0;
+			padding: 8px 16px;
+			align-items: center;
+			background: var(--panel);
+			border: 1px solid var(--ink);
+		}
+		.shell.atlas .notice-slot {
+			position: absolute;
+			z-index: 7;
+			top: calc(12px + var(--header-h) + 8px);
+			left: 12px;
+			max-width: min(640px, calc(100% - 444px));
+		}
+		.shell.atlas .notice-slot :global(.notice) {
+			margin: 0;
+			padding: 5px 10px;
+			background: var(--panel);
+			border: 1px solid var(--ink);
+		}
+	}
 	/* The two toggles travel together, so the header's free space opens once,
 	   before them, rather than once before each. */
 	.tools {
@@ -299,7 +357,9 @@
 	.brand {
 		font-family: var(--serif);
 		font-size: 1.6rem;
-		font-weight: 600;
+		font-weight: 500;
+		font-variant-caps: small-caps;
+		letter-spacing: 0.05em;
 		color: var(--ink);
 		text-decoration: none;
 	}
@@ -313,7 +373,9 @@
 		position: relative;
 		color: var(--ink-soft);
 		text-decoration: none;
-		font-size: 0.95rem;
+		font-size: 1.04rem;
+		font-variant-caps: all-small-caps;
+		letter-spacing: 0.08em;
 		padding: 2px 0;
 		transition: color 120ms ease;
 	}
@@ -328,9 +390,8 @@
 		position: absolute;
 		left: 0;
 		right: 0;
-		bottom: -2px;
-		height: 2px;
-		border-radius: 1px;
+		bottom: 0;
+		height: 1px;
 		background: var(--accent);
 	}
 	nav a:focus-visible {
@@ -361,15 +422,6 @@
 		nav {
 			order: 2;
 			flex-basis: 100%;
-		}
-	}
-	/* Below the two-column width the atlas is a tall page again: the map sticks
-	   at the top (see the page) and the list scrolls beneath it. */
-	@media (max-width: 900px) {
-		.shell.atlas {
-			height: auto;
-			display: block;
-			padding-bottom: 24px;
 		}
 	}
 	@media (prefers-reduced-motion: reduce) {

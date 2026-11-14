@@ -217,7 +217,7 @@
 	/* The Julian date the sources give, beside the Gregorian one stored. */
 	.old {
 		margin-left: 8px;
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-size: 0.78rem;
 		color: var(--ink-soft);
 	}
@@ -244,7 +244,7 @@
 		margin-left: 10px;
 	}
 	.mono {
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-variant-numeric: tabular-nums;
 		font-size: 0.85rem;
 		color: var(--ink-soft);

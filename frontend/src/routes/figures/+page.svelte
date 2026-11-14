@@ -179,7 +179,7 @@
 		outline-offset: 2px;
 	}
 	.dates {
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-variant-numeric: tabular-nums;
 		font-size: 0.78rem;
 		color: var(--ink-soft);

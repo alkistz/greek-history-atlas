@@ -105,7 +105,7 @@
 		color: var(--ink-soft);
 	}
 	.when {
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-variant-numeric: tabular-nums;
 	}
 	.count {

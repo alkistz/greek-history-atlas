@@ -107,7 +107,7 @@
 		stroke-width: 1;
 	}
 	.tick-label {
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-size: 9px;
 		fill: var(--ink-soft);
 		text-anchor: middle;

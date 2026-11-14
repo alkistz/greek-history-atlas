@@ -132,7 +132,7 @@
 		display: list-item;
 	}
 	.mono {
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-variant-numeric: tabular-nums;
 		font-size: 0.85rem;
 		color: var(--ink-soft);

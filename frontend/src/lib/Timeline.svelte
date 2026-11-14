@@ -381,7 +381,7 @@
 		stroke-width: 1;
 	}
 	.tick-label {
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-size: 10px;
 		fill: var(--ink-soft);
 		text-anchor: middle;
@@ -414,6 +414,13 @@
 		fill: var(--accent);
 		opacity: 1;
 	}
+	/* The accent is the ink, the same as every event already passed, so the one
+	   that is open carries a halo as well as the colour. */
+	.event.selected {
+		stroke: var(--accent);
+		stroke-width: 6;
+		stroke-opacity: 0.25;
+	}
 	.handle line {
 		stroke: var(--accent);
 		stroke-width: 1.5;
@@ -426,7 +433,7 @@
 
 	.readout {
 		flex: none;
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-variant-numeric: tabular-nums;
 		font-size: 0.95rem;
 		min-width: 4ch;

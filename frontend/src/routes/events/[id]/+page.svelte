@@ -226,7 +226,7 @@
 		flex-wrap: wrap;
 	}
 	.old {
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-size: 0.8rem;
 	}
 	.pkind {
@@ -300,7 +300,7 @@
 		font-size: 0.85rem;
 	}
 	.mono {
-		font-family: var(--mono);
+		font-family: var(--figures);
 		font-variant-numeric: tabular-nums;
 	}
 	@media (max-width: 900px) {

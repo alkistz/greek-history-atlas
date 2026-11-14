@@ -46,7 +46,7 @@
 		font-size: 0.82rem;
 		background: var(--panel);
 		border: 1px solid var(--rule);
-		border-radius: 999px;
+		border-radius: var(--radius);
 		color: var(--ink-soft);
 		padding: 3px 11px;
 		cursor: pointer;

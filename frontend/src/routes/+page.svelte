@@ -6,6 +6,9 @@
 	than with a timeline, a ledger and a legend; everything below the hero is a
 	door into one of the other pages, chosen from the corpus rather than written
 	here, so it grows with the content.
+
+	The page is the sea. The hero's map runs edge to edge under the words, and
+	everything below keeps the usual measure through the layout's --inset.
 -->
 <script lang="ts">
 	import HeroMap from '$lib/HeroMap.svelte';
@@ -53,6 +56,19 @@
 	];
 	const pageKey = (k: string) => `page.${k}` as UiKey;
 	const descKey = (k: string) => `${k}.description` as UiKey;
+
+	// Wide, the words sit on the left over the faded edge of the map and the
+	// camera frames Greece in the space to their right; these numbers mirror the
+	// .pitch rules below. Narrow, the map is a band above the words.
+	const WIDE = 900;
+	const MEASURE = 520;
+	let heroW = $state(0);
+	const wide = $derived(heroW >= WIDE);
+	const mapInsets = $derived.by(() => {
+		if (!wide) return { top: 8, bottom: 48 };
+		const gutter = Math.max(20, (heroW - 1280) / 2);
+		return { left: gutter + Math.min(MEASURE, heroW * 0.46) + 24, top: 24, bottom: 88 };
+	});
 </script>
 
 <svelte:head>
@@ -60,7 +76,7 @@
 </svelte:head>
 
 <main class="home">
-	<section class="hero">
+	<section class="hero" bind:clientWidth={heroW}>
 		<div class="pitch">
 			<p class="eyebrow">{ui('home.eyebrow', { from: year(origin) })}</p>
 			<h1>{ui('home.title')}</h1>
@@ -76,7 +92,15 @@
 				<a class="cta" href="#threads">{ui('home.cta.threads')}</a>
 			</p>
 		</div>
-		<HeroMap atoms={data.atoms.features} land={data.land} meta={data.meta} control={data.control} />
+		<div class="backdrop">
+			<HeroMap
+				atoms={data.atoms.features}
+				land={data.land}
+				meta={data.meta}
+				control={data.control}
+				insets={mapInsets}
+			/>
+		</div>
 	</section>
 
 	<section class="how" aria-labelledby="how-h">
@@ -116,6 +140,7 @@
 			<h2 id="turning-h">{ui('home.turning.title')}</h2>
 			<p>{ui('home.turning.lead', { n: turning.length })}</p>
 		</header>
+		<!-- A gazetteer: the year in the margin, the entry beside it. -->
 		<ol class="turning">
 			{#each turning as e (e.id)}
 				<li>
@@ -181,12 +206,13 @@
 		<header class="section-head">
 			<h2 id="browse-h">{ui('home.browse.title')}</h2>
 		</header>
+		<!-- A table of contents, with dotted leaders to the count. -->
 		<ul class="doors">
 			{#each doors as d (d.key)}
 				<li>
 					<a href={d.href}>
-						<span class="count">{counts[d.key]}</span>
 						<span class="label">{ui(pageKey(d.key))}</span>
+						<span class="count">{counts[d.key]}</span>
 						<span class="desc">{ui(descKey(d.key))}</span>
 					</a>
 				</li>
@@ -201,7 +227,8 @@
 		flex-direction: column;
 		gap: 56px;
 	}
-	section {
+	.home > section:not(.hero) {
+		margin-inline: var(--inset, 20px);
 		scroll-margin-top: calc(var(--header-h, 0px) + 16px);
 	}
 	.visually-hidden {
@@ -212,28 +239,59 @@
 		clip-path: inset(50%);
 		white-space: nowrap;
 	}
+	a:focus-visible {
+		outline: 2px solid var(--ink);
+		outline-offset: 2px;
+	}
 
-	/* ---- the hero ---- */
+	/* ---- the hero: words on the left, the map under everything ---- */
 	.hero {
-		display: grid;
-		grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
-		gap: 48px;
+		position: relative;
+		isolation: isolate;
+		display: flex;
 		align-items: center;
-		padding-top: 12px;
+		min-height: 640px;
+		margin-top: -16px;
+	}
+	.backdrop {
+		position: absolute;
+		inset: 0;
+	}
+	/* The map fades into the page under the words and at its top and foot, so
+	   it has no edge anywhere: the page is the same sea. */
+	.hero::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		pointer-events: none;
+		background:
+			linear-gradient(90deg, var(--ground) calc(var(--inset, 20px) + 280px), transparent calc(var(--inset, 20px) + 600px)),
+			linear-gradient(0deg, var(--ground) 0%, transparent 16%),
+			linear-gradient(180deg, var(--ground) 0%, transparent 10%);
+	}
+	.pitch {
+		position: relative;
+		z-index: 2;
+		box-sizing: content-box;
+		max-width: min(520px, 46%);
+		padding-block: 120px;
+		padding-left: var(--inset, 20px);
 	}
 	.eyebrow {
-		margin: 0 0 10px;
-		font-family: var(--mono);
-		font-size: 0.8rem;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: var(--accent);
+		margin: 0 0 12px;
+		font-family: var(--serif);
+		font-variant-caps: all-small-caps;
+		letter-spacing: 0.14em;
+		font-size: 1.02rem;
+		color: var(--ink-soft);
 	}
 	h1 {
-		font-size: clamp(2.1rem, 1.4rem + 2.6vw, 3.4rem);
-		line-height: 1.08;
-		margin: 0 0 18px;
-		letter-spacing: -0.02em;
+		font-size: clamp(2.4rem, 1.4rem + 3vw, 4rem);
+		font-weight: 500;
+		line-height: 1.06;
+		letter-spacing: -0.015em;
+		margin: 0 0 20px;
 	}
 	.lead {
 		font-size: 1.12rem;
@@ -252,60 +310,47 @@
 		display: inline-flex;
 		align-items: center;
 		padding: 10px 18px;
-		border-radius: 999px;
-		border: 1px solid var(--rule);
-		background: var(--panel);
+		border: 1px solid var(--ink);
 		color: var(--ink);
 		text-decoration: none;
 		font-weight: 600;
-		transition:
-			border-color 120ms ease,
-			background 120ms ease;
+		transition: background 120ms ease;
 	}
 	.cta:hover {
-		border-color: var(--ink-soft);
+		background: var(--accent-soft);
 	}
 	.cta.primary {
-		background: var(--accent);
-		border-color: var(--accent);
+		background: var(--ink);
 		color: var(--ground);
 	}
 	.cta.primary:hover {
-		background: color-mix(in srgb, var(--accent) 86%, var(--ink));
-	}
-	.cta:focus-visible {
-		outline: 2px solid var(--accent);
-		outline-offset: 2px;
+		background: color-mix(in srgb, var(--ink) 86%, var(--ground));
 	}
 
-	/* ---- how to read the map ---- */
+	/* ---- how to read the map: three columns between rules ---- */
 	.how ol {
 		list-style: none;
 		margin: 0;
 		padding: 0;
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 12px;
 	}
 	.how ol > li {
 		display: flex;
 		gap: 14px;
-		padding: 16px 18px;
-		background: var(--panel);
-		border: 1px solid var(--rule);
-		border-radius: var(--radius-lg);
+		padding: 2px 24px;
+		border-left: 1px solid var(--rule);
+	}
+	.how ol > li:first-child {
+		border-left: 0;
+		padding-left: 0;
 	}
 	.step {
 		flex: none;
-		display: grid;
-		place-items: center;
-		width: 26px;
-		height: 26px;
-		border-radius: 50%;
-		border: 1px solid var(--rule);
-		font-family: var(--mono);
-		font-size: 0.8rem;
-		color: var(--ink-soft);
+		font-family: var(--serif);
+		font-size: 1.7rem;
+		line-height: 1;
+		color: var(--ink);
 	}
 	h3 {
 		font-size: 1.05rem;
@@ -332,81 +377,81 @@
 		gap: 6px;
 	}
 
-	/* ---- section heads ---- */
+	/* ---- section heads: small caps over an ink rule ---- */
 	.section-head {
-		margin-bottom: 16px;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 4px 18px;
+		padding-bottom: 8px;
+		border-bottom: 1px solid var(--ink);
 	}
 	h2 {
-		font-size: 1.5rem;
-		margin: 0 0 4px;
+		font-size: 1.6rem;
+		font-weight: 500;
+		font-variant-caps: small-caps;
+		letter-spacing: 0.04em;
+		margin: 0;
 	}
 	.section-head p {
 		margin: 0;
 		color: var(--ink-soft);
+		font-size: 0.92rem;
 		max-width: 66ch;
 	}
 
-	/* ---- turning points ---- */
+	/* ---- turning points: a gazetteer ---- */
 	.turning {
 		list-style: none;
 		margin: 0;
 		padding: 0;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
-		gap: 10px;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr));
+		gap: 0 36px;
 	}
 	.turning a {
-		display: flex;
-		flex-direction: column;
-		gap: 4px;
+		display: grid;
+		grid-template-columns: 3.4rem minmax(0, 1fr);
+		column-gap: 10px;
+		align-content: start;
 		height: 100%;
 		box-sizing: border-box;
-		padding: 14px 16px;
-		background: var(--panel);
-		border: 1px solid var(--rule);
-		border-radius: var(--radius-lg);
+		padding: 12px 0;
+		border-bottom: 1px solid var(--rule);
 		color: var(--ink);
 		text-decoration: none;
-		transition:
-			border-color 120ms ease,
-			transform 120ms ease;
-	}
-	.turning a:hover {
-		border-color: var(--ink-soft);
-		transform: translateY(-1px);
-	}
-	.turning a:focus-visible {
-		outline: 2px solid var(--accent);
-		outline-offset: 2px;
 	}
 	.when {
-		font-family: var(--mono);
-		font-size: 0.85rem;
-		color: var(--accent);
+		grid-row: 1 / 3;
+		font-family: var(--serif);
+		font-size: 1.2rem;
+		line-height: 1.25;
 		font-variant-numeric: tabular-nums;
 	}
 	.what {
 		font-family: var(--serif);
-		font-size: 1.08rem;
+		font-size: 1.04rem;
 		font-weight: 600;
 		line-height: 1.3;
 	}
+	.turning a:hover .what {
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
 	.why {
+		margin-top: 2px;
 		font-size: 0.86rem;
 		color: var(--ink-soft);
 		display: -webkit-box;
-		-webkit-line-clamp: 3;
-		line-clamp: 3;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
 		-webkit-box-orient: vertical;
 		overflow: hidden;
 	}
 
 	/* ---- threads on one ruler ---- */
 	.arcs {
-		background: var(--panel);
-		border: 1px solid var(--rule);
-		border-radius: var(--radius-lg);
-		padding: 10px 14px 12px;
+		padding-top: 6px;
 	}
 	.arcs ol {
 		list-style: none;
@@ -420,7 +465,6 @@
 		align-items: center;
 		padding: 5px 6px;
 		margin: 0 -6px;
-		border-radius: var(--radius);
 		color: var(--ink);
 		text-decoration: none;
 	}
@@ -428,26 +472,21 @@
 		background: var(--accent-soft);
 	}
 	a.arc:focus-visible {
-		outline: 2px solid var(--accent);
 		outline-offset: -2px;
 	}
 	.name {
-		font-size: 0.92rem;
+		font-family: var(--serif);
+		font-size: 1rem;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
-	}
-	a.arc:hover .name {
-		color: var(--accent);
 	}
 	.track {
 		position: relative;
 		display: block;
 		height: 18px;
-	}
-	/* The years sit at the end of the bar; the last arcs run to the present, so
-	   they keep a right margin for the label to land in. */
-	.arcs .track {
+		/* The years sit at the end of the bar; the last arcs run to the present,
+		   so the track keeps a margin for the label to land in. */
 		margin-right: 76px;
 	}
 	.axis .track {
@@ -457,8 +496,8 @@
 		position: absolute;
 		top: 0;
 		transform: translateX(-50%);
-		font-family: var(--mono);
-		font-size: 0.7rem;
+		font-family: var(--figures);
+		font-size: 0.82rem;
 		color: var(--ink-soft);
 	}
 	.grid {
@@ -467,15 +506,12 @@
 		bottom: -5px;
 		width: 1px;
 		background: var(--rule);
-		opacity: 0.6;
 	}
 	.bar {
 		position: absolute;
-		top: 6px;
-		height: 6px;
-		border-radius: 3px;
-		background: var(--accent);
-		opacity: 0.3;
+		top: 7px;
+		height: 4px;
+		background: color-mix(in oklab, var(--ink) 22%, var(--ground));
 	}
 	.dot {
 		position: absolute;
@@ -490,94 +526,114 @@
 		position: absolute;
 		top: 0;
 		padding-left: 8px;
-		font-family: var(--mono);
-		font-size: 0.7rem;
+		font-family: var(--figures);
+		font-size: 0.82rem;
 		line-height: 18px;
 		color: var(--ink-soft);
 		white-space: nowrap;
 	}
 
-	/* ---- the indexes ---- */
+	/* ---- the indexes: a table of contents ---- */
 	.doors {
 		list-style: none;
 		margin: 0;
 		padding: 0;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
-		gap: 10px;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+		gap: 0 44px;
 	}
 	.doors a {
-		display: grid;
-		grid-template-columns: auto 1fr;
-		grid-template-rows: auto 1fr;
-		column-gap: 12px;
-		height: 100%;
-		box-sizing: border-box;
-		padding: 14px 16px;
-		background: var(--panel);
-		border: 1px solid var(--rule);
-		border-radius: var(--radius-lg);
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0 8px;
+		padding: 11px 0;
+		border-bottom: 1px solid var(--rule);
 		color: var(--ink);
 		text-decoration: none;
-		transition: border-color 120ms ease;
-	}
-	.doors a:hover {
-		border-color: var(--ink-soft);
-	}
-	.doors a:hover .label {
-		color: var(--accent);
-	}
-	.doors a:focus-visible {
-		outline: 2px solid var(--accent);
-		outline-offset: 2px;
-	}
-	.count {
-		grid-row: 1 / 3;
-		font-family: var(--serif);
-		font-size: 1.9rem;
-		font-weight: 600;
-		line-height: 1;
-		font-variant-numeric: tabular-nums;
-		min-width: 2.2ch;
 	}
 	.label {
-		font-weight: 600;
+		flex: 1;
+		display: flex;
+		align-items: baseline;
+		gap: 8px;
+		font-family: var(--serif);
+		font-size: 1.18rem;
+		font-weight: 500;
+	}
+	.label::after {
+		content: '';
+		flex: 1;
+		border-bottom: 1px dotted var(--ink-soft);
+	}
+	.doors a:hover .label {
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+	.count {
+		font-family: var(--serif);
+		font-size: 1.18rem;
+		font-weight: 500;
+		font-variant-numeric: tabular-nums;
 	}
 	.desc {
+		flex-basis: 100%;
 		font-size: 0.84rem;
 		color: var(--ink-soft);
 		line-height: 1.4;
 	}
 
-	@media (max-width: 960px) {
+	/* Narrow, the map is a band across the top and the words follow it on the
+	   same sea; the hero's fades turn to run down instead of across. */
+	@media (max-width: 899px) {
 		.hero {
-			grid-template-columns: minmax(0, 1fr);
-			gap: 28px;
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			min-height: 0;
+			margin-top: -8px;
 		}
+		.backdrop {
+			position: relative;
+			order: -1;
+			height: min(400px, 56vh);
+		}
+		.hero::before {
+			inset: 0 0 auto;
+			height: min(400px, 56vh);
+			background:
+				linear-gradient(0deg, var(--ground) 0%, transparent 30%),
+				linear-gradient(180deg, var(--ground) 0%, transparent 10%);
+		}
+		.pitch {
+			max-width: none;
+			margin-top: -36px;
+			padding: 0 var(--inset, 20px) 8px;
+		}
+	}
+	@media (max-width: 960px) {
 		.how ol {
 			grid-template-columns: minmax(0, 1fr);
+		}
+		.how ol > li,
+		.how ol > li:first-child {
+			border-left: 0;
+			border-top: 1px solid var(--rule);
+			padding: 14px 0;
+		}
+		.how ol > li:first-child {
+			border-top: 0;
+			padding-top: 0;
 		}
 	}
 	@media (max-width: 640px) {
 		.home {
 			gap: 40px;
 		}
-		/* Fifteen cards stacked would be most of the page on a phone; a row the
-		   thumb swipes through keeps the threads and the indexes within reach. */
-		.turning {
-			grid-template-columns: none;
-			grid-auto-flow: column;
-			grid-auto-columns: 78%;
-			overflow-x: auto;
-			scroll-snap-type: x mandatory;
-			overscroll-behavior-x: contain;
-			margin-inline: -20px;
-			padding: 2px 20px 8px;
-			scroll-padding-inline: 20px;
-			scrollbar-width: thin;
-		}
-		.turning li {
-			scroll-snap-align: start;
+		/* On a phone the gazetteer is a list of years and names; the entry is
+		   one tap away. */
+		.why {
+			display: none;
 		}
 		.arc {
 			grid-template-columns: minmax(0, 1fr);
@@ -586,17 +642,13 @@
 		.axis > span:first-child {
 			display: none;
 		}
-		.arcs .track {
+		.track {
 			margin-right: 64px;
 		}
 	}
 	@media (prefers-reduced-motion: reduce) {
-		.turning a,
 		.cta {
 			transition: none;
-		}
-		.turning a:hover {
-			transform: none;
 		}
 	}
 </style>

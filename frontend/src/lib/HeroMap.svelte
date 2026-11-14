@@ -1,6 +1,7 @@
 <!--
 	The front page's picture: the map stepping through every date on which control
-	changed, from the first to the last, and starting over.
+	changed, from the first to the last, and starting over. It fills whatever box
+	the page gives it; the page says which part of that box its own words cover.
 
 	It steps through the epochs rather than running a clock, because between two
 	epochs nothing moves, and two centuries at an even speed would spend most of
@@ -11,7 +12,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { prefersReducedMotion } from 'svelte/motion';
-	import Atlas from './Atlas.svelte';
+	import Atlas, { type Insets } from './Atlas.svelte';
 	import { num } from './lang.svelte';
 	import { greekArea, resolveOn } from './resolve';
 	import { year } from './time';
@@ -24,8 +25,10 @@
 		land: LandFeature;
 		meta: Meta;
 		control: ControlRow[];
+		/** the parts of the box the page has covered with something else */
+		insets?: Insets;
 	}
-	let { atoms, land, meta, control }: Props = $props();
+	let { atoms, land, meta, control, insets }: Props = $props();
 
 	const STEP_MS = 900;
 	/** the last frame is today's map; it is held long enough to be read */
@@ -52,22 +55,26 @@
 	$effect(() => {
 		if (!playing || !visible) return;
 		const last = index >= epochs.length - 1;
-		const id = setTimeout(
-			() => (index = last ? 0 : index + 1),
-			last ? HOLD_MS : STEP_MS
-		);
+		const id = setTimeout(() => (index = last ? 0 : index + 1), last ? HOLD_MS : STEP_MS);
 		return () => clearTimeout(id);
 	});
 </script>
 
 <figure class="hero-map" bind:this={el}>
 	<a class="map" href={atlasHref({ on: date })} aria-label={ui('home.map.open', { year: year(date) })}>
-		<Atlas {atoms} {land} {meta} {control} {date} interactive={false} showLabels={false} />
+		<Atlas
+			{atoms}
+			{land}
+			{meta}
+			{control}
+			{date}
+			{insets}
+			interactive={false}
+			showLabels={false}
+			fill
+		/>
 	</a>
-	<!-- The progress through the two centuries, as a hairline under the map. -->
-	<div class="progress" aria-hidden="true">
-		<span style:width="{(index / Math.max(epochs.length - 1, 1)) * 100}%"></span>
-	</div>
+	<!-- The cartouche: the date and the size of the state on it. -->
 	<figcaption>
 		<span class="year">{year(date)}</span>
 		<!-- Before the first sovereign government there is a revolt on the map and
@@ -82,9 +89,9 @@
 			title={ui(playing ? 'home.map.pause' : 'home.map.play')}
 		>
 			{#if playing}
-				<svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1.5" width="2.8" height="9" rx="0.8" /><rect x="7.2" y="1.5" width="2.8" height="9" rx="0.8" /></svg>
+				<svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="2" width="2.5" height="8" /><rect x="7" y="2" width="2.5" height="8" /></svg>
 			{:else}
-				<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.6v8.8a.6.6 0 0 0 .9.5l7-4.4a.6.6 0 0 0 0-1L3.9 1.1a.6.6 0 0 0-.9.5z" /></svg>
+				<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 2v8l6.5-4z" /></svg>
 			{/if}
 		</button>
 	</figcaption>
@@ -93,44 +100,36 @@
 <style>
 	.hero-map {
 		position: relative;
+		height: 100%;
 		margin: 0;
-		border: 1px solid var(--rule);
-		border-radius: var(--radius-lg);
-		overflow: hidden;
-		background: var(--sea);
-		box-shadow: var(--elev-1);
 	}
 	.map {
 		display: block;
+		height: 100%;
 		cursor: pointer;
 	}
-	.map :global(.wrap) {
-		border-radius: 0;
-	}
 	.map:focus-visible {
-		outline: 2px solid var(--accent);
+		outline: 2px solid var(--ink);
 		outline-offset: -2px;
 	}
 	figcaption {
 		position: absolute;
-		left: 10px;
-		bottom: 12px;
+		z-index: 3;
+		right: var(--inset, 20px);
+		bottom: 28px;
 		display: flex;
 		align-items: center;
 		gap: 12px;
-		padding: 6px 8px 6px 12px;
-		background: color-mix(in srgb, var(--panel) 86%, transparent);
-		backdrop-filter: blur(6px);
-		-webkit-backdrop-filter: blur(6px);
-		border: 1px solid var(--rule);
-		border-radius: var(--radius-lg);
+		padding: 6px 8px 6px 14px;
+		background: var(--panel);
+		border: 1px solid var(--ink);
 	}
 	.year {
 		font-family: var(--serif);
 		font-size: 1.6rem;
-		font-weight: 600;
+		font-weight: 500;
 		line-height: 1;
-		font-variant-numeric: tabular-nums;
+		font-variant-numeric: oldstyle-nums tabular-nums;
 		min-width: 4ch;
 	}
 	.area {
@@ -142,20 +141,19 @@
 	.play {
 		display: grid;
 		place-items: center;
-		width: 30px;
-		height: 30px;
+		width: 28px;
+		height: 28px;
 		padding: 0;
-		border: 1px solid var(--rule);
-		border-radius: 50%;
+		border: 1px solid var(--ink);
 		background: var(--panel);
 		color: var(--ink);
 		cursor: pointer;
 	}
 	.play:hover {
-		border-color: var(--ink-soft);
+		background: var(--accent-soft);
 	}
 	.play:focus-visible {
-		outline: 2px solid var(--accent);
+		outline: 2px solid var(--ink);
 		outline-offset: 2px;
 	}
 	.play svg {
@@ -163,23 +161,10 @@
 		height: 12px;
 		fill: currentColor;
 	}
-	.progress {
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		height: 3px;
-		background: color-mix(in srgb, var(--panel) 50%, transparent);
-	}
-	.progress span {
-		display: block;
-		height: 100%;
-		background: var(--accent);
-		transition: width 300ms linear;
-	}
-	@media (prefers-reduced-motion: reduce) {
-		.progress span {
-			transition: none;
+	@media (max-width: 899px) {
+		figcaption {
+			top: 12px;
+			bottom: auto;
 		}
 	}
 </style>
