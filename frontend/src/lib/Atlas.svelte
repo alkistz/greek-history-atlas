@@ -9,6 +9,7 @@
 	import { angleFor, HATCH, STIPPLE } from './patterns';
 	import {
 		buildShapes,
+		coastPieces,
 		fitRect,
 		frameRect,
 		pathOf,
@@ -112,15 +113,13 @@
 
 	const shapes = $derived(buildShapes(atoms));
 	const landPath = $derived(pathOf(land.geometry));
-	// Water-lining: every coast in one path, stroked several times from the
-	// widest down, alternating a line and the sea, so rings run out from the
-	// shore and fade with distance. Strokes are in screen pixels, so the rings
-	// keep their spacing at every zoom. Everything they draw over the land is
-	// covered by the land itself. The path is defined once and each ring <use>s
-	// it, so the browser parses that very long string once rather than six times.
-	const coasts = $derived(
-		waterlines ? [landPath, ...[...shapes.values()].map((sh) => sh.d)].join(' ') : ''
-	);
+	// Water-lining: the coast stroked several times from the widest down,
+	// alternating a line and the sea, so rings run out from the shore and fade
+	// with distance. Strokes are in screen pixels, so the rings keep their spacing
+	// at every zoom. Everything they draw over the land is covered by the land
+	// itself. The coast is defined once and each ring <use>s it. It is cut into
+	// short pieces (see `coastPieces`), which is what keeps moving the map cheap.
+	const coasts = $derived(waterlines ? coastPieces(landPath) : []);
 	const WATER = [3, 2, 1].flatMap((i) => [
 		{ line: true, width: i * 9 + 0.7, opacity: 0.75 - (i - 1) * 0.25 },
 		{ line: false, width: i * 9 - 0.7, opacity: 1 }
@@ -224,22 +223,98 @@
 		const h = c.w / aspect;
 		return { x: c.cx - c.w / 2, y: c.cy - h / 2, w: c.w, h };
 	};
-	const vb = $derived(rectOf(cam.current));
 	const view = $derived(rectOf(cam.target));
 	$effect(() => {
 		onview?.(view);
 	});
 
+	// ---- drawing while the camera moves -------------------------------------
+	//
+	// Redrawing the map is the expensive part of moving it: with GPU rasterisation
+	// every viewBox change repaints every territory, texture and coast, and a drag
+	// or a zoom asks for that sixty times a second. So the SVG is drawn for
+	// `drawn`, a camera that holds still while the real one moves, and a CSS
+	// transform on the element carries the picture from one to the other. The
+	// browser moves a layer it has already painted, which costs it next to
+	// nothing. Once the camera settles the picture is redrawn where it now is.
+	//
+	// While a zoom is in progress the picture is scaled as an image, so lines and
+	// labels grow and soften with it until it settles; a pan stays sharp. The SVG
+	// is drawn with a margin all round, so a drag reveals map rather than sea.
+	const cur = (): Cam => ({ ...cam.current });
+	let drawn = $state<Cam>(untrack(cur));
+	const live = $derived(rectOf(cam.current));
+	const vb = $derived(rectOf(drawn));
+
 	// World units per screen pixel: what keeps strokes, hatches, labels and pins
-	// the same size on screen at every zoom.
+	// the same size on screen at every zoom. `k` is for the picture as drawn,
+	// `kLive` for what is on screen at this instant, which input works in.
 	const k = $derived(width > 0 ? vb.w / width : 1);
+	const kLive = $derived(width > 0 ? live.w / width : 1);
 	const toScreen = ([x, y]: [number, number]): [number, number] => [
-		(x - vb.x) / k,
-		(y - vb.y) / k
+		(x - live.x) / kLive,
+		(y - live.y) / kLive
 	];
-	const toWorld = (sx: number, sy: number): [number, number] => [vb.x + sx * k, vb.y + sy * k];
+	const toWorld = (sx: number, sy: number): [number, number] => [
+		live.x + sx * kLive,
+		live.y + sy * kLive
+	];
 
 	const zoomable = $derived(interactive);
+
+	/** Screen pixels drawn beyond each edge, so a pan has map to reveal. */
+	const margin = $derived(zoomable ? Math.round(Math.max(width, height) * 0.5) : 0);
+	const box = $derived({
+		x: vb.x - margin * k,
+		y: vb.y - margin * k,
+		w: vb.w + 2 * margin * k,
+		h: vb.h + 2 * margin * k
+	});
+	// The transform that puts the picture drawn for `drawn` where `live` wants it.
+	const scale = $derived(k / kLive);
+	const shiftX = $derived((vb.x - live.x) / kLive);
+	const shiftY = $derived((vb.y - live.y) / kLive);
+
+	const SETTLE_MS = 150;
+	// How far the picture may be scaled before it is redrawn mid-zoom: beyond this
+	// it is visibly soft. Each redraw costs one ordinary frame.
+	const MAX_STRETCH = 1.6;
+	let lastInput = 0;
+	let settle: ReturnType<typeof setTimeout> | undefined;
+	function redraw() {
+		clearTimeout(settle);
+		drawn = cur();
+	}
+	/** Whether the moved picture no longer covers the box, or is scaled past looking right. */
+	function outOfReach(): boolean {
+		const lo = (shift: number) => shift - scale * margin;
+		const hi = (shift: number, size: number) => shift + scale * (size + margin);
+		return (
+			scale < 1 / MAX_STRETCH ||
+			scale > MAX_STRETCH ||
+			lo(shiftX) > 0 ||
+			lo(shiftY) > 0 ||
+			hi(shiftX, width) < width ||
+			hi(shiftY, height) < height
+		);
+	}
+	$effect(() => {
+		const c = cam.current;
+		const t = cam.target;
+		const d = untrack(() => drawn);
+		if (c.cx === d.cx && c.cy === d.cy && c.w === d.w) return;
+		const moving = c.cx !== t.cx || c.cy !== t.cy || c.w !== t.w;
+		const touched = performance.now() - lastInput < SETTLE_MS;
+		// A jump nobody is steering (the first paint, a resize, the end of a flight)
+		// is drawn at once; so is a move that has outrun the margin.
+		if ((!moving && !touched) || untrack(outOfReach)) {
+			redraw();
+			return;
+		}
+		clearTimeout(settle);
+		settle = setTimeout(redraw, SETTLE_MS);
+	});
+	$effect(() => () => clearTimeout(settle));
 
 	/** Zoom by `factor` about a screen point, which stays put. */
 	function zoomAt(sx: number, sy: number, factor: number, animate = false) {
@@ -266,6 +341,8 @@
 		const lines = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? 100 : 1;
 		const factor = Math.exp(-e.deltaY * lines * 0.0018);
 		const r = wrapper!.getBoundingClientRect();
+		lastInput = performance.now();
+		tip = null;
 		zoomAt(e.clientX - r.left, e.clientY - r.top, factor);
 	}
 
@@ -296,8 +373,11 @@
 				if (!dragging) svgEl?.setPointerCapture(e.pointerId);
 				dragging = true;
 				tip = null;
+				lastInput = performance.now();
 				const c = cam.target;
-				cam.set(clampCam({ cx: c.cx - dx * k, cy: c.cy - dy * k, w: c.w }), { duration: 0 });
+				cam.set(clampCam({ cx: c.cx - dx * kLive, cy: c.cy - dy * kLive, w: c.w }), {
+					duration: 0
+				});
 				offFrame = true;
 			}
 		} else if (pointers.size === 2) {
@@ -309,13 +389,18 @@
 			if (!dragging) for (const id of pointers.keys()) svgEl?.setPointerCapture(id);
 			dragging = true;
 			tip = null;
+			lastInput = performance.now();
 			const r = wrapper!.getBoundingClientRect();
 			const mid = [(a.x + b.x) / 2 - r.left, (a.y + b.y) / 2 - r.top];
 			const mid0 = [(a0.x + b0.x) / 2 - r.left, (a0.y + b0.y) / 2 - r.top];
 			// Pan by the midpoint's drift, then zoom about where it now is.
 			const c = cam.target;
 			cam.set(
-				clampCam({ cx: c.cx - (mid[0] - mid0[0]) * k, cy: c.cy - (mid[1] - mid0[1]) * k, w: c.w }),
+				clampCam({
+					cx: c.cx - (mid[0] - mid0[0]) * kLive,
+					cy: c.cy - (mid[1] - mid0[1]) * kLive,
+					w: c.w
+				}),
 				{ duration: 0 }
 			);
 			if (before > 0) zoomAt(mid[0], mid[1], after / before);
@@ -329,10 +414,10 @@
 	/** Whether the press that just ended was a drag, so the click it ends in is ignored. */
 	const wasDrag = () => dragDist > 4;
 
-	// Patterns are in world units but strokes are in screen pixels. Scale the
-	// tiles by `k` so a hatch is 7px on a phone, on a desktop, and at any zoom.
+	// Placed for the picture as drawn, not for where the camera is heading: a label
+	// that moved with every wheel step would have the map redrawn with it.
 	const labels = $derived(
-		showLabels ? polityLabels(layered, atoms, shapes, meta.polities, view, 48 * k) : []
+		showLabels ? polityLabels(layered, atoms, shapes, meta.polities, vb, 48 * k) : []
 	);
 
 	// A change of holder flashes the atom's outline for a moment.
@@ -475,9 +560,15 @@
 >
 	<svg
 		bind:this={svgEl}
-		viewBox="{vb.x} {vb.y} {vb.w} {vb.h}"
+		viewBox="{box.x} {box.y} {box.w} {box.h}"
 		class="atlas"
 		class:zoomable
+		style:left="{-margin}px"
+		style:top="{-margin}px"
+		style:width="calc(100% + {2 * margin}px)"
+		style:height="calc(100% + {2 * margin}px)"
+		style:transform-origin="{margin}px {margin}px"
+		style:transform="translate({shiftX}px, {shiftY}px) scale({scale})"
 		role="img"
 		aria-labelledby="{uid}-t"
 		aria-describedby="{uid}-d"
@@ -492,8 +583,10 @@
 		<desc id="{uid}-d">{summary}</desc>
 
 		<defs>
-			{#if coasts}
-				<path id="{uid}-coasts" class="coasts" d={coasts} />
+			{#if coasts.length}
+				<g id="{uid}-coasts" class="coasts">
+					{#each coasts as d, i (i)}<path {d} />{/each}
+				</g>
 			{/if}
 			{#each overlayPolities as pid (pid)}
 				<pattern
@@ -523,7 +616,7 @@
 		</defs>
 
 		<!-- 0. neighbouring land, at present-day extent, uncoloured; the sea is the background -->
-		{#if coasts}
+		{#if coasts.length}
 			<g class="waterlines" aria-hidden="true">
 				{#each WATER as w, i (i)}
 					<use
@@ -653,6 +746,9 @@
 		<!-- 7. places and events -->
 		<g class="pins" class:clickable={!!onpin}>
 			{#each placed as p (p.id)}
+				<!-- Drawn in screen pixels and scaled by k, so a zoom changes one transform
+				     per pin. Sizing the circle by k instead restarted its `r` transition on
+				     every wheel step, and the pins trailed the map. -->
 				<!-- svelte-ignore a11y_click_events_have_key_events -->
 				<g
 					class="pin"
@@ -660,23 +756,13 @@
 					class:muted={p.muted}
 					role={onpin ? 'button' : undefined}
 					aria-label={p.label}
+					transform="translate({p.xy[0]} {p.xy[1]}) scale({k})"
 					onclick={() => !wasDrag() && onpin?.(p.id)}
 				>
 					<title>{p.label}</title>
-					<circle
-						cx={p.xy[0]}
-						cy={p.xy[1]}
-						r={(p.selected ? 5.5 : 3.5) * k}
-						style:stroke-width={px(1.5)}
-					/>
+					<circle r={p.selected ? 5.5 : 3.5} />
 					{#if p.labelled ?? true}
-						<text
-							class="pin-label"
-							x={p.xy[0] + 7 * k}
-							y={p.xy[1] + 4 * k}
-							style:font-size={px(10)}
-							style:stroke-width={px(3)}>{p.label}</text
-						>
+						<text class="pin-label" x="7" y="4">{p.label}</text>
 					{/if}
 				</g>
 			{/each}
@@ -724,6 +810,7 @@
 		height: 100%;
 	}
 	.atlas {
+		position: absolute;
 		width: 100%;
 		height: 100%;
 		display: block;
@@ -731,6 +818,9 @@
 	.atlas.zoomable {
 		touch-action: none;
 		cursor: grab;
+		/* Its own layer, kept between moves, so moving it is a matter for the
+		   compositor and a gesture never starts with a repaint. */
+		will-change: transform;
 	}
 	.dragging .atlas.zoomable {
 		cursor: grabbing;
@@ -779,6 +869,7 @@
 	.waterlines use {
 		fill: none;
 		stroke-linejoin: round;
+		stroke-linecap: round;
 	}
 	.wl {
 		stroke: var(--waterline);
@@ -861,6 +952,7 @@
 	.pin circle {
 		fill: var(--accent);
 		stroke: var(--label-halo);
+		stroke-width: 1.5;
 		transition: r 150ms ease;
 	}
 	.pin.muted circle {
@@ -876,6 +968,8 @@
 	}
 	.pin-label {
 		font-family: var(--sans);
+		font-size: 10px;
+		stroke-width: 3px;
 		fill: var(--label);
 		paint-order: stroke;
 		stroke: var(--label-halo);

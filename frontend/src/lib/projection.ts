@@ -203,6 +203,63 @@ export function pathOf(geometry: GeoJSON.Polygon | GeoJSON.MultiPolygon): string
 	return d;
 }
 
+/**
+ * The coastline for the water-lining, as many short paths rather than one long one.
+ *
+ * A browser rasterises the map in tiles and skips any shape whose bounds miss the
+ * tile. One path holding every coast has bounds covering the whole map, so every tile
+ * stroked all of it, six times, on every frame of a zoom or a drag: that was nearly
+ * all the cost of moving the map. Cut into pieces about `cell` world units across,
+ * each tile strokes only the coast that crosses it.
+ *
+ * The land backdrop alone is enough: it includes the Greek units, so its outline is
+ * every coast on the map, and the territory outlines would only add their borders,
+ * which lie under the land fill. The pieces are open polylines, stroked with round
+ * caps, which join them seamlessly.
+ */
+const coastCache = new Map<string, string[]>();
+
+export function coastPieces(land: string, cell = 100): string[] {
+	const hit = coastCache.get(land);
+	if (hit) return hit;
+
+	// Runs of the coast, cut whenever one grows wider or taller than a cell and filed
+	// under the cell it starts in, so each path stays local.
+	const buckets = new Map<string, string[]>();
+	const file = (run: string[], [x, y]: number[]) => {
+		const b = `${Math.floor(x / cell)}:${Math.floor(y / cell)}`;
+		const list = buckets.get(b) ?? [];
+		list.push('M' + run.join('L'));
+		buckets.set(b, list);
+	};
+	// d3 writes a polygon as "M x,y L x,y ... Z", one subpath per ring.
+	for (const part of land.split('M')) {
+		const ring = part.replace(/Z/g, '').split('L').filter(Boolean);
+		if (ring.length < 2) continue;
+		ring.push(ring[0]); // back to the start: the ring is closed
+		let run = [ring[0]];
+		let first = ring[0].split(',').map(Number);
+		let [x0, y0, x1, y1] = [first[0], first[1], first[0], first[1]];
+		for (let i = 1; i < ring.length; i++) {
+			const [x, y] = ring[i].split(',').map(Number);
+			run.push(ring[i]);
+			[x0, x1, y0, y1] = [Math.min(x0, x), Math.max(x1, x), Math.min(y0, y), Math.max(y1, y)];
+			if ((x1 - x0 > cell || y1 - y0 > cell) && i < ring.length - 1) {
+				file(run, first);
+				// The next piece starts where this one ended, so nothing is lost between them.
+				run = [ring[i]];
+				first = [x, y];
+				[x0, y0, x1, y1] = [x, y, x, y];
+			}
+		}
+		file(run, first);
+	}
+
+	const pieces = [...buckets.values()].map((list) => list.join(''));
+	coastCache.set(land, pieces);
+	return pieces;
+}
+
 /** Project a lon/lat point into world units, or null if it is outside the projection's domain. */
 export function project(lon: number, lat: number): [number, number] | null {
 	return worldProjection()([lon, lat]);
