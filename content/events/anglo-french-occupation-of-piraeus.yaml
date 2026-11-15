@@ -22,8 +22,8 @@ summary:
     οικονομικών.
 body:
   en: |
-    Britain and France went to war with Russia in 1853 on the side of the Ottoman
-    Empire. Greek opinion went the other way almost without exception, and in the winter
+    The Ottoman Empire went to war with Russia in October 1853, and Britain and France
+    joined it in March 1854. Greek opinion went the other way almost without exception, and in the winter
     of 1854 bands crossed the frontier: Spyridon Karaiskakis at Arta on 30 January, then
     risings in Thessaly and Macedonia. Otto did not order them and did not stop them.
     The Powers' ultimatum demanded that he do so. When it expired, a Franco-British
@@ -49,8 +49,8 @@ body:
     financial commission to examine the Greek budget, which set the precedent for the
     far heavier control imposed after 1897.
   el: |
-    Η Αγγλία και η Γαλλία μπήκαν στον πόλεμο κατά της Ρωσίας το 1853 στο πλευρό της
-    Οθωμανικής Αυτοκρατορίας. Η ελληνική κοινή γνώμη τάχθηκε σχεδόν ομόθυμα αντίθετα,
+    Η Οθωμανική Αυτοκρατορία μπήκε σε πόλεμο με τη Ρωσία τον Οκτώβριο του 1853, και η
+    Αγγλία και η Γαλλία πήραν το μέρος της τον Μάρτιο του 1854. Η ελληνική κοινή γνώμη τάχθηκε σχεδόν ομόθυμα αντίθετα,
     και τον χειμώνα του 1854 σώματα πέρασαν τα σύνορα: ο Σπυρίδων Καραϊσκάκης στην Άρτα
     στις 30 Ιανουαρίου, και ύστερα κινήματα στη Θεσσαλία και τη Μακεδονία. Ο Όθων ούτε
     τα διέταξε ούτε τα σταμάτησε. Το τελεσίγραφο των Δυνάμεων απαιτούσε ακριβώς αυτό.
@@ -85,6 +85,7 @@ significance: 3
 figures:
   - {figure: otto, role: participant}
   - {figure: kallergis, role: commander}
+  - {figure: mavrokordatos, role: leader}
 sources:
   - {id: gallant-2016}
   - {id: clogg-2021}

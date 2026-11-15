@@ -39,8 +39,9 @@ body:
 
     The National Assembly met on 20 November 1843 with 244 deputies and sat until March.
     Its bitterest fight was over the autochthon decree, which would have barred Greeks
-    born outside the kingdom from state employment; Ioannis Kolettis defeated it with
-    the speech that gave the Great Idea its lasting form. Otto assented to the
+    born outside the kingdom from state employment. Ioannis Kolettis argued against it
+    in the speech that gave the Great Idea its lasting form, though the Assembly did not
+    drop the distinction. Otto assented to the
     Constitution on 30 March 1844. It created a bicameral legislature, an appointed
     Senate and an elected Chamber, and left the king free to appoint and dismiss
     ministers as he pleased. He used that freedom for eighteen more years, and it was
@@ -64,8 +65,8 @@ body:
     Η Εθνοσυνέλευση συνήλθε στις 20 Νοεμβρίου 1843 με 244 πληρεξουσίους και συνεδρίασε
     ως τον Μάρτιο. Η πιο σκληρή της σύγκρουση αφορούσε το ψήφισμα περί αυτοχθόνων, που
     θα απέκλειε από τις δημόσιες θέσεις τους Έλληνες που γεννήθηκαν έξω από το βασίλειο.
-    Ο Ιωάννης Κωλέττης το κατατρόπωσε με τον λόγο που έδωσε στη Μεγάλη Ιδέα τη
-    διατύπωση με την οποία έμεινε. Ο Όθων επικύρωσε το Σύνταγμα στις 30 Μαρτίου 1844.
+    Ο Ιωάννης Κωλέττης τάχθηκε εναντίον του με τον λόγο που έδωσε στη Μεγάλη Ιδέα τη
+    διατύπωση με την οποία έμεινε, αν και η Συνέλευση δεν εγκατέλειψε τη διάκριση. Ο Όθων επικύρωσε το Σύνταγμα στις 30 Μαρτίου 1844.
     Καθιέρωνε δύο σώματα, διορισμένη Γερουσία και αιρετή Βουλή, και άφηνε στον βασιλιά
     το δικαίωμα να διορίζει και να παύει υπουργούς κατά βούληση. Το χρησιμοποίησε επί
     δεκαοκτώ ακόμη χρόνια, και αυτό τελικά του στοίχισε τον θρόνο.
@@ -79,6 +80,7 @@ figures:
   - {figure: makriyannis, role: leader}
   - {figure: kallergis, role: commander}
   - {figure: otto, role: participant}
+  - {figure: kolettis, role: participant}
 sources:
   - {id: clogg-2021}
   - {id: koliopoulos-veremis-2010}

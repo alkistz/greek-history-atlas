@@ -1,0 +1,66 @@
+id: mavrokordatos
+name: {en: Alexandros Mavrokordatos, el: Αλέξανδρος Μαυροκορδάτος}
+born: {date: 1791-01-01, precision: year, place: constantinople}
+died: {date: 1865-08-18, precision: day, place: aegina, as_written: {date: 1865-08-06, calendar: julian}}
+roles: [statesman, diplomat]
+summary:
+  en: >
+    Phanariot from Constantinople who became the leading civilian of the revolution:
+    president of the first national government under the constitution of Epidaurus in
+    1822, defender of Messolonghi in its first siege, and later head of the party that
+    looked to Britain. He was prime minister four times under Otto, the last at the
+    head of the government the Anglo-French occupation of 1854 imposed.
+  el: >
+    Φαναριώτης από την Κωνσταντινούπολη που έγινε ο κορυφαίος πολιτικός της Επανάστασης:
+    πρόεδρος της πρώτης εθνικής κυβέρνησης με το σύνταγμα της Επιδαύρου το 1822, υπερασπιστής
+    του Μεσολογγίου στην πρώτη πολιορκία και αργότερα αρχηγός του κόμματος που στρεφόταν προς
+    τη Βρετανία. Χρημάτισε τέσσερις φορές πρωθυπουργός επί Όθωνα, την τελευταία στην
+    κυβέρνηση που επέβαλε η αγγλογαλλική κατοχή του 1854.
+body:
+  en: |
+    Mavrokordatos was born in Constantinople in 1791 into a family that had served the
+    Porte and the Danubian principalities for generations; Greek sources give the day as
+    3 February, without saying which calendar the family used, so the atlas records the
+    year. He served his uncle, the hospodar of Wallachia, and reached Greece in the summer
+    of 1821 with money and an education no captain could match. At Epidaurus he led the
+    assembly that wrote the first constitution, though sources differ on whether he or
+    Dimitrios Ypsilantis formally presided, and in January 1822 he became president of
+    its executive.
+
+    His war was not a soldier's. He lost the battle of Peta in July 1822, then held
+    Messolonghi through its first siege that winter largely by negotiating with the
+    besiegers until they withdrew. Under Otto he led the English party against Kolettis's
+    French one and was prime minister in 1833-34, in 1841, briefly in 1844 under the new
+    constitution, and in 1854-55, when the occupying Powers made him head of the
+    government that Greeks called the Ministry of Occupation. Between offices he was
+    minister in Munich, Berlin, London, Constantinople and Paris. He died on Aegina in
+    August 1865.
+  el: |
+    Ο Μαυροκορδάτος γεννήθηκε στην Κωνσταντινούπολη το 1791, σε οικογένεια που υπηρετούσε
+    επί γενιές την Πύλη και τις Παραδουνάβιες Ηγεμονίες. Οι ελληνικές πηγές δίνουν την
+    ημέρα ως 3 Φεβρουαρίου χωρίς να λένε ποιο ημερολόγιο χρησιμοποιούσε η οικογένεια, και γι'
+    αυτό ο άτλαντας καταγράφει το έτος. Υπηρέτησε τον θείο του, ηγεμόνα της Βλαχίας, και
+    έφτασε στην Ελλάδα το καλοκαίρι του 1821 με χρήματα και μια μόρφωση που κανένας
+    οπλαρχηγός δεν είχε. Στην Επίδαυρο ηγήθηκε της συνέλευσης που συνέταξε το πρώτο σύνταγμα,
+    αν και οι πηγές διαφωνούν για το αν προήδρευε τυπικά ο ίδιος ή ο Δημήτριος Υψηλάντης, και
+    τον Ιανουάριο του 1822 έγινε πρόεδρος του Εκτελεστικού της.
+
+    Ο πόλεμός του δεν ήταν στρατιωτικός. Έχασε τη μάχη του Πέτα τον Ιούλιο του 1822 και
+    έπειτα κράτησε το Μεσολόγγι στην πρώτη πολιορκία εκείνον τον χειμώνα, κυρίως
+    διαπραγματευόμενος με τους πολιορκητές ώσπου αποσύρθηκαν. Επί Όθωνα ηγήθηκε του Αγγλικού
+    κόμματος απέναντι στο Γαλλικό του Κωλέττη και χρημάτισε πρωθυπουργός το 1833-34, το
+    1841, για λίγο το 1844 με το νέο σύνταγμα και το 1854-55, όταν οι Δυνάμεις της κατοχής
+    τον έβαλαν επικεφαλής της κυβέρνησης που οι Έλληνες ονόμασαν Υπουργείο Κατοχής. Ανάμεσα
+    στα αξιώματα υπηρέτησε ως πρεσβευτής στο Μόναχο, το Βερολίνο, το Λονδίνο, την
+    Κωνσταντινούπολη και το Παρίσι. Πέθανε στην Αίγινα τον Αύγουστο του 1865.
+sources:
+  - {id: clogg-2021}
+  - {id: koliopoulos-veremis-2010}
+review:
+  auto:
+    date: 2026-11-15
+    result: clean
+    langs: [en, el]
+    by: both texts read; dates checked against Greek Wikipedia, individual figures not independently sourced
+    note: >
+      Death on Aegina on 6 August 1865 Old Style, stored as 18 August. The birth is recorded to the year because the calendar of a Phanariot family's 3 February 1791 is not stated anywhere checked.

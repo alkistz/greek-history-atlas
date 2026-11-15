@@ -1,0 +1,61 @@
+id: kolettis
+name: {en: Ioannis Kolettis, el: Ιωάννης Κωλέττης}
+born: {date: 1774-01-01, precision: circa}
+died: {date: 1847-09-12, precision: day, place: athens, as_written: {date: 1847-08-31, calendar: julian}}
+roles: [statesman, revolutionary]
+summary:
+  en: >
+    Epirot physician from the court of Ali Pasha who joined the revolution, led the
+    party that looked to France, and gave the Great Idea its classic statement in the
+    Constituent Assembly of 1844. He was the first prime minister under the constitution
+    of 1844 and governed until he died in office in 1847, through patronage and managed
+    elections rather than the parliament the constitution had created.
+  el: >
+    Ηπειρώτης γιατρός της αυλής του Αλή πασά που προσχώρησε στην Επανάσταση, ηγήθηκε του
+    κόμματος που στρεφόταν προς τη Γαλλία και έδωσε στη Μεγάλη Ιδέα την κλασική της
+    διατύπωση στην Εθνοσυνέλευση του 1844. Ήταν ο πρώτος πρωθυπουργός με το σύνταγμα του 1844
+    και κυβέρνησε ώσπου πέθανε στο αξίωμα το 1847, με πελατεία και κατευθυνόμενες εκλογές
+    και όχι μέσα από τη βουλή που είχε δημιουργήσει το σύνταγμα.
+body:
+  en: |
+    Kolettis came from Syrrako, a Vlach-speaking village of the Pindus. His birth year is
+    uncertain: most sources give 1773 or 1774, and some place it as late as 1788. He
+    studied medicine in Italy and was physician to Ali Pasha's household at Ioannina
+    before the revolution, which he joined in 1821. He sat in the revolutionary
+    executive, made his following among the captains of Roumeli, and came out of the war
+    as leader of the French party.
+
+    Under the regency he was briefly prime minister in 1834-35 and then minister in
+    Paris for eight years, out of the way. He came home after the rising of 3 September
+    1843 and, in the Constituent Assembly, argued in January 1844 that Greeks of the
+    kingdom and Greeks still under the Sultan were one nation, the speech from which the
+    Great Idea takes its name. Prime minister from August 1844, he made the new
+    constitution work for the crown by managing elections and the patronage of the
+    state, and he died in office in Athens on 31 August 1847 Old Style.
+  el: |
+    Ο Κωλέττης καταγόταν από το Συρράκο, βλαχόφωνο χωριό της Πίνδου. Το έτος γέννησής του
+    είναι αβέβαιο: οι περισσότερες πηγές δίνουν το 1773 ή το 1774 και κάποιες το τοποθετούν
+    ως και το 1788. Σπούδασε ιατρική στην Ιταλία και ήταν γιατρός της αυλής του Αλή πασά στα
+    Ιωάννινα πριν από την Επανάσταση, στην οποία προσχώρησε το 1821. Συμμετείχε στο
+    επαναστατικό Εκτελεστικό, δημιούργησε ερείσματα στους οπλαρχηγούς της Ρούμελης και βγήκε
+    από τον πόλεμο αρχηγός του Γαλλικού κόμματος.
+
+    Επί Αντιβασιλείας χρημάτισε για λίγο πρωθυπουργός το 1834-35 και έπειτα πρεσβευτής στο
+    Παρίσι επί οκτώ χρόνια, μακριά από τα πράγματα. Επέστρεψε μετά το κίνημα της 3ης
+    Σεπτεμβρίου 1843 και στην Εθνοσυνέλευση υποστήριξε τον Ιανουάριο του 1844 ότι οι Έλληνες
+    του βασιλείου και οι Έλληνες που ζούσαν ακόμη υπό τον σουλτάνο ήταν ένα έθνος, στον λόγο
+    από τον οποίο πήρε το όνομά της η Μεγάλη Ιδέα. Πρωθυπουργός από τον Αύγουστο του 1844,
+    έκανε το νέο σύνταγμα να λειτουργεί υπέρ του στέμματος χειραγωγώντας τις εκλογές και την
+    κρατική πελατεία, και πέθανε στο αξίωμα στην Αθήνα στις 31 Αυγούστου 1847 με το παλαιό
+    ημερολόγιο.
+sources:
+  - {id: clogg-2021}
+  - {id: koliopoulos-veremis-2010}
+review:
+  auto:
+    date: 2026-11-15
+    result: unresolved
+    langs: [en, el]
+    by: both texts read; dates checked against Greek Wikipedia, individual figures not independently sourced
+    note: >
+      Death in Athens on 31 August 1847 Old Style, stored as 12 September. The birth year is disputed between 1773/74 and 1787/88 even within Greek Wikipedia, so it is recorded as circa 1774 and the text says so; that is why the pass is unresolved.

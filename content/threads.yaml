@@ -34,10 +34,14 @@
   events:
     - revolution-outbreak
     - fall-of-tripolitsa
+    - first-national-assembly-epidaurus
     - chios-massacre
     - death-of-byron
+    - ibrahim-lands-in-the-morea
     - exodus-of-messolonghi
     - battle-of-navarino
+    - arrival-of-kapodistrias
+    - london-protocol-1830
     - assassination-of-kapodistrias
     - treaty-of-constantinople-1832
     - arrival-of-otto
@@ -53,12 +57,17 @@
       αντιμετώπισαν την εγγύηση ως διαρκές δικαίωμα επέμβασης σε αυτό.
   events:
     - battle-of-navarino
+    - london-protocol-1830
     - treaty-of-constantinople-1832
     - arrival-of-otto
     - don-pacifico-blockade
+    - crimean-war-risings-1854
     - anglo-french-occupation-of-piraeus
     - deposition-of-otto
     - accession-of-george-i
+    - dilessi-murders-1870
+    - congress-of-berlin-1878
+    - great-power-blockade-1886
     - national-bankruptcy-1893
     - truman-doctrine
 
@@ -73,10 +82,13 @@
       επανάσταση, με πραξικόπημα και τέσσερις φορές με δημοψήφισμα, ώσπου να κριθεί.
   events:
     - arrival-of-otto
+    - athens-becomes-capital
     - september-1843-revolution
+    - constitution-of-1844
     - deposition-of-otto
     - accession-of-george-i
     - constitution-of-1864
+    - dedilomeni-1875
     - goudi-coup
     - second-hellenic-republic-proclaimed
     - restoration-of-the-monarchy-1935
@@ -96,6 +108,8 @@
       αναγνώριζε, που κατέληξε στην Ένωση και ανέδειξε τον κυρίαρχο πολιτικό του αιώνα.
   events:
     - cretan-revolt-1866-1869
+    - pact-of-halepa-1878
+    - vassos-expedition-to-crete-1897
     - greco-turkish-war-1897
     - cretan-state-established
     - therisos-revolt
@@ -114,8 +128,12 @@
       κράτος και έπειτα του στέρησε όλα όσα βρίσκονταν πέρα από το Αιγαίο μέσα σε έναν
       Σεπτέμβριο.
   events:
+    - megali-idea-speech-1844
+    - crimean-war-risings-1854
     - union-of-the-ionian-islands
+    - congress-of-berlin-1878
     - cession-of-thessaly-1881
+    - vassos-expedition-to-crete-1897
     - greco-turkish-war-1897
     - macedonian-struggle
     - greece-enters-the-first-balkan-war
@@ -340,6 +358,7 @@
       χρεοκοπία τον Δεκέμβριο. Τρία χρόνια αργότερα το χρεοκοπημένο κράτος οργάνωσε τους
       πρώτους σύγχρονους Ολυμπιακούς Αγώνες με ιδιωτικά χρήματα, και το 1932 χρεοκόπησε ξανά.
   events:
+    - great-power-blockade-1886
     - corinth-canal-opening
     - national-bankruptcy-1893
     - athens-olympics-1896

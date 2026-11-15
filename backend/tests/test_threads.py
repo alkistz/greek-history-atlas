@@ -69,7 +69,7 @@ def test_threads_index(client):
     body = client.get("/api/threads").json()
     assert len(body) == 19
     independence = next(t for t in body if t["id"] == "war-of-independence")
-    assert independence["count"] == 9
+    assert independence["count"] == 13
     assert independence["span"] == ["1821-04-06", "1833-02-06"]
     # Ids, in reading order, but not the events themselves: enough to filter a
     # ledger by arc in one request, without carrying 127 titles to do it.

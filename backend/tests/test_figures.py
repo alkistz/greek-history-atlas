@@ -12,6 +12,7 @@ def test_figures_link_back_to_their_events(corpus):
     assert [(e.id, role) for e, role in events] == [
         ("revolution-outbreak", "commander"),
         ("fall-of-tripolitsa", "commander"),
+        ("ibrahim-lands-in-the-morea", "commander"),
     ]
 
 

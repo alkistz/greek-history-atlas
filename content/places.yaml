@@ -505,3 +505,57 @@
   lat: 35.12
   atom: cyprus-north
   names: [{name: {en: Famagusta, el: Αμμόχωστος}}]
+
+- id: epidaurus
+  kind: village
+  lon: 23.15
+  lat: 37.67
+  atom: peloponnese
+  names: [{name: {en: Epidaurus (Piada), el: Επίδαυρος (Πιάδα)}}]
+
+- id: methoni
+  kind: town
+  lon: 21.71
+  lat: 36.82
+  atom: peloponnese
+  names: [{name: {en: Methoni, el: Μεθώνη}}]
+
+- id: berlin
+  kind: city
+  lon: 13.40
+  lat: 52.52
+  names: [{name: {en: Berlin, el: Βερολίνο}}]
+
+- id: kolymbari
+  kind: village
+  lon: 23.78
+  lat: 35.54
+  atom: crete
+  names: [{name: {en: Kolymbari, el: Κολυμπάρι}}]
+
+- id: aegina
+  kind: island
+  lon: 23.43
+  lat: 37.75
+  atom: attica
+  names: [{name: {en: Aegina, el: Αίγινα}}]
+
+- id: peta
+  kind: village
+  lon: 21.03
+  lat: 39.17
+  atom: arta
+  names: [{name: {en: Peta, el: Πέτα}}]
+
+- id: dilesi
+  kind: village
+  lon: 23.67
+  lat: 38.34
+  atom: sterea
+  names: [{name: {en: Dilesi, el: Δήλεσι}}]
+
+- id: marseille
+  kind: city
+  lon: 5.37
+  lat: 43.30
+  names: [{name: {en: Marseille, el: Μασσαλία}}]

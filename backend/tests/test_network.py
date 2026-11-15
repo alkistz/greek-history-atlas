@@ -56,7 +56,7 @@ def test_connections_describe_the_other_figure(corpus):
 
 def test_network_route_and_figure_detail(client):
     body = client.get("/api/network/figures").json()
-    assert len(body["nodes"]) == 74
+    assert len(body["nodes"]) == 76
     assert {"id", "polity", "events", "degree", "betweenness"} <= body["nodes"][0].keys()
     kemal = next(n for n in body["nodes"] if n["id"] == "kemal")
     assert kemal["polity"] == "turkey"

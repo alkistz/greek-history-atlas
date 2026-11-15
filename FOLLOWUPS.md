@@ -5,6 +5,16 @@ all 237 entries then in the corpus. On 14 November 2026 the atlas was cut at 197
 them moved to `content/archive/after-1975/`; the numbers below are for the 222 that remain:
 118 events, 74 figures, 30 instruments.
 
+On 15 November 2026 fourteen events from 1822 to 1897 and two figures (Mavrokordatos and
+Kolettis) were added, filling a century that had twelve events in sixty years. Each
+carries its own pass, ten of the events sourced; the table below still describes the 222 of
+the first sweep. Writing them turned up six errors in older entries, now fixed: the
+blockade of 1886 dated January to May (it was May to June), Vassos's landing as 7
+February Old Style (it was 1 to 3 February), the 1864 constitution voted on 16 November
+(17 October), George's acceptance of the declared-confidence rule on 11 July 1875 (11
+August), Britain and France at war with Russia in 1853 (March 1854), and Kolettis
+"defeating" the autochthon decree (the Assembly kept the distinction).
+
 Run `make review` for the live picture of what is reviewed, what has gone stale and where
 the English and Greek disagree numerically. This file holds what that report cannot say.
 
@@ -133,7 +143,8 @@ changing the wording of `review.auto.by` silently changes what that filter retur
 - **`vassos`** had no dates at all before this sweep. Born 1836 in Athens, died there in
   October 1929 is all that was recoverable, so the precisions are year and month rather
   than a day invented to look tidy.
-- **`melas`**'s birthplace, Marseille, is not in `places.yaml`, so it cannot be recorded.
+- **`melas`**'s birthplace, Marseille, is now in `places.yaml` and recorded. His date is
+  still at year precision, for the reason in §2.
 
 ## 7. Thirteen one-sided parity anomalies
 
