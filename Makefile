@@ -37,4 +37,4 @@ lint:
 check: lint test export
 	@test -z "$$(git status --porcelain -- frontend/static/api)" \
 		|| { echo "frontend/static/api is stale; commit the re-export"; exit 1; }
-	cd frontend && npm run check && npx vite build
+	cd frontend && npm run check && npm run build

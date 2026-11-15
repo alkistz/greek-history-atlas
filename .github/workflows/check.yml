@@ -1,0 +1,34 @@
+# Runs `make check` on every push and pull request: lint, the backend tests (which
+# load and validate the whole corpus), the static API export with its staleness
+# guard, svelte-check and the production build. The raw boundary downloads are not
+# needed: the built geometry in data/ is committed.
+name: check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+          cache-dependency-glob: backend/uv.lock
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: frontend/.nvmrc
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install
+        run: |
+          cd backend && uv sync --locked
+          cd ../frontend && npm ci
+
+      - name: Check
+        run: make check
