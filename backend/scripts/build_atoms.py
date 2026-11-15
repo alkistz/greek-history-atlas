@@ -277,7 +277,9 @@ def main() -> int:
     atoms = yaml.safe_load(ATOMS_YAML.read_text())
     cuts = yaml.safe_load(CUTS_YAML.read_text())
     try:
-        frontiers = {c["id"]: load_frontier(c["ohm"]) for c in cuts}
+        frontiers = {
+            c["id"]: load_frontier(c["ohm"]) if "ohm" in c else Polygon(c["polygon"]) for c in cuts
+        }
     except FileNotFoundError as e:
         print(e, file=sys.stderr)
         return 1
@@ -298,7 +300,7 @@ def main() -> int:
                 "administrative boundaries",
                 "note": "Whole NUTS3 units, island groups cut by bounding box, and "
                 "units split along historical frontiers from OpenHistoricalMap (CC0), "
-                "relations: " + ", ".join(str(c["ohm"]) for c in cuts) + ". "
+                "relations: " + ", ".join(str(c["ohm"]) for c in cuts if "ohm" in c) + ". "
                 "See README.md for known simplifications.",
             },
         },

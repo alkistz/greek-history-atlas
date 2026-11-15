@@ -26,15 +26,53 @@
     as Pteleos on the Gulf of Volos. OpenHistoricalMap credits the Wikipedia map of
     Greek territorial expansion as its source.
 
-- id: kingdom-1881
-  name: {en: The frontier of 1881, el: Τα σύνορα του 1881}
-  ohm: 2692556
+- id: epirus-1881
+  name: {en: The Arachthos frontier of 1881, el: Το σύνορο του Αράχθου του 1881}
   note: >
-    The Kingdom of Greece, 1881-1913, after the Convention of Constantinople ceded
-    Thessaly and Arta: the Arachthos left Preveza Ottoman, and the line north of
-    Larissa and Kalambaka left Elassona and the hill country beyond Ottoman until
-    1912. The small rectification after the war of 1897 is not drawn. Same source
-    as above.
+    The west bank of the Arachthos, which the Convention of Constantinople made the
+    frontier from 1881 to 1912: Arta on the east bank went to Greece and Preveza stayed
+    Ottoman. The line is the river itself, stitched from the Arachthos as
+    OpenHistoricalMap draws it (CC0) and simplified to about 200 metres, because the
+    kingdom's boundary relation there (2692556) runs straight up 21.05°E and puts Arta on
+    the Ottoman side. The polygon is loose everywhere off the river.
+  polygon:
+    [[21.0021, 39.6825], [21.0083, 39.6792], [21.0043, 39.6725], [21.0164, 39.655],
+     [21.013, 39.6484], [21.0156, 39.6386], [21.0137, 39.6357], [21.019, 39.6326],
+     [21.0168, 39.6297], [21.0199, 39.6204], [21.0235, 39.6199], [21.0268, 39.6052],
+     [21.0091, 39.5944], [20.9849, 39.5865], [20.9838, 39.582], [20.9768, 39.5766],
+     [20.9766, 39.5723], [20.9808, 39.5698], [20.9778, 39.5605], [20.9883, 39.5431],
+     [20.9855, 39.54], [21.0033, 39.5284], [21.0029, 39.5189], [21.0142, 39.501],
+     [21.0099, 39.4982], [21.0096, 39.4898], [21.0051, 39.4864], [21.0234, 39.4705],
+     [21.0339, 39.4538], [21.0228, 39.44], [21.0279, 39.4247], [21.0211, 39.4105],
+     [21.0299, 39.4037], [21.0369, 39.4041], [21.04, 39.3978], [21.0446, 39.3978],
+     [21.0431, 39.391], [21.0544, 39.3814], [21.0515, 39.3779], [21.0549, 39.3734],
+     [21.0507, 39.3649], [21.0431, 39.3623], [21.0411, 39.3512], [21.0361, 39.3496],
+     [21.0411, 39.3431], [21.039, 39.3396], [21.0413, 39.3354], [21.03, 39.33],
+     [21.0412, 39.3219], [21.026, 39.3143], [21.0304, 39.3034], [21.022, 39.299],
+     [21.0155, 39.2856], [21.0067, 39.2798], [21.0138, 39.2741], [21.0106, 39.2648],
+     [21.0114, 39.2474], [21.016, 39.2262], [21.0291, 39.1922], [21.0282, 39.1826],
+     [21.0056, 39.1631], [20.998, 39.1628], [20.9867, 39.17], [20.9796, 39.1693],
+     [20.9743, 39.1647], [20.9737, 39.1538], [20.9799, 39.1462], [20.9913, 39.1403],
+     [20.9897, 39.1327], [21.0036, 39.1174], [21.0088, 39.1166], [21.0129, 39.1198],
+     [21.0196, 39.1141], [21.0291, 39.0905], [21.0201, 39.0805], [21.0253, 39.0711],
+     [21.0247, 39.0632], [21.0313, 39.0532], [21.0173, 39.0447], [21.0116, 39.0354],
+     [21.0137, 39.0318], [21.0384, 39.0228], [21.0384, 38.9], [20.0, 38.9],
+     [20.0, 39.9], [21.0021, 39.9]]
+
+- id: thessaly-1881
+  name: {en: The Thessalian frontier of 1881, el: Το θεσσαλικό σύνορο του 1881}
+  note: >
+    North of the line ceded in 1881, which left Elassona and the hills beyond Kalambaka
+    Ottoman until 1912. The vertices are OpenHistoricalMap's for the Kingdom of Greece,
+    1881-1913 (relation 2692556), with one moved: that relation passes south of Tyrnavos,
+    which was ceded in 1881, so its vertex there is put at the Melouna pass, where the
+    Tyrnavos-Elassona road crossed the frontier and the war of 1897 began. Nine vertices
+    over two hundred kilometres: right about which towns fell where, rough between them.
+    The small rectification after 1897 is not drawn.
+  polygon:
+    [[21.094, 39.513], [21.39, 39.758], [21.522, 39.821], [21.791, 39.682],
+     [22.094, 39.762], [22.25, 39.86], [22.775, 39.872], [22.808, 39.883],
+     [23.6, 39.883], [23.6, 40.7], [20.9, 40.7], [20.9, 39.513]]
 
 - id: north-cyprus-1974
   name: {en: The ceasefire line of 1974, el: Η γραμμή κατάπαυσης του πυρός του 1974}

@@ -62,8 +62,8 @@
   name: {en: Elassona and northern Thessaly, el: Ελασσόνα και βόρεια Θεσσαλία}
   # Left Ottoman by the line of 1881, and taken in the First Balkan War.
   parts:
-    - {nuts3: EL612, cut: kingdom-1881, side: outside}
-    - {nuts3: EL611, cut: kingdom-1881, side: outside}
+    - {nuts3: EL612, cut: thessaly-1881, side: inside}
+    - {nuts3: EL611, cut: thessaly-1881, side: inside}
 
 - id: pteleos
   name: {en: Pteleos and the Othrys coast, el: Πτελεός και παράλια της Όθρυος}
@@ -86,7 +86,7 @@
   name: {en: Preveza, el: Πρέβεζα}
   # West of the Arachthos, which the line of 1881 followed: Ottoman until 1912.
   parts:
-    - {nuts3: EL541, cut: kingdom-1881, side: outside}
+    - {nuts3: EL541, cut: epirus-1881, side: inside}
 
 - id: epirus
   name: {en: Epirus, el: Ήπειρος}

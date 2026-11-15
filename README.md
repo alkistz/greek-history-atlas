@@ -41,8 +41,8 @@ changed.
 
 ## The corpus
 
-118 events from the outbreak of the revolution to the Constitution of 1975, 74 figures,
-72 places, 30 instruments, 19 narrative threads and 22 cited works. Every event and figure
+132 events from the outbreak of the revolution to the Constitution of 1975, 76 figures,
+80 places, 30 instruments, 19 narrative threads and 22 cited works. Every event and figure
 is written in both English and Greek. `significance` ranks events 2 to 5 on what they
 changed: thirteen events across a century and a half are rated 5, meaning they changed
 the shape or the nature of the state, and the scale is meant to stay that steep.
@@ -161,10 +161,13 @@ Atoms dissolve whole NUTS3 units, plus island groups cut off a mainland unit by 
 box (Kythira, the Sporades, Imbros and Tenedos), plus units split along a historical
 frontier where one ran through them on land. Those frontiers are in `content/cuts.yaml`:
 the line of 1832 through Fthiotida, Evrytania and Magnesia, the line of 1881 through
-Larisa, Trikala and Arta-Preveza, and the ceasefire line of 1974 across Cyprus, each taken
-from an [OpenHistoricalMap](https://www.openhistoricalmap.org) relation. Their accuracy
-is that of a small-scale map, a few kilometres, which is about the resolution of the base
-map; none of them is a demarcation record.
+Larisa, Trikala and Arta-Preveza, and the ceasefire line of 1974 across Cyprus. They come
+from [OpenHistoricalMap](https://www.openhistoricalmap.org), as a state's boundary on a
+date, except where that boundary proved too coarse: OpenHistoricalMap draws the line of
+1881 with nine vertices, which put Arta and Tyrnavos on the Ottoman side, so in Epirus
+the cut follows the Arachthos itself and in Thessaly one vertex is moved to the Melouna
+pass. Each cut is checked against the towns either side of it. Their accuracy is a few
+kilometres, about the resolution of the base map; none of them is a demarcation record.
 
 The following are still wrong on purpose. None of them changes the model.
 

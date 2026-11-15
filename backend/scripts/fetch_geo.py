@@ -42,6 +42,8 @@ def main() -> int:
     RAW.mkdir(parents=True, exist_ok=True)
     fetch(URL, NUTS3_RAW)
     for cut in yaml.safe_load(CUTS_YAML.read_text()):
+        if "ohm" not in cut:
+            continue
         query = f"[out:json][timeout:120];relation({cut['ohm']});out geom meta;"
         fetch(OVERPASS, ohm_raw(cut["ohm"]), urllib.parse.urlencode({"data": query}).encode())
     return 0
