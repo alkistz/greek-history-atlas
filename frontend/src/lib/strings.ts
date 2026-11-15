@@ -1,0 +1,621 @@
+import type { LangText } from './types';
+
+/**
+ * Every word of the interface, in both languages.
+ *
+ * The corpus carries its own translations in `LangText`; this is the chrome
+ * around it -- headings, labels, empty states -- which has nowhere else to live.
+ * The two languages sit side by side in one entry for the same reason the corpus
+ * puts them in one file: a missing translation is then visible while the English
+ * is being written, rather than discovered later as a gap in a parallel table.
+ *
+ * `{name}` in a value is a placeholder filled by `ui`'s second argument. Whole
+ * sentences are one entry rather than assembled from fragments, because word
+ * order is not shared between the two languages.
+ *
+ * Counts are never singular here: the smallest thread has five events, the
+ * fold opens past eight, and the totals are corpus-wide, so no entry needs a
+ * plural rule. Add one with the first string that can say "1".
+ *
+ * Kept free of Svelte so the build script that writes link previews can read it.
+ */
+export const STRINGS = {
+	// The site itself
+	'site.name': { en: 'Greek History Atlas', el: 'Άτλας Ελληνικής Ιστορίας' },
+	'site.description': {
+		en: 'An interactive atlas of Greek history from 1821, where the map redraws as territorial control changes.',
+		el: 'Ένας διαδραστικός άτλας της ελληνικής ιστορίας από το 1821, όπου ο χάρτης ξαναχαράσσεται καθώς αλλάζει ο έλεγχος του εδάφους.'
+	},
+	'site.loading': { en: 'Loading', el: 'Φόρτωση' },
+	'site.footer': {
+		en: 'Boundaries from Eurostat Nuts2json (2021, 03M), dissolved into atoms. Neighbouring land is drawn at present-day extent and uncoloured. Several historical frontiers are approximated; see the README for the list.',
+		el: 'Τα όρια προέρχονται από το Eurostat Nuts2json (2021, 03M), συγχωνευμένα σε άτομα. Τα γειτονικά εδάφη σχεδιάζονται στη σημερινή τους έκταση και χωρίς χρώμα. Αρκετά ιστορικά σύνορα αποδίδονται κατά προσέγγιση· ο κατάλογος βρίσκεται στο README.'
+	},
+
+	// Section names, used in the nav, the page titles and the source index alike
+	'page.atlas': { en: 'Atlas', el: 'Άτλας' },
+	'page.events': { en: 'Events', el: 'Γεγονότα' },
+	'page.threads': { en: 'Threads', el: 'Νήματα' },
+	'page.figures': { en: 'Figures', el: 'Πρόσωπα' },
+	'page.network': { en: 'Network', el: 'Δίκτυο' },
+	'page.instruments': { en: 'Instruments', el: 'Πράξεις' },
+	'page.places': { en: 'Places', el: 'Τόποι' },
+	'page.sources': { en: 'Sources', el: 'Πηγές' },
+	'page.title': { en: '{page} — {site}', el: '{page} — {site}' },
+
+	// The two switches in the header
+	'theme.light': { en: 'Light', el: 'Φωτεινό' },
+	'theme.dark': { en: 'Dark', el: 'Σκοτεινό' },
+	'theme.current': { en: 'Theme: {name}', el: 'Θέμα: {name}' },
+	'theme.switch': { en: 'Theme: {name}. Switch to {other}.', el: 'Θέμα: {name}. Αλλαγή σε {other}.' },
+	'lang.current': { en: 'Language: {name}', el: 'Γλώσσα: {name}' },
+	'lang.switch': {
+		en: 'Language: {name}. Switch to {other}.',
+		el: 'Γλώσσα: {name}. Αλλαγή σε {other}.'
+	},
+
+	// The standing notice, one line on every page.
+	'draft.badge': { en: 'Draft', el: 'Προσχέδιο' },
+	'draft.summary': {
+		en: 'Exact accuracy not verified. Check the cited sources before relying on dates, figures or attributions.',
+		el: 'Η ακρίβεια δεν έχει επαληθευτεί πλήρως. Ανατρέξτε στις πηγές πριν βασιστείτε σε ημερομηνίες, αριθμούς ή αποδόσεις.'
+	},
+	// The same on a phone, where the full sentence folds behind this.
+	'draft.short': { en: 'Accuracy not verified', el: 'Μη επαληθευμένη ακρίβεια' },
+
+	// Error pages. The failed request's path is for the console, not the reader.
+	'error.404.title': { en: 'Not here', el: 'Δεν βρέθηκε' },
+	'error.404.body': {
+		en: 'There is no page at this address. It may have been renamed, or the link may be wrong.',
+		el: 'Δεν υπάρχει σελίδα σε αυτή τη διεύθυνση. Ίσως μετονομάστηκε, ή ο σύνδεσμος είναι λάθος.'
+	},
+	'error.other.title': { en: 'Something went wrong', el: 'Κάτι πήγε στραβά' },
+	'error.other.body': {
+		en: 'The page could not be loaded. Try again in a moment.',
+		el: 'Η σελίδα δεν φορτώθηκε. Δοκιμάστε ξανά σε λίγο.'
+	},
+	'error.back.atlas': { en: 'Open the atlas', el: 'Άνοιγμα του άτλαντα' },
+	'error.back.events': { en: 'Browse the events', el: 'Περιήγηση στα γεγονότα' },
+
+	// The front page
+	'home.eyebrow': {
+		en: 'Modern Greece, {from} to 1975',
+		el: 'Η νεότερη Ελλάδα, από το {from} ως το 1975'
+	},
+	'home.title': {
+		en: 'A century and a half of Greek history, on one map',
+		el: 'Ενάμισης αιώνας ελληνικής ιστορίας σε έναν χάρτη'
+	},
+	'home.lead': {
+		en: 'The map redraws on every date a frontier moved, from the revolution of 1821 to the constitution of 1975. {events} events, {figures} people and {instruments} treaties and agreements are tied to the days and places they belong to.',
+		el: 'Ο χάρτης ξαναχαράσσεται σε κάθε ημερομηνία που μετακινήθηκαν τα σύνορα, από την Επανάσταση του 1821 ως το Σύνταγμα του 1975. {events} γεγονότα, {figures} πρόσωπα και {instruments} συνθήκες και συμφωνίες δένονται με τις ημέρες και τους τόπους στους οποίους ανήκουν.'
+	},
+	'home.cta.atlas': { en: 'Open the atlas', el: 'Άνοιγμα του άτλαντα' },
+	'home.cta.threads': { en: 'Start with a story', el: 'Ξεκινήστε από μια ιστορία' },
+	'home.map.open': { en: 'Open the atlas in {year}', el: 'Άνοιγμα του άτλαντα στο {year}' },
+	'home.map.area': { en: '{km2} km² Greek territory', el: '{km2} km² ελληνικό έδαφος' },
+	'home.map.nostate': { en: 'No Greek state yet', el: 'Δεν υπάρχει ακόμη ελληνικό κράτος' },
+	'home.map.play': { en: 'Play', el: 'Αναπαραγωγή' },
+	'home.map.pause': { en: 'Pause', el: 'Παύση' },
+	'home.how.title': { en: 'How to read the map', el: 'Πώς διαβάζεται ο χάρτης' },
+	'home.how.1.title': {
+		en: 'Colour is who held the ground',
+		el: 'Το χρώμα δείχνει ποιος κρατούσε το έδαφος'
+	},
+	'home.how.1.body': {
+		en: 'A flat fill is sovereignty. Hatching laid over it is an occupation; stippling is a territory in revolt.',
+		el: 'Το συμπαγές χρώμα είναι η κυριαρχία. Η διαγράμμιση από πάνω σημαίνει κατοχή· οι κουκκίδες, έδαφος σε επανάσταση.'
+	},
+	'home.how.held': { en: 'Held', el: 'Κυριαρχία' },
+	'home.how.occupied': { en: 'Occupied', el: 'Κατοχή' },
+	'home.how.revolt': { en: 'In revolt', el: 'Σε επανάσταση' },
+	'home.how.2.title': { en: 'Move through time', el: 'Κινηθείτε στον χρόνο' },
+	'home.how.2.body': {
+		en: 'Drag the timeline or press play. The map redraws on every date that control changed, and the list of events keeps pace.',
+		el: 'Σύρετε τη χρονογραμμή ή πατήστε αναπαραγωγή. Ο χάρτης ξαναχαράσσεται σε κάθε ημερομηνία που άλλαξε ο έλεγχος, και ο κατάλογος των γεγονότων ακολουθεί.'
+	},
+	'home.how.3.title': { en: 'Open an event', el: 'Ανοίξτε ένα γεγονός' },
+	'home.how.3.body': {
+		en: 'Pick one from the list or a dot on the map. The map goes to its day and place, and its full entry is one more click away.',
+		el: 'Επιλέξτε ένα από τον κατάλογο ή μια κουκκίδα στον χάρτη. Ο χάρτης πηγαίνει στην ημέρα και στον τόπο του, και η πλήρης καταχώριση απέχει ένα κλικ.'
+	},
+	'home.turning.title': { en: 'Turning points', el: 'Σημεία καμπής' },
+	'home.turning.lead': {
+		en: 'The {n} events rated most significant. Each one opens the map on the day it happened.',
+		el: 'Τα {n} γεγονότα με τη μεγαλύτερη σημασία. Καθένα ανοίγει τον χάρτη στην ημέρα που συνέβη.'
+	},
+	'home.threads.title': { en: 'Follow a thread', el: 'Ακολουθήστε ένα νήμα' },
+	'home.threads.lead': {
+		en: '{n} arcs that carry the events in the order they are best read. Where the bars overlap, the stories ran at the same time.',
+		el: '{n} αφηγηματικές γραμμές που παρουσιάζουν τα γεγονότα με τη σειρά που διαβάζονται καλύτερα. Όπου οι μπάρες επικαλύπτονται, οι ιστορίες εξελίσσονταν ταυτόχρονα.'
+	},
+	'home.browse.title': { en: 'Browse everything', el: 'Περιήγηση σε όλα' },
+
+	// Filtering, shared by every index
+	'filter.placeholder': { en: 'Search…', el: 'Αναζήτηση…' },
+	'filter.clear': { en: 'Clear', el: 'Καθαρισμός' },
+	'filter.filters': { en: 'Filters', el: 'Φίλτρα' },
+	'filter.searchAria': { en: 'Search {noun}', el: 'Αναζήτηση: {noun}' },
+	'filter.shown': { en: '{shown} of {total} {noun}', el: '{shown} από {total} {noun}' },
+	'filter.total': { en: '{total} {noun}', el: '{total} {noun}' },
+	'noun.events': { en: 'events', el: 'γεγονότα' },
+	'noun.threads': { en: 'threads', el: 'νήματα' },
+	'noun.figures': { en: 'figures', el: 'πρόσωπα' },
+	'noun.instruments': { en: 'instruments', el: 'πράξεις' },
+	'noun.places': { en: 'places', el: 'τόποι' },
+	'noun.works': { en: 'works', el: 'έργα' },
+
+	// Facet group captions
+	'facet.region': { en: 'Region', el: 'Περιοχή' },
+	'facet.thread': { en: 'Thread', el: 'Νήμα' },
+	'facet.regime': { en: 'Regime', el: 'Πολίτευμα' },
+	'facet.significance': { en: 'Significance', el: 'Βαρύτητα' },
+	'facet.review': { en: 'Review', el: 'Έλεγχος' },
+	'facet.role': { en: 'Role', el: 'Ιδιότητα' },
+	'facet.born': { en: 'Born', el: 'Γέννηση' },
+	'facet.kind': { en: 'Kind', el: 'Είδος' },
+	'facet.party': { en: 'Party', el: 'Μέρη' },
+	'facet.text': { en: 'Own text', el: 'Πρωτότυπο κείμενο' },
+	'facet.frame': { en: 'Frame', el: 'Πλαίσιο' },
+	'facet.count': { en: '{label} ({n})', el: '{label} ({n})' },
+
+	// What an event changed
+	'sig.1': { en: 'Minor', el: 'Ήσσονος σημασίας' },
+	'sig.2': { en: 'Notable', el: 'Αξιοσημείωτο' },
+	'sig.3': { en: 'Consequential', el: 'Με συνέπειες' },
+	'sig.4': { en: 'Major', el: 'Μείζον' },
+	'sig.5': { en: 'Changed the state', el: 'Άλλαξε το κράτος' },
+	'sig.title': { en: 'Significance {n} of 5 — {label}', el: 'Βαρύτητα {n} στα 5 — {label}' },
+	'sig.sr': { en: 'Significance {n} of 5, {label}', el: 'Βαρύτητα {n} στα 5, {label}' },
+
+	// The review tracks
+	'review.none': { en: 'Not reviewed', el: 'Χωρίς έλεγχο' },
+	'review.unresolved': { en: 'Unresolved', el: 'Ανεπίλυτο' },
+	'review.corrected': { en: 'Corrected', el: 'Διορθωμένο' },
+	'review.clean': { en: 'Read clean', el: 'Διαβάστηκε καθαρό' },
+	'review.sourced': { en: 'Checked against sources', el: 'Ελεγμένο έναντι πηγών' },
+	'review.manual': { en: 'Reviewed by an editor', el: 'Ελεγμένο από επιμελητή' },
+	'review.hint.none': {
+		en: 'Nobody has looked at this entry yet.',
+		el: 'Κανείς δεν έχει εξετάσει ακόμη αυτή την καταχώριση.'
+	},
+	'review.hint.unresolved': {
+		en: 'Someone looked hard and the sources do not agree. The note says what could not be settled.',
+		el: 'Κάποιος εξέτασε προσεκτικά και οι πηγές δεν συμφωνούν. Η σημείωση λέει τι δεν μπόρεσε να κριθεί.'
+	},
+	'review.hint.corrected': {
+		en: 'A pass found something wrong and fixed it. The note says what.',
+		el: 'Ένας έλεγχος βρήκε κάτι λάθος και το διόρθωσε. Η σημείωση λέει τι.'
+	},
+	'review.hint.clean': {
+		en: 'Read in every language the entry has, and they agree.',
+		el: 'Διαβάστηκε σε κάθε γλώσσα που έχει η καταχώριση, και συμφωνούν.'
+	},
+	'review.hint.sourced': {
+		en: 'Checked against published sources, not only read for internal consistency.',
+		el: 'Ελέγχθηκε έναντι δημοσιευμένων πηγών, όχι μόνο ως προς την εσωτερική συνέπεια.'
+	},
+	'review.hint.manual': {
+		en: 'Reviewed by someone who has read the sources.',
+		el: 'Ελέγχθηκε από κάποιον που έχει διαβάσει τις πηγές.'
+	},
+	'review.by.manual': { en: 'Reviewed', el: 'Ελεγμένο' },
+	'review.by.auto': { en: 'Checked', el: 'Ελεγμένο' },
+	'review.suffix.unresolved': { en: '{who} · unresolved', el: '{who} · ανεπίλυτο' },
+	'review.suffix.corrected': { en: '{who} · corrected', el: '{who} · διορθωμένο' },
+	'review.suffix.sourced': { en: '{who} · sourced', el: '{who} · με πηγές' },
+	'review.compact.none': { en: 'unreviewed', el: 'ανέλεγκτο' },
+	'review.tip': { en: '{who}, {date}', el: '{who}, {date}' },
+	'review.tip.by': { en: '{who}, {date} — {by}', el: '{who}, {date} — {by}' },
+
+
+	// Citations
+	'cite.online': { en: 'Online', el: 'Στο διαδίκτυο' },
+	'cite.read': { en: ' · read {date}', el: ' · ανάγνωση {date}' },
+
+	// The atlas page and its map
+	'atlas.tagline': {
+		en: 'An atlas of Greek history. The map redraws as control of territory changes.',
+		el: 'Ένας άτλας της ελληνικής ιστορίας. Ο χάρτης ξαναχαράσσεται καθώς αλλάζει ο έλεγχος του εδάφους.'
+	},
+	'atlas.occupation': { en: 'Show occupation', el: 'Εμφάνιση κατοχής' },
+	'atlas.note.insurgent': {
+		en: 'Stippled areas are in armed revolt. There was no recognised frontier.',
+		el: 'Οι διάστικτες περιοχές βρίσκονται σε ένοπλη εξέγερση. Δεν υπήρχε αναγνωρισμένο σύνορο.'
+	},
+	'atlas.note.occupied': {
+		en: 'Hatching marks occupation layered over sovereignty, not replacing it.',
+		el: 'Η διαγράμμιση δηλώνει κατοχή που επικάθεται στην κυριαρχία, χωρίς να την αντικαθιστά.'
+	},
+	// Only while a Greek-held atom is occupied: in 1974 the hatching is over Cyprus.
+	'atlas.note.occupied.greece': {
+		en: 'The Greek state remained sovereign throughout.',
+		el: 'Το ελληνικό κράτος παρέμεινε κυρίαρχο σε όλη τη διάρκεια.'
+	},
+	'map.title': {
+		en: 'Map of territorial control on {date}',
+		el: 'Χάρτης του εδαφικού ελέγχου στις {date}'
+	},
+	'map.territories': { en: 'Territories', el: 'Εδάφη' },
+	'map.zoomin': { en: 'Zoom in', el: 'Μεγέθυνση' },
+	'map.zoomout': { en: 'Zoom out', el: 'Σμίκρυνση' },
+	'map.reset': { en: 'Reset the view', el: 'Επαναφορά προβολής' },
+	'map.events': { en: 'Events near this date', el: 'Γεγονότα κοντά σε αυτή την ημερομηνία' },
+	'atlas.legend': { en: 'Legend', el: 'Υπόμνημα' },
+	'index.decades': { en: 'Decades', el: 'Δεκαετίες' },
+	'index.readmore': { en: 'Read more →', el: 'Περισσότερα →' },
+	'strip.aria': {
+		en: '{n} events between {from} and {to}',
+		el: '{n} γεγονότα μεταξύ {from} και {to}'
+	},
+	'figure.strip': {
+		en: 'Lifetime and events, on the atlas’s span of years',
+		el: 'Η ζωή και τα γεγονότα, στα χρόνια του άτλαντα'
+	},
+	'thread.strip': { en: 'The arc in time', el: 'Το νήμα στον χρόνο' },
+	'places.mapAria': {
+		en: 'Every place on one map. Click a dot to find it in the list.',
+		el: 'Όλοι οι τόποι σε έναν χάρτη. Πατήστε μια κουκκίδα για να τον βρείτε στον κατάλογο.'
+	},
+	'atlas.about': { en: 'About this map', el: 'Για τον χάρτη' },
+	'map.sovereignty': { en: 'Sovereignty held by {polities}', el: 'Κυριαρχία: {polities}' },
+	'map.occupied': { en: 'Occupied by {polities}', el: 'Υπό κατοχή: {polities}' },
+	'map.revolt': { en: '{polity} in armed revolt', el: '{polity} σε ένοπλη εξέγερση' },
+	'caption.territory': { en: 'Greek sovereign territory', el: 'Ελληνικό κυρίαρχο έδαφος' },
+	'caption.nostate': { en: 'No Greek state yet', el: 'Δεν υπάρχει ακόμη ελληνικό κράτος' },
+	'caption.inforce': { en: 'In force from today:', el: 'Σε ισχύ από σήμερα:' },
+	'trend.aria': {
+		en: 'Greek sovereign territory over the whole period, peaking at {n} square kilometres',
+		el: 'Το ελληνικό κυρίαρχο έδαφος σε όλη την περίοδο, με ανώτατη τιμή {n} τετραγωνικά χιλιόμετρα'
+	},
+
+	// The map tooltip
+	'tip.notmodelled': {
+		en: 'Not modelled on this date',
+		el: 'Δεν έχει μοντελοποιηθεί για αυτή την ημερομηνία'
+	},
+	'tip.external': {
+		en: ' · outside the modern state, not counted in the total',
+		el: ' · εκτός του σύγχρονου κράτους, δεν προσμετράται στο σύνολο'
+	},
+	'tip.since': { en: 'since {date}', el: 'από {date}' },
+
+	// The timeline
+	'timeline.prev': { en: 'Previous change', el: 'Προηγούμενη μεταβολή' },
+	'timeline.next': { en: 'Next change', el: 'Επόμενη μεταβολή' },
+	'timeline.play': { en: 'Play through the changes', el: 'Αναπαραγωγή των μεταβολών' },
+	'timeline.pause': { en: 'Pause', el: 'Παύση' },
+	'timeline.date': { en: 'Date', el: 'Ημερομηνία' },
+
+	// The map frames
+	'frame.greece': { en: 'Greece', el: 'Ελλάδα' },
+	'frame.aegean-east': { en: 'Eastern Aegean', el: 'Ανατολικό Αιγαίο' },
+	'frame.epirus': { en: 'Epirus', el: 'Ήπειρος' },
+	'frame.cyprus': { en: 'Cyprus', el: 'Κύπρος' },
+
+	// The ledger beside the map
+	'ledger.filter': { en: 'Filter events', el: 'Φιλτράρισμα γεγονότων' },
+	'ledger.placeholder': { en: 'Filter events…', el: 'Φιλτράρισμα γεγονότων…' },
+	'ledger.shown': { en: '{shown} of {total}', el: '{shown} από {total}' },
+	'ledger.total': { en: '{total} events', el: '{total} γεγονότα' },
+	'ledger.readmore': { en: 'Read more', el: 'Περισσότερα' },
+	'ledger.empty': { en: 'Nothing matches “{query}”.', el: 'Τίποτα δεν ταιριάζει με «{query}».' },
+
+	// Old Style dates, which the corpus carries as written
+	'date.oldstyle': { en: 'Old Style {date}', el: 'Παλαιό ημερολόγιο {date}' },
+	'date.oldstyle.label': { en: 'Old Style: {date}', el: 'Παλαιό ημερολόγιο: {date}' },
+	'date.circa': { en: 'c. {year}', el: 'π. {year}' },
+	'date.range': { en: '{from} to {to}', el: '{from} έως {to}' },
+
+	// The events index
+	'events.description': {
+		en: 'Every event in the atlas, in order.',
+		el: 'Κάθε γεγονός του άτλαντα, με τη σειρά.'
+	},
+	'events.lead': {
+		en: 'In order. Each one opens the map on the day it happened. Search reaches the English and the Greek, the places, the treaties and the arcs.',
+		el: 'Με χρονολογική σειρά. Καθένα ανοίγει τον χάρτη στην ημέρα που συνέβη. Η αναζήτηση φτάνει στα αγγλικά και στα ελληνικά, στους τόπους, στις συνθήκες και στα νήματα.'
+	},
+	'events.placeholder': {
+		en: 'Search events, places, treaties, threads…',
+		el: 'Αναζήτηση σε γεγονότα, τόπους, συνθήκες, νήματα…'
+	},
+	'events.empty': { en: 'No event matches that.', el: 'Κανένα γεγονός δεν ταιριάζει.' },
+	'events.openatlas': { en: 'Open on the atlas', el: 'Άνοιγμα στον άτλαντα' },
+
+	// One event
+	'event.openday': {
+		en: 'Open this day on the atlas →',
+		el: 'Άνοιγμα αυτής της ημέρας στον άτλαντα →'
+	},
+	'event.territory': { en: 'Territory', el: 'Έδαφος' },
+	// A preposition would have to agree with the region's gender, so the Greek
+	// names the relation instead of inflecting around the name.
+	'event.inregion': { en: 'in', el: 'στην περιοχή' },
+	'event.people': { en: 'People', el: 'Πρόσωπα' },
+	'event.instrument': { en: 'Instrument', el: 'Πράξη' },
+	'event.nearby': { en: 'Nearby', el: 'Κοντινά' },
+	'event.starts': { en: '← starts here', el: '← αρχίζει εδώ' },
+	'event.ends': { en: 'ends here →', el: 'τελειώνει εδώ →' },
+
+	// The figures index and one figure
+	'figures.description': { en: 'The people behind the events.', el: 'Τα πρόσωπα πίσω από τα γεγονότα.' },
+	'figures.lead': {
+		en: 'The people behind the events, in order of birth. Search reaches both languages, other spellings and the dates.',
+		el: 'Τα πρόσωπα πίσω από τα γεγονότα, κατά σειρά γέννησης. Η αναζήτηση φτάνει και στις δύο γλώσσες, σε άλλες γραφές και στις χρονολογίες.'
+	},
+	'figures.placeholder': {
+		en: 'Search names, roles, other spellings, years…',
+		el: 'Αναζήτηση σε ονόματα, ιδιότητες, άλλες γραφές, χρονολογίες…'
+	},
+	'figures.empty': { en: 'No figure matches that.', el: 'Κανένα πρόσωπο δεν ταιριάζει.' },
+	'figure.born': { en: 'Born', el: 'Γεννήθηκε' },
+	'figure.connections': { en: 'Connections', el: 'Συνδέσεις' },
+	'figure.network': { en: 'See in the network →', el: 'Δείτε στο δίκτυο →' },
+	// The first strings that can say "1", so the singular is its own entry.
+	'figure.shared.one': { en: '1 shared event', el: '1 κοινό γεγονός' },
+	'figure.shared': { en: '{n} shared events', el: '{n} κοινά γεγονότα' },
+
+	// The network page
+	'network.description': {
+		en: 'The figures of the atlas as a network: who stood in the same event as whom.',
+		el: 'Τα πρόσωπα του άτλαντα ως δίκτυο: ποιος βρέθηκε στο ίδιο γεγονός με ποιον.'
+	},
+	'network.lead': {
+		en: 'A line joins two figures who share an event or a recorded tie, and thickens with the number of events they share. Left to right is roughly time.',
+		el: 'Μια γραμμή ενώνει δύο πρόσωπα που μοιράζονται ένα γεγονός ή μια καταγεγραμμένη σχέση, και παχαίνει με τον αριθμό των κοινών γεγονότων. Από αριστερά προς τα δεξιά είναι, χονδρικά, ο χρόνος.'
+	},
+	'network.caveat': {
+		en: 'The graph measures the corpus as written, not history. A figure is central here because the entries list them, and a figure the corpus lacks is absent.',
+		el: 'Το γράφημα μετρά το σώμα των κειμένων όπως γράφτηκε, όχι την ιστορία. Ένα πρόσωπο είναι κεντρικό εδώ επειδή τα λήμματα το αναφέρουν, και ένα πρόσωπο που λείπει από το σώμα απουσιάζει.'
+	},
+	'network.aria': {
+		en: 'Network of figures. Each figure is a link to its page.',
+		el: 'Δίκτυο προσώπων. Κάθε πρόσωπο είναι σύνδεσμος προς τη σελίδα του.'
+	},
+	'network.all': { en: 'All regimes', el: 'Όλα τα πολιτεύματα' },
+	'network.min': { en: 'Shared events', el: 'Κοινά γεγονότα' },
+	'network.atleast': { en: 'at least {n}', el: 'τουλάχιστον {n}' },
+	'network.shown': { en: '{n} figures, {m} links', el: '{n} πρόσωπα, {m} συνδέσεις' },
+	'network.empty': {
+		en: 'No figure is linked to another under this filter.',
+		el: 'Κανένα πρόσωπο δεν συνδέεται με άλλο υπό αυτό το φίλτρο.'
+	},
+	'network.legend': { en: 'Legend', el: 'Υπόμνημα' },
+	'network.legend.shared': { en: 'shared events', el: 'κοινά γεγονότα' },
+	'network.legend.tie': { en: 'recorded tie', el: 'καταγεγραμμένη σχέση' },
+	'network.bridges': { en: 'Bridges', el: 'Γέφυρες' },
+	'network.bridges.lead': {
+		en: 'Betweenness: how often a figure lies on the shortest path between two others. High means the figure joins parts of the corpus that would otherwise not touch, which is a different question from who appears most.',
+		el: 'Ενδιαμεσότητα: πόσο συχνά ένα πρόσωπο βρίσκεται στη συντομότερη διαδρομή ανάμεσα σε δύο άλλα. Υψηλή τιμή σημαίνει ότι ενώνει μέρη του σώματος που αλλιώς δεν θα άγγιζαν, πράγμα διαφορετικό από το ποιος εμφανίζεται συχνότερα.'
+	},
+	'network.hubs': { en: 'Most linked', el: 'Με τις περισσότερες συνδέσεις' },
+	'network.hubs.lead': {
+		en: 'Degree: how many other figures share at least one event or tie with this one.',
+		el: 'Βαθμός: με πόσα άλλα πρόσωπα μοιράζεται τουλάχιστον ένα γεγονός ή μια σχέση.'
+	},
+	'network.tip.events.one': { en: '1 event', el: '1 γεγονός' },
+	'network.tip.events': { en: '{n} events', el: '{n} γεγονότα' },
+	'network.tip.degree': { en: 'linked to {n}', el: 'συνδέεται με {n}' },
+	'network.tip.between': { en: 'betweenness {n}', el: 'ενδιαμεσότητα {n}' },
+	'figure.died': { en: 'Died', el: 'Πέθανε' },
+
+	// The instruments index and one instrument
+	'instruments.description': {
+		en: 'The treaties, protocols and conventions that moved the frontier.',
+		el: 'Οι συνθήκες, τα πρωτόκολλα και οι συμβάσεις που μετακίνησαν τα σύνορα.'
+	},
+	'instruments.lead': {
+		en: 'The treaties, protocols and conventions that moved the frontier. Each one links to the map on the day it took effect.',
+		el: 'Οι συνθήκες, τα πρωτόκολλα και οι συμβάσεις που μετακίνησαν τα σύνορα. Καθεμία παραπέμπει στον χάρτη της ημέρας που τέθηκε σε ισχύ.'
+	},
+	'instruments.placeholder': {
+		en: 'Search treaties, parties, years…',
+		el: 'Αναζήτηση σε συνθήκες, συμβαλλόμενους, χρονολογίες…'
+	},
+	'instruments.empty': { en: 'No instrument matches that.', el: 'Καμία πράξη δεν ταιριάζει.' },
+	'instruments.textyes': { en: 'Text linked ({n})', el: 'Με κείμενο ({n})' },
+	'instruments.textno': { en: 'No text yet ({n})', el: 'Χωρίς κείμενο ακόμη ({n})' },
+	'instruments.signed': { en: 'Signed {date}', el: 'Υπογράφηκε {date}' },
+	'instruments.readtext': { en: 'Read the text', el: 'Διαβάστε το κείμενο' },
+	'instrument.kicker': { en: '{kind} · signed {date}', el: '{kind} · υπογράφηκε {date}' },
+	'instrument.openday': {
+		en: 'Open the atlas on this day →',
+		el: 'Άνοιγμα του άτλαντα σε αυτή την ημέρα →'
+	},
+	// The English names the kind inline; in Greek the article would have to agree
+	// with it, so the Greek says "the original text" and lets the kicker say which.
+	'instrument.readoriginal': {
+		en: 'Read the text of the {kind} →',
+		el: 'Διαβάστε το πρωτότυπο κείμενο →'
+	},
+	'instrument.notext': {
+		en: "This {kind}'s own text is not linked yet. Nothing was linked that had not been opened, so the gap is deliberate rather than an oversight.",
+		el: 'Το πρωτότυπο κείμενο δεν έχει συνδεθεί ακόμη. Δεν συνδέθηκε τίποτα που να μην έχει ανοιχτεί, οπότε το κενό είναι σκόπιμο και όχι παράλειψη.'
+	},
+	'instrument.moved': { en: 'What it moved', el: 'Τι μετακίνησε' },
+	'instrument.openon': {
+		en: 'Open the atlas on {date}',
+		el: 'Άνοιγμα του άτλαντα στις {date}'
+	},
+
+	// The places index
+	'places.description': {
+		en: 'Every place the atlas names, and what happened there.',
+		el: 'Κάθε τόπος που κατονομάζει ο άτλας, και τι συνέβη εκεί.'
+	},
+	'places.lead': {
+		en: 'Every point the atlas names. Names change and the point does not, so a place carries all the names it has held and the dates each was in force — searching any of them finds it.',
+		el: 'Κάθε σημείο που κατονομάζει ο άτλας. Τα ονόματα αλλάζουν, το σημείο όχι, οπότε κάθε τόπος φέρει όλα τα ονόματα που είχε και τις χρονολογίες που ίσχυε καθένα — η αναζήτηση οποιουδήποτε από αυτά τον βρίσκει.'
+	},
+	'places.placeholder': {
+		en: 'Search places, old names, regions…',
+		el: 'Αναζήτηση σε τόπους, παλιά ονόματα, περιοχές…'
+	},
+	'places.empty': { en: 'No place matches that.', el: 'Κανένας τόπος δεν ταιριάζει.' },
+	'places.outside': {
+		en: 'outside the mapped territory',
+		el: 'εκτός του χαρτογραφημένου εδάφους'
+	},
+	// The compass letters are the Greek ones, and the decimal comma comes from
+	// `num`, so the whole coordinate reads in the active language.
+	'places.coords': { en: '{lat}°N {lon}°E', el: '{lat}°Β {lon}°Α' },
+	'places.alsoknown': { en: 'Also known as', el: 'Γνωστός και ως' },
+	'places.eventshere': { en: '{n} events here', el: '{n} γεγονότα εδώ' },
+	'places.nothing': {
+		en: 'Named by the corpus, but nothing is anchored here yet.',
+		el: 'Αναφέρεται στο σώμα κειμένων, αλλά δεν έχει αγκυρωθεί ακόμη τίποτα εδώ.'
+	},
+
+	// The sources index
+	'sources.description': {
+		en: 'Every work the atlas cites, and what cites it.',
+		el: 'Κάθε έργο που επικαλείται ο άτλας, και τι το επικαλείται.'
+	},
+	'sources.lead': {
+		en: 'Every work the corpus cites, with the entries that cite it. Citations are authored on the entry, so this list is the inverse: the way to ask what one book is carrying.',
+		el: 'Κάθε έργο που επικαλείται το σώμα κειμένων, με τις καταχωρίσεις που το επικαλούνται. Οι παραπομπές γράφονται στην καταχώριση, οπότε αυτός ο κατάλογος είναι το αντίστροφο: ο τρόπος να ρωτήσει κανείς τι σηκώνει ένα βιβλίο.'
+	},
+	'sources.placeholder': {
+		en: 'Search authors, titles, publishers, what they support…',
+		el: 'Αναζήτηση σε συγγραφείς, τίτλους, εκδότες, όσα τεκμηριώνουν…'
+	},
+	'sources.empty': { en: 'No work matches that.', el: 'Κανένα έργο δεν ταιριάζει.' },
+	'sources.uncited': {
+		en: '{n} of {total} are listed but not yet cited anywhere.',
+		el: '{n} από {total} είναι καταχωρισμένα αλλά δεν τα επικαλείται ακόμη τίποτα.'
+	},
+	'sources.none': {
+		en: 'Listed, but nothing cites it yet.',
+		el: 'Καταχωρισμένο, αλλά δεν το επικαλείται ακόμη τίποτα.'
+	},
+
+	// The threads index and one thread
+	'threads.description': {
+		en: 'The narrative arcs the events belong to.',
+		el: 'Οι αφηγηματικές γραμμές στις οποίες ανήκουν τα γεγονότα.'
+	},
+	'threads.lead': {
+		en: 'The orders in which the events are worth reading. An event can sit on several arcs at once: 1922 belongs to the Great Idea, to the Asia Minor campaign and to the National Schism, and each tells it differently.',
+		el: 'Οι σειρές με τις οποίες αξίζει να διαβαστούν τα γεγονότα. Ένα γεγονός μπορεί να ανήκει σε πολλά νήματα ταυτόχρονα: το 1922 ανήκει στη Μεγάλη Ιδέα, στη Μικρασιατική Εκστρατεία και στον Εθνικό Διχασμό, και καθένα το αφηγείται αλλιώς.'
+	},
+	'threads.placeholder': {
+		en: 'Search threads and years…',
+		el: 'Αναζήτηση σε νήματα και χρονολογίες…'
+	},
+	'threads.empty': { en: 'No thread matches that.', el: 'Κανένα νήμα δεν ταιριάζει.' },
+	'threads.count': { en: '{n} events', el: '{n} γεγονότα' },
+	'threads.filter': {
+		en: 'Filter the ledger by this arc',
+		el: 'Φιλτράρισμα του καταλόγου με αυτό το νήμα'
+	},
+	'thread.see': {
+		en: 'See these {n} in the ledger →',
+		el: 'Δείτε αυτά τα {n} στον κατάλογο →'
+	},
+	'thread.step': { en: '{i} of {n}', el: '{i} από {n}' },
+
+	// Vocabularies that arrive as ids. Reached through `term`, never `ui`.
+	'kind.place.battlefield': { en: 'battlefield', el: 'πεδίο μάχης' },
+	'kind.place.building': { en: 'building', el: 'κτίριο' },
+	'kind.place.city': { en: 'city', el: 'πόλη' },
+	'kind.place.island': { en: 'island', el: 'νησί' },
+	'kind.place.region': { en: 'region', el: 'περιοχή' },
+	'kind.place.sea': { en: 'sea', el: 'θάλασσα' },
+	'kind.place.town': { en: 'town', el: 'κωμόπολη' },
+	'kind.place.village': { en: 'village', el: 'χωριό' },
+
+	'kind.instrument.armistice': { en: 'armistice', el: 'ανακωχή' },
+	'kind.instrument.convention': { en: 'convention', el: 'σύμβαση' },
+	'kind.instrument.decree': { en: 'decree', el: 'διάταγμα' },
+	'kind.instrument.protocol': { en: 'protocol', el: 'πρωτόκολλο' },
+	'kind.instrument.treaty': { en: 'treaty', el: 'συνθήκη' },
+
+	'kind.source.book': { en: 'book', el: 'βιβλίο' },
+	'kind.source.article': { en: 'article', el: 'άρθρο' },
+	'kind.source.chapter': { en: 'chapter', el: 'κεφάλαιο' },
+	'kind.source.dataset': { en: 'dataset', el: 'σύνολο δεδομένων' },
+	'kind.source.web': { en: 'web', el: 'ιστοσελίδα' },
+
+	'kind.polity.autonomous': { en: 'autonomous', el: 'αυτόνομο' },
+	'kind.polity.de_facto': { en: 'de facto', el: 'de facto' },
+	'kind.polity.empire': { en: 'empire', el: 'αυτοκρατορία' },
+	'kind.polity.protectorate': { en: 'protectorate', el: 'προτεκτοράτο' },
+	'kind.polity.state': { en: 'state', el: 'κράτος' },
+
+	'kind.regime.absolute_monarchy': { en: 'absolute monarchy', el: 'απόλυτη μοναρχία' },
+	'kind.regime.constitutional_monarchy': {
+		en: 'constitutional monarchy',
+		el: 'συνταγματική μοναρχία'
+	},
+	'kind.regime.dictatorship': { en: 'dictatorship', el: 'δικτατορία' },
+	'kind.regime.interregnum': { en: 'interregnum', el: 'μεσοβασιλεία' },
+	'kind.regime.occupation': { en: 'occupation', el: 'κατοχή' },
+	'kind.regime.republic': { en: 'republic', el: 'δημοκρατία' },
+	'kind.regime.revolutionary': { en: 'revolutionary', el: 'επαναστατικό' },
+
+	'kind.control.sovereign': { en: 'sovereign', el: 'κυριαρχία' },
+	'kind.control.occupied': { en: 'occupied', el: 'κατοχή' },
+	'kind.control.administered': { en: 'administered', el: 'διοίκηση' },
+	'kind.control.insurgent': { en: 'insurgent', el: 'εξέγερση' },
+	'kind.control.autonomous': { en: 'autonomous', el: 'αυτονομία' },
+	'kind.control.disputed': { en: 'disputed', el: 'αμφισβητούμενο' },
+	'kind.control.claimed': { en: 'claimed', el: 'διεκδικούμενο' },
+
+	// How the tooltip says the same kinds, as a clause rather than a noun
+	'verb.sovereign': { en: 'Sovereign', el: 'Κυρίαρχο' },
+	'verb.administered': { en: 'Administered by', el: 'Υπό τη διοίκηση' },
+	'verb.occupied': { en: 'Occupied by', el: 'Υπό την κατοχή' },
+	'verb.insurgent': { en: 'In revolt', el: 'Σε εξέγερση' },
+
+	// The legend's roles, which are their own vocabulary in `resolve.ts`
+	'role.map.sovereign': { en: 'sovereign', el: 'κυρίαρχο' },
+	'role.map.administering': { en: 'administering', el: 'διοικεί' },
+	'role.map.occupying': { en: 'occupying', el: 'κατέχει' },
+	'role.map.in revolt': { en: 'in revolt', el: 'σε εξέγερση' },
+
+	'role.figure.athlete': { en: 'athlete', el: 'αθλητής' },
+	'role.figure.benefactor': { en: 'benefactor', el: 'ευεργέτης' },
+	'role.figure.cleric': { en: 'cleric', el: 'κληρικός' },
+	'role.figure.diplomat': { en: 'diplomat', el: 'διπλωμάτης' },
+	'role.figure.military': { en: 'military', el: 'στρατιωτικός' },
+	'role.figure.monarch': { en: 'monarch', el: 'μονάρχης' },
+	'role.figure.revolutionary': { en: 'revolutionary', el: 'επαναστάτης' },
+	'role.figure.statesman': { en: 'statesman', el: 'πολιτικός' },
+	'role.figure.writer': { en: 'writer', el: 'συγγραφέας' },
+
+	// What a listed figure is to the one whose page it is on. Nouns, so that the
+	// same word serves a chip, a tooltip and a sentence in both languages.
+	'relation.parent': { en: 'parent', el: 'γονέας' },
+	'relation.child': { en: 'child', el: 'παιδί' },
+	'relation.sibling': { en: 'sibling', el: 'αδελφός' },
+	'relation.kin': { en: 'kin', el: 'συγγενής' },
+	'relation.rival': { en: 'rival', el: 'αντίπαλος' },
+	'relation.ally': { en: 'ally', el: 'σύμμαχος' },
+	'relation.patron': { en: 'patron', el: 'προστάτης' },
+	'relation.protege': { en: 'protégé', el: 'προστατευόμενος' },
+	'relation.predecessor': { en: 'predecessor', el: 'προκάτοχος' },
+	'relation.successor': { en: 'successor', el: 'διάδοχος' },
+
+	'role.event.author': { en: 'author', el: 'συντάκτης' },
+	'role.event.commander': { en: 'commander', el: 'διοικητής' },
+	'role.event.leader': { en: 'leader', el: 'ηγέτης' },
+	'role.event.participant': { en: 'participant', el: 'συμμετέχων' },
+	'role.event.signatory': { en: 'signatory', el: 'υπογράφων' },
+	'role.event.victim': { en: 'victim', el: 'θύμα' },
+	'role.event.witness': { en: 'witness', el: 'μάρτυρας' },
+
+	'what.born': { en: 'born here', el: 'γεννήθηκε εδώ' },
+	'what.died': { en: 'died here', el: 'πέθανε εδώ' },
+
+	'result.clean': { en: 'clean', el: 'καθαρό' },
+	'result.corrected': { en: 'corrected', el: 'διορθωμένο' },
+	'result.unresolved': { en: 'unresolved', el: 'ανεπίλυτο' },
+
+	// The Greek ordinal carries its accent onto the numeral -- 20ός, not 20ος --
+	// so these are written out rather than built from a pattern.
+	'century.18': { en: '18th century', el: '18ος αιώνας' },
+	'century.19': { en: '19th century', el: '19ος αιώνας' },
+	'century.20': { en: '20th century', el: '20ός αιώνας' },
+	'century.21': { en: '21st century', el: '21ος αιώνας' }
+} satisfies Record<string, LangText>;

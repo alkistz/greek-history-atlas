@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { navigating, page } from '$app/state';
 	import '$lib/fonts.css';
 	import DraftNotice from '$lib/DraftNotice.svelte';
@@ -9,6 +10,13 @@
 	import { ATLAS_PATH } from '$lib/viewstate';
 
 	let { children } = $props();
+
+	// Each page's file carries its own preview tags for link scrapers, which never
+	// run the app (scripts/shells.mjs). Once the app is up, the tags below take
+	// over and the static copies would only be duplicates.
+	onMount(() => {
+		for (const tag of document.head.querySelectorAll('[data-shell]')) tag.remove();
+	});
 
 	const nav = $derived([
 		{ href: ATLAS_PATH, label: ui('page.atlas') },

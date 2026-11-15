@@ -192,7 +192,7 @@ that line. `backend/tests/test_areas.py` holds all three to these tolerances.
 ## Deliberately not here yet
 
 Claims (numbers with citations) and interpretations. TopoJSON and merged borders.
-Server-side rendering and prerendering.
+Server-side rendering and prerendering: the pages have their own preview tags, but their text is rendered in the browser.
 
 ## Deploying
 
@@ -218,8 +218,8 @@ just the built directory. [`frontend/wrangler.jsonc`](frontend/wrangler.jsonc) i
 configuration.
 
 ```sh
-npx wrangler login    # once
-make deploy           # export, build, upload
+npx wrangler login                                   # once
+SITE_URL=https://<your-site> make deploy             # export, build, upload
 ```
 
 For deploys on push instead, connect the repo under the Worker's Settings -> Builds:
@@ -228,16 +228,24 @@ For deploys on push instead, connect the repo under the Worker's Settings -> Bui
 |---|---|
 | root directory | `frontend` |
 | build command | `npm run build` |
+| variable | `SITE_URL` = the site's public address |
 | deploy command | `npx wrangler deploy` |
 
 The Worker's name in the dashboard must match `name` in `wrangler.jsonc`, or the build
 fails.
 
-`not_found_handling: "single-page-application"` serves the app shell for any path that is
-not a real file, which is what makes `/events/<id>` work on a cold load. It also means a
-missing id comes back as HTML with a 200 rather than a 404, so `src/lib/api.ts` checks the
-content type before parsing and raises a proper not-found page. That is a property of
-static hosting generally, not of Workers.
+Every page is a real file. After `vite build`, `frontend/scripts/shells.mjs` writes a copy
+of the app shell for each route, `/events/<id>` included, carrying that page's title,
+description and Open Graph tags, so a shared link previews as the page it points at. The
+app is still client-rendered: the shells hold the English text because the language is
+the reader's choice, not part of the URL, and the app takes over in whichever language
+they chose. `SITE_URL` makes the URL and image tags absolute; without it they are left
+out and the rest still works. The preview image is `frontend/static/og.png`, the front
+page's hero.
+
+Because every page has a file, `not_found_handling: "404-page"` answers anything else with
+`404.html` and a real 404 status, and the app renders its not-found page there. A missing
+`/api/*.json` is a 404 too, which `src/lib/api.ts` turns into the same page.
 
 Nothing here is a one-way door. If readers ever need to write to this thing, the FastAPI
 app deploys as it stands and the frontend points back at it.

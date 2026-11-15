@@ -9,9 +9,10 @@
 	"compatibility_date": "2026-09-20",
 	"assets": {
 		"directory": "./build",
-		// Anything that is not a real file is the app shell, which reads the
-		// route from the URL. Requests for /api/*.json match real files and are
-		// served directly, so this only ever catches page routes.
-		"not_found_handling": "single-page-application"
+		// Every page the app has is a real file: scripts/shells.mjs writes one per
+		// route after the build, with that page's title and preview tags. Anything
+		// else is not a page, so it gets 404.html (the app shell, which renders the
+		// error page) with a real 404 status.
+		"not_found_handling": "404-page"
 	}
 }
