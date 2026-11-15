@@ -35,6 +35,7 @@ from app.core.paths import (
     POLITIES_YAML,
     REGIMES_YAML,
     REGIONS_YAML,
+    RELATIONS_YAML,
     SOURCES_YAML,
     THREADS_YAML,
 )
@@ -48,6 +49,7 @@ from app.modules.places.models import Place
 from app.modules.polities.models import Polity
 from app.modules.regimes.models import Regime
 from app.modules.regions.models import Region
+from app.modules.relations.models import Relation
 from app.modules.sources.models import Source
 from app.modules.threads.models import Thread
 
@@ -66,6 +68,7 @@ class Corpus:
     regions: list[Region] = field(default_factory=list)
     sources: list[Source] = field(default_factory=list)
     threads: list[Thread] = field(default_factory=list)
+    relations: list[Relation] = field(default_factory=list)
     geojson: dict[str, Any] = field(default_factory=dict)
     context: dict[str, Any] = field(default_factory=dict)
 
@@ -129,6 +132,7 @@ def validate(c: Corpus) -> list[str]:
     from app.modules.polities.validate import validate_polities
     from app.modules.regimes.validate import validate_regimes
     from app.modules.regions.validate import validate_regions
+    from app.modules.relations.validate import validate_relations
     from app.modules.sources.validate import validate_sources
     from app.modules.threads.validate import validate_threads
 
@@ -177,6 +181,7 @@ def validate(c: Corpus) -> list[str]:
     problems += validate_figures(c)
     problems += validate_events(c)
     problems += validate_threads(c)
+    problems += validate_relations(c)
     return problems
 
 
@@ -193,6 +198,7 @@ def load() -> Corpus:
     regions = load_yaml(REGIONS_YAML, Region, problems)
     sources = load_yaml(SOURCES_YAML, Source, problems)
     threads = load_yaml(THREADS_YAML, Thread, problems)
+    relations = load_yaml(RELATIONS_YAML, Relation, problems)
     events = load_dir(EVENTS_DIR, Event, problems)
     figures = load_dir(FIGURES_DIR, Figure, problems)
 
@@ -215,6 +221,7 @@ def load() -> Corpus:
         regions=regions,
         sources=sources,
         threads=threads,
+        relations=relations,
         geojson=geojson,
         context=context,
     )

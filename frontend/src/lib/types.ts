@@ -217,8 +217,20 @@ export interface FigureSummary {
 	born: LifeEvent | null;
 	died: LifeEvent | null;
 	roles: string[];
+	/** the state the figure served, as a polity id; null means Greece */
+	polity: string | null;
 	summary: LangText;
 	review: Review | null;
+}
+
+/** One neighbour of a figure: what they share and what the neighbour is to them. */
+export interface Connection {
+	id: string;
+	name: LangText;
+	/** ids of the events both took part in, in date order */
+	events: string[];
+	/** what the listed figure is to this one: child, rival, successor... */
+	relations: { kind: string; note: LangText | null }[];
 }
 
 export interface FigureDetail extends Omit<FigureSummary, 'born' | 'died'> {
@@ -227,6 +239,43 @@ export interface FigureDetail extends Omit<FigureSummary, 'born' | 'died'> {
 	died: (LifeEvent & { place: ResolvedPlace | null }) | null;
 	sources: Citation[];
 	events: (EventRef & { role: string })[];
+	connections: Connection[];
+}
+
+/** A figure as the network sees it: who they are, when they acted, how linked. */
+export interface NetworkNode {
+	id: string;
+	name: LangText;
+	roles: string[];
+	polity: string | null;
+	born: string | null;
+	died: string | null;
+	events: { id: string; date: string }[];
+	/** how many other figures share an event or a tie with this one */
+	degree: number;
+	/** share of shortest paths between other figures that pass through this one, 0 to 1 */
+	betweenness: number;
+}
+
+/** A tie as written: `from` is the `kind` of `to`. */
+export interface Relation {
+	from: string;
+	to: string;
+	kind: string;
+	note: LangText | null;
+}
+
+export interface NetworkEdge {
+	source: string;
+	target: string;
+	events: { id: string; date: string }[];
+	relations: Relation[];
+}
+
+/** What `/api/network/figures` returns: the whole figure graph in one payload. */
+export interface FigureNetwork {
+	nodes: NetworkNode[];
+	edges: NetworkEdge[];
 }
 
 /** What `/api/instruments` returns: the list, without the control rows. */

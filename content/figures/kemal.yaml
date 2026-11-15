@@ -3,6 +3,7 @@ name: {en: Mustafa Kemal Atatürk, el: Μουσταφά Κεμάλ Ατατού�
 born: {date: 1881-01-01, precision: circa, place: thessaloniki}
 died: {date: 1938-11-10, precision: day, place: constantinople}
 roles: [military, statesman]
+polity: turkey
 summary:
   en: >
     Ottoman staff officer who organised the Turkish national resistance to the partition

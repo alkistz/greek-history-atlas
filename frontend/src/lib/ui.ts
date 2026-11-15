@@ -36,6 +36,7 @@ const STRINGS = {
 	'page.events': { en: 'Events', el: 'Γεγονότα' },
 	'page.threads': { en: 'Threads', el: 'Νήματα' },
 	'page.figures': { en: 'Figures', el: 'Πρόσωπα' },
+	'page.network': { en: 'Network', el: 'Δίκτυο' },
 	'page.instruments': { en: 'Instruments', el: 'Πράξεις' },
 	'page.places': { en: 'Places', el: 'Τόποι' },
 	'page.sources': { en: 'Sources', el: 'Πηγές' },
@@ -348,6 +349,54 @@ const STRINGS = {
 	},
 	'figures.empty': { en: 'No figure matches that.', el: 'Κανένα πρόσωπο δεν ταιριάζει.' },
 	'figure.born': { en: 'Born', el: 'Γεννήθηκε' },
+	'figure.connections': { en: 'Connections', el: 'Συνδέσεις' },
+	'figure.network': { en: 'See in the network →', el: 'Δείτε στο δίκτυο →' },
+	// The first strings that can say "1", so the singular is its own entry.
+	'figure.shared.one': { en: '1 shared event', el: '1 κοινό γεγονός' },
+	'figure.shared': { en: '{n} shared events', el: '{n} κοινά γεγονότα' },
+
+	// The network page
+	'network.description': {
+		en: 'The figures of the atlas as a network: who stood in the same event as whom.',
+		el: 'Τα πρόσωπα του άτλαντα ως δίκτυο: ποιος βρέθηκε στο ίδιο γεγονός με ποιον.'
+	},
+	'network.lead': {
+		en: 'A line joins two figures who share an event or a recorded tie, and thickens with the number of events they share. Left to right is roughly time.',
+		el: 'Μια γραμμή ενώνει δύο πρόσωπα που μοιράζονται ένα γεγονός ή μια καταγεγραμμένη σχέση, και παχαίνει με τον αριθμό των κοινών γεγονότων. Από αριστερά προς τα δεξιά είναι, χονδρικά, ο χρόνος.'
+	},
+	'network.caveat': {
+		en: 'The graph measures the corpus as written, not history. A figure is central here because the entries list them, and a figure the corpus lacks is absent.',
+		el: 'Το γράφημα μετρά το σώμα των κειμένων όπως γράφτηκε, όχι την ιστορία. Ένα πρόσωπο είναι κεντρικό εδώ επειδή τα λήμματα το αναφέρουν, και ένα πρόσωπο που λείπει από το σώμα απουσιάζει.'
+	},
+	'network.aria': {
+		en: 'Network of figures. Each figure is a link to its page.',
+		el: 'Δίκτυο προσώπων. Κάθε πρόσωπο είναι σύνδεσμος προς τη σελίδα του.'
+	},
+	'network.all': { en: 'All regimes', el: 'Όλα τα πολιτεύματα' },
+	'network.min': { en: 'Shared events', el: 'Κοινά γεγονότα' },
+	'network.atleast': { en: 'at least {n}', el: 'τουλάχιστον {n}' },
+	'network.shown': { en: '{n} figures, {m} links', el: '{n} πρόσωπα, {m} συνδέσεις' },
+	'network.empty': {
+		en: 'No figure is linked to another under this filter.',
+		el: 'Κανένα πρόσωπο δεν συνδέεται με άλλο υπό αυτό το φίλτρο.'
+	},
+	'network.legend': { en: 'Legend', el: 'Υπόμνημα' },
+	'network.legend.shared': { en: 'shared events', el: 'κοινά γεγονότα' },
+	'network.legend.tie': { en: 'recorded tie', el: 'καταγεγραμμένη σχέση' },
+	'network.bridges': { en: 'Bridges', el: 'Γέφυρες' },
+	'network.bridges.lead': {
+		en: 'Betweenness: how often a figure lies on the shortest path between two others. High means the figure joins parts of the corpus that would otherwise not touch, which is a different question from who appears most.',
+		el: 'Ενδιαμεσότητα: πόσο συχνά ένα πρόσωπο βρίσκεται στη συντομότερη διαδρομή ανάμεσα σε δύο άλλα. Υψηλή τιμή σημαίνει ότι ενώνει μέρη του σώματος που αλλιώς δεν θα άγγιζαν, πράγμα διαφορετικό από το ποιος εμφανίζεται συχνότερα.'
+	},
+	'network.hubs': { en: 'Most linked', el: 'Με τις περισσότερες συνδέσεις' },
+	'network.hubs.lead': {
+		en: 'Degree: how many other figures share at least one event or tie with this one.',
+		el: 'Βαθμός: με πόσα άλλα πρόσωπα μοιράζεται τουλάχιστον ένα γεγονός ή μια σχέση.'
+	},
+	'network.tip.events.one': { en: '1 event', el: '1 γεγονός' },
+	'network.tip.events': { en: '{n} events', el: '{n} γεγονότα' },
+	'network.tip.degree': { en: 'linked to {n}', el: 'συνδέεται με {n}' },
+	'network.tip.between': { en: 'betweenness {n}', el: 'ενδιαμεσότητα {n}' },
 	'figure.died': { en: 'Died', el: 'Πέθανε' },
 
 	// The instruments index and one instrument
@@ -533,6 +582,19 @@ const STRINGS = {
 	'role.figure.revolutionary': { en: 'revolutionary', el: 'επαναστάτης' },
 	'role.figure.statesman': { en: 'statesman', el: 'πολιτικός' },
 	'role.figure.writer': { en: 'writer', el: 'συγγραφέας' },
+
+	// What a listed figure is to the one whose page it is on. Nouns, so that the
+	// same word serves a chip, a tooltip and a sentence in both languages.
+	'relation.parent': { en: 'parent', el: 'γονέας' },
+	'relation.child': { en: 'child', el: 'παιδί' },
+	'relation.sibling': { en: 'sibling', el: 'αδελφός' },
+	'relation.kin': { en: 'kin', el: 'συγγενής' },
+	'relation.rival': { en: 'rival', el: 'αντίπαλος' },
+	'relation.ally': { en: 'ally', el: 'σύμμαχος' },
+	'relation.patron': { en: 'patron', el: 'προστάτης' },
+	'relation.protege': { en: 'protégé', el: 'προστατευόμενος' },
+	'relation.predecessor': { en: 'predecessor', el: 'προκάτοχος' },
+	'relation.successor': { en: 'successor', el: 'διάδοχος' },
 
 	'role.event.author': { en: 'author', el: 'συντάκτης' },
 	'role.event.commander': { en: 'commander', el: 'διοικητής' },

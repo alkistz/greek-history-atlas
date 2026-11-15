@@ -106,6 +106,19 @@ nineteen arcs in `threads.yaml` cover 98% of events and are allowed to overlap, 
 once. Reading order is derived from the dates, so a list written out of order cannot
 produce an arc that contradicts the timeline.
 
+**The network.** Participation links a figure to an event, and two figures on one event
+are therefore linked to each other. `/network` draws that graph over all 78 figures: a
+line is a shared event, thickened by how many, and left to right is roughly time. It is
+derived at export time from the events, so it costs nothing per entry and cannot disagree
+with them. What co-occurrence cannot say is *why* two people keep meeting, so
+`relations.yaml` adds the tie: Venizelos and Constantine share nine events because they
+were rivals, George I and Constantine share five because one was the other's father. A
+tie is written once and read from both ends, like a thread. The page ranks figures by
+betweenness as well as by degree, because who bridges otherwise separate parts of the
+corpus is a different question from who appears most, and the answer differs: Venizelos
+leads by events, Papagos and Plastiras by bridging. Every number measures the corpus as
+written, not history, and the page says so.
+
 ## Running it
 
 ```sh

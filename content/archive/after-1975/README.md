@@ -23,6 +23,7 @@ a quarter of its width to a static map and nine scattered events.
 | `places.yaml` | `brussels`, `psarades`, `imia`, `tempi`: places used only by those events |
 | `sources.yaml` | `siani-davies-2017`: the one work cited only by those entries |
 | `threads.yaml` | the five threads that ran past 1975, as they stood before the cut |
+| `relations.yaml` | the three ties that name an archived figure, moved here when the figure network was merged |
 
 Figures who also appear before 1975, such as Andreas Papandreou and Konstantinos
 Karamanlis, stayed in the corpus. Their archived appearances are recorded only in the
@@ -31,7 +32,8 @@ archived events' `figures` lists.
 ## Restoring an entry
 
 1. Move the file back into `content/events/` or `content/figures/`, and the matching
-   blocks from `instruments.yaml`, `places.yaml` and `sources.yaml` back into the top-level files.
+   blocks from `instruments.yaml`, `places.yaml`, `sources.yaml` and `relations.yaml` back
+   into the top-level files.
 2. Put the event back in its threads, taking the summary from `threads.yaml` here if
    the thread's ending changes with it.
 3. Raise `SCOPE_END` in `backend/app/core/scope.py`. Validation refuses any event or

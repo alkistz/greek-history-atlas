@@ -3,6 +3,7 @@ name: {en: Adnan Menderes, el: Αντνάν Μεντερές}
 born: {date: 1899-01-01, precision: year}
 died: {date: 1961-09-17, precision: day}
 roles: [statesman]
+polity: turkey
 summary:
   en: >
     Prime minister of Turkey from 1950 to 1960, in office when the Cyprus dispute brought Greece

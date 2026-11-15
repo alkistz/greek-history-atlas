@@ -45,11 +45,17 @@
 	// carry the map's own colours.
 	const colourOf = $derived(new Map(data.meta.polities.map((p) => [p.id, p.colour ?? 'transparent'])));
 
-	const counts = $derived({ ...data.counts, instruments: data.meta.instruments.length });
-	const doors: { href: string; key: 'events' | 'threads' | 'figures' | 'instruments' | 'places' | 'sources' }[] = [
+	const counts: Record<string, number> = $derived({
+		...data.counts,
+		instruments: data.meta.instruments.length
+	});
+	type Door = 'events' | 'threads' | 'figures' | 'network' | 'instruments' | 'places' | 'sources';
+	// The network is a view of the figures rather than an index, so it has no count.
+	const doors: { href: string; key: Door }[] = [
 		{ href: '/events', key: 'events' },
 		{ href: '/threads', key: 'threads' },
 		{ href: '/figures', key: 'figures' },
+		{ href: '/network', key: 'network' },
 		{ href: '/instruments', key: 'instruments' },
 		{ href: '/places', key: 'places' },
 		{ href: '/sources', key: 'sources' }
@@ -212,7 +218,7 @@
 				<li>
 					<a href={d.href}>
 						<span class="label">{ui(pageKey(d.key))}</span>
-						<span class="count">{counts[d.key]}</span>
+						{#if counts[d.key] !== undefined}<span class="count">{counts[d.key]}</span>{/if}
 						<span class="desc">{ui(descKey(d.key))}</span>
 					</a>
 				</li>

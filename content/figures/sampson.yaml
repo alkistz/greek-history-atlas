@@ -3,6 +3,7 @@ name: {en: Nikos Sampson, el: Νίκος Σαμψών}
 born: {date: 1935-12-16, precision: day, place: famagusta}
 died: {date: 2001-05-09, precision: day, place: nicosia}
 roles: [revolutionary, statesman]
+polity: cyprus-republic
 summary:
   en: >
     EOKA fighter, newspaper publisher and member of the Cypriot House of

@@ -1,0 +1,14 @@
+# Ties from content/relations.yaml that name a figure archived at the 1975 cut. Not
+# loaded. Restore them with the figures they name.
+
+- {from: papandreou-andreas, to: papandreou-giorgos, kind: parent}
+- from: papandreou-andreas
+  to: simitis
+  kind: predecessor
+  note:
+    en: as Prime Minister and leader of PASOK, 1996
+    el: στην πρωθυπουργία και την ηγεσία του ΠΑΣΟΚ, 1996
+- from: tsipras
+  to: mitsotakis-kyriakos
+  kind: predecessor
+  note: {en: "as Prime Minister, 2019", el: "στην πρωθυπουργία, 2019"}

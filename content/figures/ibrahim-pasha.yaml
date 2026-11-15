@@ -3,6 +3,7 @@ name: {en: Ibrahim Pasha, el: Ιμπραήμ Πασάς}
 born: {date: 1789-01-01, precision: year, place: kavala}
 died: {date: 1848-11-10, precision: day, place: cairo}
 roles: [military]
+polity: egypt
 summary:
   en: >
     Eldest son of Muhammad Ali of Egypt. His disciplined Egyptian army landed in the

@@ -3,6 +3,7 @@ name: {en: Harry S. Truman, el: Χάρι Τρούμαν}
 born: {date: 1884-05-08, precision: day}
 died: {date: 1972-12-26, precision: day}
 roles: [statesman]
+polity: united-states
 summary:
   en: >
     Thirty-third President of the United States, in office from 1945 to 1953. His address to

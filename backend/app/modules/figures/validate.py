@@ -12,12 +12,15 @@ if TYPE_CHECKING:
 def validate_figures(c: Corpus) -> list[str]:
     problems: list[str] = []
     place_ids = ids(c.places)
+    polity_ids = ids(c.polities)
 
     for fig in c.figures:
         where = f"figure {fig.id!r}"
         for label, life in (("born", fig.born), ("died", fig.died)):
             if life is not None and life.place is not None and life.place not in place_ids:
                 problems.append(f"{where}: unknown {label} place {life.place!r}")
+        if fig.polity is not None and fig.polity not in polity_ids:
+            problems.append(f"{where}: unknown polity {fig.polity!r}")
         if fig.born is not None and fig.died is not None and fig.born.date >= fig.died.date:
             problems.append(f"{where}: born {fig.born.date} is not before died {fig.died.date}")
         problems += check_citations(c, fig.sources, where)

@@ -99,3 +99,13 @@
 - id: montenegro
   name: {en: Montenegro, el: Μαυροβούνιο}
   kind: state
+
+# Polities that neither hold territory nor sign an instrument here, but that a
+# figure served. The network page colours a figure by this.
+- id: egypt
+  name: {en: Egypt, el: Αίγυπτος}
+  kind: autonomous
+
+- id: united-states
+  name: {en: United States, el: Ηνωμένες Πολιτείες}
+  kind: state
