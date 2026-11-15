@@ -48,6 +48,9 @@
 	});
 
 	const layered = $derived(resolveOn(data.control, date));
+	const greekOccupied = $derived(
+		[...layered.occupied.values()].flat().some((a) => layered.sovereign.get(a)?.startsWith('gr-'))
+	);
 	// What the camera is showing, so the legend lists what is on screen and not
 	// what the frame nominally contains.
 	let view = $state<Rect | null>(null);
@@ -254,7 +257,10 @@
 						<p class="note">{ui('atlas.note.insurgent')}</p>
 					{/if}
 					{#if layered.occupied.size}
-						<p class="note">{ui('atlas.note.occupied')}</p>
+						<p class="note">
+							{ui('atlas.note.occupied')}
+							{#if greekOccupied}{ui('atlas.note.occupied.greece')}{/if}
+						</p>
 					{/if}
 					<label class="occ">
 						<input type="checkbox" bind:checked={showOccupation} />

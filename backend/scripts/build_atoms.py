@@ -3,10 +3,11 @@ the raw NUTS3 boundaries.
 
 Run once; both outputs are committed so nothing downstream needs the network.
 
-Atoms are dissolved from whole NUTS3 units (`nuts3`) and, where a historical
-frontier cuts an island group off a mainland unit, from polygon parts selected
-by bounding box (`parts`). Sub-NUTS3 land cuts (Elassona, Domokos, Preveza) are
-not supported here and remain known simplifications.
+Atoms are dissolved from whole NUTS3 units (`nuts3`) and from parts of units
+(`parts`). A part is either the polygon parts inside a bounding box, which is how
+an island group is cut off a mainland unit, or one side of a historical frontier
+that runs through the unit, taken from an OpenHistoricalMap relation named in
+content/cuts.yaml. Either way, an atom listing the whole unit gets what is left.
 
 Context is the neutral land backdrop: every unit of the neighbouring countries
 dissolved into one polygon and clipped to the widest map frame. It includes the
@@ -22,11 +23,11 @@ from typing import Any
 import yaml
 from pyproj import Geod
 from shapely import make_valid
-from shapely.geometry import MultiPolygon, Polygon, mapping, shape
+from shapely.geometry import LineString, MultiPolygon, Polygon, mapping, shape
 from shapely.geometry.polygon import orient
-from shapely.ops import clip_by_rect, unary_union
+from shapely.ops import clip_by_rect, polygonize, unary_union
 
-from app.core.paths import ATOMS_GEOJSON, ATOMS_YAML, CONTEXT_GEOJSON, NUTS3_RAW
+from app.core.paths import ATOMS_GEOJSON, ATOMS_YAML, CONTEXT_GEOJSON, CUTS_YAML, NUTS3_RAW, ohm_raw
 
 GEOD = Geod(ellps="WGS84")
 PRECISION = 6
@@ -39,6 +40,16 @@ CONTEXT_COUNTRIES = ("EL", "AL", "MK", "BG", "TR", "IT", "RS", "ME", "CY")
 CLIP_BBOX = (17.4, 33.2, 36.2, 43.4)
 
 PUBLISHED_KM2 = 131_957  # Greece, 2021
+
+# Cutting along a frontier: the coastlines of OpenHistoricalMap and Eurostat never
+# agree, so one side of a cut always picks up slivers along the other's coast. An
+# opening (shrink, then grow back) by this many degrees, about a kilometre, removes
+# anything thinner than twice that, and pieces left smaller than MIN_PIECE_KM2 are
+# dropped. Both are far below what the map can show.
+OPEN_DEG = 0.01
+MIN_PIECE_KM2 = 5
+# A cut that takes more than this share of a unit is almost certainly the wrong side.
+MAX_CUT_SHARE = 0.95
 
 
 def round_coords(obj: Any) -> Any:
@@ -79,22 +90,55 @@ def within(bounds, bbox) -> bool:
     return bounds[0] >= w and bounds[1] >= s and bounds[2] <= e and bounds[3] <= n
 
 
+def load_frontier(relation: int):
+    """An OpenHistoricalMap boundary relation as one (multi)polygon."""
+    path = ohm_raw(relation)
+    if not path.exists():
+        raise FileNotFoundError(f"missing {path}. Run `make fetch` first.")
+    rel = json.loads(path.read_text())["elements"][0]
+    lines = [
+        LineString([(p["lon"], p["lat"]) for p in m["geometry"]])
+        for m in rel["members"]
+        if m["type"] == "way" and m.get("role", "outer") in ("outer", "")
+    ]
+    return unary_union(list(polygonize(unary_union(lines))))
+
+
+def take_side(unit, frontier, side: str) -> list[Polygon]:
+    """The polygons of `unit` inside or outside `frontier`, with coastal slivers removed."""
+    piece = unit.intersection(frontier) if side == "inside" else unit.difference(frontier)
+    piece = piece.buffer(-OPEN_DEG).buffer(OPEN_DEG).intersection(unit)
+    return [p for p in polygons_of(piece) if not p.is_empty and area_km2(p) >= MIN_PIECE_KM2]
+
+
+def polygons_of(geom) -> list[Polygon]:
+    """Every polygon in a geometry of any type, collections included."""
+    if geom.geom_type == "Polygon":
+        return [geom]
+    if geom.geom_type in ("MultiPolygon", "GeometryCollection"):
+        return [p for g in geom.geoms for p in polygons_of(g)]
+    return []
+
+
 def load_nuts() -> dict[str, list[Polygon]]:
     """Every NUTS3 unit as a list of polygon parts, keyed by code."""
     raw = json.loads(NUTS3_RAW.read_text())
     return {f["properties"]["id"]: polygons(shape(f["geometry"])) for f in raw["features"]}
 
 
-def build_atoms(atoms: list[dict], nuts: dict[str, list[Polygon]]):
+def build_atoms(atoms: list[dict], nuts: dict[str, list[Polygon]], frontiers: dict[str, Any]):
     """Assign polygon parts to atoms. Returns (features, rows, errors)."""
     remaining = {code: list(parts) for code, parts in nuts.items()}
     claimed: dict[str, str] = {}  # code -> atom, for whole units
     geoms: dict[str, list[Polygon]] = defaultdict(list)
     errors: list[str] = []
 
-    # Parts first, so whole-unit atoms get what is left of a shared unit.
+    # Parts first, so whole-unit atoms get what is left of a shared unit: islands by
+    # bbox, then frontier cuts, so a cut never has to reason about an island group.
     for a in atoms:
         for part in a.get("parts", []):
+            if "bbox" not in part:
+                continue
             code, bbox = part["nuts3"], tuple(part["bbox"])
             if code not in remaining:
                 errors.append(f"atom {a['id']!r}: unknown NUTS3 code {code}")
@@ -106,6 +150,31 @@ def build_atoms(atoms: list[dict], nuts: dict[str, list[Polygon]]):
             remaining[code] = [p for p in remaining[code] if p not in picked]
             geoms[a["id"]].extend(picked)
             print(f"  {a['id']}: {len(picked)} part(s) of {code} inside {bbox}")
+
+    for a in atoms:
+        for part in a.get("parts", []):
+            if "cut" not in part:
+                continue
+            code, cut, side = part["nuts3"], part["cut"], part["side"]
+            if code not in remaining:
+                errors.append(f"atom {a['id']!r}: unknown NUTS3 code {code}")
+                continue
+            if cut not in frontiers:
+                errors.append(f"atom {a['id']!r}: unknown cut {cut!r}")
+                continue
+            unit = unary_union(remaining[code])
+            picked = take_side(unit, frontiers[cut], side)
+            share = sum(area_km2(p) for p in picked) / area_km2(unit)
+            if not picked or share > MAX_CUT_SHARE:
+                errors.append(
+                    f"atom {a['id']!r}: {side} {cut!r} takes {share:.0%} of {code}; "
+                    "expected part of it"
+                )
+                continue
+            rest = unit.difference(unary_union(picked))
+            remaining[code] = [p for p in polygons_of(rest) if not p.is_empty]
+            geoms[a["id"]].extend(picked)
+            print(f"  {a['id']}: {share:.0%} of {code}, {side} {cut}")
 
     for a in atoms:
         for code in a.get("nuts3", []):
@@ -206,7 +275,13 @@ def main() -> int:
     print(f"loaded {len(nuts)} NUTS3 units; {counts}")
 
     atoms = yaml.safe_load(ATOMS_YAML.read_text())
-    features, rows, errors = build_atoms(atoms, nuts)
+    cuts = yaml.safe_load(CUTS_YAML.read_text())
+    try:
+        frontiers = {c["id"]: load_frontier(c["ohm"]) for c in cuts}
+    except FileNotFoundError as e:
+        print(e, file=sys.stderr)
+        return 1
+    features, rows, errors = build_atoms(atoms, nuts, frontiers)
     if errors:
         for e in errors:
             print(f"ERROR: {e}", file=sys.stderr)
@@ -221,7 +296,9 @@ def main() -> int:
                 "source": "Eurostat Nuts2json v2 / 2021 / 4326 / 03M",
                 "licence": "Nuts2json EUPL 1.2; boundaries (c) EuroGeographics for the "
                 "administrative boundaries",
-                "note": "Whole NUTS3 units, plus island groups cut by bounding box. "
+                "note": "Whole NUTS3 units, island groups cut by bounding box, and "
+                "units split along historical frontiers from OpenHistoricalMap (CC0), "
+                "relations: " + ", ".join(str(c["ohm"]) for c in cuts) + ". "
                 "See README.md for known simplifications.",
             },
         },

@@ -1,9 +1,10 @@
 # Atoms: areas whose sovereignty history is identical throughout 1821 to the present.
 #
-# Atoms dissolve whole NUTS3 units (`nuts3`). Where a historical frontier cut an island
-# group off a mainland unit, `parts` picks the polygon parts of that unit whose bounds fall
-# inside a bounding box (w, s, e, n), and the mainland atom gets the remainder. Land cuts
-# inside a unit (Elassona, Domokos, Preveza) are not modelled; see README.md.
+# Atoms dissolve whole NUTS3 units (`nuts3`), and `parts` takes less than a whole unit,
+# in one of two ways. Where a frontier cut an island group off a mainland unit, `bbox`
+# picks the polygon parts whose bounds fall inside a box (w, s, e, n). Where a frontier
+# ran through a unit on land, `cut` names a line in cuts.yaml and `side` takes what lies
+# inside or outside it. Either way the atom listing the whole unit gets the remainder.
 #
 # `external: true` marks atoms outside the modern Greek state. They are excluded from
 # area totals and only drawn while a control row covers them.
@@ -22,8 +23,14 @@
 - id: sterea
   name: {en: Eastern Central Greece, el: Ανατολική Στερεά Ελλάδα}
   nuts3: [EL641, EL643, EL644, EL645]
-  # The 1832 Arta-Volos frontier cut across Fthiotida and Evrytania. Domokos and the
-  # northern Agrafa sit inside this atom but were Ottoman until 1881.
+  # Fthiotida and Evrytania south of the 1832 frontier; `sterea-north` takes the rest.
+
+- id: sterea-north
+  name: {en: Domokos and the northern Agrafa, el: Δομοκός και βόρεια Άγραφα}
+  # North of the 1832 Arta-Volos line, so Ottoman with Thessaly until 1881.
+  parts:
+    - {nuts3: EL644, cut: kingdom-1832, side: outside}
+    - {nuts3: EL643, cut: kingdom-1832, side: outside}
 
 - id: evvoia
   name: {en: Euboea, el: Εύβοια}
@@ -47,8 +54,22 @@
 - id: thessaly
   name: {en: Thessaly, el: Θεσσαλία}
   nuts3: [EL611, EL612, EL613]
-  # EL613 minus the Sporades, which `sporades` takes by bbox.
-  # Includes Elassona, which remained Ottoman until 1912.
+  # What the Convention of 1881 ceded: EL613 minus the Sporades (`sporades`) and the
+  # Othrys coast (`pteleos`), and EL611 and EL612 south of the 1881 frontier
+  # (`thessaly-north` takes the rest).
+
+- id: thessaly-north
+  name: {en: Elassona and northern Thessaly, el: Ελασσόνα και βόρεια Θεσσαλία}
+  # Left Ottoman by the line of 1881, and taken in the First Balkan War.
+  parts:
+    - {nuts3: EL612, cut: kingdom-1881, side: outside}
+    - {nuts3: EL611, cut: kingdom-1881, side: outside}
+
+- id: pteleos
+  name: {en: Pteleos and the Othrys coast, el: Πτελεός και παράλια της Όθρυος}
+  # South of the 1832 line, so Greek from the start, though inside modern Magnesia.
+  parts:
+    - {nuts3: EL613, cut: kingdom-1832, side: inside}
 
 - id: sporades
   name: {en: Northern Sporades, el: Βόρειες Σποράδες}
@@ -56,10 +77,16 @@
   parts:
     - {nuts3: EL613, bbox: [23.36, 38.9, 24.5, 39.6]}
 
-- id: arta-preveza
-  name: {en: Arta and Preveza, el: Άρτα και Πρέβεζα}
+- id: arta
+  name: {en: Arta, el: Άρτα}
   nuts3: [EL541]
-  # Arta became Greek in 1881, Preveza in 1913. v0 treats both as 1881.
+  # East of the Arachthos, ceded in 1881. `preveza` takes the rest of the unit.
+
+- id: preveza
+  name: {en: Preveza, el: Πρέβεζα}
+  # West of the Arachthos, which the line of 1881 followed: Ottoman until 1912.
+  parts:
+    - {nuts3: EL541, cut: kingdom-1881, side: outside}
 
 - id: epirus
   name: {en: Epirus, el: Ήπειρος}
@@ -131,5 +158,12 @@
 - id: cyprus
   name: {en: Cyprus, el: Κύπρος}
   nuts3: [CY000]
-  # Whole island. The 1974 partition needs a hand-drawn cut and is not modelled.
+  # The island south of the 1974 ceasefire line; `cyprus-north` takes the rest. The
+  # two share one history until August 1974.
+  external: true
+
+- id: cyprus-north
+  name: {en: Northern Cyprus, el: Βόρεια Κύπρος}
+  parts:
+    - {nuts3: CY000, cut: north-cyprus-1974, side: inside}
   external: true

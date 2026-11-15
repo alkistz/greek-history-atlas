@@ -22,6 +22,7 @@ API_EXPORT = STATIC / "api"
 ATOMS_YAML = CONTENT / "atoms.yaml"
 POLITIES_YAML = CONTENT / "polities.yaml"
 CONTROL_YAML = CONTENT / "control.yaml"
+CUTS_YAML = CONTENT / "cuts.yaml"
 INSTRUMENTS_YAML = CONTENT / "instruments.yaml"
 PLACES_YAML = CONTENT / "places.yaml"
 REGIMES_YAML = CONTENT / "regimes.yaml"
@@ -36,3 +37,8 @@ FIGURES_DIR = CONTENT / "figures"
 NUTS3_RAW = RAW / "nutsrg_3.json"
 ATOMS_GEOJSON = DATA / "atoms.geojson"
 CONTEXT_GEOJSON = DATA / "context.geojson"
+
+
+def ohm_raw(relation: int) -> Path:
+    """A downloaded OpenHistoricalMap relation, as Overpass JSON with geometry."""
+    return RAW / f"ohm-{relation}.json"

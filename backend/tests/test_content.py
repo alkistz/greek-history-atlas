@@ -18,8 +18,8 @@ from app.modules.events.models import Event
 
 
 def test_corpus_loads_and_validates(corpus):
-    assert len(corpus.atoms) == 25
-    assert sum(a.external for a in corpus.atoms) == 5
+    assert len(corpus.atoms) == 30
+    assert sum(a.external for a in corpus.atoms) == 6
     assert corpus.control
     assert corpus.events
     assert corpus.figures
@@ -47,7 +47,7 @@ def test_occupation_layers_over_sovereignty(corpus):
     rows = control.control_on(corpus, on)
     sovereign = {c.atom for c in rows if c.kind == "sovereign" and c.polity == "gr-kingdom"}
     occupied = {c.atom for c in rows if c.kind == "occupied"}
-    assert len(sovereign) == 19
+    assert len(sovereign) == 23
     assert occupied == sovereign
     occupiers = {c.polity for c in rows if c.kind == "occupied"}
     assert occupiers == {"germany", "italy", "bulgaria"}

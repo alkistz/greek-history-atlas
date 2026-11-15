@@ -9,7 +9,10 @@ const HATCH_ANGLE: Record<string, number> = {
 	germany: 45,
 	italy: 135,
 	bulgaria: 0,
-	britain: 90
+	britain: 90,
+	// Northern Cyprus from 1974. Never on the map with the others, but kept off their
+	// angles anyway, so the legend swatches read as different things.
+	turkey: 160
 };
 
 export function angleFor(polityId: string): number {

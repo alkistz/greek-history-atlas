@@ -126,18 +126,16 @@ The **mismatched** tier, where each language carries a *different* figure, is at
 That tier is the one worth watching: it is how both Old Style / New Style splits were
 found.
 
-## 8. Northern Cyprus is not shaded after August 1974
+## 8. Northern Cyprus after August 1974 — done
 
-With the atlas ending in 1975, the last eighteen months of the timeline show all of Cyprus
-held by the Republic, while `turkish-invasion-of-cyprus-1974` sits on the same track. The
-map is not wrong about sovereignty, but it says nothing about occupation, and occupation is
-the distinction this atlas exists to draw (see 1941–44).
+Fixed on 15 November 2026. `cyprus-north` is cut from CY000 along the ceasefire line
+(`content/cuts.yaml`) and carries a Turkish `occupied` row from 16 August 1974 over the
+Republic's sovereignty. The same mechanism cut the 1832 line through Fthiotida, Evrytania
+and Magnesia and the 1881 line through Larisa, Trikala and Arta-Preveza.
 
-Fixing it needs a cut below NUTS3: Cyprus is a single region (CY000), so the north has to
-become its own atom along the ceasefire line of 16 August 1974, with `cyprus` split into two
-atoms that share one history up to that date. Then add one `control` row for the
-occupation. It is the "Cyprus split for 1974" that the README lists as deliberately not
-built yet; the cut is what moves it up the list.
+The Cyprus line comes from an OpenHistoricalMap relation that is flagged there as needing
+a source for its lines. It follows the present Green Line, which is the ceasefire line, so
+it is right at the scale of this map; a cited source for it would still be better.
 
 ## What was tried and did not work
 

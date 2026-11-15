@@ -1,0 +1,46 @@
+# Cuts: historical frontiers that run through a NUTS3 unit rather than along one.
+#
+# An atom is normally built from whole NUTS3 units. Where a frontier crossed a unit,
+# a part in atoms.yaml names one of these cuts and takes the side it wants
+# (`side: inside` or `outside`); the atom listing the whole unit gets the rest.
+#
+# Each cut is the boundary of a state on one date, as drawn in OpenHistoricalMap
+# (https://www.openhistoricalmap.org/relation/<ohm>, licensed CC0). Only the land line
+# matters: where the coastline in OpenHistoricalMap disagrees with the Eurostat one,
+# `build_atoms.py` drops the slivers. `make fetch` downloads the relations into
+# data/raw/, and `make atoms` applies them; the built geometry is committed, so the
+# app never needs them.
+#
+# Accuracy is that of the source, which is a small-scale map rather than a survey:
+# good to a few kilometres, about the resolution of the 03M base map itself. Every
+# line here is better than the whole-unit approximation it replaced, and none of
+# them is a demarcation record.
+
+- id: kingdom-1832
+  name: {en: The frontier of 1832, el: Τα σύνορα του 1832}
+  ohm: 2923268
+  note: >
+    The Kingdom of Greece, 1832-1864: the Arta-Volos line fixed by the Treaty of
+    Constantinople in July 1832 and demarcated by a boundary commission in 1832-35. It
+    left Domokos and the northern Agrafa Ottoman and gave Greece the Othrys coast as far
+    as Pteleos on the Gulf of Volos. OpenHistoricalMap credits the Wikipedia map of
+    Greek territorial expansion as its source.
+
+- id: kingdom-1881
+  name: {en: The frontier of 1881, el: Τα σύνορα του 1881}
+  ohm: 2692556
+  note: >
+    The Kingdom of Greece, 1881-1913, after the Convention of Constantinople ceded
+    Thessaly and Arta: the Arachthos left Preveza Ottoman, and the line north of
+    Larissa and Kalambaka left Elassona and the hill country beyond Ottoman until
+    1912. The small rectification after the war of 1897 is not drawn. Same source
+    as above.
+
+- id: north-cyprus-1974
+  name: {en: The ceasefire line of 1974, el: Η γραμμή κατάπαυσης του πυρός του 1974}
+  ohm: 2801348
+  note: >
+    The area held by the Turkish army since the ceasefire of 16 August 1974, as
+    OpenHistoricalMap draws Northern Cyprus. The relation is flagged there as needing a
+    source for its lines; it follows the present Green Line, which is the 1974
+    ceasefire line.

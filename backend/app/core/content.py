@@ -3,8 +3,8 @@
 Everything lives in memory: the whole corpus is a few hundred kilobytes.
 
 Validation runs at load time and raises. The app refuses to boot on bad content,
-which is where the "no CI in v0" decision gets paid for: the invariants that a
-PostGIS EXCLUDE constraint would have enforced are enforced here instead.
+and CI runs the same load on every push: the invariants that a PostGIS EXCLUDE
+constraint would have enforced are enforced here instead.
 
 This file only orchestrates. Each module owns its own models and its own
 validation rules; the cross-module wiring (which files, in what order, what is
@@ -27,6 +27,7 @@ from app.core.paths import (
     ATOMS_YAML,
     CONTEXT_GEOJSON,
     CONTROL_YAML,
+    CUTS_YAML,
     EVENTS_DIR,
     FIGURES_DIR,
     INSTRUMENTS_YAML,
@@ -38,7 +39,7 @@ from app.core.paths import (
     THREADS_YAML,
 )
 from app.core.scope import SCOPE_END
-from app.modules.atoms.models import Atom
+from app.modules.atoms.models import Atom, Cut
 from app.modules.control.models import Control
 from app.modules.events.models import Event
 from app.modules.figures.models import Figure
@@ -54,6 +55,7 @@ from app.modules.threads.models import Thread
 @dataclass(frozen=True)
 class Corpus:
     atoms: list[Atom] = field(default_factory=list)
+    cuts: list[Cut] = field(default_factory=list)
     polities: list[Polity] = field(default_factory=list)
     control: list[Control] = field(default_factory=list)
     events: list[Event] = field(default_factory=list)
@@ -182,6 +184,7 @@ def load() -> Corpus:
     problems: list[str] = []
 
     atoms = load_yaml(ATOMS_YAML, Atom, problems)
+    cuts = load_yaml(CUTS_YAML, Cut, problems)
     polities = load_yaml(POLITIES_YAML, Polity, problems)
     control = load_yaml(CONTROL_YAML, Control, problems)
     instruments = load_yaml(INSTRUMENTS_YAML, Instrument, problems)
@@ -201,6 +204,7 @@ def load() -> Corpus:
 
     corpus = Corpus(
         atoms=atoms,
+        cuts=cuts,
         polities=polities,
         control=control,
         events=events,

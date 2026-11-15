@@ -1,14 +1,47 @@
+from typing import Literal
+
 from pydantic import Field, model_validator
 
 from app.core.models import LangText, Strict
 
 
+class Cut(Strict):
+    """A historical frontier that runs through a NUTS3 unit rather than along one.
+
+    The line is an OpenHistoricalMap relation (CC0): the boundary of a state on some
+    date, used as a knife. `scripts/fetch_geo.py` downloads it and
+    `scripts/build_atoms.py` splits the units that name it, so a cut is data rather
+    than code and its provenance is one id.
+    """
+
+    id: str
+    name: LangText
+    # OpenHistoricalMap relation id: https://www.openhistoricalmap.org/relation/<ohm>
+    ohm: int
+    note: str | None = None
+
+
 class Part(Strict):
-    """The polygon parts of one NUTS3 unit whose bounds fall inside `bbox` (w, s, e, n).
-    How an island group is cut off a mainland unit without hand-drawn geometry."""
+    """Part of one NUTS3 unit, where an atom takes less than the whole of it.
+
+    Either `bbox` (w, s, e, n): the polygon parts whose bounds fall inside it, which
+    is how an island group is cut off a mainland unit. Or `cut` and `side`: the unit
+    split along a historical frontier, taking what lies inside or outside it. Another
+    atom listing the unit under `nuts3` gets whatever is left.
+    """
 
     nuts3: str
-    bbox: tuple[float, float, float, float]
+    bbox: tuple[float, float, float, float] | None = None
+    cut: str | None = None
+    side: Literal["inside", "outside"] | None = None
+
+    @model_validator(mode="after")
+    def _one_way_to_cut(self):
+        if (self.bbox is None) == (self.cut is None):
+            raise ValueError("a part needs exactly one of `bbox` or `cut`")
+        if (self.cut is None) != (self.side is None):
+            raise ValueError("`side` goes with `cut`, and only with it")
+        return self
 
 
 class Atom(Strict):

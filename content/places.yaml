@@ -496,12 +496,12 @@
   kind: city
   lon: 33.32
   lat: 35.34
-  atom: cyprus
+  atom: cyprus-north
   names: [{name: {en: Kyrenia, el: Κερύνεια}}]
 
 - id: famagusta
   kind: city
   lon: 33.94
   lat: 35.12
-  atom: cyprus
+  atom: cyprus-north
   names: [{name: {en: Famagusta, el: Αμμόχωστος}}]

@@ -222,8 +222,13 @@ const STRINGS = {
 		el: 'Οι διάστικτες περιοχές βρίσκονται σε ένοπλη εξέγερση. Δεν υπήρχε αναγνωρισμένο σύνορο.'
 	},
 	'atlas.note.occupied': {
-		en: 'Hatching marks occupation layered over sovereignty, not replacing it. The Greek state remained sovereign throughout.',
-		el: 'Η διαγράμμιση δηλώνει κατοχή που επικάθεται στην κυριαρχία, χωρίς να την αντικαθιστά. Το ελληνικό κράτος παρέμεινε κυρίαρχο σε όλη τη διάρκεια.'
+		en: 'Hatching marks occupation layered over sovereignty, not replacing it.',
+		el: 'Η διαγράμμιση δηλώνει κατοχή που επικάθεται στην κυριαρχία, χωρίς να την αντικαθιστά.'
+	},
+	// Only while a Greek-held atom is occupied: in 1974 the hatching is over Cyprus.
+	'atlas.note.occupied.greece': {
+		en: 'The Greek state remained sovereign throughout.',
+		el: 'Το ελληνικό κράτος παρέμεινε κυρίαρχο σε όλη τη διάρκεια.'
 	},
 	'map.title': {
 		en: 'Map of territorial control on {date}',

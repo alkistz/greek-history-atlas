@@ -19,8 +19,12 @@
 - {atom: aitoloakarnania,   polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1832-07-21}
 - {atom: cyclades,          polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1832-07-21}
 - {atom: sporades,          polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1832-07-21}
+- {atom: pteleos,           polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1832-07-21}
 - {atom: thessaly,          polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1881-07-02}
-- {atom: arta-preveza,      polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1881-07-02}
+- {atom: sterea-north,      polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1881-07-02}
+- {atom: arta,              polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1881-07-02}
+- {atom: thessaly-north,    polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1913-08-10}
+- {atom: preveza,           polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1913-08-10}
 - {atom: epirus,            polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1913-08-10}
 - {atom: macedonia-west,    polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1913-08-10}
 - {atom: macedonia-central, polity: ottoman, kind: sovereign, from: 1821-01-01, to: 1913-08-10}
@@ -65,15 +69,18 @@
    instrument: constantinople-1832}
 - {atom: sporades,        polity: gr-kingdom, kind: sovereign, from: 1832-07-21, to: null,
    instrument: constantinople-1832}
+- {atom: pteleos,         polity: gr-kingdom, kind: sovereign, from: 1832-07-21, to: null,
+   instrument: constantinople-1832}
 
 - {atom: ionian, polity: gr-kingdom, kind: sovereign, from: 1864-06-02, to: null,
    instrument: london-1864}
 
 - {atom: thessaly, polity: gr-kingdom, kind: sovereign, from: 1881-07-02, to: null,
    instrument: constantinople-1881}
-- {atom: arta-preveza, polity: gr-kingdom, kind: sovereign, from: 1881-07-02, to: null,
-   instrument: constantinople-1881,
-   note: "v0 approximation: only Arta was ceded in 1881. Preveza followed in 1913."}
+- {atom: sterea-north, polity: gr-kingdom, kind: sovereign, from: 1881-07-02, to: null,
+   instrument: constantinople-1881}
+- {atom: arta, polity: gr-kingdom, kind: sovereign, from: 1881-07-02, to: null,
+   instrument: constantinople-1881}
 
 # -------------------------------------------------------------------- Samos and Crete
 - {atom: samos-ikaria, polity: samos-principality, kind: sovereign, from: 1834-01-01, to: 1913-03-13,
@@ -95,6 +102,12 @@
 
 - {atom: epirus, polity: gr-kingdom, kind: sovereign, from: 1913-08-10, to: null,
    instrument: bucharest-1913}
+- {atom: preveza, polity: gr-kingdom, kind: sovereign, from: 1913-08-10, to: null,
+   instrument: bucharest-1913,
+   note: "Taken in the First Balkan War in October 1912, with the rest of Epirus."}
+- {atom: thessaly-north, polity: gr-kingdom, kind: sovereign, from: 1913-08-10, to: null,
+   instrument: bucharest-1913,
+   note: "Taken in the first days of the First Balkan War in October 1912."}
 - {atom: macedonia-west, polity: gr-kingdom, kind: sovereign, from: 1913-08-10, to: null,
    instrument: bucharest-1913}
 - {atom: macedonia-central, polity: gr-kingdom, kind: sovereign, from: 1913-08-10, to: null,
@@ -134,8 +147,12 @@
 - {atom: cyclades,        polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
 - {atom: sporades,        polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
 - {atom: ionian,          polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
+- {atom: sterea-north,    polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
+- {atom: pteleos,         polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
 - {atom: thessaly,        polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
-- {atom: arta-preveza,    polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
+- {atom: thessaly-north,  polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
+- {atom: arta,            polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
+- {atom: preveza,         polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
 - {atom: epirus,          polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
 - {atom: macedonia-west,  polity: italy, kind: occupied, from: 1941-04-27, to: 1943-09-08}
 - {atom: samos-ikaria,    polity: italy, kind: occupied, from: 1941-05-04, to: 1943-09-08}
@@ -148,8 +165,12 @@
 - {atom: cyclades,        polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-12}
 - {atom: sporades,        polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-21}
 - {atom: ionian,          polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-14}
+- {atom: sterea-north,    polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-12}
+- {atom: pteleos,         polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-21}
 - {atom: thessaly,        polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-21}
-- {atom: arta-preveza,    polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-14}
+- {atom: thessaly-north,  polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-21}
+- {atom: arta,            polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-14}
+- {atom: preveza,         polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-14}
 - {atom: epirus,          polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-14}
 - {atom: macedonia-west,  polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-30}
 - {atom: samos-ikaria,    polity: germany, kind: occupied, from: 1943-09-08, to: 1944-10-04}
@@ -183,7 +204,9 @@
    note: "Sèvres was never ratified. Evacuated within a month of the Armistice of Mudanya."}
 
 # Cyprus: the two-layer model again. Ottoman sovereignty under British administration
-# until the annexation of 1914; independent from 1960. The 1974 partition is not modelled.
+# until the annexation of 1914; independent from 1960; the north occupied by Turkey
+# from 1974, while the Republic remains sovereign over the whole island in law. The
+# island is two atoms with one history until the occupation.
 - {atom: cyprus, polity: ottoman, kind: sovereign,    from: 1821-01-01, to: 1914-11-05}
 - {atom: cyprus, polity: britain, kind: administered, from: 1878-07-12, to: 1914-11-05,
    instrument: cyprus-convention-1878}
@@ -191,3 +214,13 @@
    note: "Annexed on the outbreak of war with the Ottoman Empire; Crown Colony from 1925."}
 - {atom: cyprus, polity: cyprus-republic, kind: sovereign, from: 1960-08-16, to: null,
    instrument: zurich-london-1959}
+
+- {atom: cyprus-north, polity: ottoman, kind: sovereign,    from: 1821-01-01, to: 1914-11-05}
+- {atom: cyprus-north, polity: britain, kind: administered, from: 1878-07-12, to: 1914-11-05,
+   instrument: cyprus-convention-1878}
+- {atom: cyprus-north, polity: britain, kind: sovereign,    from: 1914-11-05, to: 1960-08-16}
+- {atom: cyprus-north, polity: cyprus-republic, kind: sovereign, from: 1960-08-16, to: null,
+   instrument: zurich-london-1959}
+- {atom: cyprus-north, polity: turkey, kind: occupied, from: 1974-08-16, to: null,
+   note: "Drawn from the ceasefire of 16 August 1974. The bridgehead the first landing
+     held from 20 July was a corridor from Kyrenia to Nicosia, much smaller than this."}

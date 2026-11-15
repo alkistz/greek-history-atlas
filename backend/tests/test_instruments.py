@@ -16,6 +16,7 @@ def test_control_rows_cite_instruments_by_id(corpus):
         "aitoloakarnania",
         "cyclades",
         "sporades",
+        "pteleos",
     }
 
 

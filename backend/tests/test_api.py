@@ -4,7 +4,7 @@
 def test_atoms_is_a_feature_collection(client):
     body = client.get("/api/atoms").json()
     assert body["type"] == "FeatureCollection"
-    assert len(body["features"]) == 25
+    assert len(body["features"]) == 30
     assert {f["properties"]["external"] for f in body["features"]} == {True, False}
 
 
@@ -64,7 +64,7 @@ def test_figures_list_and_detail(client):
 
 def test_instruments_places_sources(client):
     inst = client.get("/api/instruments/bucharest-1913").json()
-    assert len(inst["control"]) == 5
+    assert len(inst["control"]) == 7
     assert inst["events"][0]["id"] == "treaty-of-bucharest-1913"
     assert client.get("/api/instruments/nope").status_code == 404
     assert any(p["id"] == "smyrna" for p in client.get("/api/places").json())

@@ -82,7 +82,7 @@ and makes CSS uppercase Greek correctly, without the accents.
 ## The four ideas the project rests on
 
 **Atoms.** An atom is an area whose sovereignty history is identical throughout the whole
-period. Roughly nineteen of them cover Greece. Everything geographic is expressed as a set
+period. Twenty-four of them cover Greece. Everything geographic is expressed as a set
 of atoms rather than as drawn borders, so a border is never stored, only derived.
 
 **Two-layer control.** A `sovereign` row and an `occupied` row may cover the same atom at
@@ -145,17 +145,21 @@ added it belongs downstream of the export, never between the content and the fro
 ## Known simplifications in v0
 
 Atoms dissolve whole NUTS3 units, plus island groups cut off a mainland unit by bounding
-box (Kythira, the Sporades, Imbros and Tenedos). Land frontiers that cut through a unit are
-not modelled, so the following are wrong on purpose. None of them changes the model.
+box (Kythira, the Sporades, Imbros and Tenedos), plus units split along a historical
+frontier where one ran through them on land. Those frontiers are in `content/cuts.yaml`:
+the line of 1832 through Fthiotida, Evrytania and Magnesia, the line of 1881 through
+Larisa, Trikala and Arta-Preveza, and the ceasefire line of 1974 across Cyprus, each taken
+from an [OpenHistoricalMap](https://www.openhistoricalmap.org) relation. Their accuracy
+is that of a small-scale map, a few kilometres, which is about the resolution of the base
+map; none of them is a demarcation record.
+
+The following are still wrong on purpose. None of them changes the model.
 
 | what | why it is wrong |
 |---|---|
-| `sterea` uses modern boundaries | the 1832 Arta-Volos frontier cut across Fthiotida and Evrytania. Domokos and the northern Agrafa sit inside this atom but were Ottoman until 1881. This is the largest single error and puts the 1833 figure roughly 3% over the published one |
-| `thessaly` includes Elassona | Elassona stayed Ottoman until 1912 |
-| `arta-preveza` is one atom | Arta became Greek in 1881, Preveza in 1913. v0 treats both as 1881 |
 | `samos-ikaria` is one atom | Ikaria declared itself a free state in July 1912 |
 | `smyrna` is the whole İzmir province | the Sèvres zone was smaller |
-| `cyprus` is whole | the 1974 partition needs a hand-drawn line |
+| the 1897 rectification is not drawn | the Ottoman Empire took a few strategic points on the Thessalian frontier after the war of 1897 |
 | the revolution is static | Ibrahim's reconquest of most of the Peloponnese in 1825-27 is not modelled, so the insurgent extent does not move across the decade |
 | occupation zones are atom-grained | the German zone actually included an Evros strip, a Thessaloniki-Chalkidiki strip, and only part of Crete |
 | neighbours are modern | the land backdrop is drawn at present-day extent, uncoloured, with no borders |
@@ -166,15 +170,16 @@ Computed areas against published figures, as a check on the geometry rather than
 |---|---|---|---|
 | present day | 131,790 | 131,957 | -0.13% |
 | 1914-01-01 | 120,479 | 120,308 | +0.14% |
-| 1833-01-01 | 48,780 | 47,516 | +2.7% |
+| 1833-01-01 | 48,054 | 47,516 | +1.1% |
 
-The first two show the NUTS3 approximation is sound. The third is the Fthiotida and
-Evrytania problem described above, and it is the one worth fixing first.
+The first two show the NUTS3 approximation is sound. The third was +2.7% before the line of
+1832 was cut through Fthiotida, Evrytania and Magnesia; what remains is the precision of
+that line. `backend/tests/test_areas.py` holds all three to these tolerances.
 
 ## Deliberately not here yet
 
-Sub-NUTS3 land cuts. A Cyprus split for 1974. Claims (numbers with citations) and
-interpretations. TopoJSON and merged borders. Server-side rendering and prerendering. CI.
+Claims (numbers with citations) and interpretations. TopoJSON and merged borders.
+Server-side rendering and prerendering.
 
 ## Deploying
 
@@ -228,5 +233,6 @@ app deploys as it stands and the frontend points back at it.
 
 Boundaries from [Eurostat Nuts2json](https://github.com/eurostat/Nuts2json) v2, 2021
 edition, EPSG:4326, 03M resolution (EUPL 1.2). Administrative boundaries
-(c) EuroGeographics. Historical content in `content/` is original prose in English and
+(c) EuroGeographics. Historical frontiers from [OpenHistoricalMap](https://www.openhistoricalmap.org)
+(CC0), relations listed in `content/cuts.yaml`. Historical content in `content/` is original prose in English and
 Greek, and every event and figure carries at least one citation into `sources.yaml`.

@@ -25,15 +25,15 @@
 
 - id: central-greece
   name: {en: Central Greece, el: Στερεά Ελλάδα}
-  atoms: [sterea, aitoloakarnania, attica, evvoia]
+  atoms: [sterea, sterea-north, aitoloakarnania, attica, evvoia]
 
 - id: thessaly
   name: {en: Thessaly, el: Θεσσαλία}
-  atoms: [thessaly, sporades]
+  atoms: [thessaly, thessaly-north, pteleos, sporades]
 
 - id: epirus
   name: {en: Epirus, el: Ήπειρος}
-  atoms: [epirus, arta-preveza, epirus-north]
+  atoms: [epirus, arta, preveza, epirus-north]
   frame: epirus
 
 - id: macedonia
@@ -64,5 +64,5 @@
 
 - id: cyprus
   name: {en: Cyprus, el: Κύπρος}
-  atoms: [cyprus]
+  atoms: [cyprus, cyprus-north]
   frame: cyprus
