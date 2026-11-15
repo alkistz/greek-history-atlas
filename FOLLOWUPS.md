@@ -33,10 +33,22 @@ Nothing here has had a `manual` pass. That column is yours and is still at zero.
 
 These are the ones where something could not be settled, not the ones nobody looked at.
 
-**Nine figures at year precision where the sources probably give a day** — `deligiannis`,
-`kallergis`, `kountouriotis`, `makriyannis`, `melas`, `papoulas`, `siantos`, `stergiadis`,
-`vassos`. This is now a lookup rather than a judgment, because the calendar rule below is
-settled and `as_written` exists to hold the Julian date. `melas` is the exception: see §2.
+**Figures at year precision.** Nine were listed here; the lookup was done on 15 November
+2026 against Greek and English Wikipedia, and only one could be upgraded.
+
+- `kountouriotis`: born on Hydra on 9 April 1855 (Old Style), now stored as 21 April.
+- `deligiannis`: 19 May is given, but the year is disputed between 1820 and 1824, so the
+  day cannot be attached to a year with any confidence.
+- `kallergis`, `makriyannis`, `papoulas`, `siantos`, `stergiadis`: the sources give a
+  year only. Makriyannis's year itself varies between 1796 and 1797.
+- `vassos`: Greek Wikipedia gives 2 September 1836, but the earlier pass found the sources
+  disagreeing on the day, and one page is not enough to overrule that.
+- `melas`: see §2.
+
+Two death dates disagree with a source and want a person to settle them. `kallergis` is
+stored as 8 April 1867, which both Wikipedias give without a calendar, while the Greek
+infobox gives 24 April Old Style, 6 May New. `stergiadis` is stored as 22 June 1949; the
+Greek article gives both 22 and 23 June.
 
 **`great-famine`** — the corpus attributed roughly 250,000 famine deaths to Violetta
 Hionidou. That figure could not be substantiated anywhere reachable, and she was not
@@ -81,16 +93,24 @@ Found by checking every event's date against the signing date of the instrument 
 to. Eight other events differ from their instrument's date legitimately, because an
 occupation or a handover is not the treaty that regularised it.
 
-## 4. Twenty-two treaties still have no `text_url`
+## 4. Fifteen treaties still have no `text_url`
 
-Eight of 30 are linked: Lausanne, Sèvres, Neuilly, Bucharest 1913, the Population Exchange
-Convention, Berlin 1878 and both Nicosia treaties of 1960.
+Fifteen of 30 are linked. Seven were added on 15 November 2026, each opened and checked
+first: the Ionian Islands treaty of 1815, the Cyprus Convention of 1878, Ouchy 1912 and
+London 1913 on Wikisource, and the peace with Italy of 1947, the Treaty of Ankara of
+October 1930 and the Balkan Pact of 1934 in the United Nations' scans of the UN and League
+of Nations treaty series (whole volumes: No. 747 in vol. 49, No. 2841 in LNTS vol. 125,
+No. 3514 in LNTS vol. 153).
 
-The other 22 were left empty deliberately. Nothing was linked that had not been opened,
-because a plausible-looking unchecked URL is the same failure as the Hionidou figure.
+Still empty, with nothing reliable found: the London Protocol of 1830 (a Greek transcript
+exists at imoph.org; the French original is said to be on the Foreign Ministry's site),
+Constantinople 1832 and 1881, London 1864, Halepa 1878, Tatarna and Constantinople 1897,
+Thessaloniki, the Albanian decision and Athens 1913, Mudanya 1922, the Ankara convention
+of June 1930, Salonika 1938 (cited as LNTS vol. 195, p. 371, but not in that volume), the
+Bulgarian decree of 1941 and Zürich–London 1959.
 
-This is the cheapest large win still available: the treaty layer is the spine of the map,
-and a treaty's own text is the most authoritative thing the atlas can point at.
+Nothing was linked that had not been opened, because a plausible-looking unchecked URL is
+the same failure as the Hionidou figure.
 
 ## 5. The `result` enum conflates outcome with depth
 
